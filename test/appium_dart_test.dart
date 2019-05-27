@@ -3,11 +3,17 @@ import 'package:test/test.dart';
 import 'package:appium_dart/appium_dart.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
-    expect(() => calculator.addOne(null), throwsNoSuchMethodError);
+  test('connect to server', () {
+    var driver = createDriver(uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
+        desired: {
+          'platformName': 'ios',
+          'platformVersion': '12.2',
+          'deviceName': 'iPhone 8',
+          'browserName': 'Safari',
+          'automationName': 'xcuitest'
+    });
+    assert(driver != null);
+
+    driver.quit();
   });
 }
