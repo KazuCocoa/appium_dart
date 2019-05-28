@@ -95,3 +95,28 @@ Future<AppiumWebDriver> fromExistingSession(String sessionId,
   return AppiumWebDriver(uri, session.id, UnmodifiableMapView(session.capabilities),
       createRequestClient(uri.resolve('session/${session.id}/')), session.spec);
 }
+
+/// Creates an async WebDriver from existing session with a sync function.
+///
+/// This will be helpful when you can't use async when creating WebDriver. For
+/// example in a consctructor.
+///
+/// This is intended for internal use! Please use [fromExistingSessionSync] from
+/// async_io.dart or async_html.dart.
+AppiumWebDriver fromExistingSessionSync(
+    AsyncRequestClient Function(Uri prefix) createRequestClient,
+    String sessionId,
+    WebDriverSpec spec,
+    {Uri uri,
+      Map<String, dynamic> capabilities}) {
+  uri ??= defaultUri;
+
+  capabilities ??= Capabilities.empty;
+
+  if (spec != WebDriverSpec.JsonWire && spec != WebDriverSpec.W3c) {
+    throw 'Unexpected spec: $spec';
+  }
+
+  return AppiumWebDriver(uri, sessionId, UnmodifiableMapView(capabilities),
+      createRequestClient(uri.resolve('session/${sessionId}/')), spec);
+}
