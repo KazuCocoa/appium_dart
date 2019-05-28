@@ -36,8 +36,8 @@ Future<AppiumWebDriver> fromExistingSession(String sessionId,
       WebDriverSpec spec = WebDriverSpec.Auto,
       Map<String, dynamic> capabilities}) =>
     core.fromExistingSession(
-        sessionId, (prefix) => AsyncIoRequestClient(prefix),
-        uri: uri, spec: spec, capabilities: capabilities);
+        (prefix) => AsyncIoRequestClient(prefix), sessionId,
+        uri: uri, spec: spec);
 
 /// Creates an async WebDriver from existing session with a sync function using
 /// [AsyncIoRequestClient].

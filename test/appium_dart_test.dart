@@ -6,7 +6,7 @@ import 'package:appium_dart/src/driver.dart';
 void main() {
   AppiumWebDriver driver;
 
-  setUp(() async {
+  setUpAll(() async {
     driver = await createDriver(uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
       desired: {
         'platformName': 'ios',
@@ -17,11 +17,20 @@ void main() {
       });
   });
 
-  tearDown(() async {
+  tearDownAll(() async {
     await driver.quit();
   });
 
   test('connect to server', () async {
     assert(await driver.title == 'Appium/welcome');
+  });
+
+  test('connect to existing session', () async {
+    var sessionId = driver.id;
+
+    AppiumWebDriver newDriver = await fromExistingSession(sessionId);
+    assert(await newDriver.title == 'Appium/welcome');
+    assert(sessionId == newDriver.id);
+
   });
 }
