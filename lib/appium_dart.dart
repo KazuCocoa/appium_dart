@@ -1,35 +1,13 @@
-library appium_dart;
+library appium_dart.webdriver;
 
 import 'dart:collection';
 
 import 'package:webdriver/src/common/request_client.dart';
 import 'package:webdriver/src/common/utils.dart';
 import 'package:webdriver/src/common/session.dart';
-import 'package:webdriver/src/request/sync_http_request_client.dart';
-
 import 'package:webdriver/sync_core.dart';
 
-
-class AppiumDart extends WebDriver {
-  AppiumDart(Uri uri, String id, Map<String, dynamic> capabilities, SyncRequestClient client, WebDriverSpec spec) : super(uri, id, capabilities, client, spec);
-}
-
-
-AppiumDart createDriver(
-    {Uri uri,
-      Map<String, dynamic> desired,
-      WebDriverSpec spec = WebDriverSpec.Auto}) =>
-    createDriverCore((prefix) => SyncHttpRequestClient(prefix),
-        uri: uri, desired: desired, spec: spec);
-
-AppiumDart fromExistingSession(String sessionId,
-    {Uri uri,
-      WebDriverSpec spec = WebDriverSpec.Auto,
-      Map<String, dynamic> capabilities}) =>
-    fromExistingSessionCore(
-        sessionId, (prefix) => SyncHttpRequestClient(prefix),
-        uri: uri, spec: spec, capabilities: capabilities);
-
+import 'package:appium_dart/src/driver.dart';
 
 final Uri defaultUri = Uri.parse('http://127.0.0.1:4444/wd/hub/');
 
@@ -37,7 +15,7 @@ final Uri defaultUri = Uri.parse('http://127.0.0.1:4444/wd/hub/');
 ///
 /// This is intended for internal use! Please use [createDriver] from
 /// sync_io.dart.
-AppiumDart createDriverCore(
+AppiumWebDriver createDriverCore(
     SyncRequestClient Function(Uri prefix) createRequestClient,
     {Uri uri,
       Map<String, dynamic> desired,
@@ -80,7 +58,7 @@ AppiumDart createDriverCore(
     throw 'Unexpected spec: ${session.spec}';
   }
 
-  return AppiumDart(uri, session.id, UnmodifiableMapView(session.capabilities),
+  return AppiumWebDriver(uri, session.id, UnmodifiableMapView(session.capabilities),
       createRequestClient(uri.resolve('session/${session.id}/')), session.spec);
 }
 
@@ -88,7 +66,7 @@ AppiumDart createDriverCore(
 ///
 /// This is intended for internal use! Please use [fromExistingSession] from
 /// sync_io.dart.
-AppiumDart fromExistingSessionCore(String sessionId,
+AppiumWebDriver fromExistingSessionCore(String sessionId,
     SyncRequestClient Function(Uri prefix) createRequestClient,
     {Uri uri,
       WebDriverSpec spec = WebDriverSpec.Auto,
@@ -113,6 +91,6 @@ AppiumDart fromExistingSessionCore(String sessionId,
     throw 'Unexpected spec: ${session.spec}';
   }
 
-  return AppiumDart(uri, session.id, UnmodifiableMapView(session.capabilities),
+  return AppiumWebDriver(uri, session.id, UnmodifiableMapView(session.capabilities),
       createRequestClient(uri.resolve('session/${session.id}/')), session.spec);
 }
