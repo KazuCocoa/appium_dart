@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:webdriver/async_core.dart';
-
-import 'package:appium_dart/src/driver.dart';
-import 'by.dart';
+import 'package:appium_dart/async_core.dart';
+import 'package:appium_dart/src/common/by.dart';
 
 typedef GetAttribute = Future<String> Function(String name);
 
@@ -21,7 +19,7 @@ abstract class AppiumSearchContext {
   AppiumWebDriver get driver;
 
   /// Searches for multiple elements within the context
-  Stream<WebElement> findElements(AppiumBy by);
+  Stream<AppiumWebElement> findElements(AppiumBy by);
 
-  Future<WebElement> findElement(AppiumBy by);
+  Future<AppiumWebElement> findElement(AppiumBy by);
 }

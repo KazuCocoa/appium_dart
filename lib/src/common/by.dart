@@ -1,8 +1,7 @@
-class AppiumBy {
-  final String using;
-  final String value;
+import 'package:webdriver/src/common/by.dart';
 
-  const AppiumBy(this.using, this.value);
+class AppiumBy extends By {
+  const AppiumBy(String using, String value) : super(using, value);
 
   /// Returns an element whose ID attribute matches the search value.
   const AppiumBy.id(String id) : this('id', id);
@@ -54,8 +53,6 @@ class AppiumBy {
   /// Returns an element matching a class chain.
   const AppiumBy.classChain(String classChain) : this('-ios class chain', classChain);
 
-  Map<String, String> toJson() => {'using': using, 'value': value};
-
   @override
   String toString() {
     var constructor = using;
@@ -102,11 +99,4 @@ class AppiumBy {
     }
     return 'AppiumBy.$constructor($value)';
   }
-
-  @override
-  int get hashCode => using.hashCode * 3 + value.hashCode;
-
-  @override
-  bool operator ==(other) =>
-      other is AppiumBy && other.using == this.using && other.value == this.value;
 }

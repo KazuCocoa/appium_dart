@@ -3,12 +3,32 @@ library appium_dart.core;
 import 'dart:async' show Future;
 import 'dart:collection' show UnmodifiableMapView;
 
-import 'package:webdriver/async_core.dart';
+import 'package:appium_dart/src/async/web_driver.dart';
 import 'package:webdriver/src/common/request_client.dart';
 import 'package:webdriver/src/common/utils.dart';
-import 'package:webdriver/src/common/session.dart';
+import 'package:webdriver/src/common/spec.dart';
+import 'package:webdriver/src/common/capabilities.dart';
 
-import 'package:appium_dart/src/driver.dart';
+export 'package:appium_dart/async_core.dart';
+export 'package:appium_dart/src/async/web_driver.dart';
+export 'package:appium_dart/src/async/web_element.dart';
+export 'package:appium_dart/src/common/by.dart';
+export 'package:appium_dart/src/async/target_locator.dart';
+
+export 'package:webdriver/src/async/alert.dart';
+export 'package:webdriver/src/async/cookies.dart';
+export 'package:webdriver/src/async/keyboard.dart';
+export 'package:webdriver/src/async/logs.dart';
+export 'package:webdriver/src/async/mouse.dart';
+export 'package:webdriver/src/async/timeouts.dart';
+export 'package:webdriver/src/async/window.dart';
+export 'package:webdriver/src/common/capabilities.dart';
+export 'package:webdriver/src/common/command_event.dart';
+export 'package:webdriver/src/common/cookie.dart';
+export 'package:webdriver/src/common/exception.dart';
+export 'package:webdriver/src/common/log.dart';
+export 'package:webdriver/src/common/mouse.dart';
+export 'package:webdriver/src/common/spec.dart';
 
 final Uri defaultUri = Uri.parse('http://127.0.0.1:4723/wd/hub/');
 
