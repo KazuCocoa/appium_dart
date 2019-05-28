@@ -1,25 +1,26 @@
-library appium_dart.webdriver;
+library appium_dart.core;
 
-import 'dart:collection';
+import 'dart:async' show Future;
+import 'dart:collection' show UnmodifiableMapView;
 
+import 'package:webdriver/async_core.dart';
 import 'package:webdriver/src/common/request_client.dart';
 import 'package:webdriver/src/common/utils.dart';
 import 'package:webdriver/src/common/session.dart';
-import 'package:webdriver/sync_core.dart';
 
 import 'package:appium_dart/src/driver.dart';
 
-final Uri defaultUri = Uri.parse('http://127.0.0.1:4444/wd/hub/');
+final Uri defaultUri = Uri.parse('http://127.0.0.1:4723/wd/hub/');
 
-/// Creates a new sync WebDriver.
+/// Creates a new async WebDriver.
 ///
 /// This is intended for internal use! Please use [createDriver] from
-/// sync_io.dart.
-AppiumWebDriver createDriverCore(
-    SyncRequestClient Function(Uri prefix) createRequestClient,
+/// async_io.dart.
+Future<AppiumWebDriver> createDriver(
+    AsyncRequestClient Function(Uri prefix) createRequestClient,
     {Uri uri,
       Map<String, dynamic> desired,
-      WebDriverSpec spec = WebDriverSpec.Auto}) {
+      WebDriverSpec spec = WebDriverSpec.Auto}) async {
   uri ??= defaultUri;
 
   // This client's prefix at root, it has no session prefix in it.
@@ -49,7 +50,7 @@ AppiumWebDriver createDriverCore(
     }
   });
 
-  final session = client.send(
+  final session = await client.send(
       handler.session.buildCreateRequest(desired: desiredCapabilities),
       handler.session.parseCreateResponse);
 
@@ -66,11 +67,11 @@ AppiumWebDriver createDriverCore(
 ///
 /// This is intended for internal use! Please use [fromExistingSession] from
 /// sync_io.dart.
-AppiumWebDriver fromExistingSessionCore(String sessionId,
-    SyncRequestClient Function(Uri prefix) createRequestClient,
+Future<AppiumWebDriver> fromExistingSession(String sessionId,
+    AsyncRequestClient Function(Uri prefix) createRequestClient,
     {Uri uri,
       WebDriverSpec spec = WebDriverSpec.Auto,
-      Map<String, dynamic> capabilities}) {
+      Map<String, dynamic> capabilities}) async {
   uri ??= defaultUri;
 
   var session = SessionInfo(sessionId, spec, capabilities);
@@ -82,7 +83,7 @@ AppiumWebDriver fromExistingSessionCore(String sessionId,
 
     final handler = getHandler(spec);
 
-    session = client.send(handler.session.buildInfoRequest(sessionId),
+    session = await client.send(handler.session.buildInfoRequest(sessionId),
         handler.session.parseInfoResponse);
   }
 

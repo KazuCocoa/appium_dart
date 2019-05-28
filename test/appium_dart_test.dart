@@ -1,12 +1,13 @@
 import 'package:test/test.dart';
 
-import 'package:appium_dart/io.dart';
+import 'package:appium_dart/async_io.dart';
+import 'package:appium_dart/src/driver.dart';
 
 void main() {
-  var driver;
+  AppiumWebDriver driver;
 
-  setUp(() {
-    driver = createDriver(uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
+  setUp(() async {
+    driver = await createDriver(uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
       desired: {
         'platformName': 'ios',
         'platformVersion': '12.2',
@@ -16,11 +17,11 @@ void main() {
       });
   });
 
-  tearDown(() {
-    driver.quit();
+  tearDown(() async {
+    await driver.quit();
   });
 
-  test('connect to server', () {
-    assert(driver.title == 'Appium/welcome');
+  test('connect to server', () async {
+    assert(await driver.title == 'Appium/welcome');
   });
 }
