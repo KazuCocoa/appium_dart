@@ -7,14 +7,15 @@ void main() {
   AppiumWebDriver driver;
 
   setUpAll(() async {
-    driver = await createDriver(uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
-      desired: {
-        'platformName': 'ios',
-        'platformVersion': '12.2',
-        'deviceName': 'iPhone 8',
-        'browserName': 'Safari',
-        'automationName': 'xcuitest'
-      });
+    driver = await createDriver(
+        uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
+        desired: {
+          'platformName': 'ios',
+          'platformVersion': '12.2',
+          'deviceName': 'iPhone 8',
+          'browserName': 'Safari',
+          'automationName': 'xcuitest'
+        });
   });
 
   tearDownAll(() async {
@@ -38,7 +39,9 @@ void main() {
       await driver.findElement(AppiumBy.accessibilityId('Appium/welcome'));
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
-      expect(e.message.contains('Unsupported locator strategy: accessibility id'), true);
+      expect(
+          e.message.contains('Unsupported locator strategy: accessibility id'),
+          true);
     }
   });
 }

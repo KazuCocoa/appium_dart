@@ -19,13 +19,13 @@ import 'package:appium_dart/src/common/search_context.dart';
 import 'package:appium_dart/src/common/by.dart';
 import 'package:appium_dart/src/async/web_driver.dart';
 
-
 import 'package:webdriver/src/common/by.dart';
 import 'package:webdriver/src/common/request_client.dart';
 import 'package:webdriver/src/common/web_element.dart' as common;
 import 'package:webdriver/src/common/webdriver_handler.dart';
 
-class AppiumWebElement extends common.WebElement implements AppiumSearchContext {
+class AppiumWebElement extends common.WebElement
+    implements AppiumSearchContext {
   @override
   final AppiumWebDriver driver;
 
@@ -101,7 +101,7 @@ class AppiumWebElement extends common.WebElement implements AppiumSearchContext 
   @override
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by, id),
-          (response) => driver.getElement(
+      (response) => driver.getElement(
           _handler.elementFinder.parseFindElementResponse(response), this, by));
 
   /// Find multiple elements nested within this element.
@@ -147,14 +147,18 @@ class AppiumWebElement extends common.WebElement implements AppiumSearchContext 
       _handler.element.parseCssPropertyResponse));
 
   Future<bool> equals(AppiumWebElement other) async =>
-      other is AppiumWebElement && other.driver == this.driver && other.id == this.id;
+      other is AppiumWebElement &&
+      other.driver == this.driver &&
+      other.id == this.id;
 
   @override
   int get hashCode => driver.hashCode * 3 + id.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is AppiumWebElement && other.driver == this.driver && other.id == this.id;
+      other is AppiumWebElement &&
+      other.driver == this.driver &&
+      other.id == this.id;
 
   @override
   String toString() {

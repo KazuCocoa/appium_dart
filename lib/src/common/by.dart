@@ -28,10 +28,12 @@ class AppiumBy extends By {
   const AppiumBy.className(String className) : this('class name', className);
 
   /// Returns an element matching a CSS selector.
-  const AppiumBy.cssSelector(String cssSelector) : this('css selector', cssSelector);
+  const AppiumBy.cssSelector(String cssSelector)
+      : this('css selector', cssSelector);
 
   /// Returns an element matching a accessibility identifier.
-  const AppiumBy.accessibilityId(String accessibilityId) : this('accessibility id', accessibilityId);
+  const AppiumBy.accessibilityId(String accessibilityId)
+      : this('accessibility id', accessibilityId);
 
   // TODO: Base64?
   const AppiumBy.image(String image) : this('-image', image);
@@ -39,19 +41,23 @@ class AppiumBy extends By {
   const AppiumBy.custom(String custom) : this('-custom', custom);
 
   /// Returns an element matching a uiautomator.
-  const AppiumBy.uiautomator(String uiautomator) : this('-android uiautomator', uiautomator);
+  const AppiumBy.uiautomator(String uiautomator)
+      : this('-android uiautomator', uiautomator);
 
   /// Returns an element matching a viewtag.
   const AppiumBy.viewtag(String viewtag) : this('-android viewtag', viewtag);
 
   /// Returns an element matching a datamatcher.
-  const AppiumBy.datamatcher(String datamatcher) : this('-android datamatcher', datamatcher);
+  const AppiumBy.datamatcher(String datamatcher)
+      : this('-android datamatcher', datamatcher);
 
   /// Returns an element matching a predicate string.
-  const AppiumBy.predicateString(String predicateString) : this('-ios predicate string', predicateString);
+  const AppiumBy.predicateString(String predicateString)
+      : this('-ios predicate string', predicateString);
 
   /// Returns an element matching a class chain.
-  const AppiumBy.classChain(String classChain) : this('-ios class chain', classChain);
+  const AppiumBy.classChain(String classChain)
+      : this('-ios class chain', classChain);
 
   @override
   String toString() {

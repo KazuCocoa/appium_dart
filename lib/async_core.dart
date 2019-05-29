@@ -39,8 +39,8 @@ final Uri defaultUri = Uri.parse('http://127.0.0.1:4723/wd/hub/');
 Future<AppiumWebDriver> createDriver(
     AsyncRequestClient Function(Uri prefix) createRequestClient,
     {Uri uri,
-      Map<String, dynamic> desired,
-      WebDriverSpec spec = WebDriverSpec.Auto}) async {
+    Map<String, dynamic> desired,
+    WebDriverSpec spec = WebDriverSpec.Auto}) async {
   uri ??= defaultUri;
 
   // This client's prefix at root, it has no session prefix in it.
@@ -63,7 +63,7 @@ Future<AppiumWebDriver> createDriver(
 
   final desiredCapabilities = new Map<String, dynamic>();
   desired.forEach((k, v) {
-    if(w3cCapabilities.contains(k) && k.contains(':')) {
+    if (w3cCapabilities.contains(k) && k.contains(':')) {
       desiredCapabilities.addAll({k: v});
     } else {
       desiredCapabilities.addAll({'appium:$k': v});
@@ -79,8 +79,12 @@ Future<AppiumWebDriver> createDriver(
     throw 'Unexpected spec: ${session.spec}';
   }
 
-  return AppiumWebDriver(uri, session.id, UnmodifiableMapView(session.capabilities),
-      createRequestClient(uri.resolve('session/${session.id}/')), session.spec);
+  return AppiumWebDriver(
+      uri,
+      session.id,
+      UnmodifiableMapView(session.capabilities),
+      createRequestClient(uri.resolve('session/${session.id}/')),
+      session.spec);
 }
 
 /// Creates a sync WebDriver from existing session.
@@ -91,7 +95,7 @@ Future<AppiumWebDriver> fromExistingSession(
     AsyncRequestClient Function(Uri prefix) createRequestClient,
     String sessionId,
     {Uri uri,
-      WebDriverSpec spec = WebDriverSpec.Auto}) async {
+    WebDriverSpec spec = WebDriverSpec.Auto}) async {
   uri ??= defaultUri;
 
   // This client's prefix at root, it has no session prefix in it.
@@ -107,8 +111,12 @@ Future<AppiumWebDriver> fromExistingSession(
     throw 'Unexpected spec: ${session.spec}';
   }
 
-  return AppiumWebDriver(uri, sessionId, UnmodifiableMapView(session.capabilities),
-      createRequestClient(uri.resolve('session/${sessionId}/')), session.spec);
+  return AppiumWebDriver(
+      uri,
+      sessionId,
+      UnmodifiableMapView(session.capabilities),
+      createRequestClient(uri.resolve('session/${sessionId}/')),
+      session.spec);
 }
 
 /// Creates an async WebDriver from existing session with a sync function.
@@ -123,7 +131,7 @@ AppiumWebDriver fromExistingSessionSync(
     String sessionId,
     WebDriverSpec spec,
     {Uri uri,
-      Map<String, dynamic> capabilities}) {
+    Map<String, dynamic> capabilities}) {
   uri ??= defaultUri;
 
   capabilities ??= Capabilities.empty;

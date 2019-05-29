@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:convert';
 
@@ -19,7 +18,6 @@ import 'package:webdriver/src/common/request.dart';
 import 'package:webdriver/src/common/request_client.dart';
 import 'package:webdriver/src/common/webdriver_handler.dart';
 import 'package:webdriver/src/common/utils.dart';
-
 
 class AppiumWebDriver implements AppiumSearchContext {
   final WebDriverSpec spec;
@@ -95,9 +93,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   @override
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by),
-          (response) => getElement(
+      (response) => getElement(
           _handler.elementFinder.parseFindElementResponse(response), this, by));
-
 
   /// An artist's rendition of the current page's source.
   Future<String> get pageSource => _client.send(
@@ -107,7 +104,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// Quits the browser.
   Future<void> quit({bool closeSession = true}) => closeSession
       ? _client.send(_handler.core.buildDeleteSessionRequest(),
-      _handler.core.parseDeleteSessionResponse)
+          _handler.core.parseDeleteSessionResponse)
       : Future.value();
 
   /// Closes the current window.
@@ -121,7 +118,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   Stream<Window> get windows async* {
     final windows = await _client.send(
         _handler.window.buildGetWindowsRequest(),
-            (response) => _handler.window
+        (response) => _handler.window
             .parseGetWindowsResponse(response)
             .map<Window>((w) => Window(_client, _handler, w)));
     for (final window in windows) {
@@ -132,7 +129,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// Handle for the active tab/window.
   Future<Window> get window => _client.send(
       _handler.window.buildGetActiveWindowRequest(),
-          (response) => Window(_client, _handler,
+      (response) => Window(_client, _handler,
           _handler.window.parseGetActiveWindowResponse(response)));
 
   /// The currently focused element, or the body element if no element has
@@ -208,7 +205,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// result will be converted to WebElements.
   Future<dynamic> executeAsync(String script, List args) => _client.send(
       _handler.core.buildExecuteAsyncRequest(script, args),
-          (response) => _handler.core.parseExecuteAsyncResponse(
+      (response) => _handler.core.parseExecuteAsyncResponse(
           response, (elementId) => getElement(elementId, this, 'javascript')));
 
   /// Inject a snippet of JavaScript into the page for execution in the context
@@ -225,27 +222,27 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// result will be converted to WebElements.
   Future<dynamic> execute(String script, List args) => _client.send(
       _handler.core.buildExecuteRequest(script, args),
-          (response) => _handler.core.parseExecuteResponse(
+      (response) => _handler.core.parseExecuteResponse(
           response, (elementId) => getElement(elementId, this, 'javascript')));
 
   Future<dynamic> postRequest(String command, [params]) => _client.send(
       _handler.buildGeneralRequest(HttpMethod.httpPost, command, params),
-          (response) => _handler.parseGeneralResponse(
+      (response) => _handler.parseGeneralResponse(
           response, (elementId) => getElement(elementId, this)));
 
   Future<dynamic> getRequest(String command) => _client.send(
       _handler.buildGeneralRequest(HttpMethod.httpGet, command),
-          (response) => _handler.parseGeneralResponse(
+      (response) => _handler.parseGeneralResponse(
           response, (elementId) => getElement(elementId, this)));
 
   Future<dynamic> deleteRequest(String command) => _client.send(
       _handler.buildGeneralRequest(HttpMethod.httpDelete, command),
-          (response) => _handler.parseGeneralResponse(
+      (response) => _handler.parseGeneralResponse(
           response, (elementId) => getElement(elementId, this)));
 
-
   AppiumWebElement getElement(String elementId, [context, locator, index]) =>
-      AppiumWebElement(this, _client, _handler, elementId, context, locator, index);
+      AppiumWebElement(
+          this, _client, _handler, elementId, context, locator, index);
 
   @override
   AppiumWebDriver get driver => this;
