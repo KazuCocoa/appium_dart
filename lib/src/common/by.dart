@@ -69,6 +69,9 @@ class AppiumBy extends By {
       case 'partial link text':
         constructor = 'partialLinkText';
         break;
+      case 'name':
+        constructor = 'name';
+        break;
       case 'tag name':
         constructor = 'tagName';
         break;

@@ -15,13 +15,14 @@
 import 'dart:async';
 
 import 'package:appium_dart/async_core.dart';
+import 'package:appium_dart/src/common/webdriver_handler.dart';
+
 import 'package:webdriver/src/common/request_client.dart';
-import 'package:webdriver/src/common/webdriver_handler.dart';
 
 class TargetLocator {
   final AppiumWebDriver _driver;
   final AsyncRequestClient _client;
-  final WebDriverHandler _handler;
+  final AppiumWebDriverHandler _handler;
 
   TargetLocator(this._driver, this._client, this._handler);
 

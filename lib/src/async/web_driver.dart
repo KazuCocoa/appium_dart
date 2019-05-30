@@ -5,19 +5,21 @@ import 'package:appium_dart/src/common/by.dart';
 import 'package:appium_dart/src/common/search_context.dart';
 import 'package:appium_dart/src/async/web_element.dart';
 import 'package:appium_dart/src/async/target_locator.dart';
+import 'package:appium_dart/src/common/utils.dart';
+import 'package:appium_dart/src/common/webdriver_handler.dart';
+import 'package:appium_dart/src/async/cookies.dart';
+import 'package:appium_dart/src/async/keyboard.dart';
+import 'package:appium_dart/src/async/mouse.dart';
+import 'package:appium_dart/src/async/logs.dart';
+import 'package:appium_dart/src/async/timeouts.dart';
+import 'package:appium_dart/src/async/window.dart';
 
-import 'package:webdriver/src/async/cookies.dart';
-import 'package:webdriver/src/async/keyboard.dart';
-import 'package:webdriver/src/async/mouse.dart';
-import 'package:webdriver/src/async/logs.dart';
 import 'package:webdriver/src/async/stepper.dart' show Stepper;
-import 'package:webdriver/src/async/timeouts.dart';
-import 'package:webdriver/src/async/window.dart';
 import 'package:webdriver/src/common/spec.dart';
 import 'package:webdriver/src/common/request.dart';
 import 'package:webdriver/src/common/request_client.dart';
-import 'package:webdriver/src/common/webdriver_handler.dart';
-import 'package:webdriver/src/common/utils.dart';
+
+
 
 class AppiumWebDriver implements AppiumSearchContext {
   final WebDriverSpec spec;
@@ -31,7 +33,7 @@ class AppiumWebDriver implements AppiumSearchContext {
 
   final _commandListeners = <AsyncWebDriverListener>[];
 
-  final WebDriverHandler _handler;
+  final AppiumWebDriverHandler _handler;
 
   final AsyncRequestClient _client;
 

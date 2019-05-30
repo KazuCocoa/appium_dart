@@ -18,11 +18,11 @@ import 'dart:math';
 import 'package:appium_dart/src/common/search_context.dart';
 import 'package:appium_dart/src/common/by.dart';
 import 'package:appium_dart/src/async/web_driver.dart';
+import 'package:appium_dart/src/common/webdriver_handler.dart';
 
-import 'package:webdriver/src/common/by.dart';
 import 'package:webdriver/src/common/request_client.dart';
 import 'package:webdriver/src/common/web_element.dart' as common;
-import 'package:webdriver/src/common/webdriver_handler.dart';
+
 
 class AppiumWebElement extends common.WebElement
     implements AppiumSearchContext {
@@ -44,7 +44,7 @@ class AppiumWebElement extends common.WebElement
 
   final AsyncRequestClient _client;
 
-  final WebDriverHandler _handler;
+  final AppiumWebDriverHandler _handler;
 
   AppiumWebElement(this.driver, this._client, this._handler, this.id,
       [this.context, this.locator, this.index]);
@@ -163,7 +163,7 @@ class AppiumWebElement extends common.WebElement
   @override
   String toString() {
     var out = StringBuffer()..write(context);
-    if (locator is By) {
+    if (locator is AppiumBy) {
       if (index == null) {
         out..write('.findElement(');
       } else {

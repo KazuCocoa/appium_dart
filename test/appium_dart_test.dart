@@ -1,7 +1,8 @@
 import 'package:test/test.dart';
 
+import 'dart:io';
+
 import 'package:appium_dart/async_io.dart';
-export 'package:appium_dart/src/async/web_element.dart';
 
 void main() {
   AppiumWebDriver driver;
@@ -10,10 +11,10 @@ void main() {
     driver = await createDriver(
         uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
         desired: {
+          'app': '${Directory.current.path}/test/app/UICatalog.app.zip',
           'platformName': 'ios',
           'platformVersion': '12.2',
           'deviceName': 'iPhone 8',
-          'browserName': 'Safari',
           'automationName': 'xcuitest'
         });
   });
@@ -22,26 +23,13 @@ void main() {
     await driver.quit();
   });
 
-  test('connect to server', () async {
-    expect(await driver.title, 'Appium/welcome');
-  });
+  test('Click a button', () async {
+    var element = await driver.findElement(AppiumBy.accessibilityId('Buttons'));
+    await element.click();
 
-  test('connect to existing session', () async {
-    var sessionId = driver.id;
+    await driver.findElement(AppiumBy.name('Gray'));
+    await driver.back();
 
-    AppiumWebDriver newDriver = await fromExistingSession(sessionId);
-    expect(await newDriver.title, 'Appium/welcome');
-    expect(newDriver.id, sessionId);
-  });
-
-  test('find by appium element', () async {
-    try {
-      await driver.findElement(AppiumBy.accessibilityId('Appium/welcome'));
-      throw 'expected Unsupported locator strategy: accessibility id error';
-    } on UnknownException catch (e) {
-      expect(
-          e.message.contains('Unsupported locator strategy: accessibility id'),
-          true);
-    }
+    await driver.findElement(AppiumBy.accessibilityId('TextView'));
   });
 }
