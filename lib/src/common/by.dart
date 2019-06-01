@@ -35,7 +35,7 @@ class AppiumBy extends By {
   const AppiumBy.accessibilityId(String accessibilityId)
       : this('accessibility id', accessibilityId);
 
-  // TODO: Base64?
+  /// Input is base 64 encoded string
   const AppiumBy.image(String image) : this('-image', image);
 
   const AppiumBy.custom(String custom) : this('-custom', custom);

@@ -2,7 +2,9 @@ name: appium_dart
 description: An appium client in Dart
 version: 0.0.1
 author:
+  - Kazuaki Matsuo <fly.49.89.over@gmail.com>
 homepage:
+  - https://github.com/KazuCocoa/appium_dart
 
 environment:
   sdk: '>=2.1.0 <3.0.0'
@@ -12,3 +14,4 @@ dependencies:
 
 dev_dependencies:
   test: '^1.0.0'
+  pedantic: '^1.7.0'
