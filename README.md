@@ -28,6 +28,12 @@ $ dartanalyzer --options analysis_options.yaml .
 ```
 
 # Run tests
+## Get dependencies
+
+```
+$ pub get
+```
+
 ## Functional
 
 ```
