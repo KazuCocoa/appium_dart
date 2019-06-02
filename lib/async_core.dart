@@ -58,12 +58,32 @@ Future<AppiumWebDriver> createDriver(
     throw 'Unexpected spec: ${session.spec}';
   }
 
+  var newUri = updateUriWithDirectConnect(uri, session.capabilities);
+
   return AppiumWebDriver(
-      uri,
+      newUri,
       session.id,
       UnmodifiableMapView(session.capabilities),
-      createRequestClient(uri.resolve('session/${session.id}/')),
+      createRequestClient(newUri.resolve('session/${session.id}/')),
       session.spec);
+}
+
+/// Return new URI which has been applied directXxxxx
+Uri updateUriWithDirectConnect(Uri currentUri, Map<String, dynamic> capabilities) {
+  final protocol = 'directConnectProtocol';
+  final host = 'directConnectHost';
+  final port = 'directConnectPort';
+  final path = 'directConnectPath';
+
+  if (capabilities.containsKey(protocol) &&
+      capabilities.containsKey(host) &&
+      capabilities.containsKey(port) &&
+      capabilities.containsKey(path)) {
+    return Uri.parse(
+        '${capabilities[protocol]}://${capabilities[host]}:${capabilities[port]}${capabilities[path]}');
+  }
+
+  return currentUri;
 }
 
 /// Returns desired capabilities with appium prefix
@@ -113,11 +133,13 @@ Future<AppiumWebDriver> fromExistingSession(
     throw 'Unexpected spec: ${session.spec}';
   }
 
+  var newUri = updateUriWithDirectConnect(uri, session.capabilities);
+
   return AppiumWebDriver(
-      uri,
+      newUri,
       sessionId,
       UnmodifiableMapView(session.capabilities),
-      createRequestClient(uri.resolve('session/$sessionId/')),
+      createRequestClient(newUri.resolve('session/$sessionId/')),
       session.spec);
 }
 

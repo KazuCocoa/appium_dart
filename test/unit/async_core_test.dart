@@ -24,4 +24,31 @@ void main() {
     });
   });
 
+  group('directConnect', () {
+    test('should apply directConnects', () {
+      expect(core.updateUriWithDirectConnect(
+        core.defaultUri,
+        {
+          'deviceName': 'xxxxxxxxx',
+          'directConnectProtocol': 'https',
+          'directConnectHost': 'example.com',
+          'directConnectPort': 8000,
+          'directConnectPath': '/example/wd/hub',
+          'udid': 'yyyyyyyy'
+        }
+      ), Uri.parse('https://example.com:8000/example/wd/hub'));
+    });
+    test('should return the default uri', () {
+      expect(core.updateUriWithDirectConnect(
+          core.defaultUri,
+          {
+            'deviceName': 'xxxxxxxxx',
+            'directConnectProtocol': 'https',
+            'directConnectPort': 8000,
+            'directConnectPath': '/example/wd/hub',
+            'udid': 'yyyyyyyy'
+          }
+      ), core.defaultUri);
+    });
+  });
 }
