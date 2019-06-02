@@ -11,4 +11,3 @@ dependencies:
 
 dev_dependencies:
   test: '^1.0.0'
-  pedantic: '^1.7.0'
