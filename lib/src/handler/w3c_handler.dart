@@ -62,7 +62,7 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri,
       [params]) =>
       WebDriverRequest(
-          method, uri, params == null ? null : json.encode(serialise(params)));
+          method, uri, params == null ? null : json.encode(serialize(params)));
 
   @override
   dynamic parseGeneralResponse(

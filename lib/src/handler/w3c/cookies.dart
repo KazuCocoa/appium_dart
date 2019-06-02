@@ -7,7 +7,7 @@ import 'package:webdriver/src/handler/w3c/utils.dart';
 class W3cCookiesHandler extends CookiesHandler {
   @override
   WebDriverRequest buildAddCookieRequest(Cookie cookie) =>
-      WebDriverRequest.postRequest('cookie', {'cookie': _serialise(cookie)});
+      WebDriverRequest.postRequest('cookie', {'cookie': _serialize(cookie)});
 
   @override
   void parseAddCookieResponse(WebDriverResponse response) {
@@ -51,7 +51,7 @@ class W3cCookiesHandler extends CookiesHandler {
   /// Serialises the cookie to json object according to the spec.
   ///
   /// The spec is serialising a cookie the same we do in [Cookie.toJson].
-  Map<String, dynamic> _serialise(Cookie cookie) => cookie.toJson();
+  Map<String, dynamic> _serialize(Cookie cookie) => cookie.toJson();
 
   /// Deserializes the json object to get the cookie according to the spec.
   ///
