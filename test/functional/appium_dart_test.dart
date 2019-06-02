@@ -11,7 +11,7 @@ void main() {
     driver = await createDriver(
         uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
         desired: {
-          'app': '${Directory.current.path}/test/app/UICatalog.app.zip',
+          'app': '${Directory.current.path}/test/functional/app/UICatalog.app.zip',
           'platformName': 'ios',
           'platformVersion': '12.2',
           'deviceName': 'iPhone 8',

@@ -49,30 +49,8 @@ Future<AppiumWebDriver> createDriver(
 
   final handler = getHandler(spec);
 
-  var w3cCapabilities = [
-    'browserName',
-    'browserVersion',
-    'platformName',
-    'acceptInsecureCerts',
-    'pageLoadStrategy',
-    'proxy',
-    'setWindowRect',
-    'timeouts',
-    'unhandledPromptBehavior',
-    'strictFileInteractability'
-  ];
-
-  final desiredCapabilities = new Map<String, dynamic>();
-  desired.forEach((k, v) {
-    if (w3cCapabilities.contains(k) || k.contains(':')) {
-      desiredCapabilities.addAll({k: v});
-    } else {
-      desiredCapabilities.addAll({'appium:$k': v});
-    }
-  });
-
   final session = await client.send(
-      handler.session.buildCreateRequest(desired: desiredCapabilities),
+      handler.session.buildCreateRequest(desired: add_appium_prefix(desired)),
       handler.session.parseCreateResponse);
 
   if (session.spec != WebDriverSpec.JsonWire &&
@@ -86,6 +64,29 @@ Future<AppiumWebDriver> createDriver(
       UnmodifiableMapView(session.capabilities),
       createRequestClient(uri.resolve('session/${session.id}/')),
       session.spec);
+}
+
+/// Returns desired capabilities with appium prefix
+Map<String, dynamic> add_appium_prefix(Map<String, dynamic> desired) {
+  var w3cCapabilities = [
+    'browserName',
+    'browserVersion',
+    'platformName',
+    'acceptInsecureCerts',
+    'pageLoadStrategy',
+    'proxy',
+    'setWindowRect',
+    'timeouts',
+    'unhandledPromptBehavior',
+    'strictFileInteractability'
+  ];
+
+  return desired.map((k, v) {
+    if (w3cCapabilities.contains(k) || k.contains(':')) {
+      return MapEntry(k, v);
+    }
+    return MapEntry('appium:$k', v);
+  });
 }
 
 /// Creates a sync WebDriver from existing session.

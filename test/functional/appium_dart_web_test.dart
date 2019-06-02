@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 
 import 'package:appium_dart/async_io.dart';
-export 'package:appium_dart/src/async/web_element.dart';
 
 void main() {
   AppiumWebDriver driver;

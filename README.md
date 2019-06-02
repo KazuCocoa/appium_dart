@@ -4,10 +4,16 @@ An appium client in Dart
 
 
 # Run tests
+## Functional
 
 ```
-$ flutter packages pub run test test/
-$ pub run test test/
+$ pub run test test/functional
+```
+
+## Unit
+
+```
+$ pub run test test/unit
 ```
 
 # TODO
