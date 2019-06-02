@@ -69,15 +69,15 @@ class Window {
     }
   }
 
-  /// Maximizes the window.
-  Future<void> maximize() => _client.send(
+  /// Maximises the window.
+  Future<void> maximise() => _client.send(
       _handler.window.buildMaximizeRequest(),
       _handler.window.parseMaximizeResponse);
 
-  /// Minimizes the window.
+  /// Minimises the window.
   ///
   /// Unsupported in JsonWire WebDriver.
-  Future<void> minimize() => _client.send(
+  Future<void> minimise() => _client.send(
       _handler.window.buildMinimizeRequest(),
       _handler.window.parseMinimizeResponse);
 

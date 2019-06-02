@@ -38,7 +38,7 @@ class W3cCoreHandler extends CoreHandler {
   @override
   WebDriverRequest buildExecuteAsyncRequest(String script, List args) =>
       WebDriverRequest.postRequest(
-          'execute/async', {'script': script, 'args': serialize(args)});
+          'execute/async', {'script': script, 'args': serialise(args)});
 
   @override
   dynamic parseExecuteAsyncResponse(
@@ -48,7 +48,7 @@ class W3cCoreHandler extends CoreHandler {
   @override
   WebDriverRequest buildExecuteRequest(String script, List args) =>
       WebDriverRequest.postRequest(
-          'execute/sync', {'script': script, 'args': serialize(args)});
+          'execute/sync', {'script': script, 'args': serialise(args)});
 
   @override
   dynamic parseExecuteResponse(

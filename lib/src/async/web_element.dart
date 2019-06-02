@@ -126,7 +126,7 @@ class AppiumWebElement extends common.WebElement
 
   /// Access to the cssProperties of this element.
   ///
-  /// TODO(DrMarcII): consider special handling of color and possibly other
+  /// TODO(DrMarcII): consider special handling of colour and possibly other
   /// properties.
   Attributes get cssProperties => Attributes((name) => _client.send(
       _handler.element.buildCssPropertyRequest(id, name),

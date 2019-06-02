@@ -35,7 +35,7 @@ class Mouse {
   /// Move the mouse.
   ///
   /// If [element] is specified and [xOffset] and [yOffset] are not, will move
-  /// the mouse to the center of the [element].
+  /// the mouse to the centre of the [element].
   ///
   /// If [xOffset] and [yOffset] are specified, will move the mouse that distance
   /// from its current location.
