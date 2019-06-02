@@ -4,11 +4,11 @@ import 'dart:async' show Future;
 import 'dart:collection' show UnmodifiableMapView;
 
 import 'package:appium_dart/src/common/utils.dart';
-
 import 'package:appium_dart/src/async/web_driver.dart';
-import 'package:webdriver/src/common/request_client.dart';
-import 'package:webdriver/src/common/spec.dart';
-import 'package:webdriver/src/common/capabilities.dart';
+
+import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
+import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
+import 'package:webdriver/src/common/capabilities.dart'; // ignore: implementation_imports
 
 export 'package:appium_dart/async_core.dart';
 export 'package:appium_dart/src/async/web_driver.dart';
@@ -50,7 +50,7 @@ Future<AppiumWebDriver> createDriver(
   final handler = getHandler(spec);
 
   final session = await client.send(
-      handler.session.buildCreateRequest(desired: add_appium_prefix(desired)),
+      handler.session.buildCreateRequest(desired: addAppiumPrefix(desired)),
       handler.session.parseCreateResponse);
 
   if (session.spec != WebDriverSpec.JsonWire &&
@@ -67,7 +67,7 @@ Future<AppiumWebDriver> createDriver(
 }
 
 /// Returns desired capabilities with appium prefix
-Map<String, dynamic> add_appium_prefix(Map<String, dynamic> desired) {
+Map<String, dynamic> addAppiumPrefix(Map<String, dynamic> desired) {
   var w3cCapabilities = [
     'browserName',
     'browserVersion',
@@ -117,7 +117,7 @@ Future<AppiumWebDriver> fromExistingSession(
       uri,
       sessionId,
       UnmodifiableMapView(session.capabilities),
-      createRequestClient(uri.resolve('session/${sessionId}/')),
+      createRequestClient(uri.resolve('session/$sessionId}/')),
       session.spec);
 }
 
@@ -143,5 +143,5 @@ AppiumWebDriver fromExistingSessionSync(
   }
 
   return AppiumWebDriver(uri, sessionId, UnmodifiableMapView(capabilities),
-      createRequestClient(uri.resolve('session/${sessionId}/')), spec);
+      createRequestClient(uri.resolve('session/$sessionId}/')), spec);
 }

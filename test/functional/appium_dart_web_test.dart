@@ -34,8 +34,9 @@ void main() {
   });
 
   test('find by appium element', () async {
+    final title = 'Appium/welcome';
     try {
-      await driver.findElement(AppiumBy.accessibilityId('Appium/welcome'));
+      await driver.findElement(AppiumBy.accessibilityId(title));
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
       expect(

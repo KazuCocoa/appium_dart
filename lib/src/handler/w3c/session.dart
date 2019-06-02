@@ -1,10 +1,10 @@
 import 'package:appium_dart/src/common/webdriver_handler.dart';
 
-import 'package:webdriver/src/common/request.dart';
-import 'package:webdriver/src/common/session.dart';
-import 'package:webdriver/src/common/spec.dart';
-import 'package:webdriver/src/common/capabilities.dart';
-import 'package:webdriver/src/handler/w3c/utils.dart';
+import 'package:webdriver/src/common/request.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/session.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/spec.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/capabilities.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/handler/w3c/utils.dart';  // ignore: implementation_imports
 
 class W3cSessionHandler extends SessionHandler {
   @override

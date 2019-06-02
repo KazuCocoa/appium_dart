@@ -2,6 +2,11 @@
 
 An appium client in Dart
 
+# Lint
+
+```
+$ dartanalyzer --options analysis_options.yaml .
+```
 
 # Run tests
 ## Functional

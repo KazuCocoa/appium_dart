@@ -1,12 +1,12 @@
 import 'dart:math';
 
-import 'package:webdriver/src/common/cookie.dart';
-import 'package:webdriver/src/common/log.dart';
-import 'package:webdriver/src/common/mouse.dart';
-import 'package:webdriver/src/common/session.dart';
+import 'package:webdriver/src/common/cookie.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/log.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/mouse.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/session.dart';  // ignore: implementation_imports
 
 import 'by.dart';
-import 'package:webdriver/src/common/request.dart';
+import 'package:webdriver/src/common/request.dart';  // ignore: implementation_imports
 
 /// Handler for spec related request building and response parsing.
 ///

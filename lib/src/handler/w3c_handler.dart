@@ -14,8 +14,8 @@ import 'package:appium_dart/src/handler/w3c/session.dart';
 import 'package:appium_dart/src/handler/w3c/timeouts.dart';
 import 'package:appium_dart/src/handler/w3c/window.dart';
 
-import 'package:webdriver/src/common/request.dart';
-import 'package:webdriver/src/handler/w3c/utils.dart';
+import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
+import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
 
 class W3cWebDriverHandler extends AppiumWebDriverHandler {
   @override

@@ -6,7 +6,7 @@ import 'package:appium_dart/async_core.dart' as core;
 void main() {
   group('add_appium_prefix', () {
     test('should add appium prefix', () {
-      expect(core.add_appium_prefix(
+      expect(core.addAppiumPrefix(
         {
           'platformName': 'ios',
           'platformVersion': '12.2',

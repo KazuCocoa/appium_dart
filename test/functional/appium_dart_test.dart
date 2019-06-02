@@ -24,12 +24,16 @@ void main() {
   });
 
   test('Click a button', () async {
-    var element = await driver.findElement(AppiumBy.accessibilityId('Buttons'));
+    final buttons = 'Buttons';
+    final gray = 'Gray';
+    final textView = 'TextView';
+
+    var element = await driver.findElement(AppiumBy.accessibilityId(buttons));
     await element.click();
 
-    await driver.findElement(AppiumBy.name('Gray'));
+    await driver.findElement(AppiumBy.name(gray));
     await driver.back();
 
-    await driver.findElement(AppiumBy.accessibilityId('TextView'));
+    await driver.findElement(AppiumBy.accessibilityId(textView));
   });
 }
