@@ -1,4 +1,4 @@
-# appium_dart
+# appium_driver
 
 This is not a stable project yet.
 

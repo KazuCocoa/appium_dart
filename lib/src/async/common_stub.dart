@@ -1,4 +1,4 @@
-import 'package:appium_dart/src/async/web_driver.dart';
+import 'package:appium_driver/src/async/web_driver.dart';
 
 import 'package:webdriver/sync_core.dart' as sync_core;
 

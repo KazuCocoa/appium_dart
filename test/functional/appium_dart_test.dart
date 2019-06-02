@@ -2,7 +2,7 @@ import 'package:test/test.dart';
 
 import 'dart:io';
 
-import 'package:appium_dart/async_io.dart';
+import 'package:appium_driver/async_io.dart';
 
 void main() {
   AppiumWebDriver driver;
@@ -15,8 +15,10 @@ void main() {
           'platformName': 'ios',
           'platformVersion': '12.2',
           'deviceName': 'iPhone 8',
-          'automationName': 'xcuitest'
+          'automationName': 'xcuitest',
+          'reduceMotion': true,
         });
+    await driver.timeouts.setImplicitTimeout(Duration(seconds: 5));
   });
 
   tearDownAll(() async {

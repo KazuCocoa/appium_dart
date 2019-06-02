@@ -1,7 +1,7 @@
-library appium_dart.async_core_test;
+library appium_driver.async_core_test;
 
 import 'package:test/test.dart';
-import 'package:appium_dart/async_core.dart' as core;
+import 'package:appium_driver/async_core.dart' as core;
 
 void main() {
   group('add_appium_prefix', () {

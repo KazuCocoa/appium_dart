@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:appium_dart/src/common/webdriver_handler.dart';
+import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 

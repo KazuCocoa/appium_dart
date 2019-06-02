@@ -1,18 +1,18 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:appium_dart/src/common/by.dart';
-import 'package:appium_dart/src/common/search_context.dart';
-import 'package:appium_dart/src/async/web_element.dart';
-import 'package:appium_dart/src/async/target_locator.dart';
-import 'package:appium_dart/src/common/utils.dart';
-import 'package:appium_dart/src/common/webdriver_handler.dart';
-import 'package:appium_dart/src/async/cookies.dart';
-import 'package:appium_dart/src/async/keyboard.dart';
-import 'package:appium_dart/src/async/mouse.dart';
-import 'package:appium_dart/src/async/logs.dart';
-import 'package:appium_dart/src/async/timeouts.dart';
-import 'package:appium_dart/src/async/window.dart';
+import 'package:appium_driver/src/common/by.dart';
+import 'package:appium_driver/src/common/search_context.dart';
+import 'package:appium_driver/src/async/web_element.dart';
+import 'package:appium_driver/src/async/target_locator.dart';
+import 'package:appium_driver/src/common/utils.dart';
+import 'package:appium_driver/src/common/webdriver_handler.dart';
+import 'package:appium_driver/src/async/cookies.dart';
+import 'package:appium_driver/src/async/keyboard.dart';
+import 'package:appium_driver/src/async/mouse.dart';
+import 'package:appium_driver/src/async/logs.dart';
+import 'package:appium_driver/src/async/timeouts.dart';
+import 'package:appium_driver/src/async/window.dart';
 
 import 'package:webdriver/src/async/stepper.dart' show Stepper; // ignore: implementation_imports
 import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports

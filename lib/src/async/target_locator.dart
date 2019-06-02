@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:appium_dart/async_core.dart';
-import 'package:appium_dart/src/common/webdriver_handler.dart';
+import 'package:appium_driver/async_core.dart';
+import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 

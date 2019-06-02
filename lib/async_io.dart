@@ -1,13 +1,13 @@
-library appium_dart.io;
+library appium_driver.io;
 
 import 'dart:async' show Future;
 
-import 'package:appium_dart/async_core.dart' as core
+import 'package:appium_driver/async_core.dart' as core
     show createDriver, fromExistingSession, fromExistingSessionSync;
-import 'package:appium_dart/async_io.dart';
+import 'package:appium_driver/async_io.dart';
 import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
 
-export 'package:appium_dart/async_core.dart'
+export 'package:appium_driver/async_core.dart'
     hide createDriver, fromExistingSession, fromExistingSessionSync;
 export 'package:webdriver/src/request/async_io_request_client.dart';
 

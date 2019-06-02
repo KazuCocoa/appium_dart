@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:appium_dart/async_io.dart';
+import 'package:appium_driver/async_io.dart';
 
 void main() {
   AppiumWebDriver driver;
@@ -13,7 +13,8 @@ void main() {
           'platformVersion': '12.2',
           'deviceName': 'iPhone 8',
           'browserName': 'Safari',
-          'automationName': 'xcuitest'
+          'automationName': 'xcuitest',
+          'reduceMotion': true,
         });
   });
 

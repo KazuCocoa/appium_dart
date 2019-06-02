@@ -1,28 +1,28 @@
-library appium_dart.core;
+library appium_driver.core;
 
 import 'dart:async' show Future;
 import 'dart:collection' show UnmodifiableMapView;
 
-import 'package:appium_dart/src/common/utils.dart';
-import 'package:appium_dart/src/async/web_driver.dart';
+import 'package:appium_driver/src/common/utils.dart';
+import 'package:appium_driver/src/async/web_driver.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/capabilities.dart'; // ignore: implementation_imports
 
-export 'package:appium_dart/async_core.dart';
-export 'package:appium_dart/src/async/web_driver.dart';
-export 'package:appium_dart/src/async/web_element.dart';
-export 'package:appium_dart/src/common/by.dart';
-export 'package:appium_dart/src/async/target_locator.dart';
-export 'package:appium_dart/src/async/alert.dart';
-export 'package:appium_dart/src/async/cookies.dart';
-export 'package:appium_dart/src/async/keyboard.dart';
-export 'package:appium_dart/src/async/logs.dart';
-export 'package:appium_dart/src/async/mouse.dart';
-export 'package:appium_dart/src/async/timeouts.dart';
-export 'package:appium_dart/src/async/window.dart';
-export 'package:appium_dart/src/common/capabilities.dart';
+export 'package:appium_driver/async_core.dart';
+export 'package:appium_driver/src/async/web_driver.dart';
+export 'package:appium_driver/src/async/web_element.dart';
+export 'package:appium_driver/src/common/by.dart';
+export 'package:appium_driver/src/async/target_locator.dart';
+export 'package:appium_driver/src/async/alert.dart';
+export 'package:appium_driver/src/async/cookies.dart';
+export 'package:appium_driver/src/async/keyboard.dart';
+export 'package:appium_driver/src/async/logs.dart';
+export 'package:appium_driver/src/async/mouse.dart';
+export 'package:appium_driver/src/async/timeouts.dart';
+export 'package:appium_driver/src/async/window.dart';
+export 'package:appium_driver/src/common/capabilities.dart';
 
 export 'package:webdriver/src/common/command_event.dart';
 export 'package:webdriver/src/common/cookie.dart';
@@ -117,7 +117,7 @@ Future<AppiumWebDriver> fromExistingSession(
       uri,
       sessionId,
       UnmodifiableMapView(session.capabilities),
-      createRequestClient(uri.resolve('session/$sessionId}/')),
+      createRequestClient(uri.resolve('session/$sessionId/')),
       session.spec);
 }
 
@@ -143,5 +143,5 @@ AppiumWebDriver fromExistingSessionSync(
   }
 
   return AppiumWebDriver(uri, sessionId, UnmodifiableMapView(capabilities),
-      createRequestClient(uri.resolve('session/$sessionId}/')), spec);
+      createRequestClient(uri.resolve('session/$sessionId/')), spec);
 }

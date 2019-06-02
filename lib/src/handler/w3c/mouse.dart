@@ -1,4 +1,4 @@
-import 'package:appium_dart/src/common/webdriver_handler.dart';
+import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/mouse.dart';  // ignore: implementation_imports
 import 'package:webdriver/src/common/request.dart';  // ignore: implementation_imports

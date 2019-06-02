@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:appium_dart/async_core.dart';
-import 'package:appium_dart/src/common/by.dart';
+import 'package:appium_driver/async_core.dart';
+import 'package:appium_driver/src/common/by.dart';
 
 typedef GetAttribute = Future<String> Function(String name);
 
