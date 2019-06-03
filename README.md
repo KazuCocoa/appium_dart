@@ -19,7 +19,7 @@ Hence, this repository is another PoC for calling flutter_driver via HTTP reques
 
 # Example
 
-Take a look at (functional tests)[./test/functional]
+Take a look at [functional tests](./test/functional)
 
 # Lint
 
