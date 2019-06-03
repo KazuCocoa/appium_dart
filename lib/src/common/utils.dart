@@ -1,8 +1,8 @@
 import 'package:appium_driver/src/handler/w3c_handler.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
-import 'package:webdriver/src/common/spec.dart';  // ignore: implementation_imports
-import 'package:webdriver/src/handler/json_wire_handler.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
+import 'package:webdriver/src/handler/json_wire_handler.dart'; // ignore: implementation_imports
 
 // TODO: will be AppiumWebDriverHandler
 AppiumWebDriverHandler getHandler(WebDriverSpec spec) {

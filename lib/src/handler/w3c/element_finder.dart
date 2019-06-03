@@ -14,7 +14,8 @@ class W3cElementFinder extends ElementFinder {
   }
 
   @override
-  WebDriverRequest buildFindElementsRequest(AppiumBy by, [String contextElementId]) {
+  WebDriverRequest buildFindElementsRequest(AppiumBy by,
+      [String contextElementId]) {
     String uri = '${elementPrefix(contextElementId)}elements';
     return WebDriverRequest.postRequest(uri, _byToJson(by));
   }
@@ -27,7 +28,8 @@ class W3cElementFinder extends ElementFinder {
   }
 
   @override
-  WebDriverRequest buildFindElementRequest(AppiumBy by, [String contextElementId]) {
+  WebDriverRequest buildFindElementRequest(AppiumBy by,
+      [String contextElementId]) {
     String uri = '${elementPrefix(contextElementId)}element';
     return WebDriverRequest.postRequest(uri, _byToJson(by));
   }

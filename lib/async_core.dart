@@ -69,7 +69,8 @@ Future<AppiumWebDriver> createDriver(
 }
 
 /// Return new URI which has been applied directXxxxx
-Uri updateUriWithDirectConnect(Uri currentUri, Map<String, dynamic> capabilities) {
+Uri updateUriWithDirectConnect(
+    Uri currentUri, Map<String, dynamic> capabilities) {
   final protocol = 'directConnectProtocol';
   final host = 'directConnectHost';
   final port = 'directConnectPort';

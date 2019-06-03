@@ -14,12 +14,11 @@ import 'package:appium_driver/src/async/logs.dart';
 import 'package:appium_driver/src/async/timeouts.dart';
 import 'package:appium_driver/src/async/window.dart';
 
-import 'package:webdriver/src/async/stepper.dart' show Stepper; // ignore: implementation_imports
+import 'package:webdriver/src/async/stepper.dart'
+    show Stepper; // ignore: implementation_imports
 import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
-
-
 
 class AppiumWebDriver implements AppiumSearchContext {
   final WebDriverSpec spec;

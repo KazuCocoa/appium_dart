@@ -1,5 +1,7 @@
 name: appium_driver
-description: An appium client in Dart
+description: >
+  An Appium binding for Dart.
+  Support WebDriver W3C spec inheriting webdriver.dart.
 version: 0.0.1
 author: 'Kazuaki Matsuo <fly.49.89.over@gmail.com>'
 homepage: https://github.com/KazuCocoa/appium_dart

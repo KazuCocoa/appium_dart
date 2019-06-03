@@ -4,7 +4,6 @@ import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 
-
 /// A JavaScript alert(), confirm(), or prompt() dialog
 class Alert {
   final AsyncRequestClient _client;

@@ -27,6 +27,12 @@ Take a look at (functional tests)[./test/functional]
 $ dartanalyzer --options analysis_options.yaml .
 ```
 
+# format
+
+```
+$ dartfmt -w --fix .
+```
+
 # Run tests
 ## Get dependencies
 

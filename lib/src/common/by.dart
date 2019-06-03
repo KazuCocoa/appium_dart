@@ -1,4 +1,4 @@
-import 'package:webdriver/src/common/by.dart';  // ignore: implementation_imports
+import 'package:webdriver/src/common/by.dart'; // ignore: implementation_imports
 
 class AppiumBy extends By {
   const AppiumBy(String using, String value) : super(using, value);
