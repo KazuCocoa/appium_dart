@@ -13,6 +13,7 @@ import 'package:appium_driver/src/async/mouse.dart';
 import 'package:appium_driver/src/async/logs.dart';
 import 'package:appium_driver/src/async/timeouts.dart';
 import 'package:appium_driver/src/async/window.dart';
+import 'package:appium_driver/src/async/app_state.dart';
 
 import 'package:webdriver/src/async/stepper.dart'
     show Stepper; // ignore: implementation_imports
@@ -163,6 +164,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   Keyboard get keyboard => Keyboard(this._client, this._handler);
 
   Mouse get mouse => Mouse(this._client, this._handler);
+
+  AppState get appState => AppState(this._client, this._handler);
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.

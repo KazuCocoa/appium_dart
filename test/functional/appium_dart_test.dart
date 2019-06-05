@@ -9,8 +9,7 @@ void main() {
 
   setUpAll(() async {
     driver = await createDriver(
-        uri: Uri.parse(
-            'https://appium-canary.headspin.io/v0/3c8b90ea71ab42b7a043c52097f28d01/wd/hub/'),
+        uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
         desired: {
           'platformName': 'Android',
           'browserName': 'Chrome',

@@ -32,6 +32,7 @@ void main() {
     AppiumWebDriver newDriver = await fromExistingSession(sessionId);
     expect(await newDriver.title, 'Appium/welcome');
     expect(newDriver.id, sessionId);
+    expect(AppStateEnum.RunningInForeground, await newDriver.appState.get('com.apple.mobilesafari'));
   });
 
   test('find by appium element', () async {

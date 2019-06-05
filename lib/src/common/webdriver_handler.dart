@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:appium_driver/src/common/app_state.dart';
+
 import 'package:webdriver/src/common/cookie.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/log.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/mouse.dart'; // ignore: implementation_imports
@@ -46,6 +48,8 @@ abstract class AppiumWebDriverHandler {
   TimeoutsHandler get timeouts;
 
   LogsHandler get logs;
+
+  AppStateHandler get appState;
 
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
@@ -505,4 +509,14 @@ abstract class LogsHandler {
 
   /// Parses response for 'Get Logs'.
   List<LogEntry> parseGetLogsResponse(WebDriverResponse response);
+}
+
+
+abstract class AppStateHandler {
+  /// Builds request for 'Get AppState'
+  WebDriverRequest buildGetAppStateRequest(String appId);
+
+  /// Parse response for 'Get AppState'
+  AppStateEnum parseGetAppState(WebDriverResponse response);
+
 }

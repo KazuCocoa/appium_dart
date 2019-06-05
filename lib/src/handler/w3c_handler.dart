@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:appium_driver/src/handler/w3c/element_finder.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 import 'package:appium_driver/src/handler/w3c/alert.dart';
+import 'package:appium_driver/src/handler/w3c/app_state.dart';
 import 'package:appium_driver/src/handler/w3c/cookies.dart';
 import 'package:appium_driver/src/handler/w3c/core.dart';
 import 'package:appium_driver/src/handler/w3c/element.dart';
@@ -13,6 +14,7 @@ import 'package:appium_driver/src/handler/w3c/navigation.dart';
 import 'package:appium_driver/src/handler/w3c/session.dart';
 import 'package:appium_driver/src/handler/w3c/timeouts.dart';
 import 'package:appium_driver/src/handler/w3c/window.dart';
+
 
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
@@ -52,7 +54,10 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
   final CookiesHandler cookies = W3cCookiesHandler();
 
   @override
-  TimeoutsHandler timeouts = W3cTimeoutsHandler();
+  final TimeoutsHandler timeouts = W3cTimeoutsHandler();
+
+  @override
+  final AppStateHandler appState = W3cAppStateHandler();
 
   @override
   LogsHandler get logs =>
@@ -71,4 +76,5 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
 
   @override
   String toString() => 'W3C';
+
 }
