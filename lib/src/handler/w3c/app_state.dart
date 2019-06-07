@@ -12,7 +12,7 @@ class W3cAppStateHandler implements AppStateHandler {
   }
 
   @override
-  AppStateEnum parseGetAppState(WebDriverResponse response) {
-      return AppStateEnum.values[parseW3cResponse(response)];
+  AppState parseGetAppState(WebDriverResponse response) {
+      return AppState.values[parseW3cResponse(response)];
   }
 }

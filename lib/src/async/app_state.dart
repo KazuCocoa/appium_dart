@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:appium_driver/src/common/webdriver_handler.dart';
-import 'package:appium_driver/src/common/app_state.dart';
+import 'package:appium_driver/src/common/app_state.dart' as app_state_enum;
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 
@@ -12,7 +12,7 @@ class AppState {
   AppState(this._client, this._handler);
 
   /// Get app state
-  Future<AppStateEnum> get(String appId) => _client.send(
+  Future<app_state_enum.AppState> get(String appId) => _client.send(
       _handler.appState.buildGetAppStateRequest(appId),
       _handler.appState.parseGetAppState);
 

@@ -517,6 +517,6 @@ abstract class AppStateHandler {
   WebDriverRequest buildGetAppStateRequest(String appId);
 
   /// Parse response for 'Get AppState'
-  AppStateEnum parseGetAppState(WebDriverResponse response);
+  AppState parseGetAppState(WebDriverResponse response);
 
 }
