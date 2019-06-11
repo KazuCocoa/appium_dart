@@ -51,3 +51,10 @@ $ pub run test test/functional
 ```
 $ pub run test test/unit
 ```
+
+## TODO
+
+- [ ] Add appium commands
+    - [x] directConnectXxxx
+    - [x] appState
+    - [ ] xxx (updating)
