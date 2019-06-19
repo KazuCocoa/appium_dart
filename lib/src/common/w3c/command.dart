@@ -9,6 +9,11 @@ class Command {
 
 // All available commands for Appium
 class W3CCommands {
+  static const GET_ALL_SESSIONS = Command(HttpMethod.httpGet, 'session'); // FIXME
+  static const AVAILABLE_CONTEXTS = Command(HttpMethod.httpGet, 'contexts');
+
+  static const APP_STATE = Command(HttpMethod.httpPost, 'appium/device/app_state');
+
   static const commands = {
     'get_all_sessions': Command(HttpMethod.httpGet, 'sessions'),
     // FIXME. The session command has no session_id
@@ -117,8 +122,7 @@ class W3CCommands {
         Command(HttpMethod.httpGet, 'element/:id/displayed'),
     'get_timeouts': Command(HttpMethod.httpGet, 'timeouts'),
     // Session capability
-    'get_capabilities': // TODO: add full path? Will check
-        Command(HttpMethod.httpGet, 'session/:session_id'),
+    'get_capabilities': Command(HttpMethod.httpGet, ''),
     'get_screen_orientation': Command(HttpMethod.httpGet, 'orientation'),
     'set_screen_orientation': Command(HttpMethod.httpPost, 'orientation'),
     'get_location': Command(HttpMethod.httpGet, 'location'),

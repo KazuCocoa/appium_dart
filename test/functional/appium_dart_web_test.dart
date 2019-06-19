@@ -35,6 +35,13 @@ void main() {
     expect(AppState.RunningInForeground, await newDriver.appState.get('com.apple.mobilesafari'));
   });
 
+
+  test('Get capabilities', () async {
+    var result = await driver.contexts.getAvailableContexts();
+    print(result);
+//    expect(result.containsKey(''));
+  });
+
   test('find by appium element', () async {
     final title = 'Appium/welcome';
     try {

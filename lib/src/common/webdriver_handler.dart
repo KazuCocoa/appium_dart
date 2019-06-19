@@ -51,6 +51,8 @@ abstract class AppiumWebDriverHandler {
 
   AppStateHandler get appState;
 
+  ContextsHandler get contexts;
+
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
 
@@ -519,4 +521,10 @@ abstract class AppStateHandler {
   /// Parse response for 'Get AppState'
   AppState parseGetAppState(WebDriverResponse response);
 
+}
+
+abstract class ContextsHandler {
+  WebDriverRequest buildAvailableContextsRequest();
+
+  List<String> parseAvailableContexts(WebDriverResponse response);
 }

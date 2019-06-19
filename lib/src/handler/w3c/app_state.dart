@@ -10,7 +10,7 @@ class W3cAppStateHandler implements AppStateHandler {
   @override
   WebDriverRequest buildGetAppStateRequest(String appId) {
     return WebDriverRequest.postRequest(
-        W3CCommands.commands['app_state'].path, {'appId': appId});
+        W3CCommands.APP_STATE.path, {'appId': appId});
   }
 
   @override
