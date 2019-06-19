@@ -52,6 +52,9 @@ $ pub run test test/functional
 $ pub run test test/unit
 ```
 
+## release
+- Bump the version in `pubspec.yml`
+
 ## TODO
 
 All W3C webdriver commands are available such as find_element/s, click and send keys.

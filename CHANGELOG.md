@@ -1,3 +1,8 @@
+## [0.0.4] - 2019-06-19
+
+- Add `driver.contexts.getAvailableContexts()`
+- Add `driver.appState.get('com.apple.mobilesafari'))`
+
 ## [0.0.3] - 2019-06-03
 
 - Add an example
