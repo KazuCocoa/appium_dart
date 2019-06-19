@@ -201,7 +201,60 @@ class W3CCommands {
     'toggle_touch_id_enrollment': [
       HttpMethod.httpPost,
       'session/:session_id/appium/simulator/toggle_touch_id_enrollment'],
+
+    // MJSONWP protocol Appium support for W3C as well
+    'status': [
+      HttpMethod.httpGet,
+      'status'], // https://w3c.github.io/webdriver/#dfn-status
+    'is_element_displayed': [
+      HttpMethod.httpGet,
+      'session/:session_id/element/:id/displayed'], // hint: https://w3c.github.io/webdriver/#element-displayedness
+    'get_timeouts': [
+      HttpMethod.httpGet,
+      'session/:session_id/timeouts'], // https://w3c.github.io/webdriver/#get-timeouts
+    // Session capability
+    'get_capabilities': [
+      HttpMethod.httpGet,
+      'session/:session_id'],
+    'get_screen_orientation': [
+      HttpMethod.httpGet,
+      'session/:session_id/orientation'],
+    'set_screen_orientation': [
+      HttpMethod.httpPost,
+      'session/:session_id/orientation'],
+    'get_location': [
+      HttpMethod.httpGet,
+      'session/:session_id/location'],
+    'set_location': [
+      HttpMethod.httpPost,
+      'session/:session_id/location'],
+    // For IME
+    'ime_get_available_engines': [
+      HttpMethod.httpGet,
+      'session/:session_id/ime/available_engines'],
+    'ime_get_active_engine': [
+      HttpMethod.httpGet,
+      'session/:session_id/ime/active_engine'],
+    'ime_is_activated': [
+      HttpMethod.httpGet,
+      'session/:session_id/ime/activated'],
+    'ime_deactivate': [
+      HttpMethod.httpPost,
+      'session/:session_id/ime/deactivate'],
+    'ime_activate_engine': [
+      HttpMethod.httpPost,
+      'session/:session_id/ime/activate'],
+
+    'send_keys_to_active_element': [
+      HttpMethod.httpPost,
+      'session/:session_id/keys'],
+
+    // Logs
+    'get_available_log_types': [
+      HttpMethod.httpGet,
+      'session/:session_id/log/types'],
+    'get_log': [
+      HttpMethod.httpPost,
+      'session/:session_id/log']
   };
 }
-
-
