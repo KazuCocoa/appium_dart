@@ -54,6 +54,9 @@ $ pub run test test/unit
 
 ## TODO
 
+All W3C webdriver commands are available such as find_element/s, click and send keys.
+Below Appium specific commands are implementing.
+
 - [ ] Add appium commands
     - [x] directConnectXxxx
     - [ ] `[HttpMethod.httpGet, 'sessions']`
