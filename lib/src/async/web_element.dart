@@ -7,7 +7,7 @@ import 'package:appium_driver/src/async/web_driver.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
-import 'package:webdriver/src/common/web_element.dart'
+import 'package:webdriver/src/common/web_element.dart' // ignore: implementation_imports
     as common; // ignore: implementation_imports
 
 class AppiumWebElement extends common.WebElement

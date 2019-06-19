@@ -14,7 +14,7 @@ import 'package:appium_driver/src/handler/w3c/navigation.dart';
 import 'package:appium_driver/src/handler/w3c/session.dart';
 import 'package:appium_driver/src/handler/w3c/timeouts.dart';
 import 'package:appium_driver/src/handler/w3c/window.dart';
-
+import 'package:appium_driver/src/handler/w3c/contexts.dart';
 
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
@@ -60,6 +60,9 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
   final AppStateHandler appState = W3cAppStateHandler();
 
   @override
+  final W3cContextsHandler contexts = W3cContextsHandler();
+
+  @override
   LogsHandler get logs =>
       throw UnsupportedError('Unsupported for W3cWebDriverHandler');
 
@@ -76,5 +79,4 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
 
   @override
   String toString() => 'W3C';
-
 }

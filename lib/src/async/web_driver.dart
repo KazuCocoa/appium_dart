@@ -14,9 +14,11 @@ import 'package:appium_driver/src/async/logs.dart';
 import 'package:appium_driver/src/async/timeouts.dart';
 import 'package:appium_driver/src/async/window.dart';
 import 'package:appium_driver/src/async/app_state.dart';
+import 'package:appium_driver/src/async/contexts.dart';
 
-import 'package:webdriver/src/async/stepper.dart'
-    show Stepper; // ignore: implementation_imports
+import 'package:webdriver/src/async/stepper.dart' // ignore: implementation_imports
+    show
+        Stepper; // ignore: implementation_imports
 import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
@@ -166,6 +168,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   Mouse get mouse => Mouse(this._client, this._handler);
 
   AppState get appState => AppState(this._client, this._handler);
+
+  Contexts get contexts => Contexts(this._client, this._handler);
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.

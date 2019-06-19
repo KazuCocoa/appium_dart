@@ -11,9 +11,10 @@ import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_impor
 import 'package:webdriver/src/common/capabilities.dart'; // ignore: implementation_imports
 
 export 'package:appium_driver/async_core.dart';
+export 'package:appium_driver/src/common/by.dart';
+export 'package:appium_driver/src/common/app_state.dart';
 export 'package:appium_driver/src/async/web_driver.dart';
 export 'package:appium_driver/src/async/web_element.dart';
-export 'package:appium_driver/src/common/by.dart';
 export 'package:appium_driver/src/async/target_locator.dart';
 export 'package:appium_driver/src/async/alert.dart';
 export 'package:appium_driver/src/async/cookies.dart';
@@ -22,8 +23,7 @@ export 'package:appium_driver/src/async/logs.dart';
 export 'package:appium_driver/src/async/mouse.dart';
 export 'package:appium_driver/src/async/timeouts.dart';
 export 'package:appium_driver/src/async/window.dart';
-export 'package:appium_driver/src/common/capabilities.dart';
-export 'package:appium_driver/src/common/app_state.dart';
+export 'package:appium_driver/src/async/contexts.dart';
 
 export 'package:webdriver/src/common/command_event.dart';
 export 'package:webdriver/src/common/cookie.dart';
