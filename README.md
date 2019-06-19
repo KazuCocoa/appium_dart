@@ -54,6 +54,7 @@ $ pub run test test/unit
 
 ## release
 - Bump the version in `pubspec.yml`
+- Run `pub publish`
 
 ## TODO
 
