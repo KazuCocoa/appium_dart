@@ -15,6 +15,6 @@ class W3cAppStateHandler implements AppStateHandler {
 
   @override
   AppState parseGetAppState(WebDriverResponse response) {
-      return AppState.values[parseW3cResponse(response)];
+    return AppState.values[parseW3cResponse(response)];
   }
 }

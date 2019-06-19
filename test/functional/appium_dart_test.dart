@@ -1,7 +1,5 @@
 import 'package:test/test.dart';
 
-import 'dart:io';
-
 import 'package:appium_driver/async_io.dart';
 
 void main() {

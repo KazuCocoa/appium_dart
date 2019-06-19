@@ -9,136 +9,144 @@ class Command {
 
 // All available commands for Appium
 class W3CCommands {
-  static const GET_ALL_SESSIONS = Command(HttpMethod.httpGet, 'session'); // FIXME
+  static const GET_ALL_SESSIONS = Command(HttpMethod.httpGet,
+      'session'); // FIXME. The session command has no session_id
   static const AVAILABLE_CONTEXTS = Command(HttpMethod.httpGet, 'contexts');
-
-  static const APP_STATE = Command(HttpMethod.httpPost, 'appium/device/app_state');
-
-  static const commands = {
-    'get_all_sessions': Command(HttpMethod.httpGet, 'sessions'),
-    // FIXME. The session command has no session_id
-    'available_contexts': Command(HttpMethod.httpGet, 'contexts'),
-    'set_context': Command(HttpMethod.httpPost, 'context'),
-    'current_context': Command(HttpMethod.httpGet, 'context'),
-    'touch_actions': Command(HttpMethod.httpPost, 'touch/perform'),
-    'multi_touch': Command(HttpMethod.httpPost, 'touch/multi/perform'),
-    'set_immediate_value':
-        Command(HttpMethod.httpPost, 'appium/element/:id/value'),
-    'replace_value':
-        Command(HttpMethod.httpPost, 'appium/element/:id/replace_value'),
-    'launch_app': Command(HttpMethod.httpPost, 'appium/app/launch'),
-    'close_app': Command(HttpMethod.httpPost, 'appium/app/close'),
-    'reset': Command(HttpMethod.httpPost, 'appium/app/reset'),
-    'background_app': Command(HttpMethod.httpPost, 'appium/app/background'),
-    'app_strings': Command(HttpMethod.httpPost, 'appium/app/strings'),
-
-    'device_locked': Command(HttpMethod.httpPost, 'appium/device/is_locked'),
-    'unlock': Command(HttpMethod.httpPost, 'appium/device/unlock'),
-    'lock': Command(HttpMethod.httpPost, 'appium/device/lock'),
-    'device_time': Command(HttpMethod.httpGet, 'appium/device/system_time'),
-    'install_app': Command(HttpMethod.httpPost, 'appium/device/install_app'),
-    'remove_app': Command(HttpMethod.httpPost, 'appium/device/remove_app'),
-    'app_installed':
-        Command(HttpMethod.httpPost, 'appium/device/app_installed'),
-    'activate_app': Command(HttpMethod.httpPost, 'appium/device/activate_app'),
-    'terminate_app':
-        Command(HttpMethod.httpPost, 'appium/device/terminate_app'),
-    'app_state': Command(HttpMethod.httpPost, 'appium/device/app_state'),
-    'shake': Command(HttpMethod.httpPost, 'appium/device/shake'),
-    'hide_keyboard':
-        Command(HttpMethod.httpPost, 'appium/device/hide_keyboard'),
-    'press_keycode':
-        Command(HttpMethod.httpPost, 'appium/device/press_keycode'),
-    'long_press_keycode':
-        Command(HttpMethod.httpPost, 'appium/device/long_press_keycode'),
-    'keyevent': Command(HttpMethod.httpPost, 'appium/device/keyevent'),
-    'push_file': Command(HttpMethod.httpPost, 'appium/device/push_file'),
-    'pull_file': Command(HttpMethod.httpPost, 'appium/device/pull_file'),
-    'pull_folder': Command(HttpMethod.httpPost, 'appium/device/pull_folder'),
-    'get_clipboard':
-        Command(HttpMethod.httpPost, 'appium/device/get_clipboard'),
-    'set_clipboard':
-        Command(HttpMethod.httpPost, 'appium/device/set_clipboard'),
-    'finger_print': Command(HttpMethod.httpPost, 'appium/device/finger_print'),
-    'get_settings': Command(HttpMethod.httpGet, 'appium/settings'),
-    'update_settings': Command(HttpMethod.httpPost, 'appium/settings'),
-    'stop_recording_screen':
-        Command(HttpMethod.httpPost, 'appium/stop_recording_screen'),
-    'start_recording_screen':
-        Command(HttpMethod.httpPost, 'appium/start_recording_screen'),
-    'compare_images': Command(HttpMethod.httpPost, 'appium/compare_images'),
-    'is_keyboard_shown':
-        Command(HttpMethod.httpGet, 'appium/device/is_keyboard_shown'),
-
-    // android
-    'open_notifications':
-        Command(HttpMethod.httpPost, 'appium/device/open_notifications'),
-    'toggle_airplane_mode':
-        Command(HttpMethod.httpPost, 'appium/device/toggle_airplane_mode'),
-    'start_activity':
-        Command(HttpMethod.httpPost, 'appium/device/start_activity'),
-    'current_activity':
-        Command(HttpMethod.httpGet, 'appium/device/current_activity'),
-    'current_package':
-        Command(HttpMethod.httpGet, 'appium/device/current_package'),
-    'get_system_bars': Command(HttpMethod.httpGet, 'appium/device/system_bars'),
-    'get_display_density':
-        Command(HttpMethod.httpGet, 'appium/device/display_density'),
-    'toggle_wifi': Command(HttpMethod.httpPost, 'appium/device/toggle_wifi'),
-    'toggle_data': Command(HttpMethod.httpPost, 'appium/device/toggle_data'),
-    'toggle_location_services':
-        Command(HttpMethod.httpPost, 'appium/device/toggle_location_services'),
-    'end_coverage':
-        Command(HttpMethod.httpPost, 'appium/app/end_test_coverage'),
-    'get_performance_data_types':
-        Command(HttpMethod.httpPost, 'appium/performanceData/types'),
-    'get_performance_data':
-        Command(HttpMethod.httpPost, 'appium/getPerformanceData'),
-    'get_network_connection': Command(HttpMethod.httpGet, 'network_connection'),
-    // defined also in O),
-    'set_network_connection':
-        Command(HttpMethod.httpPost, 'network_connection'),
-    // defined also in O),
-    // only emulator
-    'send_sms': Command(HttpMethod.httpPost, 'appium/device/send_sms'),
-    'gsm_call': Command(HttpMethod.httpPost, 'appium/device/gsm_call'),
-    'gsm_signal': Command(HttpMethod.httpPost, 'appium/device/gsm_signal'),
-    'gsm_voice': Command(HttpMethod.httpPost, 'appium/device/gsm_voice'),
-    'set_network_speed':
-        Command(HttpMethod.httpPost, 'appium/device/network_speed'),
-    'set_power_capacity':
-        Command(HttpMethod.httpPost, 'appium/device/power_capacity'),
-    'set_power_ac': Command(HttpMethod.httpPost, 'appium/device/power_ac'),
-
-    //ios
-    'touch_id': Command(HttpMethod.httpPost, 'appium/simulator/touch_id'),
-    'toggle_touch_id_enrollment': Command(
-        HttpMethod.httpPost, 'appium/simulator/toggle_touch_id_enrollment'),
-
-    // MJSONWP protocol Appium support for W3C as well
-    'status': // TODO: add full path? Will check
-        Command(HttpMethod.httpGet, 'status'),
-    'is_element_displayed':
-        Command(HttpMethod.httpGet, 'element/:id/displayed'),
-    'get_timeouts': Command(HttpMethod.httpGet, 'timeouts'),
-    // Session capability
-    'get_capabilities': Command(HttpMethod.httpGet, ''),
-    'get_screen_orientation': Command(HttpMethod.httpGet, 'orientation'),
-    'set_screen_orientation': Command(HttpMethod.httpPost, 'orientation'),
-    'get_location': Command(HttpMethod.httpGet, 'location'),
-    'set_location': Command(HttpMethod.httpPost, 'location'),
-    // For IME
-    'ime_get_available_engines':
-        Command(HttpMethod.httpGet, 'ime/available_engines'),
-    'ime_get_active_engine': Command(HttpMethod.httpGet, 'ime/active_engine'),
-    'ime_is_activated': Command(HttpMethod.httpGet, 'ime/activated'),
-    'ime_deactivate': Command(HttpMethod.httpPost, 'ime/deactivate'),
-    'ime_activate_engine': Command(HttpMethod.httpPost, 'ime/activate'),
-
-    'send_keys_to_active_element': Command(HttpMethod.httpPost, 'keys'),
-
-    // Logs
-    'get_available_log_types': Command(HttpMethod.httpGet, 'log/types'),
-    'get_log': Command(HttpMethod.httpPost, 'log'),
-  };
+  static const SET_CONTEXT = Command(HttpMethod.httpPost, 'context');
+  static const CURRENT_CONTEXT = Command(HttpMethod.httpGet, 'context');
+  static const TOUCH_ACTIONS = Command(HttpMethod.httpPost, 'touch/perform');
+  static const MULTI_TOUCH =
+      Command(HttpMethod.httpPost, 'touch/multi/perform');
+  static const SET_IMMEDIATE_VALUE =
+      Command(HttpMethod.httpPost, 'appium/element/:id/value');
+  static const REPLACE_VALUE =
+      Command(HttpMethod.httpPost, 'appium/element/:id/replace_value');
+  static const LAUNCH_APP = Command(HttpMethod.httpPost, 'appium/app/launch');
+  static const CLOSE_APP = Command(HttpMethod.httpPost, 'appium/app/close');
+  static const RESET = Command(HttpMethod.httpPost, 'appium/app/reset');
+  static const BACKGROUND_APP =
+      Command(HttpMethod.httpPost, 'appium/app/background');
+  static const APP_STRINGS = Command(HttpMethod.httpPost, 'appium/app/strings');
+  static const DEVICE_LOCKED =
+      Command(HttpMethod.httpPost, 'appium/device/is_locked');
+  static const UNLOCK = Command(HttpMethod.httpPost, 'appium/device/unlock');
+  static const LOCK = Command(HttpMethod.httpPost, 'appium/device/lock');
+  static const DEVICE_TIME =
+      Command(HttpMethod.httpGet, 'appium/device/system_time');
+  static const INSTALL_APP =
+      Command(HttpMethod.httpPost, 'appium/device/install_app');
+  static const REMOVE_APP =
+      Command(HttpMethod.httpPost, 'appium/device/remove_app');
+  static const APP_INSTALLED =
+      Command(HttpMethod.httpPost, 'appium/device/app_installed');
+  static const ACTIVATE_APP =
+      Command(HttpMethod.httpPost, 'appium/device/activate_app');
+  static const TERMINATE_APP =
+      Command(HttpMethod.httpPost, 'appium/device/terminate_app');
+  static const APP_STATE =
+      Command(HttpMethod.httpPost, 'appium/device/app_state');
+  static const SHAKE = Command(HttpMethod.httpPost, 'appium/device/shake');
+  static const HIDE_KEYBOARD =
+      Command(HttpMethod.httpPost, 'appium/device/hide_keyboard');
+  static const PRESS_KEYCODE =
+      Command(HttpMethod.httpPost, 'appium/device/press_keycode');
+  static const LONG_PRESS_KEYCODE =
+      Command(HttpMethod.httpPost, 'appium/device/long_press_keycode');
+  static const KEYEVENT =
+      Command(HttpMethod.httpPost, 'appium/device/keyevent');
+  static const PUSH_FILE =
+      Command(HttpMethod.httpPost, 'appium/device/push_file');
+  static const PULL_FILE =
+      Command(HttpMethod.httpPost, 'appium/device/pull_file');
+  static const PULL_FOLDER =
+      Command(HttpMethod.httpPost, 'appium/device/pull_folder');
+  static const GET_CLIPBOARD =
+      Command(HttpMethod.httpPost, 'appium/device/get_clipboard');
+  static const SET_CLIPBOARD =
+      Command(HttpMethod.httpPost, 'appium/device/set_clipboard');
+  static const FINGER_PRINT =
+      Command(HttpMethod.httpPost, 'appium/device/finger_print');
+  static const GET_SETTINGS = Command(HttpMethod.httpGet, 'appium/settings');
+  static const UPDATE_SETTINGS =
+      Command(HttpMethod.httpPost, 'appium/settings');
+  static const STOP_RECORDING_SCREEN =
+      Command(HttpMethod.httpPost, 'appium/stop_recording_screen');
+  static const START_RECORDING_SCREEN =
+      Command(HttpMethod.httpPost, 'appium/start_recording_screen');
+  static const COMPARE_IMAGES =
+      Command(HttpMethod.httpPost, 'appium/compare_images');
+  static const IS_KEYBOARD_SHOWN =
+      Command(HttpMethod.httpGet, 'appium/device/is_keyboard_shown');
+  static const OPEN_NOTIFICATIONS =
+      Command(HttpMethod.httpPost, 'appium/device/open_notifications');
+  static const TOGGLE_AIRPLANE_MODE =
+      Command(HttpMethod.httpPost, 'appium/device/toggle_airplane_mode');
+  static const START_ACTIVITY =
+      Command(HttpMethod.httpPost, 'appium/device/start_activity');
+  static const CURRENT_ACTIVITY =
+      Command(HttpMethod.httpGet, 'appium/device/current_activity');
+  static const CURRENT_PACKAGE =
+      Command(HttpMethod.httpGet, 'appium/device/current_package');
+  static const GET_SYSTEM_BARS =
+      Command(HttpMethod.httpGet, 'appium/device/system_bars');
+  static const GET_DISPLAY_DENSITY =
+      Command(HttpMethod.httpGet, 'appium/device/display_density');
+  static const TOGGLE_WIFI =
+      Command(HttpMethod.httpPost, 'appium/device/toggle_wifi');
+  static const TOGGLE_DATA =
+      Command(HttpMethod.httpPost, 'appium/device/toggle_data');
+  static const TOGGLE_LOCATION_SERVICES =
+      Command(HttpMethod.httpPost, 'appium/device/toggle_location_services');
+  static const END_COVERAGE =
+      Command(HttpMethod.httpPost, 'appium/app/end_test_coverage');
+  static const GET_PERFORMANCE_DATA_TYPES =
+      Command(HttpMethod.httpPost, 'appium/performanceData/types');
+  static const GET_PERFORMANCE_DATA =
+      Command(HttpMethod.httpPost, 'appium/getPerformanceData');
+  static const GET_NETWORK_CONNECTION =
+      Command(HttpMethod.httpGet, 'network_connection');
+  static const SET_NETWORK_CONNECTION =
+      Command(HttpMethod.httpPost, 'network_connection');
+  static const SEND_SMS =
+      Command(HttpMethod.httpPost, 'appium/device/send_sms');
+  static const GSM_CALL =
+      Command(HttpMethod.httpPost, 'appium/device/gsm_call');
+  static const GSM_SIGNAL =
+      Command(HttpMethod.httpPost, 'appium/device/gsm_signal');
+  static const GSM_VOICE =
+      Command(HttpMethod.httpPost, 'appium/device/gsm_voice');
+  static const SET_NETWORK_SPEED =
+      Command(HttpMethod.httpPost, 'appium/device/network_speed');
+  static const SET_POWER_CAPACITY =
+      Command(HttpMethod.httpPost, 'appium/device/power_capacity');
+  static const SET_POWER_AC =
+      Command(HttpMethod.httpPost, 'appium/device/power_ac');
+  static const TOUCH_ID =
+      Command(HttpMethod.httpPost, 'appium/simulator/touch_id');
+  static const TOGGLE_TOUCH_ID_ENROLLMENT = Command(
+      HttpMethod.httpPost, 'appium/simulator/toggle_touch_id_enrollment');
+  static const STATUS = Command(HttpMethod.httpGet, 'status');
+  static const IS_ELEMENT_DISPLAYED =
+      Command(HttpMethod.httpGet, 'element/:id/displayed');
+  static const GET_TIMEOUTS = Command(HttpMethod.httpGet, 'timeouts');
+  static const GET_CAPABILITIES = Command(HttpMethod.httpGet, '');
+  static const GET_SCREEN_ORIENTATION =
+      Command(HttpMethod.httpGet, 'orientation');
+  static const SET_SCREEN_ORIENTATION =
+      Command(HttpMethod.httpPost, 'orientation');
+  static const GET_LOCATION = Command(HttpMethod.httpGet, 'location');
+  static const SET_LOCATION = Command(HttpMethod.httpPost, 'location');
+  static const IME_GET_AVAILABLE_ENGINES =
+      Command(HttpMethod.httpGet, 'ime/available_engines');
+  static const IME_GET_ACTIVE_ENGINE =
+      Command(HttpMethod.httpGet, 'ime/active_engine');
+  static const IME_IS_ACTIVATED = Command(HttpMethod.httpGet, 'ime/activated');
+  static const IME_DEACTIVATE = Command(HttpMethod.httpPost, 'ime/deactivate');
+  static const IME_ACTIVATE_ENGINE =
+      Command(HttpMethod.httpPost, 'ime/activate');
+  static const SEND_KEYS_TO_ACTIVE_ELEMENT =
+      Command(HttpMethod.httpPost, 'keys');
+  static const GET_AVAILABLE_LOG_TYPES =
+      Command(HttpMethod.httpGet, 'log/types');
+  static const GET_LOG = Command(HttpMethod.httpPost, 'log');
 }

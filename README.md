@@ -57,7 +57,7 @@ $ pub run test test/unit
 - [ ] Add appium commands
     - [x] directConnectXxxx
     - [ ] `[HttpMethod.httpGet, 'sessions']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/context']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/context']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`

@@ -16,8 +16,7 @@ import 'package:appium_driver/src/async/window.dart';
 import 'package:appium_driver/src/async/app_state.dart';
 import 'package:appium_driver/src/async/contexts.dart';
 
-
-import 'package:webdriver/src/async/stepper.dart'
+import 'package:webdriver/src/async/stepper.dart' // ignore: implementation_imports
     show Stepper; // ignore: implementation_imports
 import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports

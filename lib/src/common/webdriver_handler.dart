@@ -513,14 +513,12 @@ abstract class LogsHandler {
   List<LogEntry> parseGetLogsResponse(WebDriverResponse response);
 }
 
-
 abstract class AppStateHandler {
   /// Builds request for 'Get AppState'
   WebDriverRequest buildGetAppStateRequest(String appId);
 
   /// Parse response for 'Get AppState'
   AppState parseGetAppState(WebDriverResponse response);
-
 }
 
 abstract class ContextsHandler {

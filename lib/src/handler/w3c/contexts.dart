@@ -8,8 +8,7 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 class W3cContextsHandler implements ContextsHandler {
   @override
   WebDriverRequest buildAvailableContextsRequest() {
-    return WebDriverRequest.getRequest(
-        W3CCommands.AVAILABLE_CONTEXTS.path);
+    return WebDriverRequest.getRequest(W3CCommands.AVAILABLE_CONTEXTS.path);
   }
 
   @override
