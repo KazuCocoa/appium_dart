@@ -36,6 +36,18 @@ void main() {
         await newDriver.appState.get('com.apple.mobilesafari'));
   });
 
+  test('app management', () async {
+    expect(await driver.app.isInstalled('com.apple.mobilesafari'), true);
+    await driver.app.background(seconds: Duration(seconds: -1));
+    expect(await driver.appState.get('com.apple.mobilesafari'), AppState.RunningInBackground);
+    await driver.app.activate('com.apple.mobilesafari');
+    expect(await driver.appState.get('com.apple.mobilesafari'), AppState.RunningInForeground);
+    await driver.app.terminate('com.apple.mobilesafari');
+    expect(await driver.appState.get('com.apple.mobilesafari'), AppState.NotRunning);
+    await driver.app.launch();
+    expect(await driver.appState.get('com.apple.mobilesafari'), AppState.RunningInForeground);
+  });
+
   test('Get capabilities', () async {
     var result = await driver.contexts.getAvailableContexts();
     expect((await driver.contexts.getCurrentContext()).startsWith('WEBVIEW'),

@@ -15,6 +15,7 @@ import 'package:appium_driver/src/async/timeouts.dart';
 import 'package:appium_driver/src/async/window.dart';
 import 'package:appium_driver/src/async/app_state.dart';
 import 'package:appium_driver/src/async/contexts.dart';
+import 'package:appium_driver/src/async/app_management.dart';
 
 import 'package:webdriver/src/async/stepper.dart' // ignore: implementation_imports
     show
@@ -166,6 +167,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   Keyboard get keyboard => Keyboard(this._client, this._handler);
 
   Mouse get mouse => Mouse(this._client, this._handler);
+
+  AppManagement get app => AppManagement(this._client, this._handler);
 
   AppState get appState => AppState(this._client, this._handler);
 

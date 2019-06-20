@@ -53,6 +53,8 @@ abstract class AppiumWebDriverHandler {
 
   ContextsHandler get contexts;
 
+  AppManagementHandler get app;
+
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
 
@@ -513,12 +515,39 @@ abstract class LogsHandler {
   List<LogEntry> parseGetLogsResponse(WebDriverResponse response);
 }
 
-abstract class AppStateHandler {
-  /// Builds request for 'Get AppState'
-  WebDriverRequest buildGetAppStateRequest(String appId);
+abstract class AppManagementHandler {
+  WebDriverRequest buildLaunchAppRequest();
+  void parseLaunchAppResponse(WebDriverResponse response);
 
-  /// Parse response for 'Get AppState'
-  AppState parseGetAppState(WebDriverResponse response);
+  WebDriverRequest buildCloseAppRequest();
+  void parseCloseAppResponse(WebDriverResponse response);
+
+  WebDriverRequest buildResetAppRequest();
+  void parseResetAppResponse(WebDriverResponse response);
+
+  WebDriverRequest buildBackgroundAppRequest({Duration seconds});
+  void parseBackgroundAppResponse(WebDriverResponse response);
+
+  WebDriverRequest buildGetStringRequest();
+  Map<String, dynamic> parseGetStringResponse(WebDriverResponse response);
+
+  WebDriverRequest buildInstallAppRequest(String path, {
+    bool replace, Duration timeout, bool allowTestPackage,
+    bool useSdcard, bool grantPermissions});
+  void parseInstallAppResponse(WebDriverResponse response);
+
+  WebDriverRequest buildRemoveAppRequest(String appId, {
+    bool keepData, Duration timeout});
+  void parseRemoveAppResponse(WebDriverResponse response);
+
+  WebDriverRequest buildIsAppInstalledRequest(String appId);
+  bool parseIsAppInstalledResponse(WebDriverResponse response);
+
+  WebDriverRequest buildActivateAppRequest(String appId);
+  void parseActivateAppResponse(WebDriverResponse response);
+
+  WebDriverRequest buildTerminateAppRequest(String appId);
+  void parseTerminateResponse(WebDriverResponse response);
 }
 
 abstract class ContextsHandler {
@@ -539,4 +568,12 @@ abstract class ContextsHandler {
 
   /// Parse response for 'set context'
   void parseSetContextResponse(WebDriverResponse response);
+}
+
+abstract class AppStateHandler {
+  /// Builds request for 'Get AppState'
+  WebDriverRequest buildGetAppStateRequest(String appId);
+
+  /// Parse response for 'Get AppState'
+  AppState parseGetAppState(WebDriverResponse response);
 }

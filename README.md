@@ -71,20 +71,20 @@ Below Appium specific commands are implementing.
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/replace_value']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/app/launch']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/app/close']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/app/background']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/app/strings']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/launch']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/close']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/background']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/strings']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/is_locked']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/unlock']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/lock']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_time']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/install_app']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/remove_app']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_installed']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/activate_app']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/terminate_app']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/install_app']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/remove_app']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_installed']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/activate_app']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/terminate_app']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_state']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/shake']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/hide_keyboard']`
