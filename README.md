@@ -65,8 +65,8 @@ Below Appium specific commands are implementing.
     - [x] directConnectXxxx
     - [ ] `[HttpMethod.httpGet, 'sessions']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/context']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/context']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/context']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/context']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`

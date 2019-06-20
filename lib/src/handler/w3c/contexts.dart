@@ -7,12 +7,33 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 
 class W3cContextsHandler implements ContextsHandler {
   @override
-  WebDriverRequest buildAvailableContextsRequest() {
+  WebDriverRequest buildGetAvailableContextsRequest() {
     return WebDriverRequest.getRequest(W3CCommands.AVAILABLE_CONTEXTS.path);
   }
 
   @override
-  List<String> parseAvailableContexts(WebDriverResponse response) {
+  List<String> parseGetAvailableContexts(WebDriverResponse response) {
     return parseW3cResponse(response).cast<String>();
+  }
+
+  @override
+  WebDriverRequest buildGetCurrentContextRequest() {
+    return WebDriverRequest.getRequest(W3CCommands.CURRENT_CONTEXT.path);
+  }
+
+  @override
+  WebDriverRequest buildSetContextRequest(String context) {
+    return WebDriverRequest.postRequest(
+        W3CCommands.SET_CONTEXT.path, {'name': context});
+  }
+
+  @override
+  String parseGetCurrentContext(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
+
+  @override
+  void parseSetContextResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
   }
 }

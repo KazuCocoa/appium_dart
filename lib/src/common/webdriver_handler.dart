@@ -522,7 +522,21 @@ abstract class AppStateHandler {
 }
 
 abstract class ContextsHandler {
-  WebDriverRequest buildAvailableContextsRequest();
+  /// Builds request for 'get available contexts'
+  WebDriverRequest buildGetAvailableContextsRequest();
 
-  List<String> parseAvailableContexts(WebDriverResponse response);
+  /// Parse response for 'get available contexts'
+  List<String> parseGetAvailableContexts(WebDriverResponse response);
+
+  /// Builds request for 'get current context'
+  WebDriverRequest buildGetCurrentContextRequest();
+
+  /// Parse response for 'get current context'
+  String parseGetCurrentContext(WebDriverResponse response);
+
+  /// Builds request for 'set context'
+  WebDriverRequest buildSetContextRequest(String context);
+
+  /// Parse response for 'set context'
+  void parseSetContextResponse(WebDriverResponse response);
 }

@@ -11,14 +11,22 @@ class Contexts {
   Contexts(this._client, this._handler);
 
   Future<List<String>> getAvailableContexts() => _client.send(
-      _handler.contexts.buildAvailableContextsRequest(),
-      _handler.contexts.parseAvailableContexts);
+      _handler.contexts.buildGetAvailableContextsRequest(),
+      _handler.contexts.parseGetAvailableContexts);
+
+  Future<String> getCurrentContext() => _client.send(
+      _handler.contexts.buildGetCurrentContextRequest(),
+      _handler.contexts.parseGetCurrentContext);
+
+  Future<void> setContext(String context) => _client.send(
+      _handler.contexts.buildSetContextRequest(context),
+      _handler.contexts.parseSetContextResponse);
 
   @override
   int get hashCode => _client.hashCode;
 
   @override
-  bool operator ==(other) => // FIXME: compare with Map
+  bool operator ==(other) =>
       other._client == this._client && other._handler == this._handler;
 
   @override

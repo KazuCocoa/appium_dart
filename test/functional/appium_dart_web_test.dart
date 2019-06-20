@@ -38,8 +38,13 @@ void main() {
 
   test('Get capabilities', () async {
     var result = await driver.contexts.getAvailableContexts();
-    print(result);
-//    expect(result.containsKey(''));
+    expect((await driver.contexts.getCurrentContext()).startsWith('WEBVIEW'),
+        true);
+    await driver.contexts.setContext(result.first);
+    expect(await driver.contexts.getCurrentContext(), 'NATIVE_APP');
+    await driver.contexts.setContext(result.last);
+    expect((await driver.contexts.getCurrentContext()).startsWith('WEBVIEW'),
+        true);
   });
 
   test('find by appium element', () async {
