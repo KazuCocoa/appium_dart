@@ -2,20 +2,15 @@ import 'package:test/test.dart';
 
 import 'package:appium_driver/async_io.dart';
 
+import 'helper.dart';
+
 void main() {
   AppiumWebDriver driver;
 
   setUpAll(() async {
     driver = await createDriver(
         uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
-        desired: {
-          'platformName': 'Android',
-          'browserName': 'Chrome',
-          'deviceName': 'Android',
-          'autoAcceptsAlerts': 'true',
-          'automationName': 'UiAutomator2',
-          'headspin.selector': {'sku': 'Pixel', 'os_version': '>5'},
-        });
+        desired: TestHelper.iOSDesiredCapabilitiesApp);
     await driver.timeouts.setImplicitTimeout(Duration(seconds: 5));
   });
 
