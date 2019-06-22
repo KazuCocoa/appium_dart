@@ -1,6 +1,8 @@
 import 'dart:io';
 
 class TestHelper {
+  static var localServer = Uri.parse('http://127.0.0.1:4723/wd/hub/');
+
   static var androidDesiredCapabilitiesApp = {
     'platformName': 'Android',
     'app': new File('test/functional/app/api.apk.zip').absolute.path,

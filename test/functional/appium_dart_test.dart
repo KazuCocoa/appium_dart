@@ -9,7 +9,7 @@ void main() {
 
   setUpAll(() async {
     driver = await createDriver(
-        uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
+        uri: TestHelper.localServer,
         desired: TestHelper.iOSDesiredCapabilitiesApp);
     await driver.timeouts.setImplicitTimeout(Duration(seconds: 5));
   });
