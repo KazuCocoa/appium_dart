@@ -16,7 +16,7 @@ import 'package:appium_driver/src/handler/w3c/timeouts.dart';
 import 'package:appium_driver/src/handler/w3c/window.dart';
 import 'package:appium_driver/src/handler/w3c/contexts.dart';
 import 'package:appium_driver/src/handler/w3c/app_management.dart';
-
+import 'package:appium_driver/src/handler/w3c/ime.dart';
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
 
@@ -68,6 +68,10 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
   // Only for Appium
   @override
   final AppStateHandler appState = W3cAppStateHandler();
+
+  // Only for Appium
+  @override
+  final IMEHandler ime = W3cIMEHandler();
 
   @override
   LogsHandler get logs =>

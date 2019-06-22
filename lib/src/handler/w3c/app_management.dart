@@ -1,4 +1,3 @@
-import 'package:appium_driver/src/common/app_state.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:appium_driver/src/common/w3c/command.dart';

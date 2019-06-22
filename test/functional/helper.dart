@@ -5,7 +5,7 @@ class TestHelper {
 
   static var androidDesiredCapabilitiesApp = {
     'platformName': 'Android',
-    'app': new File('test/functional/app/api.apk.zip').absolute.path,
+    'app': File('test/functional/app/api.apk.zip').absolute.path,
     'deviceName': 'Android',
     'automationName': 'UiAutomator2',
     'appPackage': 'io.appium.android.apis',
@@ -21,7 +21,7 @@ class TestHelper {
   static var iOSDesiredCapabilitiesApp = {
     'platformName': 'iOS',
     'platformVersion': '12.2',
-    'app': new File('test/functional/app/UICatalog.app.zip').absolute.path,
+    'app': File('test/functional/app/UICatalog.app.zip').absolute.path,
     'deviceName': 'iPhone X', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
     'useJSONSource': true,

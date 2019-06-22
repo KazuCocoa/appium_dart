@@ -135,11 +135,11 @@ Below Appium specific commands are implementing.
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/orientation']`
     - [ ] `[HtMethod.httpGet, 'session/:session_id/location']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/location']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/ime/available_engines']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/ime/active_engine']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/ime/activated']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/ime/deactivate']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/ime/activate']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/ime/available_engines']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/ime/active_engine']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/ime/activated']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/ime/deactivate']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/ime/activate']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/keys']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/log/types']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/log']`

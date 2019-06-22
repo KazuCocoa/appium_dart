@@ -55,6 +55,8 @@ abstract class AppiumWebDriverHandler {
 
   AppManagementHandler get app;
 
+  IMEHandler get ime;
+
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
 
@@ -531,13 +533,16 @@ abstract class AppManagementHandler {
   WebDriverRequest buildGetStringRequest();
   Map<String, dynamic> parseGetStringResponse(WebDriverResponse response);
 
-  WebDriverRequest buildInstallAppRequest(String path, {
-    bool replace, Duration timeout, bool allowTestPackage,
-    bool useSdcard, bool grantPermissions});
+  WebDriverRequest buildInstallAppRequest(String path,
+      {bool replace,
+      Duration timeout,
+      bool allowTestPackage,
+      bool useSdcard,
+      bool grantPermissions});
   void parseInstallAppResponse(WebDriverResponse response);
 
-  WebDriverRequest buildRemoveAppRequest(String appId, {
-    bool keepData, Duration timeout});
+  WebDriverRequest buildRemoveAppRequest(String appId,
+      {bool keepData, Duration timeout});
   void parseRemoveAppResponse(WebDriverResponse response);
 
   WebDriverRequest buildIsAppInstalledRequest(String appId);
@@ -576,4 +581,36 @@ abstract class AppStateHandler {
 
   /// Parse response for 'Get AppState'
   AppState parseGetAppState(WebDriverResponse response);
+}
+
+abstract class IMEHandler {
+  /// Builds request for 'get available engines'
+  WebDriverRequest buildGetAvailableEnginesRequest();
+
+  /// Parse response for 'get available engines'
+  List<String> parseGetAvailableEngines(WebDriverResponse response);
+
+  /// Builds request for 'get active engines'
+  WebDriverRequest buildGetActiveEngineRequest();
+
+  /// Parse response for 'get active contexts'
+  String parseGetActiveEngine(WebDriverResponse response);
+
+  /// Builds request for 'is activated'
+  WebDriverRequest buildIsActivatedRequest();
+
+  /// Parse response for 'is activated'
+  bool parseIsActivated(WebDriverResponse response);
+
+  /// Builds request for 'deactivate'
+  WebDriverRequest buildDeactivateRequest();
+
+  /// Parse response for 'deactivate'
+  void parseDeactivate(WebDriverResponse response);
+
+  /// Builds request for 'get active engines'
+  WebDriverRequest buildActiveEngineRequest(String imeName);
+
+  /// Parse response for 'get active contexts'
+  void parseActiveEngine(WebDriverResponse response);
 }
