@@ -1,3 +1,12 @@
+## [Unreleased]
+
+## [0.0.5] - 2019-06-22
+- Add context related commands: `driver.contexts.*`
+- Add app state related commands: `driver.appState.*`
+- Add app management commands: `driver.app.*`
+    - e.g. install, terminate
+- Add IME related commands: `driver.ime.*`
+
 ## [0.0.4] - 2019-06-19
 
 - Add `driver.contexts.getAvailableContexts()`
