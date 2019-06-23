@@ -76,10 +76,10 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/background']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/strings']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/is_locked']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/unlock']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/lock']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_time']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/is_locked']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/unlock']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/lock']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_time']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/install_app']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/remove_app']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_installed']`

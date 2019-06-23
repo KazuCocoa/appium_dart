@@ -33,6 +33,7 @@ class IME {
 
   @override
   bool operator ==(other) =>
+      other is IME &&
       other._client == this._client && other._handler == this._handler;
 
   @override

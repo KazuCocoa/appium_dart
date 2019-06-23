@@ -57,6 +57,8 @@ abstract class AppiumWebDriverHandler {
 
   IMEHandler get ime;
 
+  DeviceHandler get device;
+
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
 
@@ -613,4 +615,32 @@ abstract class IMEHandler {
 
   /// Parse response for 'get active contexts'
   void parseActiveEngine(WebDriverResponse response);
+}
+
+abstract class DeviceHandler {
+  /// Builds request for 'locked'
+  WebDriverRequest buildDeviceIsLockedRequest();
+
+  /// Parse response for 'locked'
+  bool parseDeviceIsLocked(WebDriverResponse response);
+
+  /// Builds request for 'unlock'
+  WebDriverRequest buildUnlockDeviceRequest();
+
+  /// Parse response for 'locked'
+  void parseUnlockDevice(WebDriverResponse response);
+
+
+  /// Builds request for 'lock'
+  WebDriverRequest buildLockDeviceRequest({Duration seconds});
+
+  /// Parse response for 'lock'
+  void parseLockDevice(WebDriverResponse response);
+
+
+  /// Builds request for 'system time'
+  WebDriverRequest buildDeviceSystemTimeRequest();
+
+  /// Parse response for 'locked'
+  String parseDeviceSystemTime(WebDriverResponse response);
 }

@@ -17,6 +17,7 @@ import 'package:appium_driver/src/handler/w3c/window.dart';
 import 'package:appium_driver/src/handler/w3c/contexts.dart';
 import 'package:appium_driver/src/handler/w3c/app_management.dart';
 import 'package:appium_driver/src/handler/w3c/ime.dart';
+import 'package:appium_driver/src/handler/w3c/device.dart';
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
 
@@ -72,6 +73,10 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
   // Only for Appium
   @override
   final IMEHandler ime = W3cIMEHandler();
+
+  // Only for Appium
+  @override
+  final DeviceHandler device = W3cDeviceHandler();
 
   @override
   LogsHandler get logs =>

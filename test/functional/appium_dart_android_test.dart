@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:test/test.dart';
 
 import 'package:appium_driver/async_io.dart';
@@ -36,5 +37,23 @@ void main() {
 
     await driver.ime.activateEngine(firstEngine);
     expect(await driver.ime.getActiveEngine(), firstEngine);
+  });
+  
+  test('device lock', () async {
+    expect(await driver.device.isLocked(), false);
+
+    await driver.device.lock();
+    expect(await driver.device.isLocked(), true);
+
+    await driver.device.unlock();
+    expect(await driver.device.isLocked(), false);
+
+    await driver.device.lock(seconds: Duration(seconds: 2));
+    // wait 2 sec
+    expect(await driver.device.isLocked(), false);
+
+    var time = await driver.device.getSystemTime();
+    expect(time is String, true);
+
   });
 }

@@ -25,6 +25,7 @@ export 'package:appium_driver/src/async/timeouts.dart';
 export 'package:appium_driver/src/async/window.dart';
 export 'package:appium_driver/src/async/contexts.dart';
 export 'package:appium_driver/src/async/ime.dart';
+export 'package:appium_driver/src/async/device.dart';
 
 export 'package:webdriver/src/common/command_event.dart';
 export 'package:webdriver/src/common/cookie.dart';

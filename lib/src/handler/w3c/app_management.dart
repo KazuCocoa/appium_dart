@@ -21,9 +21,9 @@ class W3cAppManagementHandler implements AppManagementHandler {
   WebDriverRequest buildBackgroundAppRequest({Duration seconds}) {
     Map<String, dynamic> arg = {};
     if (seconds == null) {
-      arg['seconds'] = Duration(seconds: 0).inMilliseconds;
+      arg['seconds'] = Duration(seconds: 0).inSeconds;
     } else {
-      arg['seconds'] = seconds.inMilliseconds;
+      arg['seconds'] = seconds.inSeconds;
     }
 
     return AppiumWebDriverRequest.sendRequest(W3CCommands.BACKGROUND_APP, arg);

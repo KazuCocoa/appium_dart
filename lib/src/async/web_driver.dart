@@ -17,6 +17,7 @@ import 'package:appium_driver/src/async/app_state.dart';
 import 'package:appium_driver/src/async/contexts.dart';
 import 'package:appium_driver/src/async/app_management.dart';
 import 'package:appium_driver/src/async/ime.dart';
+import 'package:appium_driver/src/async/device.dart';
 
 import 'package:webdriver/src/async/stepper.dart' // ignore: implementation_imports
     show
@@ -176,6 +177,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   Contexts get contexts => Contexts(this._client, this._handler);
 
   IME get ime => IME(this._client, this._handler);
+
+  Device get device => Device(this._client, this._handler);
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.

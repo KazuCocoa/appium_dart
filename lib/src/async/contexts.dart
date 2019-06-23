@@ -27,6 +27,7 @@ class Contexts {
 
   @override
   bool operator ==(other) =>
+      other is Contexts &&
       other._client == this._client && other._handler == this._handler;
 
   @override

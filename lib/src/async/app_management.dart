@@ -67,7 +67,9 @@ class AppManagement {
 
   @override
   bool operator ==(other) =>
-      other._client == this._client && other._handler == this._handler;
+      other is AppManagement &&
+      other._client == this._client &&
+      other._handler == this._handler;
 
   @override
   String toString() => '$_handler.appManagemenet($_client)';
