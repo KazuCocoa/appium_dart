@@ -1,6 +1,8 @@
 ## [Unreleased]
 - Add device lock related commands: `driver.device.*`
 - Add device system time command: `driver.device.getSystemTime()`
+- Add device shake command: `driver.device.shake()`
+
 
 ## [0.0.5] - 2019-06-22
 - Add context related commands: `driver.contexts.*`

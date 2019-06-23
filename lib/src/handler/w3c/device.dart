@@ -53,4 +53,14 @@ class W3cDeviceHandler implements DeviceHandler {
   String parseDeviceSystemTime(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildShakeDeviceRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SHAKE);
+  }
+
+  @override
+  void parseShakeDevice(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
 }

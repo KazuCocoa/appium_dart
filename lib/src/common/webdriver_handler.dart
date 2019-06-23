@@ -639,6 +639,12 @@ abstract class DeviceHandler {
   /// Builds request for 'system time'
   WebDriverRequest buildDeviceSystemTimeRequest();
 
-  /// Parse response for 'locked'
+  /// Parse response for 'system time'
   String parseDeviceSystemTime(WebDriverResponse response);
+
+  /// Builds request for 'shake'
+  WebDriverRequest buildShakeDeviceRequest();
+
+  /// Parse response for 'shake'
+  void parseShakeDevice(WebDriverResponse response);
 }

@@ -31,4 +31,8 @@ void main() {
 
     await driver.findElement(AppiumBy.accessibilityId(textView));
   });
+
+  test('shake', () async {
+    await driver.device.shake();
+  });
 }

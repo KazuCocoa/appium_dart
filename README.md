@@ -86,7 +86,7 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/activate_app']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/terminate_app']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_state']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/shake']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/shake']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/hide_keyboard']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/press_keycode']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/long_press_keycode']`

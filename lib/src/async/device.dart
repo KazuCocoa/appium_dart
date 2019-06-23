@@ -30,6 +30,11 @@ class Device {
       _handler.device.buildDeviceSystemTimeRequest(),
       _handler.device.parseDeviceSystemTime);
 
+  /// Get app state
+  Future<void> shake() => _client.send(
+      _handler.device.buildShakeDeviceRequest(),
+      _handler.device.parseShakeDevice);
+
   @override
   int get hashCode => _client.hashCode;
 
