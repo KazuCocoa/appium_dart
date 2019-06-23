@@ -10,7 +10,8 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 class W3cAppStateHandler implements AppStateHandler {
   @override
   WebDriverRequest buildGetAppStateRequest(String appId) {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.APP_STATE, {'appId': appId});
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.APP_STATE, {'appId': appId});
   }
 
   @override

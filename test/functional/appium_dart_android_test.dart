@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:test/test.dart';
 
 import 'package:appium_driver/async_io.dart';
@@ -38,7 +37,7 @@ void main() {
     await driver.ime.activateEngine(firstEngine);
     expect(await driver.ime.getActiveEngine(), firstEngine);
   });
-  
+
   test('device lock', () async {
     expect(await driver.device.isLocked(), false);
 
@@ -53,7 +52,6 @@ void main() {
     expect(await driver.device.isLocked(), false);
 
     var time = await driver.device.getSystemTime();
-    expect(time is String, true);
-
+    expect(DateTime.parse(time) is DateTime, true); // Can parse without error
   });
 }

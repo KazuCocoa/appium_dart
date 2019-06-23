@@ -630,13 +630,11 @@ abstract class DeviceHandler {
   /// Parse response for 'locked'
   void parseUnlockDevice(WebDriverResponse response);
 
-
   /// Builds request for 'lock'
   WebDriverRequest buildLockDeviceRequest({Duration seconds});
 
   /// Parse response for 'lock'
   void parseLockDevice(WebDriverResponse response);
-
 
   /// Builds request for 'system time'
   WebDriverRequest buildDeviceSystemTimeRequest();

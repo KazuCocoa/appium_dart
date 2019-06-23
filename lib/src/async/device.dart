@@ -20,18 +20,15 @@ class Device {
       _handler.device.buildLockDeviceRequest(seconds: seconds),
       _handler.device.parseLockDevice);
 
-
   /// Get app state
   Future<void> unlock() => _client.send(
       _handler.device.buildUnlockDeviceRequest(),
       _handler.device.parseUnlockDevice);
 
-
   /// Get app state
   Future<String> getSystemTime() => _client.send(
       _handler.device.buildDeviceSystemTimeRequest(),
       _handler.device.parseDeviceSystemTime);
-
 
   @override
   int get hashCode => _client.hashCode;

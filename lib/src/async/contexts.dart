@@ -28,7 +28,8 @@ class Contexts {
   @override
   bool operator ==(other) =>
       other is Contexts &&
-      other._client == this._client && other._handler == this._handler;
+      other._client == this._client &&
+      other._handler == this._handler;
 
   @override
   String toString() => '$_handler.getCapabilities($_client)';

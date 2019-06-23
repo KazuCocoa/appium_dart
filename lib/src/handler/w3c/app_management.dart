@@ -9,7 +9,8 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 class W3cAppManagementHandler implements AppManagementHandler {
   @override
   WebDriverRequest buildActivateAppRequest(String appId) {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.ACTIVATE_APP, {'bundleId': appId});
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.ACTIVATE_APP, {'bundleId': appId});
   }
 
   @override
@@ -83,7 +84,8 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildIsAppInstalledRequest(String appId) {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.APP_INSTALLED, {'bundleId': appId});
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.APP_INSTALLED, {'bundleId': appId});
   }
 
   @override
@@ -130,7 +132,8 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildTerminateAppRequest(String appId) {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.TERMINATE_APP, {'bundleId': appId});
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.TERMINATE_APP, {'bundleId': appId});
   }
 
   @override

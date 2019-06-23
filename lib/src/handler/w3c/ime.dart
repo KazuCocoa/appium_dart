@@ -9,7 +9,8 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 class W3cIMEHandler implements IMEHandler {
   @override
   WebDriverRequest buildGetAvailableEnginesRequest() {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_GET_AVAILABLE_ENGINES);
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.IME_GET_AVAILABLE_ENGINES);
   }
 
   @override
@@ -19,7 +20,8 @@ class W3cIMEHandler implements IMEHandler {
 
   @override
   WebDriverRequest buildGetActiveEngineRequest() {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_GET_ACTIVE_ENGINE);
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.IME_GET_ACTIVE_ENGINE);
   }
 
   @override
@@ -49,7 +51,8 @@ class W3cIMEHandler implements IMEHandler {
 
   @override
   WebDriverRequest buildActiveEngineRequest(String imeName) {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_ACTIVATE_ENGINE, {'engine': imeName});
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.IME_ACTIVATE_ENGINE, {'engine': imeName});
   }
 
   @override
