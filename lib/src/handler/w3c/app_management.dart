@@ -1,6 +1,7 @@
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:appium_driver/src/common/w3c/command.dart';
+import 'package:appium_driver/src/common/request.dart';
 
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
@@ -8,8 +9,7 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 class W3cAppManagementHandler implements AppManagementHandler {
   @override
   WebDriverRequest buildActivateAppRequest(String appId) {
-    return WebDriverRequest.postRequest(
-        W3CCommands.ACTIVATE_APP.path, {'bundleId': appId});
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.ACTIVATE_APP, {'bundleId': appId});
   }
 
   @override
@@ -26,7 +26,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
       arg['seconds'] = seconds.inMilliseconds;
     }
 
-    return WebDriverRequest.postRequest(W3CCommands.BACKGROUND_APP.path, arg);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.BACKGROUND_APP, arg);
   }
 
   @override
@@ -36,7 +36,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildCloseAppRequest() {
-    return WebDriverRequest.postRequest(W3CCommands.CLOSE_APP.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.CLOSE_APP);
   }
 
   @override
@@ -46,7 +46,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildGetStringRequest() {
-    return WebDriverRequest.postRequest(W3CCommands.APP_STRINGS.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.APP_STRINGS);
   }
 
   @override
@@ -73,7 +73,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
     if (grantPermissions != null) {
       arg['options']['grantPermissions'] = grantPermissions;
     }
-    return WebDriverRequest.postRequest(W3CCommands.INSTALL_APP.path, arg);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.INSTALL_APP, arg);
   }
 
   @override
@@ -83,8 +83,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildIsAppInstalledRequest(String appId) {
-    return WebDriverRequest.postRequest(
-        W3CCommands.APP_INSTALLED.path, {'bundleId': appId});
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.APP_INSTALLED, {'bundleId': appId});
   }
 
   @override
@@ -94,7 +93,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildLaunchAppRequest() {
-    return WebDriverRequest.postRequest(W3CCommands.LAUNCH_APP.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.LAUNCH_APP);
   }
 
   @override
@@ -111,7 +110,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
     if (timeout != null) {
       arg['options']['timeout'] = timeout.inMilliseconds;
     }
-    return WebDriverRequest.postRequest(W3CCommands.REMOVE_APP.path, arg);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.REMOVE_APP, arg);
   }
 
   @override
@@ -121,7 +120,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildResetAppRequest() {
-    return WebDriverRequest.postRequest(W3CCommands.RESET.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.RESET);
   }
 
   @override
@@ -131,8 +130,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildTerminateAppRequest(String appId) {
-    return WebDriverRequest.postRequest(
-        W3CCommands.TERMINATE_APP.path, {'bundleId': appId});
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.TERMINATE_APP, {'bundleId': appId});
   }
 
   @override

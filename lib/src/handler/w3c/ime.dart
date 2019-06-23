@@ -1,6 +1,7 @@
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:appium_driver/src/common/w3c/command.dart';
+import 'package:appium_driver/src/common/request.dart';
 
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
@@ -8,8 +9,7 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 class W3cIMEHandler implements IMEHandler {
   @override
   WebDriverRequest buildGetAvailableEnginesRequest() {
-    return WebDriverRequest.getRequest(
-        W3CCommands.IME_GET_AVAILABLE_ENGINES.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_GET_AVAILABLE_ENGINES);
   }
 
   @override
@@ -19,7 +19,7 @@ class W3cIMEHandler implements IMEHandler {
 
   @override
   WebDriverRequest buildGetActiveEngineRequest() {
-    return WebDriverRequest.getRequest(W3CCommands.IME_GET_ACTIVE_ENGINE.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_GET_ACTIVE_ENGINE);
   }
 
   @override
@@ -29,7 +29,7 @@ class W3cIMEHandler implements IMEHandler {
 
   @override
   WebDriverRequest buildIsActivatedRequest() {
-    return WebDriverRequest.getRequest(W3CCommands.IME_IS_ACTIVATED.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_IS_ACTIVATED);
   }
 
   @override
@@ -39,7 +39,7 @@ class W3cIMEHandler implements IMEHandler {
 
   @override
   WebDriverRequest buildDeactivateRequest() {
-    return WebDriverRequest.postRequest(W3CCommands.IME_DEACTIVATE.path);
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_DEACTIVATE);
   }
 
   @override
@@ -49,8 +49,7 @@ class W3cIMEHandler implements IMEHandler {
 
   @override
   WebDriverRequest buildActiveEngineRequest(String imeName) {
-    return WebDriverRequest.postRequest(
-        W3CCommands.IME_ACTIVATE_ENGINE.path, {'engine': imeName});
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.IME_ACTIVATE_ENGINE, {'engine': imeName});
   }
 
   @override

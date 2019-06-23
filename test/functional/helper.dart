@@ -24,6 +24,7 @@ class TestHelper {
     'app': File('test/functional/app/UICatalog.app.zip').absolute.path,
     'deviceName': 'iPhone X', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
+    'wdaLocalPort': 8100,
     'useJSONSource': true,
     'reduceMotion': true
   };
@@ -34,6 +35,7 @@ class TestHelper {
     'browserName': 'Safari',
     'deviceName': 'iPhone 8', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
+    'wdaLocalPort': 8101,
     'useJSONSource': true,
     'reduceMotion': true
   };
