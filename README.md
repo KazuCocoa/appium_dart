@@ -87,7 +87,7 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/terminate_app']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_state']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/shake']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/hide_keyboard']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/hide_keyboard']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/press_keycode']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/long_press_keycode']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`
@@ -102,7 +102,7 @@ Below Appium specific commands are implementing.
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/stop_recording_screen']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/start_recording_screen']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/compare_images']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/is_keyboard_shown']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/is_keyboard_shown']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/open_notifications']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_airplane_mode']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/start_activity']`

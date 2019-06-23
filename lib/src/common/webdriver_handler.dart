@@ -254,6 +254,18 @@ abstract class KeyboardHandler {
 
   /// Parses response got after sending keys.
   void parseSendKeysResponse(WebDriverResponse response);
+
+  /// Builds request for 'hide keyboard'
+  WebDriverRequest buildHideKeyboardRequest();
+
+  /// Parses response got after v
+  void parseHideKeyboardResponse(WebDriverResponse response);
+
+  /// Builds request for 'hide keyboard'
+  WebDriverRequest buildIsKeyboardShownRequest();
+
+  /// Parses response got after 'hide keyboard'
+  bool parseIsKeyboardShownResponse(WebDriverResponse response);
 }
 
 abstract class MouseHandler {
@@ -590,31 +602,31 @@ abstract class IMEHandler {
   WebDriverRequest buildGetAvailableEnginesRequest();
 
   /// Parse response for 'get available engines'
-  List<String> parseGetAvailableEngines(WebDriverResponse response);
+  List<String> parseGetAvailableEnginesResponse(WebDriverResponse response);
 
   /// Builds request for 'get active engines'
   WebDriverRequest buildGetActiveEngineRequest();
 
   /// Parse response for 'get active contexts'
-  String parseGetActiveEngine(WebDriverResponse response);
+  String parseGetActiveEngineResponse(WebDriverResponse response);
 
   /// Builds request for 'is activated'
   WebDriverRequest buildIsActivatedRequest();
 
   /// Parse response for 'is activated'
-  bool parseIsActivated(WebDriverResponse response);
+  bool parseIsActivatedResponse(WebDriverResponse response);
 
   /// Builds request for 'deactivate'
   WebDriverRequest buildDeactivateRequest();
 
   /// Parse response for 'deactivate'
-  void parseDeactivate(WebDriverResponse response);
+  void parseDeactivateResponse(WebDriverResponse response);
 
   /// Builds request for 'get active engines'
   WebDriverRequest buildActiveEngineRequest(String imeName);
 
   /// Parse response for 'get active contexts'
-  void parseActiveEngine(WebDriverResponse response);
+  void parseActiveEngineResponse(WebDriverResponse response);
 }
 
 abstract class DeviceHandler {
@@ -622,29 +634,29 @@ abstract class DeviceHandler {
   WebDriverRequest buildDeviceIsLockedRequest();
 
   /// Parse response for 'locked'
-  bool parseDeviceIsLocked(WebDriverResponse response);
+  bool parseDeviceIsLockedResponse(WebDriverResponse response);
 
   /// Builds request for 'unlock'
   WebDriverRequest buildUnlockDeviceRequest();
 
   /// Parse response for 'locked'
-  void parseUnlockDevice(WebDriverResponse response);
+  void parseUnlockDeviceResponse(WebDriverResponse response);
 
   /// Builds request for 'lock'
   WebDriverRequest buildLockDeviceRequest({Duration seconds});
 
   /// Parse response for 'lock'
-  void parseLockDevice(WebDriverResponse response);
+  void parseLockDeviceResponse(WebDriverResponse response);
 
   /// Builds request for 'system time'
   WebDriverRequest buildDeviceSystemTimeRequest();
 
   /// Parse response for 'system time'
-  String parseDeviceSystemTime(WebDriverResponse response);
+  String parseDeviceSystemTimeResponse(WebDriverResponse response);
 
   /// Builds request for 'shake'
   WebDriverRequest buildShakeDeviceRequest();
 
   /// Parse response for 'shake'
-  void parseShakeDevice(WebDriverResponse response);
+  void parseShakeDeviceResponse(WebDriverResponse response);
 }

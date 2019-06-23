@@ -2,6 +2,7 @@
 - Add device lock related commands: `driver.device.*`
 - Add device system time command: `driver.device.getSystemTime()`
 - Add device shake command: `driver.device.shake()`
+- Add keyboard commands: `driver.keyboard.isShown()` and `driver.keyboard.hide()` 
 
 
 ## [0.0.5] - 2019-06-22

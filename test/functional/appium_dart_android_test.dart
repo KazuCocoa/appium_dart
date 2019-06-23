@@ -54,4 +54,9 @@ void main() {
     var time = await driver.device.getSystemTime();
     expect(DateTime.parse(time) is DateTime, true); // Can parse without error
   });
+
+  test('keyboard', () async {
+    await driver.keyboard.hide();
+    expect(await driver.keyboard.isShown(), false);
+  });
 }

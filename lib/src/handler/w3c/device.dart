@@ -13,7 +13,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  bool parseDeviceIsLocked(WebDriverResponse response) {
+  bool parseDeviceIsLockedResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -30,7 +30,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  void parseLockDevice(WebDriverResponse response) {
+  void parseLockDeviceResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
 
@@ -40,7 +40,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  void parseUnlockDevice(WebDriverResponse response) {
+  void parseUnlockDeviceResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
 
@@ -50,7 +50,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  String parseDeviceSystemTime(WebDriverResponse response) {
+  String parseDeviceSystemTimeResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -60,7 +60,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  void parseShakeDevice(WebDriverResponse response) {
+  void parseShakeDeviceResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
 }

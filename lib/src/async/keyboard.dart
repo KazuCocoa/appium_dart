@@ -77,6 +77,18 @@ class Keyboard {
       _handler.keyboard.buildSendKeysRequest(keysToSend),
       _handler.keyboard.parseSendKeysResponse);
 
+  /// Hide shown keyboard
+  Future<void> hide() => _client.send(
+      _handler.keyboard.buildHideKeyboardRequest(),
+      _handler.keyboard.parseHideKeyboardResponse);
+
+
+  /// Whether the keyboard is shown
+  Future<bool> isShown() => _client.send(
+      _handler.keyboard.buildIsKeyboardShownRequest(),
+      _handler.keyboard.parseIsKeyboardShownResponse);
+
+
   @override
   String toString() => '$_handler.keyboard($_client)';
 

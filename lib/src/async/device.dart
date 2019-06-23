@@ -13,27 +13,27 @@ class Device {
   /// Get is device locked
   Future<bool> isLocked() => _client.send(
       _handler.device.buildDeviceIsLockedRequest(),
-      _handler.device.parseDeviceIsLocked);
+      _handler.device.parseDeviceIsLockedResponse);
 
   /// Get lock device
   Future<void> lock({Duration seconds}) => _client.send(
       _handler.device.buildLockDeviceRequest(seconds: seconds),
-      _handler.device.parseLockDevice);
+      _handler.device.parseLockDeviceResponse);
 
   /// Get app state
   Future<void> unlock() => _client.send(
       _handler.device.buildUnlockDeviceRequest(),
-      _handler.device.parseUnlockDevice);
+      _handler.device.parseUnlockDeviceResponse);
 
   /// Get app state
   Future<String> getSystemTime() => _client.send(
       _handler.device.buildDeviceSystemTimeRequest(),
-      _handler.device.parseDeviceSystemTime);
+      _handler.device.parseDeviceSystemTimeResponse);
 
   /// Get app state
   Future<void> shake() => _client.send(
       _handler.device.buildShakeDeviceRequest(),
-      _handler.device.parseShakeDevice);
+      _handler.device.parseShakeDeviceResponse);
 
   @override
   int get hashCode => _client.hashCode;
