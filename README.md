@@ -97,8 +97,8 @@ Below Appium specific commands are implementing.
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/get_clipboard']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/set_clipboard']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/finger_print']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/settings']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/settings']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/settings']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/settings']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/stop_recording_screen']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/start_recording_screen']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/compare_images']`

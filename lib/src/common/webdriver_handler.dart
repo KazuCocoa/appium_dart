@@ -59,6 +59,8 @@ abstract class AppiumWebDriverHandler {
 
   DeviceHandler get device;
 
+  SettingsHandler get settings;
+
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
 
@@ -659,4 +661,18 @@ abstract class DeviceHandler {
 
   /// Parse response for 'shake'
   void parseShakeDeviceResponse(WebDriverResponse response);
+}
+
+abstract class SettingsHandler {
+  /// Builds request for 'get settings'
+  WebDriverRequest buildGetSettingsRequest();
+
+  /// Parse response for 'get settings'
+  void parseGetSettingsResponse(WebDriverResponse response);
+
+  /// Builds request for 'update settings'
+  WebDriverRequest buildUpdateSettingsRequest(Map<String, dynamic> items);
+
+  /// Parse response for 'update settings'
+  void parseUpdateSettingsResponse(WebDriverResponse response);
 }

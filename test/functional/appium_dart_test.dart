@@ -35,4 +35,11 @@ void main() {
   test('shake', () async {
     await driver.device.shake();
   });
+
+  test('settings', () async {
+    await driver.settings.update({
+      'fixImageFindScreenshotDims': true, 'autoUpdateImageElementPosition': false
+    });
+    expect((await driver.settings.get())['fixImageFindScreenshotDims'], true);
+  });
 }
