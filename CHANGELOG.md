@@ -7,6 +7,15 @@
 - Add element commands: `element.displayed`, `element.replaceValue`, `element.setImmediateValue`
 - Add settings commands: `driver.settings.update`, `driver.settings.get`
 
+## [0.0.6] - 2019-06-30
+- Add device lock related commands: `driver.device.*`
+- Add device system time command: `driver.device.getSystemTime()`
+- Add device shake command: `driver.device.shake()`
+- Add keyboard commands: `driver.keyboard.isShown()` and `driver.keyboard.hide()`
+- Add keycode commands: `driver.device.pressKeycode` and `driver.device.longPressKeycode`
+- Add element commands: `element.displayed`, `element.replaceValue`, `element.setImmediateValue`
+- Add settings commands: `driver.settings.update`, `driver.settings.get`
+
 ## [0.0.5] - 2019-06-22
 - Add context related commands: `driver.contexts.*`
 - Add app state related commands: `driver.appState.*`
