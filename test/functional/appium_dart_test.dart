@@ -37,7 +37,7 @@ void main() {
   test('set value', () async {
     final textFieldCell = 'TextFields';
     final textField = '<enter text>';
-    final notemalName = 'Normal';
+    final normalName = 'Normal';
 
     var element =
         await driver.findElement(AppiumBy.accessibilityId(textFieldCell));
@@ -46,7 +46,7 @@ void main() {
     element = await driver.findElement(AppiumBy.name(textField));
     await element.setImmediateValue('hello');
 
-    element = await driver.findElement(AppiumBy.accessibilityId(notemalName));
+    element = await driver.findElement(AppiumBy.accessibilityId(normalName));
     expect(await element.text, 'hello');
   });
 
