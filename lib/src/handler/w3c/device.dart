@@ -63,4 +63,38 @@ class W3cDeviceHandler implements DeviceHandler {
   void parseShakeDeviceResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags}) {
+    Map<String, dynamic> arg = {'keycode': keycode};
+    if (metastate != null) {
+      arg['metastate'] = metastate;
+    }
+    if (flags != null) {
+      arg['flags'] = flags;
+    }
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.PRESS_KEYCODE, arg);
+  }
+
+  @override
+  void parsePressKeycodeResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildLongPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags}) {
+    Map<String, dynamic> arg = {'keycode': keycode};
+    if (metastate != null) {
+      arg['metastate'] = metastate;
+    }
+    if (flags != null) {
+      arg['flags'] = flags;
+    }
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.LONG_PRESS_KEYCODE, arg);
+  }
+
+  @override
+  void parseLongPressKeycodeResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
 }

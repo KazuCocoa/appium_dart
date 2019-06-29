@@ -88,9 +88,9 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_state']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/shake']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/hide_keyboard']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/press_keycode']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/long_press_keycode']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/press_keycode']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/long_press_keycode']`
+    - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`~~ # Only for Selendroid 
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/push_file']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_file']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_folder']`

@@ -674,6 +674,18 @@ abstract class DeviceHandler {
 
   /// Parse response for 'shake'
   void parseShakeDeviceResponse(WebDriverResponse response);
+
+  /// Builds request for 'press keycode'
+  WebDriverRequest buildPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags});
+
+  /// Parse response for 'press keycode'
+  void parsePressKeycodeResponse(WebDriverResponse response);
+
+  /// Builds request for 'long press keycode'
+  WebDriverRequest buildLongPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags});
+
+  /// Parse response for 'long press keycode'
+  void parseLongPressKeycodeResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {
