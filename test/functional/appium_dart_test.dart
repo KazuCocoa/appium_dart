@@ -26,10 +26,28 @@ void main() {
     var element = await driver.findElement(AppiumBy.accessibilityId(buttons));
     await element.click();
 
+    expect(await element.displayed, true);
+
     await driver.findElement(AppiumBy.name(gray));
     await driver.back();
 
     await driver.findElement(AppiumBy.accessibilityId(textView));
+  });
+
+  test('set value', () async {
+    final textFieldCell = 'TextFields';
+    final textField = '<enter text>';
+    final notemalName = 'Normal';
+
+    var element =
+        await driver.findElement(AppiumBy.accessibilityId(textFieldCell));
+    await element.click();
+
+    element = await driver.findElement(AppiumBy.name(textField));
+    await element.setImmediateValue('hello');
+
+    element = await driver.findElement(AppiumBy.accessibilityId(notemalName));
+    expect(await element.text, 'hello');
   });
 
   test('shake', () async {
@@ -38,7 +56,8 @@ void main() {
 
   test('settings', () async {
     await driver.settings.update({
-      'fixImageFindScreenshotDims': true, 'autoUpdateImageElementPosition': false
+      'fixImageFindScreenshotDims': true,
+      'autoUpdateImageElementPosition': false
     });
     expect((await driver.settings.get())['fixImageFindScreenshotDims'], true);
   });

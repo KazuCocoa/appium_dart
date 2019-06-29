@@ -221,7 +221,20 @@ abstract class ElementHandler {
 
   /// Parses response for 'Element CSS Value'.
   String parseCssPropertyResponse(WebDriverResponse response);
+
+  /// Builds request for 'set value immediately'
+  WebDriverRequest buildSetValueImmediatelyRequest(String elementId, String value);
+
+  /// Parse response for 'set value immediately'
+  void parseSetValueImmediatelyResponse(WebDriverResponse response);
+
+  /// Builds request for 'replace value'
+  WebDriverRequest buildReplaceValueRequest(String elementId, String value);
+
+  /// Parse response for 'replace value'
+  void parseReplaceValueResponse(WebDriverResponse response);
 }
+
 
 abstract class ElementFinder {
   /// Builds request for finding elements.

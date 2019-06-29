@@ -14,4 +14,19 @@ class AppiumWebDriverRequest {
     }
     throw UnimplementedError;
   }
+
+  static WebDriverRequest sendElementRequest(Command command, String elementId,
+      [params]) {
+    var path = command.path.replaceFirst('element/:id', 'element/$elementId');
+
+    switch (command.method) {
+      case HttpMethod.httpGet:
+        return WebDriverRequest.getRequest(path);
+      case HttpMethod.httpPost:
+        return WebDriverRequest.postRequest(path, params);
+      case HttpMethod.httpDelete:
+        return WebDriverRequest.deleteRequest(path);
+    }
+    throw UnimplementedError;
+  }
 }

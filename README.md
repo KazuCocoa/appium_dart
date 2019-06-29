@@ -69,8 +69,8 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpGet, 'session/:session_id/context']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/replace_value']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/replace_value']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/launch']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/close']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`
@@ -128,7 +128,7 @@ Below Appium specific commands are implementing.
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/touch_id']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/toggle_touch_id_enrollment']`
     - [ ] `[HttpMethod.httpGet, 'status']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/element/:id/displayed']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/element/:id/displayed']`
     - [ ] `[HtMethod.httpGet, 'session/:session_id/timeouts']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/orientation']`

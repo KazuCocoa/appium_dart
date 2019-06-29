@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:appium_driver/src/common/request.dart';
+import 'package:appium_driver/src/common/w3c/command.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
@@ -61,7 +63,8 @@ class W3cElementHandler extends ElementHandler {
 
   @override
   WebDriverRequest buildDisplayedRequest(String elementId) {
-    return buildCssPropertyRequest(elementId, 'display');
+    return AppiumWebDriverRequest.sendElementRequest(
+        W3CCommands.IS_ELEMENT_DISPLAYED, elementId);
   }
 
   @override
@@ -164,5 +167,27 @@ class W3cElementHandler extends ElementHandler {
   @override
   String parsePropertyResponse(WebDriverResponse response) {
     return parseW3cResponse(response)?.toString();
+  }
+
+  @override
+  WebDriverRequest buildReplaceValueRequest(String elementId, String value) {
+    return AppiumWebDriverRequest.sendElementRequest(
+        W3CCommands.REPLACE_VALUE, elementId, {'value': value});
+  }
+
+  @override
+  void parseReplaceValueResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildSetValueImmediatelyRequest(String elementId, String value) {
+    return AppiumWebDriverRequest.sendElementRequest(
+        W3CCommands.SET_IMMEDIATE_VALUE, elementId, {'value': value});
+  }
+
+  @override
+  void parseSetValueImmediatelyResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
   }
 }
