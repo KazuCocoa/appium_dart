@@ -19,12 +19,16 @@ import 'package:appium_driver/src/handler/w3c/app_management.dart';
 import 'package:appium_driver/src/handler/w3c/ime.dart';
 import 'package:appium_driver/src/handler/w3c/device.dart';
 import 'package:appium_driver/src/handler/w3c/settings.dart';
+import 'package:appium_driver/src/handler/w3c/sessions.dart';
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
 
 class W3cWebDriverHandler extends AppiumWebDriverHandler {
   @override
   final SessionHandler session = W3cSessionHandler();
+
+  @override
+  final SessionsHandler sessions = W3cSessionsHandler();
 
   @override
   final CoreHandler core = W3cCoreHandler();

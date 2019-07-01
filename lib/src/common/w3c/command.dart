@@ -9,8 +9,7 @@ class Command {
 
 // All available commands for Appium
 class W3CCommands {
-  static const GET_ALL_SESSIONS = Command(HttpMethod.httpGet,
-      'session'); // FIXME. The session command has no session_id
+  static const GET_ALL_SESSIONS = Command(HttpMethod.httpGet, 'sessions');
   static const AVAILABLE_CONTEXTS = Command(HttpMethod.httpGet, 'contexts');
   static const SET_CONTEXT = Command(HttpMethod.httpPost, 'context');
   static const CURRENT_CONTEXT = Command(HttpMethod.httpGet, 'context');

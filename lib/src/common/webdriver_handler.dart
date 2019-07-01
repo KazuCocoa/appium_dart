@@ -25,6 +25,8 @@ import 'package:webdriver/src/common/request.dart'; // ignore: implementation_im
 abstract class AppiumWebDriverHandler {
   SessionHandler get session;
 
+  SessionsHandler get sessions;
+
   CoreHandler get core;
 
   KeyboardHandler get keyboard;
@@ -81,6 +83,14 @@ abstract class SessionHandler {
 
   /// Parses response for 'Get Session Info'.
   SessionInfo parseInfoResponse(WebDriverResponse response);
+}
+
+abstract class SessionsHandler {
+  /// Builds request for 'get sessions'.
+  WebDriverRequest buildGetRequest();
+
+  /// Parses response for 'get sessions'.
+  List<dynamic> parseGetResponse(WebDriverResponse response);
 }
 
 abstract class CoreHandler {

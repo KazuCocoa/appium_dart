@@ -18,8 +18,11 @@ void main() {
   });
 
   group('connect', () {
-    test('connect to server', () async {
+    test('connect to server and get sessions', () async {
       expect(await driver.title, 'Appium/welcome');
+      var result = await driver.sessions.get();
+      expect(result.length, 1);
+      expect(result[0]['id'], driver.id);
     });
 
     test('connect to existing session', () async {
