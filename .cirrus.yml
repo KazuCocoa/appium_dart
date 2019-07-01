@@ -5,5 +5,4 @@ test_task:
   pub_cache:
     folder: ~/.pub-cache
   test_script:
-    - dartanalyzer --options analysis_options.yaml .
     - pub run test test/unit
