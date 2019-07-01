@@ -2,7 +2,7 @@ container:
   image: cirrusci/flutter:latest
 
 test_task:
-  pub_script: pub get
+  resolve_dep_script: pub get
   pub_cache:
     folder: ~/.pub-cache
   test_script:
