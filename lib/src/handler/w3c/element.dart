@@ -181,7 +181,8 @@ class W3cElementHandler extends ElementHandler {
   }
 
   @override
-  WebDriverRequest buildSetValueImmediatelyRequest(String elementId, String value) {
+  WebDriverRequest buildSetValueImmediatelyRequest(
+      String elementId, String value) {
     return AppiumWebDriverRequest.sendElementRequest(
         W3CCommands.SET_IMMEDIATE_VALUE, elementId, {'value': value});
   }

@@ -223,7 +223,8 @@ abstract class ElementHandler {
   String parseCssPropertyResponse(WebDriverResponse response);
 
   /// Builds request for 'set value immediately'
-  WebDriverRequest buildSetValueImmediatelyRequest(String elementId, String value);
+  WebDriverRequest buildSetValueImmediatelyRequest(
+      String elementId, String value);
 
   /// Parse response for 'set value immediately'
   void parseSetValueImmediatelyResponse(WebDriverResponse response);
@@ -234,7 +235,6 @@ abstract class ElementHandler {
   /// Parse response for 'replace value'
   void parseReplaceValueResponse(WebDriverResponse response);
 }
-
 
 abstract class ElementFinder {
   /// Builds request for finding elements.
@@ -676,13 +676,15 @@ abstract class DeviceHandler {
   void parseShakeDeviceResponse(WebDriverResponse response);
 
   /// Builds request for 'press keycode'
-  WebDriverRequest buildPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags});
+  WebDriverRequest buildPressKeycodeRequest(int keycode,
+      {List<int> metastate, List<int> flags});
 
   /// Parse response for 'press keycode'
   void parsePressKeycodeResponse(WebDriverResponse response);
 
   /// Builds request for 'long press keycode'
-  WebDriverRequest buildLongPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags});
+  WebDriverRequest buildLongPressKeycodeRequest(int keycode,
+      {List<int> metastate, List<int> flags});
 
   /// Parse response for 'long press keycode'
   void parseLongPressKeycodeResponse(WebDriverResponse response);

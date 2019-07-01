@@ -71,6 +71,4 @@ class W3cKeyboardHandler extends KeyboardHandler {
   bool parseIsKeyboardShownResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
-
-
 }

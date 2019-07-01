@@ -65,7 +65,8 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  WebDriverRequest buildPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags}) {
+  WebDriverRequest buildPressKeycodeRequest(int keycode,
+      {List<int> metastate, List<int> flags}) {
     Map<String, dynamic> arg = {'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;
@@ -82,7 +83,8 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  WebDriverRequest buildLongPressKeycodeRequest(int keycode, {List<int> metastate, List<int> flags}) {
+  WebDriverRequest buildLongPressKeycodeRequest(int keycode,
+      {List<int> metastate, List<int> flags}) {
     Map<String, dynamic> arg = {'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;
@@ -90,7 +92,8 @@ class W3cDeviceHandler implements DeviceHandler {
     if (flags != null) {
       arg['flags'] = flags;
     }
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.LONG_PRESS_KEYCODE, arg);
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.LONG_PRESS_KEYCODE, arg);
   }
 
   @override

@@ -20,7 +20,6 @@ class Settings {
       _handler.settings.buildUpdateSettingsRequest(items),
       _handler.settings.parseUpdateSettingsResponse);
 
-
   @override
   int get hashCode => _client.hashCode;
 

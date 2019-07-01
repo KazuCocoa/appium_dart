@@ -38,18 +38,20 @@ class Device {
   /// For Android
   /// Press keycode
   Future<void> pressKeycode(int keycode,
-      {List<int> metastate, List<int> flags}) => _client.send(
-      _handler.device.buildPressKeycodeRequest(
-          keycode, metastate: metastate, flags: flags),
-      _handler.device.parsePressKeycodeResponse);
+          {List<int> metastate, List<int> flags}) =>
+      _client.send(
+          _handler.device.buildPressKeycodeRequest(keycode,
+              metastate: metastate, flags: flags),
+          _handler.device.parsePressKeycodeResponse);
 
   /// For Android
   /// Long press keycode
   Future<void> longPressKeycode(int keycode,
-      {List<int> metastate, List<int> flags}) => _client.send(
-      _handler.device.buildLongPressKeycodeRequest(
-          keycode, metastate: metastate, flags: flags),
-      _handler.device.parseLongPressKeycodeResponse);
+          {List<int> metastate, List<int> flags}) =>
+      _client.send(
+          _handler.device.buildLongPressKeycodeRequest(keycode,
+              metastate: metastate, flags: flags),
+          _handler.device.parseLongPressKeycodeResponse);
 
   @override
   int get hashCode => _client.hashCode;

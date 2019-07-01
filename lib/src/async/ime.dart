@@ -19,10 +19,12 @@ class IME {
       _handler.ime.parseGetActiveEngineResponse);
 
   Future<bool> isActivated() => _client.send(
-      _handler.ime.buildIsActivatedRequest(), _handler.ime.parseIsActivatedResponse);
+      _handler.ime.buildIsActivatedRequest(),
+      _handler.ime.parseIsActivatedResponse);
 
   Future<void> deactivate() => _client.send(
-      _handler.ime.buildDeactivateRequest(), _handler.ime.parseDeactivateResponse);
+      _handler.ime.buildDeactivateRequest(),
+      _handler.ime.parseDeactivateResponse);
 
   Future<void> activateEngine(String imeName) => _client.send(
       _handler.ime.buildActiveEngineRequest(imeName),
