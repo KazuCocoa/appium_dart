@@ -63,7 +63,7 @@ Below Appium specific commands are implementing.
 
 - [ ] Add appium commands
     - [x] directConnectXxxx
-    - [ ] `[HttpMethod.httpGet, 'sessions']`
+    - [x] `[HttpMethod.httpGet, 'sessions']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/context']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/context']`
