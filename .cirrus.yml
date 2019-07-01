@@ -1,6 +1,9 @@
 container:
   image: cirrusci/flutter:latest
 
+task:
+  build_script: pub get 
+
 test_task:
   pub_cache:
     folder: ~/.pub-cache
