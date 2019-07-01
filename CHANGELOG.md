@@ -1,4 +1,5 @@
 ## [Unreleased]
+- Add get sessions command: `driver.sessions.get()`
 
 ## [0.0.6] - 2019-06-30
 - Add device lock related commands: `driver.device.*`
