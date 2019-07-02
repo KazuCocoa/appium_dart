@@ -61,4 +61,9 @@ void main() {
     });
     expect((await driver.settings.get())['fixImageFindScreenshotDims'], true);
   });
+
+  test('status', () async {
+    var s = await driver.status.get();
+    expect(s['build'] != null, true);
+  });
 }

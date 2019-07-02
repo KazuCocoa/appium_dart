@@ -27,6 +27,8 @@ abstract class AppiumWebDriverHandler {
 
   SessionsHandler get sessions;
 
+  StatusHandler get status;
+
   CoreHandler get core;
 
   KeyboardHandler get keyboard;
@@ -91,6 +93,14 @@ abstract class SessionsHandler {
 
   /// Parses response for 'get sessions'.
   List<dynamic> parseGetResponse(WebDriverResponse response);
+}
+
+abstract class StatusHandler {
+  /// Builds request for 'get status'.
+  WebDriverRequest buildGetRequest();
+
+  /// Parses response for 'get status'.
+  Map<String, dynamic> parseGetResponse(WebDriverResponse response);
 }
 
 abstract class CoreHandler {
