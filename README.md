@@ -132,7 +132,7 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpGet, 'status']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/element/:id/displayed']`
     - [ ] `[HtMethod.httpGet, 'session/:session_id/timeouts']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/orientation']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/orientation']`
     - [ ] `[HtMethod.httpGet, 'session/:session_id/location']`

@@ -66,4 +66,9 @@ void main() {
     var s = await driver.status.get();
     expect(s['build'] != null, true);
   });
+
+  test('capabilities', () async {
+    var capabilities = await driver.session.getCapabilities();
+    expect(capabilities['automationName'].toString().toLowerCase(), 'xcuitest');
+  });
 }

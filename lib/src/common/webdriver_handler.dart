@@ -85,6 +85,12 @@ abstract class SessionHandler {
 
   /// Parses response for 'Get Session Info'.
   SessionInfo parseInfoResponse(WebDriverResponse response);
+
+  /// Builds request for 'Get Session capabilities'.
+  WebDriverRequest buildGetCapabilitiesRequest();
+
+  /// Parses response for 'Get Session Info'.
+  Map<String, dynamic> parseGetCapabilitiesResponse(WebDriverResponse response);
 }
 
 abstract class SessionsHandler {

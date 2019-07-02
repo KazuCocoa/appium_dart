@@ -20,6 +20,7 @@ import 'package:appium_driver/src/async/ime.dart';
 import 'package:appium_driver/src/async/device.dart';
 import 'package:appium_driver/src/async/settings.dart';
 import 'package:appium_driver/src/async/sessions.dart';
+import 'package:appium_driver/src/async/session.dart';
 import 'package:appium_driver/src/async/status.dart';
 
 import 'package:webdriver/src/async/stepper.dart' // ignore: implementation_imports
@@ -184,6 +185,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   Device get device => Device(this._client, this._handler);
 
   Settings get settings => Settings(this._client, this._handler);
+
+  Session get session => Session(this._client, this._handler);
 
   Sessions get sessions => Sessions(this.uri, this._handler);
 
