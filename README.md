@@ -1,5 +1,7 @@
 # appium_driver
 
+[![Build Status](https://api.cirrus-ci.com/github/KazuCocoa/appium_dart.svg)](https://cirrus-ci.com/github/KazuCocoa/appium_dart)
+
 This is not a stable project yet.
 
 An appium client in Dart
