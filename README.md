@@ -129,7 +129,7 @@ Below Appium specific commands are implementing.
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/power_ac']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/touch_id']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/toggle_touch_id_enrollment']`
-    - [ ] `[HttpMethod.httpGet, 'status']`
+    - [x] `[HttpMethod.httpGet, 'status']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/element/:id/displayed']`
     - [ ] `[HtMethod.httpGet, 'session/:session_id/timeouts']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id']`
