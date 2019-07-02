@@ -73,12 +73,12 @@ void main() {
   });
 
   test('push and pull', () async {
-    var pulledFile = await driver.device.pullFile('Library/AddressBook/AddressBook.sqlitedb');
+    var pulledFile = await driver.device
+        .pullFile('Library/AddressBook/AddressBook.sqlitedb');
     var pulFolder = await driver.device.pullFolder('Library/AddressBook');
     expect(pulledFile.isNotEmpty, true);
     expect(pulFolder.isNotEmpty, true);
 
     await driver.device.pushFile('AddressBook.png', pulledFile);
   });
-
 }

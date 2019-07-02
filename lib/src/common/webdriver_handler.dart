@@ -715,20 +715,17 @@ abstract class DeviceHandler {
   /// Parse response for 'long press keycode'
   void parseLongPressKeycodeResponse(WebDriverResponse response);
 
-
   /// Builds request for 'push file'
   WebDriverRequest buildPushFileRequest(String path, String base64EncodedData);
 
   /// Parse response for 'push file'
   void parseLPushFileResponse(WebDriverResponse response);
 
-
   /// Builds request for 'pull file'
   WebDriverRequest buildPullFileRequest(String path);
 
   /// Parse response for 'pull file'
   String parsePullFileResponse(WebDriverResponse response);
-
 
   /// Builds request for 'pull folder'
   WebDriverRequest buildPullFolderRequest(String path);

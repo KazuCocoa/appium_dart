@@ -53,7 +53,6 @@ class Device {
               metastate: metastate, flags: flags),
           _handler.device.parseLongPressKeycodeResponse);
 
-
   Future<void> pushFile(String path, String base64EncodedData) => _client.send(
       _handler.device.buildPushFileRequest(path, base64EncodedData),
       _handler.device.parseLPushFileResponse);
@@ -62,11 +61,9 @@ class Device {
       _handler.device.buildPullFileRequest(path),
       _handler.device.parsePullFileResponse);
 
-
   Future<String> pullFolder(String path) => _client.send(
       _handler.device.buildPullFolderRequest(path),
       _handler.device.parsePullFolderResponse);
-
 
   @override
   int get hashCode => _client.hashCode;

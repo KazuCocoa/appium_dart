@@ -112,7 +112,6 @@ class W3cDeviceHandler implements DeviceHandler {
     parseW3cResponse(response);
   }
 
-
   @override
   WebDriverRequest buildPullFileRequest(String path) {
     return AppiumWebDriverRequest.sendRequest(
