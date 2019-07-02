@@ -20,6 +20,7 @@ import 'package:appium_driver/src/async/ime.dart';
 import 'package:appium_driver/src/async/device.dart';
 import 'package:appium_driver/src/async/settings.dart';
 import 'package:appium_driver/src/async/sessions.dart';
+import 'package:appium_driver/src/async/status.dart';
 
 import 'package:webdriver/src/async/stepper.dart' // ignore: implementation_imports
     show
@@ -185,6 +186,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   Settings get settings => Settings(this._client, this._handler);
 
   Sessions get sessions => Sessions(this.uri, this._handler);
+
+  Status get status => Status(this.uri, this._handler);
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.
