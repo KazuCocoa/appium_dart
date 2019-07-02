@@ -93,9 +93,9 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/press_keycode']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/long_press_keycode']`
     - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`~~ # Only for Selendroid 
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/push_file']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_file']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_folder']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/push_file']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_file']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_folder']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/get_clipboard']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/set_clipboard']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/finger_print']`
@@ -131,7 +131,7 @@ Below Appium specific commands are implementing.
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/toggle_touch_id_enrollment']`
     - [x] `[HttpMethod.httpGet, 'status']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/element/:id/displayed']`
-    - [ ] `[HtMethod.httpGet, 'session/:session_id/timeouts']`
+    - ~~[ ] `[HtMethod.httpGet, 'session/:session_id/timeouts']`~~ <= already has
     - [x] `[HttpMethod.httpGet, 'session/:session_id']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/orientation']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/orientation']`

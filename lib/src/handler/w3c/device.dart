@@ -100,4 +100,38 @@ class W3cDeviceHandler implements DeviceHandler {
   void parseLongPressKeycodeResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildPushFileRequest(String path, String base64EncodedData) {
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.PUSH_FILE, {'path': path, 'data': base64EncodedData});
+  }
+
+  @override
+  void parseLPushFileResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+
+  @override
+  WebDriverRequest buildPullFileRequest(String path) {
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.PULL_FILE, {'path': path});
+  }
+
+  @override
+  String parsePullFileResponse(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildPullFolderRequest(String path) {
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.PULL_FOLDER, {'path': path});
+  }
+
+  @override
+  String parsePullFolderResponse(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
 }
