@@ -1,3 +1,4 @@
+import 'package:appium_driver/src/common/clipboard.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:appium_driver/src/common/w3c/command.dart';
@@ -132,5 +133,26 @@ class W3cDeviceHandler implements DeviceHandler {
   @override
   String parsePullFolderResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGetClipboardRequest({String contentType = ContentType.plaintext}) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_CLIPBOARD, {'contentType': contentType});
+  }
+
+  @override
+  String parseGetClipboardResponse(WebDriverResponse response) {
+    // return base64 encoded data
+    return parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildSetClipboardRequest(String base64encoded, {String contentType = ContentType.plaintext}) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SET_CLIPBOARD, {'content': base64encoded, 'contentType': contentType});
+  }
+
+  @override
+  void parseSetClipboardResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
   }
 }

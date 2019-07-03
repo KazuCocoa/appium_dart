@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:appium_driver/src/common/clipboard.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
@@ -64,6 +65,33 @@ class Device {
   Future<String> pullFolder(String path) => _client.send(
       _handler.device.buildPullFolderRequest(path),
       _handler.device.parsePullFolderResponse);
+
+
+  /// Get clipboard
+  ///
+  /// Returns base64 encoded string. You must decode it properly.
+  ///
+  /// For example:
+  ///
+  ///     // Returns a string which is base64 encoded
+  ///     utf8.decode(base64.decode(await driver.device.getClipboard()))
+  ///
+  Future<String> getClipboard({String contentType = ContentType.plaintext}) => _client.send(
+      _handler.device.buildGetClipboardRequest(contentType: contentType),
+      _handler.device.parseGetClipboardResponse);
+
+  /// Set clipboard
+  /// Sends base64 encoded string. You must decode it properly as the 1st argument.
+  ///
+  /// For example:
+  ///
+  ///     // Gives base64 encoded string
+  ///     await driver.device.setClipboard(
+  ///         base64.encode(utf8.encode('happy testing')));
+  ///
+  Future<void> setClipboard(String base64encoded, {String contentType = ContentType.plaintext}) => _client.send(
+      _handler.device.buildSetClipboardRequest(base64encoded, contentType: contentType),
+      _handler.device.parseSetClipboardResponse);
 
   @override
   int get hashCode => _client.hashCode;
