@@ -136,8 +136,10 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  WebDriverRequest buildGetClipboardRequest({String contentType = ContentType.plaintext}) {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_CLIPBOARD, {'contentType': contentType});
+  WebDriverRequest buildGetClipboardRequest(
+      {String contentType = ContentType.plaintext}) {
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.GET_CLIPBOARD, {'contentType': contentType});
   }
 
   @override
@@ -147,8 +149,13 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  WebDriverRequest buildSetClipboardRequest(String base64encoded, {String contentType = ContentType.plaintext}) {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.SET_CLIPBOARD, {'content': base64encoded, 'contentType': contentType});
+  WebDriverRequest buildSetClipboardRequest(String base64encoded,
+      {String contentType = ContentType.plaintext, String label}) {
+    var arg = {'content': base64encoded, 'contentType': contentType};
+    if (label != null) {
+      arg['label'] = label;
+    }
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SET_CLIPBOARD, arg);
   }
 
   @override
