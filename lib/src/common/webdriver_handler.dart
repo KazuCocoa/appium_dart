@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:appium_driver/src/common/app_state.dart';
+import 'package:appium_driver/src/common/clipboard.dart';
 
 import 'package:webdriver/src/common/cookie.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/log.dart'; // ignore: implementation_imports
@@ -732,6 +733,20 @@ abstract class DeviceHandler {
 
   /// Parse response for 'pull folder'
   String parsePullFolderResponse(WebDriverResponse response);
+
+  /// Builds request for 'get clipboard'
+  WebDriverRequest buildGetClipboardRequest(
+      {String contentType = ContentType.plaintext});
+
+  /// Parse response for 'get clipboard'
+  String parseGetClipboardResponse(WebDriverResponse response);
+
+  /// Builds request for 'set clipboard'
+  WebDriverRequest buildSetClipboardRequest(String base64encoded,
+      {String contentType = ContentType.plaintext, String label});
+
+  /// Parse response for 'set clipboard'
+  void parseSetClipboardResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {

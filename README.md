@@ -96,8 +96,8 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/push_file']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_file']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_folder']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/get_clipboard']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/set_clipboard']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/get_clipboard']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/set_clipboard']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/finger_print']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/settings']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/settings']`

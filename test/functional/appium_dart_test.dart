@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:test/test.dart';
 
 import 'package:appium_driver/async_io.dart';
@@ -80,5 +82,16 @@ void main() {
     expect(pulFolder.isNotEmpty, true);
 
     await driver.device.pushFile('AddressBook.png', pulledFile);
+  });
+
+  test('clipboard', () async {
+    await driver.device
+        .setClipboard(base64.encode(utf8.encode('happy testing')));
+    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
+        'happy testing');
+
+    await driver.device.setClipboard(base64.encode(utf8.encode('appium')));
+    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
+        'appium');
   });
 }
