@@ -4,6 +4,7 @@
 - Add get capabilities: `driver.session.getCapabilities()`
 - Add push/pull files and folder: `driver.device.pushFile`, `driver.device.pullFile`, `driver.device.pullFolder`
 - Add set/get clipboard: `driver.device.setClipboard`, `driver.device.getClipboard`
+- Add open notification: `driver.device.openNotification`
 
 ## [0.0.6] - 2019-06-30
 - Add device lock related commands: `driver.device.*`

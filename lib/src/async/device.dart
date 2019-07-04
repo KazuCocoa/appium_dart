@@ -98,6 +98,17 @@ class Device {
               contentType: contentType, label: label),
           _handler.device.parseSetClipboardResponse);
 
+  /// Open notification
+  /// Only for Android.
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.openNotification()
+  ///
+  Future<void> openNotification() => _client.send(
+      _handler.device.buildOpenNotificationRequest(),
+      _handler.device.parseOpenNotificationResponse);
+
   @override
   int get hashCode => _client.hashCode;
 

@@ -65,4 +65,9 @@ void main() {
     await driver.device.pressKeycode(66, metastate: [1], flags: [32]);
     await driver.device.longPressKeycode(66, metastate: [1], flags: [32]);
   });
+
+  test('open notification', () async {
+    // Make sure it does not raise error
+    await driver.device.openNotification();
+  });
 }
