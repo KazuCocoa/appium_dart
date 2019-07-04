@@ -747,6 +747,12 @@ abstract class DeviceHandler {
 
   /// Parse response for 'set clipboard'
   void parseSetClipboardResponse(WebDriverResponse response);
+
+  /// Builds request for 'open notification'
+  WebDriverRequest buildOpenNotificationRequest();
+
+  /// Parse response for 'open notification'
+  void parseOpenNotificationResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {

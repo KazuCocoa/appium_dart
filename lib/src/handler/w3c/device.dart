@@ -162,4 +162,14 @@ class W3cDeviceHandler implements DeviceHandler {
   void parseSetClipboardResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildOpenNotificationRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.OPEN_NOTIFICATIONS);
+  }
+
+  @override
+  void parseOpenNotificationResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
 }
