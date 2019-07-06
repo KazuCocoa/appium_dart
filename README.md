@@ -107,7 +107,7 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/is_keyboard_shown']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/open_notifications']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_airplane_mode']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/start_activity']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/start_activity']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_activity']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_package']`
     - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_bars']`

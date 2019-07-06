@@ -109,6 +109,36 @@ class Device {
       _handler.device.buildOpenNotificationRequest(),
       _handler.device.parseOpenNotificationResponse);
 
+  /// Open notification
+  /// Only for Android.
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.openNotification()
+  ///
+  Future<void> startActivity(
+          {String appPackage,
+          String appActivity,
+          String appWaitPackage,
+          String appWaitActivity,
+          String intentAction,
+          String intentCategory,
+          String intentFlags,
+          String optionalIntentArguments,
+          String dontStopAppOnReset}) =>
+      _client.send(
+          _handler.device.buildStartActivityRequest(
+              appPackage: appPackage,
+              appActivity: appActivity,
+              appWaitPackage: appWaitPackage,
+              appWaitActivity: appWaitActivity,
+              intentAction: intentAction,
+              intentCategory: intentCategory,
+              intentFlags: intentFlags,
+              optionalIntentArguments: optionalIntentArguments,
+              dontStopAppOnReset: dontStopAppOnReset),
+          _handler.device.parseStartActivityResponse);
+
   @override
   int get hashCode => _client.hashCode;
 

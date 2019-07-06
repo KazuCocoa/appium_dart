@@ -753,6 +753,22 @@ abstract class DeviceHandler {
 
   /// Parse response for 'open notification'
   void parseOpenNotificationResponse(WebDriverResponse response);
+
+  /// Builds request for 'start activity'
+  /// Android Only
+  WebDriverRequest buildStartActivityRequest(
+      {String appPackage,
+      String appActivity,
+      String appWaitPackage,
+      String appWaitActivity,
+      String intentAction,
+      String intentCategory,
+      String intentFlags,
+      String optionalIntentArguments,
+      String dontStopAppOnReset});
+
+  /// Parse response for 'start activity'
+  void parseStartActivityResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {

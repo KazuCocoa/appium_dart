@@ -70,4 +70,17 @@ void main() {
     // Make sure it does not raise error
     await driver.device.openNotification();
   });
+
+  test('start activity', () async {
+    await driver.app.background(seconds: Duration(seconds: -1));
+    expect(
+        await driver.appState.get('io.appium.android.apis') !=
+            AppState.RunningInForeground,
+        true);
+    await driver.device.startActivity(
+        appPackage: 'io.appium.android.apis',
+        appActivity: 'io.appium.android.apis.ApiDemos');
+    expect(await driver.appState.get('io.appium.android.apis'),
+        AppState.RunningInForeground);
+  });
 }

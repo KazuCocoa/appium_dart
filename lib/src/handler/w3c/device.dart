@@ -172,4 +172,46 @@ class W3cDeviceHandler implements DeviceHandler {
   void parseOpenNotificationResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildStartActivityRequest(
+      {String appPackage,
+      String appActivity,
+      String appWaitPackage,
+      String appWaitActivity,
+      String intentAction,
+      String intentCategory,
+      String intentFlags,
+      String optionalIntentArguments,
+      String dontStopAppOnReset}) {
+    var arg = {'appPackage': appPackage, 'appActivity': appActivity};
+    if (appWaitPackage != null) {
+      arg['appWaitPackage'] = appWaitPackage;
+    }
+    if (appWaitActivity != null) {
+      arg['appWaitActivity'] = appWaitActivity;
+    }
+
+    if (intentAction != null) {
+      arg['intentAction'] = intentAction;
+    }
+    if (intentCategory != null) {
+      arg['intentCategory'] = intentCategory;
+    }
+    if (appWaitPackage != null) {
+      arg['intentFlags'] = intentFlags;
+    }
+    if (optionalIntentArguments != null) {
+      arg['optionalIntentArguments'] = optionalIntentArguments;
+    }
+    if (dontStopAppOnReset != null) {
+      arg['dontStopAppOnReset'] = dontStopAppOnReset;
+    }
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.START_ACTIVITY, arg);
+  }
+
+  @override
+  void parseStartActivityResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
 }
