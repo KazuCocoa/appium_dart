@@ -82,5 +82,8 @@ void main() {
         appActivity: 'io.appium.android.apis.ApiDemos');
     expect(await driver.appState.get('io.appium.android.apis'),
         AppState.RunningInForeground);
+
+    expect('io.appium.android.apis', await driver.device.getCurrentPackage());
+    expect('.ApiDemos', await driver.device.getCurrentActivity());
   });
 }

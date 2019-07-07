@@ -214,4 +214,24 @@ class W3cDeviceHandler implements DeviceHandler {
   void parseStartActivityResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildGetCurrentActivityRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.CURRENT_ACTIVITY);
+  }
+
+  @override
+  String parseGetCurrentActivityResponse(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGetCurrentPackageRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.CURRENT_PACKAGE);
+  }
+
+  @override
+  String parseGetCurrentPackageResponse(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
 }
