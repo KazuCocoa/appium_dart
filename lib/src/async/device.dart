@@ -109,12 +109,14 @@ class Device {
       _handler.device.buildOpenNotificationRequest(),
       _handler.device.parseOpenNotificationResponse);
 
-  /// Open notification
+  /// Start Activity
   /// Only for Android.
   ///
   /// For example:
   ///
-  ///     await driver.device.openNotification()
+  ///     await driver.device.startActivity(
+  ///       appPackage: 'io.appium.android.apis',
+  ///       appActivity: 'io.appium.android.apis.ApiDemos');
   ///
   Future<void> startActivity(
           {String appPackage,
@@ -138,6 +140,28 @@ class Device {
               optionalIntentArguments: optionalIntentArguments,
               dontStopAppOnReset: dontStopAppOnReset),
           _handler.device.parseStartActivityResponse);
+
+  /// Get current activity
+  /// Only for Android.
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.getCurrentActivity()
+  ///
+  Future<String> getCurrentActivity() => _client.send(
+      _handler.device.buildGetCurrentActivityRequest(),
+      _handler.device.parseGetCurrentActivityResponse);
+
+  /// Get current package
+  /// Only for Android.
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.getCurrentPackage()
+  ///
+  Future<String> getCurrentPackage() => _client.send(
+      _handler.device.buildGetCurrentPackageRequest(),
+      _handler.device.parseGetCurrentPackageResponse);
 
   @override
   int get hashCode => _client.hashCode;

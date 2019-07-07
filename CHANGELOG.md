@@ -6,7 +6,8 @@
 - Add set/get clipboard: `driver.device.setClipboard`, `driver.device.getClipboard`
 - Add open notification: `driver.device.openNotification`
 - Add start activity: `driver.device.startActivity`
-
+- Add get current activity/package: `driver.device.getCurrentPackage`, `driver.device.getCurrentActivity`
+    
 ## [0.0.6] - 2019-06-30
 - Add device lock related commands: `driver.device.*`
 - Add device system time command: `driver.device.getSystemTime()`

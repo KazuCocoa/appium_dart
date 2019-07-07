@@ -768,7 +768,24 @@ abstract class DeviceHandler {
       String dontStopAppOnReset});
 
   /// Parse response for 'start activity'
+  /// Android Only
   void parseStartActivityResponse(WebDriverResponse response);
+
+  /// Builds request for 'current activity'
+  /// Android Only
+  WebDriverRequest buildGetCurrentActivityRequest();
+
+  /// Parse response for 'current activity'
+  /// Android Only
+  String parseGetCurrentActivityResponse(WebDriverResponse response);
+
+  /// Builds request for 'current package'
+  /// Android Only
+  WebDriverRequest buildGetCurrentPackageRequest();
+
+  /// Parse response for 'current package'
+  /// Android Only
+  String parseGetCurrentPackageResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {
