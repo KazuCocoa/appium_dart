@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [0.0.7] - 2019-07-07
 - Add get sessions command: `driver.sessions.get()`
 - Add get status: `driver.status.get()`
 - Add get capabilities: `driver.session.getCapabilities()`
