@@ -13,6 +13,7 @@ import 'package:webdriver/src/common/capabilities.dart'; // ignore: implementati
 export 'package:appium_driver/async_core.dart';
 export 'package:appium_driver/src/common/by.dart';
 export 'package:appium_driver/src/common/app_state.dart';
+export 'package:appium_driver/src/common/utils.dart' hide getHandler;
 export 'package:appium_driver/src/async/web_driver.dart';
 export 'package:appium_driver/src/async/web_element.dart';
 export 'package:appium_driver/src/async/target_locator.dart';

@@ -1,4 +1,5 @@
 import 'package:appium_driver/src/common/clipboard.dart';
+import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:appium_driver/src/common/w3c/command.dart';
@@ -233,5 +234,32 @@ class W3cDeviceHandler implements DeviceHandler {
   @override
   String parseGetCurrentPackageResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGetLocationRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_LOCATION);
+  }
+
+  @override
+  Location parseGetLocationResponse(WebDriverResponse response) {
+    var r = parseW3cResponse(response);
+    return Location(r['latitude'], r['longitude'], r['altitude']);
+  }
+
+  @override
+  WebDriverRequest buildSetLocationRequest(Location location) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SET_LOCATION, {
+      'location': {
+        'latitude': location.latitude,
+        'longitude': location.longitude,
+        'altitude': location.altitude
+      }
+    });
+  }
+
+  @override
+  void parseSetLocationResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
   }
 }

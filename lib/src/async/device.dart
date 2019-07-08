@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:appium_driver/src/common/clipboard.dart';
+import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
@@ -162,6 +163,16 @@ class Device {
   Future<String> getCurrentPackage() => _client.send(
       _handler.device.buildGetCurrentPackageRequest(),
       _handler.device.parseGetCurrentPackageResponse);
+
+  /// Set  location
+  Future<void> setLocation(Location location) => _client.send(
+      _handler.device.buildSetLocationRequest(location),
+      _handler.device.parseSetLocationResponse);
+
+  /// Get current location
+  Future<Location> getLocation() => _client.send(
+      _handler.device.buildGetLocationRequest(),
+      _handler.device.parseGetLocationResponse);
 
   @override
   int get hashCode => _client.hashCode;
