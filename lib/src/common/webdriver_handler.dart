@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:appium_driver/src/common/app_state.dart';
 import 'package:appium_driver/src/common/clipboard.dart';
+import 'package:appium_driver/src/common/utils.dart';
 
 import 'package:webdriver/src/common/cookie.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/log.dart'; // ignore: implementation_imports
@@ -786,6 +787,18 @@ abstract class DeviceHandler {
   /// Parse response for 'current package'
   /// Android Only
   String parseGetCurrentPackageResponse(WebDriverResponse response);
+
+  /// Builds request for 'get current device location'
+  WebDriverRequest buildGetLocationRequest();
+
+  /// Parse response for 'get current device location'
+  Location parseGetLocationResponse(WebDriverResponse response);
+
+  /// Builds request for 'set current device location'
+  WebDriverRequest buildSetLocationRequest(Location location);
+
+  /// Parse response for 'set current device location'
+  void parseSetLocationResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {

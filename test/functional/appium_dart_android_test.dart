@@ -86,4 +86,13 @@ void main() {
     expect('io.appium.android.apis', await driver.device.getCurrentPackage());
     expect('.ApiDemos', await driver.device.getCurrentActivity());
   });
+
+  test('location', () async {
+    Location l = await driver.device.getLocation();
+    print(l.longitude);
+    expect(l.longitude != null, true);
+    expect(l.longitude != null, true);
+    expect(l.longitude != null, true);
+    await driver.device.setLocation(Location(100.0, 30.0, 0.0));
+  });
 }

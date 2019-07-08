@@ -17,3 +17,12 @@ AppiumWebDriverHandler getHandler(WebDriverSpec spec) {
       throw UnsupportedError('Unexpected web driver spec: $spec.');
   }
 }
+
+class Location {
+  final dynamic latitude;
+  final dynamic longitude;
+  final dynamic altitude;
+
+  /// Handle Location
+  Location(this.latitude, this.longitude, this.altitude);
+}
