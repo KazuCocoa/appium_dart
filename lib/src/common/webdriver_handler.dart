@@ -799,6 +799,20 @@ abstract class DeviceHandler {
 
   /// Parse response for 'set current device location'
   void parseSetLocationResponse(WebDriverResponse response);
+
+  /// Builds request for 'get system bars'
+  /// For Android
+  WebDriverRequest buildGetSystemBarsRequest();
+
+  /// Parse response for 'get system bars'
+  /// For Android
+  Map<String, dynamic> parseGetSystemBarsResponse(WebDriverResponse response);
+
+  /// Builds request for 'get display density'
+  WebDriverRequest buildGetDisplayDensityRequest();
+
+  /// Parse response for 'get display density'
+  int parseGetDisplayDensityResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {

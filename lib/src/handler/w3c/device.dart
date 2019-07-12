@@ -262,4 +262,24 @@ class W3cDeviceHandler implements DeviceHandler {
   void parseSetLocationResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildGetSystemBarsRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_SYSTEM_BARS);
+  }
+
+  @override
+  Map<String, dynamic> parseGetSystemBarsResponse(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGetDisplayDensityRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_DISPLAY_DENSITY);
+  }
+
+  @override
+  int parseGetDisplayDensityResponse(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
 }
