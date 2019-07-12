@@ -1,5 +1,6 @@
 ## [Unreleased]
 - Add location methods: `driver.device.getLocation`, `driver.device.setLocation`
+- Add system bars and density: `driver.device.getSystemBars`, `driver.device.getDisplayDensity`
 
 ## [0.0.7] - 2019-07-07
 - Add get sessions command: `driver.sessions.get()`
