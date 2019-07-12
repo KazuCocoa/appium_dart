@@ -11,9 +11,26 @@ class Logs {
 
   Logs(this._client, this._handler);
 
-  Future<List<AppiumLogEntry>> get(String logType) => _client.send(
-      _handler.logs.buildGetLogsRequest(logType),
-      _handler.logs.parseGetLogsResponse);
+  /// Handled as Stream
+  ///
+  /// Example:
+  ///
+  ///     var logs = driver.logs.get('logcat');
+  ///     await logs.takes(1).toList()
+  ///     //=> [ALL[2019-07-12 10:57:32.223Z]: 07-12 19:49:20.239 16290 16290 I AudioController: Created new AudioSource]
+  ///
+  Stream<AppiumLogEntry> get(String logType) async* {
+    try {
+      final entries = await _client.send(
+          _handler.logs.buildGetLogsRequest(logType),
+          _handler.logs.parseGetLogsResponse);
+      for (var entry in entries) {
+        yield entry;
+      }
+    } on UnsupportedError {
+      // no entry
+    }
+  }
 
   Future<List<String>> getAvailableType() => _client.send(
       _handler.logs.buildGetAvailableTypeRequest(),

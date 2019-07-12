@@ -105,7 +105,8 @@ void main() {
 
   test('logs', () async {
     var logType = await driver.logs.getAvailableType();
-    var logs = await driver.logs.get(logType.first);
-    expect(logs.first.message.isEmpty, false);
+    var logs = driver.logs.get(logType.first);
+    expect((await logs.take(1).toList()).length, 1);
+//    expect(logs.take(1).message.isEmpty, false);
   });
 }
