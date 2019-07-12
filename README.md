@@ -142,7 +142,7 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpGet, 'session/:session_id/ime/activated']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/ime/deactivate']`
     - [x] `[HttpMethod.httpPost, 'session/:session_id/ime/activate']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/keys']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/log/types']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/log']`
+    - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/keys']`~~ <= will be deprecated in W3C. Use W3C actions instead.
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/log/types']`
+    - [x] `[HttpMethod.httpPost, 'session/:session_id/log']`
 

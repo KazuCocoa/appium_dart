@@ -102,4 +102,11 @@ void main() {
 
     expect(await driver.device.getDisplayDensity() != null, true);
   });
+
+  test('logs', () async {
+    var logType = await driver.logs.getAvailableType();
+    var logs = driver.logs.get(logType.first);
+    expect((await logs.take(1).toList()).length, 1);
+//    expect(logs.take(1).message.isEmpty, false);
+  });
 }

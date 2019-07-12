@@ -21,6 +21,7 @@ import 'package:appium_driver/src/handler/w3c/device.dart';
 import 'package:appium_driver/src/handler/w3c/settings.dart';
 import 'package:appium_driver/src/handler/w3c/sessions.dart';
 import 'package:appium_driver/src/handler/w3c/status.dart';
+import 'package:appium_driver/src/handler/w3c/logs.dart';
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
 
@@ -92,8 +93,7 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
   final SettingsHandler settings = W3cSettingsHandler();
 
   @override
-  LogsHandler get logs =>
-      throw UnsupportedError('Unsupported for W3cWebDriverHandler');
+  final LogsHandler logs = W3cLogsHandler();
 
   @override
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri,
