@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:appium_driver/src/common/webdriver_handler.dart';
+import 'package:appium_driver/src/common/log.dart';
 
-import 'package:webdriver/src/common/log.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 
 class Logs {
@@ -11,18 +11,13 @@ class Logs {
 
   Logs(this._client, this._handler);
 
-  Stream<LogEntry> get(String logType) async* {
-    try {
-      final entries = await _client.send(
-          _handler.logs.buildGetLogsRequest(logType),
-          _handler.logs.parseGetLogsResponse);
-      for (var entry in entries) {
-        yield entry;
-      }
-    } on UnsupportedError {
-      // Produces no entries for W3C/Firefox.
-    }
-  }
+  Future<List<AppiumLogEntry>> get(String logType) => _client.send(
+      _handler.logs.buildGetLogsRequest(logType),
+      _handler.logs.parseGetLogsResponse);
+
+  Future<List<String>> getAvailableType() => _client.send(
+      _handler.logs.buildGetAvailableTypeRequest(),
+      _handler.logs.parseGetAvailableTypeResponse);
 
   @override
   String toString() => '$_handler.logs($_client)';

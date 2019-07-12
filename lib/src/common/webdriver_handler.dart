@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:appium_driver/src/common/app_state.dart';
 import 'package:appium_driver/src/common/clipboard.dart';
 import 'package:appium_driver/src/common/utils.dart';
+import 'package:appium_driver/src/common/log.dart';
 
 import 'package:webdriver/src/common/cookie.dart'; // ignore: implementation_imports
-import 'package:webdriver/src/common/log.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/mouse.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/session.dart'; // ignore: implementation_imports
 
@@ -571,7 +571,13 @@ abstract class LogsHandler {
   WebDriverRequest buildGetLogsRequest(String logType);
 
   /// Parses response for 'Get Logs'.
-  List<LogEntry> parseGetLogsResponse(WebDriverResponse response);
+  List<AppiumLogEntry> parseGetLogsResponse(WebDriverResponse response);
+
+  /// Builds request for 'Get Available Logs'.
+  WebDriverRequest buildGetAvailableTypeRequest();
+
+  /// Parses response for 'Get Available Logs'.
+  List<String> parseGetAvailableTypeResponse(WebDriverResponse response);
 }
 
 abstract class AppManagementHandler {
