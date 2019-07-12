@@ -110,8 +110,8 @@ Below Appium specific commands are implementing.
     - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/start_activity']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_activity']`
     - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_package']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_bars']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/device/display_density']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_bars']`
+    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/display_density']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_wifi']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_data']`
     - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_location_services']`

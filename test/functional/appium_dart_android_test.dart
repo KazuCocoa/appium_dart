@@ -89,10 +89,17 @@ void main() {
 
   test('location', () async {
     Location l = await driver.device.getLocation();
-    print(l.longitude);
     expect(l.longitude != null, true);
     expect(l.longitude != null, true);
     expect(l.longitude != null, true);
     await driver.device.setLocation(Location(100.0, 30.0, 0.0));
+  });
+
+  test('get bars and display denticyr', () async {
+    var systemBar = await driver.device.getSystemBars();
+    expect(systemBar['statusBar'] != null, true);
+    expect(systemBar['navigationBar'] != null, true);
+
+    expect(await driver.device.getDisplayDensity() != null, true);
   });
 }

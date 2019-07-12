@@ -174,6 +174,18 @@ class Device {
       _handler.device.buildGetLocationRequest(),
       _handler.device.parseGetLocationResponse);
 
+  /// Get display density.
+  /// For Android
+  Future<Map<String, dynamic>> getSystemBars() => _client.send(
+      _handler.device.buildGetSystemBarsRequest(),
+      _handler.device.parseGetSystemBarsResponse);
+
+  /// Get display density.
+  /// For Android
+  Future<int> getDisplayDensity() => _client.send(
+      _handler.device.buildGetDisplayDensityRequest(),
+      _handler.device.parseGetDisplayDensityResponse);
+
   @override
   int get hashCode => _client.hashCode;
 
