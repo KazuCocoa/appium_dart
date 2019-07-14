@@ -58,91 +58,91 @@ $ pub run test test/unit
 - Bump the version in `pubspec.yml`
 - Run `pub publish`
 
-## TODO
+## Supported Commands
 
 All W3C webdriver commands are available such as find_element/s, click and send keys.
 Below Appium specific commands are implementing.
 
-- [ ] Add appium commands
-    - [x] directConnectXxxx
-    - [x] `[HttpMethod.httpGet, 'sessions']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/context']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/context']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/replace_value']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/launch']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/close']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/background']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/strings']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/is_locked']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/unlock']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/lock']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_time']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/install_app']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/remove_app']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_installed']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/activate_app']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/terminate_app']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_state']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/shake']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/hide_keyboard']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/press_keycode']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/long_press_keycode']`
-    - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`~~ # Only for Selendroid 
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/push_file']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_file']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_folder']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/get_clipboard']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/set_clipboard']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/finger_print']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/settings']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/settings']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/stop_recording_screen']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/start_recording_screen']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/compare_images']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/is_keyboard_shown']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/open_notifications']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_airplane_mode']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/start_activity']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_activity']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_package']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_bars']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/display_density']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_wifi']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_data']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_location_services']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/app/end_test_coverage']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/performanceData/types']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/getPerformanceData']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/network_connection']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/network_connection']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/send_sms']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/gsm_call']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/gsm_signal']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/gsm_voice']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/network_speed']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/power_capacity']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/power_ac']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/touch_id']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/toggle_touch_id_enrollment']`
-    - [x] `[HttpMethod.httpGet, 'status']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/element/:id/displayed']`
-    - ~~[ ] `[HtMethod.httpGet, 'session/:session_id/timeouts']`~~ <= already has
-    - [x] `[HttpMethod.httpGet, 'session/:session_id']`
-    - [ ] `[HttpMethod.httpGet, 'session/:session_id/orientation']`
-    - [ ] `[HttpMethod.httpPost, 'session/:session_id/orientation']`
-    - [x] `[HtMethod.httpGet, 'session/:session_id/location']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/location']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/ime/available_engines']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/ime/active_engine']`
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/ime/activated']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/ime/deactivate']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/ime/activate']`
-    - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/keys']`~~ <= will be deprecated in W3C. Use W3C actions instead.
-    - [x] `[HttpMethod.httpGet, 'session/:session_id/log/types']`
-    - [x] `[HttpMethod.httpPost, 'session/:session_id/log']`
+- [x] directConnectXxxx
+- [ ] batch command
+- [x] `[HttpMethod.httpGet, 'sessions']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/context']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/context']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/replace_value']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/launch']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/close']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/background']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/strings']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/is_locked']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/unlock']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/lock']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_time']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/install_app']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/remove_app']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_installed']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/activate_app']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/terminate_app']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/app_state']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/shake']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/hide_keyboard']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/press_keycode']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/long_press_keycode']`
+- ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`~~ # Only for Selendroid 
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/push_file']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_file']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/pull_folder']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/get_clipboard']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/set_clipboard']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/finger_print']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/appium/settings']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/settings']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/stop_recording_screen']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/start_recording_screen']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/compare_images']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/is_keyboard_shown']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/open_notifications']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/start_activity']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_activity']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/current_package']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/system_bars']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/appium/device/display_density']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_airplane_mode']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_wifi']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_data']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/toggle_location_services']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/app/end_test_coverage']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/performanceData/types']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/getPerformanceData']`
+- [ ] `[HttpMethod.httpGet, 'session/:session_id/network_connection']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/network_connection']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/send_sms']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/gsm_call']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/gsm_signal']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/gsm_voice']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/network_speed']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/power_capacity']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/power_ac']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/touch_id']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/simulator/toggle_touch_id_enrollment']`
+- [x] `[HttpMethod.httpGet, 'status']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/element/:id/displayed']`
+- ~~[ ] `[HtMethod.httpGet, 'session/:session_id/timeouts']`~~ <= already has
+- [x] `[HttpMethod.httpGet, 'session/:session_id']`
+- [ ] `[HttpMethod.httpGet, 'session/:session_id/orientation']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/orientation']`
+- [x] `[HtMethod.httpGet, 'session/:session_id/location']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/location']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/ime/available_engines']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/ime/active_engine']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/ime/activated']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/ime/deactivate']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/ime/activate']`
+- ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/keys']`~~ <= will be deprecated in W3C. Use W3C actions instead.
+- [x] `[HttpMethod.httpGet, 'session/:session_id/log/types']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/log']`
 

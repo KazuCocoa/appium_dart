@@ -1,4 +1,9 @@
 ## [Unreleased]
+
+## [0.1.0] - 2019-07-14
+
+Basic actions have been implemented.
+
 - Add location methods: `driver.device.getLocation`, `driver.device.setLocation`
 - Add system bars and density: `driver.device.getSystemBars`, `driver.device.getDisplayDensity`
 - Add log methods for Appium: `driver.logs.getAvailableType`, `driver.logs.get`
