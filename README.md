@@ -60,6 +60,16 @@ $ pub run test test/unit
 
 ## Supported Commands
 
+### WebDriver commands
+
+Please refer [webdriver.dart APIs](https://pub.dev/documentation/webdriver/latest/)
+
+- Some W3C actions
+    - https://pub.dev/documentation/webdriver/latest/webdriver.io/Mouse-class.html
+    - https://github.com/google/webdriver.dart/blob/6d7943ef098d3c938b1f4da5a8590fe827f3dd80/lib/src/handler/w3c/mouse.dart
+
+### Appium actions
+
 All W3C webdriver commands are available such as find_element/s, click and send keys.
 Below Appium specific commands are implementing.
 
