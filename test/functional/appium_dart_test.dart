@@ -22,24 +22,27 @@ void main() {
 
   test('Click a button', () async {
     final buttons = 'Buttons';
-    final gray = 'Gray';
-    final textView = 'TextView';
+    final xButton = 'X Button';
+    final alertViews = 'Alert Views';
 
     var element = await driver.findElement(AppiumBy.accessibilityId(buttons));
+    expect(element.id != null, true);
     await element.click();
 
     expect(await element.displayed, true);
 
-    await driver.findElement(AppiumBy.name(gray));
+    await driver.findElement(AppiumBy.name(xButton));
     await driver.back();
 
-    await driver.findElement(AppiumBy.accessibilityId(textView));
+    await driver.findElement(AppiumBy.accessibilityId(alertViews));
   });
 
   test('set value', () async {
-    final textFieldCell = 'TextFields';
-    final textField = '<enter text>';
-    final normalName = 'Normal';
+    final textFieldCell = 'Text Fields';
+    final textField = 'Placeholder text';
+    final xcuielementTextField = 'XCUIElementTypeTextField';
+    
+    await driver.execute('mobile: scroll', [{'direction': 'down'}]);
 
     var element =
         await driver.findElement(AppiumBy.accessibilityId(textFieldCell));
@@ -48,7 +51,7 @@ void main() {
     element = await driver.findElement(AppiumBy.name(textField));
     await element.setImmediateValue('hello');
 
-    element = await driver.findElement(AppiumBy.accessibilityId(normalName));
+    element = await driver.findElement(AppiumBy.className(xcuielementTextField));
     expect(await element.text, 'hello');
   });
 

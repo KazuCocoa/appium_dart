@@ -20,9 +20,9 @@ class TestHelper {
 
   static var iOSDesiredCapabilitiesApp = {
     'platformName': 'iOS',
-    'platformVersion': '12.2',
+    'platformVersion': '12.4',
     'app': File('test/functional/app/UICatalog.app.zip').absolute.path,
-    'deviceName': 'iPhone X', // Runs tests in parallel per file by default
+    'deviceName': 'iPhone Xs Max', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
     'wdaLocalPort': 8100,
     'useJSONSource': true,
@@ -31,9 +31,9 @@ class TestHelper {
 
   static var iOSDesiredCapabilitiesWeb = {
     'platformName': 'iOS',
-    'platformVersion': '12.2',
+    'platformVersion': '12.4',
     'browserName': 'Safari',
-    'deviceName': 'iPhone 8', // Runs tests in parallel per file by default
+    'deviceName': 'iPhone Xs Max', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
     'wdaLocalPort': 8101,
     'useJSONSource': true,
