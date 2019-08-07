@@ -41,8 +41,10 @@ void main() {
     final textFieldCell = 'Text Fields';
     final textField = 'Placeholder text';
     final xcuielementTextField = 'XCUIElementTypeTextField';
-    
-    await driver.execute('mobile: scroll', [{'direction': 'down'}]);
+
+    await driver.execute('mobile: scroll', [
+      {'direction': 'down'}
+    ]);
 
     var element =
         await driver.findElement(AppiumBy.accessibilityId(textFieldCell));
@@ -51,7 +53,8 @@ void main() {
     element = await driver.findElement(AppiumBy.name(textField));
     await element.setImmediateValue('hello');
 
-    element = await driver.findElement(AppiumBy.className(xcuielementTextField));
+    element =
+        await driver.findElement(AppiumBy.className(xcuielementTextField));
     expect(await element.text, 'hello');
   });
 
