@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+- Fix parsing element/s by find element/s which have only MJSONWP key 
+
+
 ## [0.1.0] - 2019-07-14
 
 Basic actions have been implemented.
