@@ -3,6 +3,12 @@ import 'dart:async';
 import 'package:appium_driver/async_core.dart';
 import 'package:appium_driver/src/common/by.dart';
 
+// For MJSONWP
+const String jsonWireElementStr = 'ELEMENT';
+
+// For W3C
+const String w3cElementStr = 'element-6066-11e4-a52e-4f735466cecf';
+
 typedef GetAttribute = Future<String> Function(String name);
 
 /// Simple class to provide access to indexed properties such as WebElement

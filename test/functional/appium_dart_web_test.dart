@@ -70,12 +70,20 @@ void main() {
   test('find by appium element', () async {
     final title = 'Appium/welcome';
     try {
-      await driver.findElement(AppiumBy.accessibilityId(title));
+      var e = await driver.findElement(AppiumBy.accessibilityId(title));
+      expect(e.id != null, true);
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
       expect(
           e.message.contains('Unsupported locator strategy: accessibility id'),
           true);
     }
+  });
+
+  test('find by element', () async {
+    final h1 = '//h1';
+    var e = await driver.findElement(AppiumBy.xpath(h1));
+    expect(e.id != null, true);
+    expect(await e.text, "Let's browse!");
   });
 }
