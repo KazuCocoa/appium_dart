@@ -1,4 +1,5 @@
 import 'package:appium_driver/src/common/by.dart';
+import 'package:appium_driver/src/common/search_context.dart' as search_context;
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
@@ -23,7 +24,9 @@ class W3cElementFinder extends ElementFinder {
   @override
   List<String> parseFindElementsResponse(WebDriverResponse response) {
     return (parseW3cResponse(response) as List)
-        .map<String>((e) => e[w3cElementStr])
+        .map<String>((e) =>
+            e[search_context.w3cElementStr] ??
+            e[search_context.jsonWireElementStr])
         .toList();
   }
 
@@ -36,7 +39,9 @@ class W3cElementFinder extends ElementFinder {
 
   @override
   String parseFindActiveElementResponse(WebDriverResponse response) {
-    return parseW3cResponse(response)[w3cElementStr];
+    var parsedResponse = parseW3cResponse(response);
+    return parsedResponse[search_context.w3cElementStr] ??
+        parsedResponse[search_context.jsonWireElementStr];
   }
 
   @override
@@ -46,6 +51,8 @@ class W3cElementFinder extends ElementFinder {
 
   @override
   String parseFindElementResponse(WebDriverResponse response) {
-    return parseW3cResponse(response)[w3cElementStr];
+    var parsedResponse = parseW3cResponse(response);
+    return parsedResponse[search_context.w3cElementStr] ??
+        parsedResponse[search_context.jsonWireElementStr];
   }
 }
