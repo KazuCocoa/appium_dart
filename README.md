@@ -155,4 +155,6 @@ Below Appium specific commands are implementing.
 - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/keys']`~~ <= will be deprecated in W3C. Use W3C actions instead.
 - [x] `[HttpMethod.httpGet, 'session/:session_id/log/types']`
 - [x] `[HttpMethod.httpPost, 'session/:session_id/log']`
+- [ ] `[HttpMethod.httpGet, 'session/:session_id/appium/events']`
+- [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/log_event']`
 
