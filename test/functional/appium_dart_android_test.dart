@@ -108,5 +108,13 @@ void main() {
     var logs = driver.logs.get(logType.first);
     expect((await logs.take(1).toList()).length, 1);
 //    expect(logs.take(1).message.isEmpty, false);
+
+    await driver.logs.logEvent('custom', 'event');
+    // {commands: [{cmd: timeouts, startTime: 1575388557299, endTime: 1575388557300}, {cmd: getLogTypes, startTime: 1575388557313, endTime: 1575388557313}, {cmd: getLog, startTime: 1575388557326, endTime: 1575388557326}, {cmd: logCustomEvent, startTime: 1575388557453, endTime: 1575388557454}, {cmd: getLogEvents, startTime: 1575388557458, endTime: 1575388557459}],
+    // custom:event: [1575388557453]}
+    var result = await driver.logs.getEvents();
+    expect(result['commands'].length > 1, true);
+    result = await driver.logs.getEvents(type: 'custom:event');
+    expect(result['custom:event'].length == 1, true);
   });
 }
