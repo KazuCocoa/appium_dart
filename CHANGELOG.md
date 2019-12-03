@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add events methods: `driver.logs.getEvents`, `driver.logs.logEvent`
+
 ## [0.1.1] - 2019-08-7
 
 - Fix parsing element/s by find element/s which have only MJSONWP key 

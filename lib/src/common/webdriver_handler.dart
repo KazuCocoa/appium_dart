@@ -578,6 +578,18 @@ abstract class LogsHandler {
 
   /// Parses response for 'Get Available Logs'.
   List<String> parseGetAvailableTypeResponse(WebDriverResponse response);
+
+  /// Builds request for 'Get Events'.
+  WebDriverRequest buildGetEventsRequest({String type = ''});
+
+  /// Parses response for 'Get Events'
+  Map<String, dynamic> parseGetEventsResponse(WebDriverResponse response);
+
+  /// Builds request for 'Log Event'
+  WebDriverRequest buildLogEventRequest(String vendor, String event);
+
+  /// Parses response for 'Get events'
+  void parseLogEventResponse(WebDriverResponse response);
 }
 
 abstract class AppManagementHandler {

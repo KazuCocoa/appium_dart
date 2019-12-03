@@ -148,4 +148,6 @@ class W3CCommands {
   static const GET_AVAILABLE_LOG_TYPES =
       Command(HttpMethod.httpGet, 'log/types');
   static const GET_LOG = Command(HttpMethod.httpPost, 'log');
+  static const GET_EVENTS = Command(HttpMethod.httpPost, 'appium/events');
+  static const LOG_EVENT = Command(HttpMethod.httpPost, 'appium/log_event');
 }

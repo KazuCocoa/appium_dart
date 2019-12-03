@@ -36,6 +36,29 @@ class Logs {
       _handler.logs.buildGetAvailableTypeRequest(),
       _handler.logs.parseGetAvailableTypeResponse);
 
+  /// Gets events
+  ///
+  /// Example:
+  ///
+  ///
+  ///    await driver.logs.getEvents();
+  ///    //=> {commands: [{cmd: timeouts, startTime: 1575388557299, endTime: 1575388557300}, {cmd: getLogTypes, startTime: 1575388557313, endTime: 1575388557313}, {cmd: getLog, startTime: 1575388557326, endTime: 1575388557326}, {cmd: logCustomEvent, startTime: 1575388557453, endTime: 1575388557454}, {cmd: getLogEvents, startTime: 1575388557458, endTime: 1575388557459}],
+  ///    //    custom:event: [1575388557453]}
+  ///
+  Future<Map<String, dynamic>> getEvents({String type = ''}) => _client.send(
+      _handler.logs.buildGetEventsRequest(type: type),
+      _handler.logs.parseGetEventsResponse);
+
+  /// Post a custom event
+  ///
+  /// Example:
+  ///
+  ///    await driver.logs.logEvent('custom', 'event');
+  ///
+  Future<void> logEvent(String vendor, String event) => _client.send(
+      _handler.logs.buildLogEventRequest(vendor, event),
+      _handler.logs.parseLogEventResponse);
+
   @override
   String toString() => '$_handler.logs($_client)';
 
