@@ -23,7 +23,7 @@ class W3cDeviceHandler implements DeviceHandler {
   WebDriverRequest buildLockDeviceRequest({Duration seconds}) {
     Map<String, dynamic> arg = {};
     if (seconds == null) {
-      arg['seconds'] = Duration(seconds: 0).inSeconds;
+      arg['seconds'] = const Duration(seconds: 0).inSeconds;
     } else {
       arg['seconds'] = seconds.inSeconds;
     }
