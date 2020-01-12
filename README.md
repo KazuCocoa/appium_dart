@@ -35,6 +35,12 @@ $ dartanalyzer --options analysis_options.yaml .
 $ dartfmt -w --fix .
 ```
 
+# pana (analyze on pub.dev)
+
+```
+$ pub run pana --source path .
+```
+
 # Run tests
 ## Get dependencies
 
