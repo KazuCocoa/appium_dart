@@ -1,6 +1,9 @@
 ## [Unreleased]
 
+## [0.1.2] - 2020-01-14
+
 - Add events methods: `driver.logs.getEvents`, `driver.logs.logEvent`
+- Fix warning message by static analyzer
 
 ## [0.1.1] - 2019-08-7
 
