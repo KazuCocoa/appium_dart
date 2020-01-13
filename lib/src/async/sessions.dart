@@ -10,8 +10,8 @@ class Sessions {
   AppiumWebDriverHandler _handler;
 
   Sessions(Uri baseUrl, AppiumWebDriverHandler handler) {
-    this._client = AsyncIoRequestClient(baseUrl);
-    this._handler = handler;
+    _client = AsyncIoRequestClient(baseUrl);
+    _handler = handler;
   }
 
   /// Get sessions
@@ -33,8 +33,8 @@ class Sessions {
   @override
   bool operator ==(other) =>
       other is Sessions &&
-      other._client == this._client &&
-      other._handler == this._handler;
+      other._client == _client &&
+      other._handler == _handler;
 
   @override
   String toString() => '$_handler.sessions($_client)';

@@ -47,7 +47,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   final AsyncRequestClient _client;
 
   AppiumWebDriver(this.uri, this.id, this.capabilities, this._client, this.spec)
-      : this._handler = getHandler(spec);
+      : _handler = getHandler(spec);
 
   /// Preferred method for registering listeners. Listeners are expected to
   /// return a Future. Use new Future.value() for synchronous listeners.
@@ -91,7 +91,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     final ids = await _client.send(
         _handler.elementFinder.buildFindElementsRequest(by),
         _handler.elementFinder.parseFindElementsResponse);
-    int i = 0;
+    var i = 0;
 
     for (var id in ids) {
       yield getElement(id, this, by, i);
@@ -156,7 +156,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   }
 
   TargetLocator get switchTo =>
-      TargetLocator(this, this._client, this._handler);
+      TargetLocator(this, _client, _handler);
 
   Cookies get cookies => Cookies(_client, _handler);
 
@@ -170,27 +170,27 @@ class AppiumWebDriver implements AppiumSearchContext {
 
   Timeouts get timeouts => Timeouts(_client, _handler);
 
-  Keyboard get keyboard => Keyboard(this._client, this._handler);
+  Keyboard get keyboard => Keyboard(_client, _handler);
 
-  Mouse get mouse => Mouse(this._client, this._handler);
+  Mouse get mouse => Mouse(_client, _handler);
 
-  AppManagement get app => AppManagement(this._client, this._handler);
+  AppManagement get app => AppManagement(_client, _handler);
 
-  AppState get appState => AppState(this._client, this._handler);
+  AppState get appState => AppState(_client, _handler);
 
-  Contexts get contexts => Contexts(this._client, this._handler);
+  Contexts get contexts => Contexts(_client, _handler);
 
-  IME get ime => IME(this._client, this._handler);
+  IME get ime => IME(_client, _handler);
 
-  Device get device => Device(this._client, this._handler);
+  Device get device => Device(_client, _handler);
 
-  Settings get settings => Settings(this._client, this._handler);
+  Settings get settings => Settings(_client, _handler);
 
-  Session get session => Session(this._client, this._handler);
+  Session get session => Session(_client, _handler);
 
-  Sessions get sessions => Sessions(this.uri, this._handler);
+  Sessions get sessions => Sessions(uri, _handler);
 
-  Status get status => Status(this.uri, this._handler);
+  Status get status => Status(uri, _handler);
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.

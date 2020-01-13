@@ -20,9 +20,9 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildBackgroundAppRequest({Duration seconds}) {
-    Map<String, dynamic> arg = {};
+    var arg = <String, dynamic>{};
     if (seconds == null) {
-      arg['seconds'] = Duration(seconds: 0).inSeconds;
+      arg['seconds'] = const Duration(seconds: 0).inSeconds;
     } else {
       arg['seconds'] = seconds.inSeconds;
     }
@@ -58,7 +58,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
   @override
   WebDriverRequest buildInstallAppRequest(String path,
       {replace, timeout, allowTestPackage, useSdcard, grantPermissions}) {
-    Map<String, dynamic> arg = {'appPath': path, 'options': {}};
+    var arg = <String, dynamic>{'appPath': path, 'options': {}};
     if (replace != null) {
       arg['options']['replace'] = replace;
     }
@@ -105,7 +105,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   WebDriverRequest buildRemoveAppRequest(String appId, {keepData, timeout}) {
-    Map<String, dynamic> arg = {'appId': appId, 'options': {}};
+    var arg = <String, dynamic>{'appId': appId, 'options': {}};
     if (keepData != null) {
       arg['options']['keepData'] = keepData;
     }

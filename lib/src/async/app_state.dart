@@ -22,8 +22,8 @@ class AppState {
   @override
   bool operator ==(other) =>
       other is AppState &&
-      other._client == this._client &&
-      other._handler == this._handler;
+      other._client == _client &&
+      other._handler == _handler;
 
   @override
   String toString() => '$_handler.appState($_client)';

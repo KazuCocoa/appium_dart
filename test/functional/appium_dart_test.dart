@@ -13,7 +13,7 @@ void main() {
     driver = await createDriver(
         uri: TestHelper.localServer,
         desired: TestHelper.iOSDesiredCapabilitiesApp);
-    await driver.timeouts.setImplicitTimeout(Duration(seconds: 5));
+    await driver.timeouts.setImplicitTimeout(const Duration(seconds: 5));
   });
 
   tearDownAll(() async {

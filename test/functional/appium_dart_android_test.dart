@@ -11,7 +11,7 @@ void main() {
     driver = await createDriver(
         uri: TestHelper.localServer,
         desired: TestHelper.androidDesiredCapabilitiesApp);
-    await driver.timeouts.setImplicitTimeout(Duration(seconds: 5));
+    await driver.timeouts.setImplicitTimeout(const Duration(seconds: 5));
   });
 
   tearDownAll(() async {
@@ -47,7 +47,7 @@ void main() {
     await driver.device.unlock();
     expect(await driver.device.isLocked(), false);
 
-    await driver.device.lock(seconds: Duration(seconds: 2));
+    await driver.device.lock(seconds: const Duration(seconds: 2));
     // wait 2 sec
     expect(await driver.device.isLocked(), false);
 
@@ -72,7 +72,7 @@ void main() {
   });
 
   test('start activity', () async {
-    await driver.app.background(seconds: Duration(seconds: -1));
+    await driver.app.background(seconds: const Duration(seconds: -1));
     expect(
         await driver.appState.get('io.appium.android.apis') !=
             AppState.RunningInForeground,

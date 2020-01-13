@@ -52,7 +52,7 @@ void main() {
   group('devices', () {
     test('app management', () async {
       expect(await driver.app.isInstalled('com.apple.mobilesafari'), true);
-      await driver.app.background(seconds: Duration(seconds: -1));
+      await driver.app.background(seconds: const Duration(seconds: -1));
       expect(await driver.appState.get('com.apple.mobilesafari'),
           AppState.RunningInBackground);
       await driver.app.activate('com.apple.mobilesafari');

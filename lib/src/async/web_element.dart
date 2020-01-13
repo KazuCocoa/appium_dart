@@ -107,7 +107,7 @@ class AppiumWebElement extends common.WebElement
         _handler.elementFinder.buildFindElementsRequest(by, id),
         _handler.elementFinder.parseFindElementsResponse);
 
-    int i = 0;
+    var i = 0;
     for (var id in ids) {
       yield driver.getElement(id, this, by, i);
       i++;
@@ -144,8 +144,8 @@ class AppiumWebElement extends common.WebElement
 
   Future<bool> equals(AppiumWebElement other) async =>
       other is AppiumWebElement &&
-      other.driver == this.driver &&
-      other.id == this.id;
+      other.driver == driver &&
+      other.id == id;
 
   @override
   int get hashCode => driver.hashCode * 3 + id.hashCode;
@@ -153,8 +153,8 @@ class AppiumWebElement extends common.WebElement
   @override
   bool operator ==(other) =>
       other is AppiumWebElement &&
-      other.driver == this.driver &&
-      other.id == this.id;
+      other.driver == driver &&
+      other.id == id;
 
   @override
   String toString() {

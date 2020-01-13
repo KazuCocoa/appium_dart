@@ -36,8 +36,8 @@ class IME {
   @override
   bool operator ==(other) =>
       other is IME &&
-      other._client == this._client &&
-      other._handler == this._handler;
+      other._client == _client &&
+      other._handler == _handler;
 
   @override
   String toString() => '$_handler.appManagemenet($_client)';
