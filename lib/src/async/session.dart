@@ -24,8 +24,8 @@ class Session {
   @override
   bool operator ==(other) =>
       other is Session &&
-      other._client == this._client &&
-      other._handler == this._handler;
+      other._client == _client &&
+      other._handler == _handler;
 
   @override
   String toString() => '$_handler.session($_client)';

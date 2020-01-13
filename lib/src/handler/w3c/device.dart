@@ -21,7 +21,7 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   WebDriverRequest buildLockDeviceRequest({Duration seconds}) {
-    Map<String, dynamic> arg = {};
+    var arg = {};
     if (seconds == null) {
       arg['seconds'] = const Duration(seconds: 0).inSeconds;
     } else {
@@ -69,7 +69,7 @@ class W3cDeviceHandler implements DeviceHandler {
   @override
   WebDriverRequest buildPressKeycodeRequest(int keycode,
       {List<int> metastate, List<int> flags}) {
-    Map<String, dynamic> arg = {'keycode': keycode};
+    var arg = <String, dynamic>{'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;
     }
@@ -87,7 +87,7 @@ class W3cDeviceHandler implements DeviceHandler {
   @override
   WebDriverRequest buildLongPressKeycodeRequest(int keycode,
       {List<int> metastate, List<int> flags}) {
-    Map<String, dynamic> arg = {'keycode': keycode};
+    var arg = <String, dynamic>{'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;
     }
