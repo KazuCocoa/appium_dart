@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.1.3] - 2020-02-12
+
+- Chore: Fix formatter warning
+
 ## [0.1.2] - 2020-01-14
 
 - Add events methods: `driver.logs.getEvents`, `driver.logs.logEvent`
