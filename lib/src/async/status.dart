@@ -29,9 +29,7 @@ class Status {
 
   @override
   bool operator ==(other) =>
-      other is Status &&
-      other._client == _client &&
-      other._handler == _handler;
+      other is Status && other._client == _client && other._handler == _handler;
 
   @override
   String toString() => '$_handler.sessions($_client)';

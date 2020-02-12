@@ -143,18 +143,14 @@ class AppiumWebElement extends common.WebElement
       _handler.element.parseCssPropertyResponse));
 
   Future<bool> equals(AppiumWebElement other) async =>
-      other is AppiumWebElement &&
-      other.driver == driver &&
-      other.id == id;
+      other is AppiumWebElement && other.driver == driver && other.id == id;
 
   @override
   int get hashCode => driver.hashCode * 3 + id.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is AppiumWebElement &&
-      other.driver == driver &&
-      other.id == id;
+      other is AppiumWebElement && other.driver == driver && other.id == id;
 
   @override
   String toString() {

@@ -155,8 +155,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     return null;
   }
 
-  TargetLocator get switchTo =>
-      TargetLocator(this, _client, _handler);
+  TargetLocator get switchTo => TargetLocator(this, _client, _handler);
 
   Cookies get cookies => Cookies(_client, _handler);
 

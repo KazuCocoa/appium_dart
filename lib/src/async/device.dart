@@ -191,9 +191,7 @@ class Device {
 
   @override
   bool operator ==(other) =>
-      other is Device &&
-      other._client == _client &&
-      other._handler == _handler;
+      other is Device && other._client == _client && other._handler == _handler;
 
   @override
   String toString() => '$_handler.appState($_client)';
