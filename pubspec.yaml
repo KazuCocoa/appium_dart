@@ -3,7 +3,6 @@ description: >
   An Appium binding for Dart.
   Support WebDriver W3C spec inheriting webdriver.dart.
 version: 0.1.3
-author: 'Kazuaki Matsuo <fly.49.89.over@gmail.com>'
 homepage: https://github.com/KazuCocoa/appium_dart
 environment:
   sdk: '>=2.1.0 <3.0.0'
