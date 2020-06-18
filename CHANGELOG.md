@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.1.4] - 2020-06-18
+
 - Add `driver.cdp.execute` command to call ChromeDevTools command in WebView context
 - Add `-android viewmatcher` as `await driver.findElement(AppiumBy.viewmatcher('view matcher'))`
     ```dart
