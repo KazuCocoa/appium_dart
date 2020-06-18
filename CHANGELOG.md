@@ -1,7 +1,7 @@
 ## [Unreleased]
 
 - Add `driver.cdp.execute` command to call ChromeDevTools command in WebView context
-- Added `-android viewmatcher` as `await driver.findElement(AppiumBy.viewmatcher('view matcher'))`
+- Add `-android viewmatcher` as `await driver.findElement(AppiumBy.viewmatcher('view matcher'))`
     ```dart
     import 'dart:convert';
     var cmd = json.encode({
