@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:appium_driver/src/handler/w3c/cdp.dart';
 import 'package:appium_driver/src/handler/w3c/element_finder.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 import 'package:appium_driver/src/handler/w3c/alert.dart';
@@ -94,6 +95,9 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
 
   @override
   final LogsHandler logs = W3cLogsHandler();
+
+  @override
+  final ChromeDevToolsHandler cdp = W3cChromeDevToolsHandler();
 
   @override
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri,

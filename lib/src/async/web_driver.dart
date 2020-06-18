@@ -8,6 +8,7 @@ import 'package:appium_driver/src/async/target_locator.dart';
 import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 import 'package:appium_driver/src/async/cookies.dart';
+import 'package:appium_driver/src/async/cdp.dart';
 import 'package:appium_driver/src/async/keyboard.dart';
 import 'package:appium_driver/src/async/mouse.dart';
 import 'package:appium_driver/src/async/logs.dart';
@@ -190,6 +191,8 @@ class AppiumWebDriver implements AppiumSearchContext {
   Sessions get sessions => Sessions(uri, _handler);
 
   Status get status => Status(uri, _handler);
+
+  ChromeDevTools get cdp => ChromeDevTools(_client, _handler);
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.
