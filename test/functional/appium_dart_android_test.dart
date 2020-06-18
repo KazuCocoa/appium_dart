@@ -117,4 +117,19 @@ void main() {
     result = await driver.logs.getEvents(type: 'custom:event');
     expect(result['custom:event'].length == 1, true);
   });
+
+  test('cdp', () async {
+    await driver.device.startActivity(
+        appPackage: 'io.appium.android.apis',
+        appActivity: 'io.appium.android.apis.view.WebView1');
+    var contexts = await driver.contexts.getAvailableContexts();
+    await driver.contexts.setContext(contexts[1]);
+
+    var response = await driver.cdp.execute('Page.getResourceTree', {});
+    expect(response['frameTree'] != null, true);
+
+    response = await driver.cdp
+        .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'});
+    expect(response['data'].startsWith('/9j/'), true);
+  });
 }

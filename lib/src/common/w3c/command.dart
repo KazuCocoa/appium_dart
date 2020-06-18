@@ -150,4 +150,5 @@ class W3CCommands {
   static const GET_LOG = Command(HttpMethod.httpPost, 'log');
   static const GET_EVENTS = Command(HttpMethod.httpPost, 'appium/events');
   static const LOG_EVENT = Command(HttpMethod.httpPost, 'appium/log_event');
+  static const EXECUTE_CDP = Command(HttpMethod.httpPost, 'goog/cdp/execute');
 }
