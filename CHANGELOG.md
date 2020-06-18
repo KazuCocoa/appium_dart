@@ -11,6 +11,9 @@
     });
     var e = await driver.findElement(AppiumBy.viewmatcher(cmd));
     ```
+- Fix to send `text` as `setImmediateValue` and `replaceText` for backward compatibility
+    - `sendKeys` already has it
+  
 
 ## [0.1.3] - 2020-02-12
 
