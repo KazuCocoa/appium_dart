@@ -172,7 +172,10 @@ class W3cElementHandler extends ElementHandler {
   @override
   WebDriverRequest buildReplaceValueRequest(String elementId, String value) {
     return AppiumWebDriverRequest.sendElementRequest(
-        W3CCommands.REPLACE_VALUE, elementId, {'value': value});
+        W3CCommands.REPLACE_VALUE, elementId, {
+      'text': value, // What geckodriver really wants.
+      'value': value // Actual W3C spec
+    });
   }
 
   @override
@@ -184,7 +187,10 @@ class W3cElementHandler extends ElementHandler {
   WebDriverRequest buildSetValueImmediatelyRequest(
       String elementId, String value) {
     return AppiumWebDriverRequest.sendElementRequest(
-        W3CCommands.SET_IMMEDIATE_VALUE, elementId, {'value': value});
+        W3CCommands.SET_IMMEDIATE_VALUE, elementId, {
+      'text': value, // What geckodriver really wants.
+      'value': value // Actual W3C spec
+    });
   }
 
   @override
