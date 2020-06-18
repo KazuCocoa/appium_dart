@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add `driver.cdp.execute` command to call ChromeDevTools command in WebView context
+
 ## [0.1.3] - 2020-02-12
 
 - Chore: Fix formatter warning
