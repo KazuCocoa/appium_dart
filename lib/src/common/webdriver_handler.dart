@@ -850,9 +850,9 @@ abstract class SettingsHandler {
 }
 
 abstract class ChromeDevToolsHandler {
-
   /// Build request for 'execute cdp'
-  WebDriverRequest buildExecuteRequest(String command, Map<String, dynamic> params);
+  WebDriverRequest buildExecuteRequest(
+      String command, Map<String, dynamic> params);
 
   /// Parse response for 'execute cdp'
   Map<String, dynamic> parseExecuteResponse(WebDriverResponse response);

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
@@ -12,12 +11,13 @@ class ChromeDevTools {
   ChromeDevTools(this._client, this._handler);
 
   /// Sets the window as active.
-  Future<Map<String, dynamic>> execute(String cmd, Map<String, dynamic> params) => _client.send(
-      _handler.cdp.buildExecuteRequest(cmd, params),
-      _handler.cdp.parseExecuteResponse);
+  Future<Map<String, dynamic>> execute(
+          String cmd, Map<String, dynamic> params) =>
+      _client.send(_handler.cdp.buildExecuteRequest(cmd, params),
+          _handler.cdp.parseExecuteResponse);
 
   @override
-  int get hashCode =>  _client.hashCode;
+  int get hashCode => _client.hashCode;
 
   @override
   bool operator ==(other) =>

@@ -81,7 +81,7 @@ Below Appium specific commands are implementing.
 
 - [x] directConnectXxxx
 - [ ] batch command
-- [ ] CDP command: `[HttpMethod.httpPost, 'session/:session_id/goog/cdp/execute']`
+- [x] CDP command: `[HttpMethod.httpPost, 'session/:session_id/goog/cdp/execute']`
 - [x] `[HttpMethod.httpGet, 'sessions']`
 - [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
 - [x] `[HttpMethod.httpPost, 'session/:session_id/context']`

@@ -128,8 +128,8 @@ void main() {
     var response = await driver.cdp.execute('Page.getResourceTree', {});
     expect(response['frameTree'] != null, true);
 
-    response = await driver.cdp.execute('Page.captureScreenshot', {
-      'quality': 1, 'format': 'jpeg'});
+    response = await driver.cdp
+        .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'});
     expect(response['data'].startsWith('/9j/'), true);
   });
 }
