@@ -51,6 +51,10 @@ class AppiumBy extends By {
   const AppiumBy.datamatcher(String datamatcher)
       : this('-android datamatcher', datamatcher);
 
+  /// Returns an element matching a viewmatcher.
+  const AppiumBy.viewmatcher(String viewmatcher)
+      : this('-android viewmatcher', viewmatcher);
+
   /// Returns an element matching a predicate string.
   const AppiumBy.predicateString(String predicateString)
       : this('-ios predicate string', predicateString);
@@ -98,6 +102,9 @@ class AppiumBy extends By {
         break;
       case '-android datamatcher':
         constructor = 'datamatcher';
+        break;
+      case '-android viewmatcher':
+        constructor = 'viewmatcher';
         break;
       case '-ios predicate string':
         constructor = 'predicateString';

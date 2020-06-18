@@ -1,5 +1,16 @@
 ## [Unreleased]
 
+- Added `-android viewmatcher` as `await driver.findElement(AppiumBy.viewmatcher('view matcher'))`
+    ```dart
+    import 'dart:convert';
+    var cmd = json.encode({
+      'name': 'withText',
+      'args': ['Accessibility'],
+      'class': 'androidx.test.espresso.matcher.ViewMatchers'
+    });
+    var e = await driver.findElement(AppiumBy.viewmatcher(cmd));
+    ```
+
 ## [0.1.3] - 2020-02-12
 
 - Chore: Fix formatter warning
