@@ -4,7 +4,7 @@
 
 An appium binding in Dart
 
-# Why
+# About
 
 Flutter has [flutter_driver](https://api.flutter.dev/flutter/flutter_driver/flutter_driver-library.html) which runs UI tests like Espresso/EarlGrey/Appium for Flutter elements.
 The driver is really awesome, but it can automate only flutter view. It cannot handle outside Flutter.
