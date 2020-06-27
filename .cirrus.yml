@@ -1,9 +1,0 @@
-container:
-  image: cirrusci/flutter:latest
-
-test_task:
-  pub_cache:
-    folder: ~/.pub-cache
-  resolve_dep_script: pub get
-  lint_script: dartanalyzer --options analysis_options.yaml .
-  test_script: pub run test test/unit
