@@ -1,6 +1,6 @@
 # appium_driver
 
-[![Build Status](https://api.cirrus-ci.com/github/KazuCocoa/appium_dart.svg)](https://cirrus-ci.com/github/KazuCocoa/appium_dart)
+![Dart CI](https://github.com/KazuCocoa/appium_dart/workflows/Dart%20CI/badge.svg?branch=master)
 
 An appium binding in Dart
 
