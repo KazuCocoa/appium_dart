@@ -12,7 +12,9 @@ class ExecuteDriver {
 
   Future<Map<String, dynamic>> executeDriver(
           String script, String type, Duration timeoutMs) =>
-      _client.send(_handler.executeDriver.buildExecuteDriverRequest(script, type, timeoutMs),
+      _client.send(
+          _handler.executeDriver
+              .buildExecuteDriverRequest(script, type, timeoutMs),
           _handler.executeDriver.parseExecuteDriverResponse);
 
   @override

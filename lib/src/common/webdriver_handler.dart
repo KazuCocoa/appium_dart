@@ -1,9 +1,7 @@
 import 'dart:math';
 
-import 'package:appium_driver/src/async/execute_driver.dart';
 import 'package:appium_driver/src/common/app_state.dart';
 import 'package:appium_driver/src/common/clipboard.dart';
-import 'package:appium_driver/src/common/request.dart';
 import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/log.dart';
 

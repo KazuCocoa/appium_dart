@@ -103,16 +103,21 @@ void main() {
 
   // Requires '--relaxed-security' or '--allow-insecure=execute_driver_script'
   test('execute driver', () async {
-    expect(
-        await driver.executeDriver('''
+    expect(await driver.executeDriver('''
 const status = await driver.status();
 console.warn('warning message');
 return [status];
-    ''', 'webdriverio', const Duration(minutes: 1)),
-      {
-        'result': [{'build': {'version': '1.20.0'}}],
-        'logs': {'error': [], 'warn': ['warning message'], 'log': []}
+    ''', 'webdriverio', const Duration(minutes: 1)), {
+      'result': [
+        {
+          'build': {'version': '1.20.0'}
+        }
+      ],
+      'logs': {
+        'error': [],
+        'warn': ['warning message'],
+        'log': []
       }
-    );
+    });
   });
 }

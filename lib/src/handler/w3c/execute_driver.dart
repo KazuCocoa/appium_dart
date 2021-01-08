@@ -7,14 +7,14 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 
 class W3cExecuteDriverHandler implements ExecuteDriverHandler {
   @override
-  WebDriverRequest buildExecuteDriverRequest(String script, String type, Duration timeoutMs) {
+  WebDriverRequest buildExecuteDriverRequest(
+      String script, String type, Duration timeoutMs) {
     // TODO: Make timeoutMs nullable
-    return AppiumWebDriverRequest.sendRequest(
-      W3CCommands.EXECUTE_DRIVER, {'script': script, 'type': type, 'timeout': timeoutMs.inMilliseconds}
-    );
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.EXECUTE_DRIVER,
+        {'script': script, 'type': type, 'timeout': timeoutMs.inMilliseconds});
   }
 
   @override
   Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response) =>
-    parseW3cResponse(response);
+      parseW3cResponse(response);
 }
