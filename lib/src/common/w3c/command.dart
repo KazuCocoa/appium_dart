@@ -120,6 +120,8 @@ class W3CCommands {
       Command(HttpMethod.httpPost, 'appium/device/power_capacity');
   static const SET_POWER_AC =
       Command(HttpMethod.httpPost, 'appium/device/power_ac');
+  static const EXECUTE_DRIVER =
+      Command(HttpMethod.httpPost, 'appium/execute_driver');
   static const TOUCH_ID =
       Command(HttpMethod.httpPost, 'appium/simulator/touch_id');
   static const TOGGLE_TOUCH_ID_ENROLLMENT = Command(

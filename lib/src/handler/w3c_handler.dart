@@ -23,6 +23,7 @@ import 'package:appium_driver/src/handler/w3c/settings.dart';
 import 'package:appium_driver/src/handler/w3c/sessions.dart';
 import 'package:appium_driver/src/handler/w3c/status.dart';
 import 'package:appium_driver/src/handler/w3c/logs.dart';
+import 'package:appium_driver/src/handler/w3c/execute_driver.dart';
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
 
@@ -98,6 +99,9 @@ class W3cWebDriverHandler extends AppiumWebDriverHandler {
 
   @override
   final ChromeDevToolsHandler cdp = W3cChromeDevToolsHandler();
+
+  @override
+  ExecuteDriverHandler get executeDriver => W3cExecuteDriverHandler();
 
   @override
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri,

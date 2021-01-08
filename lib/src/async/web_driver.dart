@@ -23,6 +23,7 @@ import 'package:appium_driver/src/async/settings.dart';
 import 'package:appium_driver/src/async/sessions.dart';
 import 'package:appium_driver/src/async/session.dart';
 import 'package:appium_driver/src/async/status.dart';
+import 'package:appium_driver/src/async/execute_driver.dart';
 
 import 'package:webdriver/src/async/stepper.dart' // ignore: implementation_imports
     show
@@ -193,6 +194,10 @@ class AppiumWebDriver implements AppiumSearchContext {
   Status get status => Status(uri, _handler);
 
   ChromeDevTools get cdp => ChromeDevTools(_client, _handler);
+
+  Future<dynamic> executeDriver(String script, String type, Duration timeoutMs) =>
+      _client.send(_handler.executeDriver.buildExecuteDriverRequest(script, type, timeoutMs),
+      _handler.executeDriver.parseExecuteDriverResponse);
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.

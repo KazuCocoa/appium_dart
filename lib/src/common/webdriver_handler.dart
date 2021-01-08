@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:appium_driver/src/async/execute_driver.dart';
 import 'package:appium_driver/src/common/app_state.dart';
 import 'package:appium_driver/src/common/clipboard.dart';
+import 'package:appium_driver/src/common/request.dart';
 import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/log.dart';
 
@@ -68,6 +70,8 @@ abstract class AppiumWebDriverHandler {
   SettingsHandler get settings;
 
   ChromeDevToolsHandler get cdp;
+
+  ExecuteDriverHandler get executeDriver;
 
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
@@ -856,4 +860,13 @@ abstract class ChromeDevToolsHandler {
 
   /// Parse response for 'execute cdp'
   Map<String, dynamic> parseExecuteResponse(WebDriverResponse response);
+}
+
+abstract class ExecuteDriverHandler {
+  /// Build request for 'execute driver'
+  WebDriverRequest buildExecuteDriverRequest(
+      String script, String type, Duration timeoutMs);
+
+  /// Parse response for 'execute driver'
+  Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response);
 }
