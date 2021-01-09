@@ -107,7 +107,24 @@ void main() {
 const status = await driver.status();
 console.warn('warning message');
 return [status];
-    ''', 'webdriverio', const Duration(minutes: 1)), {
+    ''', type: 'webdriverio', timeout: const Duration(minutes: 1)), {
+      'result': [
+        {
+          'build': {'version': '1.20.0'}
+        }
+      ],
+      'logs': {
+        'error': [],
+        'warn': ['warning message'],
+        'log': []
+      }
+    });
+
+    expect(await driver.executeDriver('''
+const status = await driver.status();
+console.warn('warning message');
+return [status];
+    '''), {
       'result': [
         {
           'build': {'version': '1.20.0'}

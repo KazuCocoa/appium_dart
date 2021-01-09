@@ -7,11 +7,18 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 
 class W3cExecuteDriverHandler implements ExecuteDriverHandler {
   @override
-  WebDriverRequest buildExecuteDriverRequest(
-      String script, String type, Duration timeoutMs) {
-    // TODO: Make timeoutMs nullable
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.EXECUTE_DRIVER,
-        {'script': script, 'type': type, 'timeout': timeoutMs.inMilliseconds});
+  WebDriverRequest buildExecuteDriverRequest(String script,
+      {String type, Duration timeout}) {
+    Map<String, dynamic> arg = {'script': script};
+    if (type != null) {
+      // arg['type'] = type;
+    } else {
+      arg['type'] = 'webdriverio';
+    }
+    if (timeout != null) {
+      arg['timeout'] = timeout.inMilliseconds;
+    }
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.EXECUTE_DRIVER, arg);
   }
 
   @override

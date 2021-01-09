@@ -862,8 +862,8 @@ abstract class ChromeDevToolsHandler {
 
 abstract class ExecuteDriverHandler {
   /// Build request for 'execute driver'
-  WebDriverRequest buildExecuteDriverRequest(
-      String script, String type, Duration timeoutMs);
+  WebDriverRequest buildExecuteDriverRequest(String script,
+      {String type, Duration timeout});
 
   /// Parse response for 'execute driver'
   Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response);

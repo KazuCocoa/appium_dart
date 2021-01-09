@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add `driver.executeDriver`
+
 ## [0.1.4] - 2020-06-18
 
 - Add `driver.cdp.execute` command to call ChromeDevTools command in WebView context
