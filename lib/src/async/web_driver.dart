@@ -194,6 +194,13 @@ class AppiumWebDriver implements AppiumSearchContext {
 
   ChromeDevTools get cdp => ChromeDevTools(_client, _handler);
 
+  Future<dynamic> executeDriver(String script,
+          {String type, Duration timeout}) =>
+      _client.send(
+          _handler.executeDriver
+              .buildExecuteDriverRequest(script, type: type, timeout: timeout),
+          _handler.executeDriver.parseExecuteDriverResponse);
+
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.
   Future<String> captureScreenshotAsBase64() => _client.send(

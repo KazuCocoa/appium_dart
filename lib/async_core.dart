@@ -30,6 +30,7 @@ export 'package:appium_driver/src/async/device.dart';
 export 'package:appium_driver/src/async/settings.dart';
 export 'package:appium_driver/src/async/sessions.dart';
 export 'package:appium_driver/src/async/status.dart';
+export 'package:appium_driver/src/async/execute_driver.dart';
 
 export 'package:webdriver/src/common/command_event.dart';
 export 'package:webdriver/src/common/cookie.dart';

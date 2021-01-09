@@ -69,6 +69,8 @@ abstract class AppiumWebDriverHandler {
 
   ChromeDevToolsHandler get cdp;
 
+  ExecuteDriverHandler get executeDriver;
+
   /// Builds general request to send to web driver server.
   WebDriverRequest buildGeneralRequest(HttpMethod method, String uri, [params]);
 
@@ -856,4 +858,13 @@ abstract class ChromeDevToolsHandler {
 
   /// Parse response for 'execute cdp'
   Map<String, dynamic> parseExecuteResponse(WebDriverResponse response);
+}
+
+abstract class ExecuteDriverHandler {
+  /// Build request for 'execute driver'
+  WebDriverRequest buildExecuteDriverRequest(String script,
+      {String type, Duration timeout});
+
+  /// Parse response for 'execute driver'
+  Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response);
 }

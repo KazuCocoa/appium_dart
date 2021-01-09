@@ -157,9 +157,9 @@ class AppiumWebElement extends common.WebElement
     var out = StringBuffer()..write(context);
     if (locator is AppiumBy) {
       if (index == null) {
-        out..write('.findElement(');
+        out.write('.findElement(');
       } else {
-        out..write('.findElements(');
+        out.write('.findElements(');
       }
       out..write(locator)..write(')');
     } else {

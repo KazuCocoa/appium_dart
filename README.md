@@ -73,7 +73,7 @@ All W3C webdriver commands are available such as find_element/s, click and send 
 Below Appium specific commands are implementing.
 
 - [x] directConnectXxxx
-- [ ] batch command
+- [x] batch command
 - [x] CDP command: `[HttpMethod.httpPost, 'session/:session_id/goog/cdp/execute']`
 - [x] `[HttpMethod.httpGet, 'sessions']`
 - [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
