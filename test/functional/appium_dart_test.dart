@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:appium_driver/src/common/orientation.dart';
 import 'package:test/test.dart';
 
 import 'package:appium_driver/async_io.dart';
@@ -136,5 +137,12 @@ return [status];
         'log': []
       }
     });
+  });
+
+  test('orientation', () async {
+    expect(await driver.device.getOrientation(), Orientation.PORTRAIT);
+    await driver.device.setOrientation(Orientation.LANDSCAPE);
+    expect(await driver.device.getOrientation(), Orientation.LANDSCAPE);
+    await driver.device.setOrientation(Orientation.PORTRAIT);
   });
 }

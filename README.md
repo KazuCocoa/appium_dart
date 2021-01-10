@@ -130,8 +130,8 @@ Below Appium specific commands are implementing.
 - [x] `[HttpMethod.httpPost, 'session/:session_id/log']`
 - [x] `[HttpMethod.httpGet, 'session/:session_id/appium/events']`
 - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/log_event']`
-- [ ] `[HttpMethod.httpGet, 'session/:session_id/orientation']`
-- [ ] `[HttpMethod.httpPost, 'session/:session_id/orientation']`
+- [x] `[HttpMethod.httpGet, 'session/:session_id/orientation']`
+- [x] `[HttpMethod.httpPost, 'session/:session_id/orientation']`
 
 Low priority
 
