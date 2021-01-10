@@ -135,8 +135,8 @@ Below Appium specific commands are implementing.
 
 Low priority
 
-- ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`~~ # not W3C
-- ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`~~ # not W3C
+- ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`~~ # W3C actions should be an alternative
+- ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`~~ # W3C actions should be an alternative
 - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`~~ # Only for Selendroid
 - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/finger_print']`
 - [ ] `[HttpMethod.httpPost, 'session/:session_id/appium/compare_images']`
