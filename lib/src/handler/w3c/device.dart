@@ -1,4 +1,5 @@
 import 'package:appium_driver/src/common/clipboard.dart';
+import 'package:appium_driver/src/common/orientation.dart';
 import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
@@ -280,6 +281,40 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   int parseGetDisplayDensityResponse(WebDriverResponse response) {
+    return parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGetOrientationRequest() {
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.GET_SCREEN_ORIENTATION);
+  }
+
+  @override
+  WebDriverRequest buildSetOrientationRequest(Orientation orientation) {
+    var _orientation = 'LANDSCAPE';
+    if (orientation == Orientation.PORTRAIT) {
+      _orientation = 'PORTRAIT';
+    }
+
+    return AppiumWebDriverRequest.sendRequest(
+        W3CCommands.SET_SCREEN_ORIENTATION, {'orientation': _orientation});
+  }
+
+  @override
+  Orientation parseGetOrientationResponse(WebDriverResponse response) {
+    var result = parseW3cResponse(response);
+    if (result == 'LANDSCAPE') {
+      return Orientation.LANDSCAPE;
+    } else if (result == 'PORTRAIT') {
+      return Orientation.PORTRAIT;
+    } else {
+      return Orientation.UNKNOWN;
+    }
+  }
+
+  @override
+  void parseSetOrientationResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 }

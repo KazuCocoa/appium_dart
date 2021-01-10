@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:appium_driver/src/common/app_state.dart';
 import 'package:appium_driver/src/common/clipboard.dart';
+import 'package:appium_driver/src/common/orientation.dart';
 import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/log.dart';
 
@@ -835,6 +836,18 @@ abstract class DeviceHandler {
 
   /// Parse response for 'get display density'
   int parseGetDisplayDensityResponse(WebDriverResponse response);
+
+  /// Builds request for 'set orientation'
+  WebDriverRequest buildSetOrientationRequest(Orientation orientation);
+
+  /// Parse response for 'set orientation'
+  void parseSetOrientationResponse(WebDriverResponse response);
+
+  /// Builds request for 'get orientation'
+  WebDriverRequest buildGetOrientationRequest();
+
+  /// Parse response for 'get orientation'
+  Orientation parseGetOrientationResponse(WebDriverResponse response);
 }
 
 abstract class SettingsHandler {

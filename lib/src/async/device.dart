@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:appium_driver/src/common/clipboard.dart';
+import 'package:appium_driver/src/common/orientation.dart';
 import 'package:appium_driver/src/common/utils.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 
@@ -185,6 +186,16 @@ class Device {
   Future<int> getDisplayDensity() => _client.send(
       _handler.device.buildGetDisplayDensityRequest(),
       _handler.device.parseGetDisplayDensityResponse);
+
+  /// Set orientation
+  Future<void> setOrientation(Orientation orientation) => _client.send(
+      _handler.device.buildSetOrientationRequest(orientation),
+      _handler.device.parseSetOrientationResponse);
+
+  /// Get orientation
+  Future<Orientation> getOrientation() => _client.send(
+      _handler.device.buildGetOrientationRequest(),
+      _handler.device.parseGetOrientationResponse);
 
   @override
   int get hashCode => _client.hashCode;
