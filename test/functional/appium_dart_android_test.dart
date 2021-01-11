@@ -90,8 +90,8 @@ void main() {
   test('location', () async {
     Location l = await driver.device.getLocation();
     expect(l.longitude != null, true);
-    expect(l.longitude != null, true);
-    expect(l.longitude != null, true);
+    expect(l.altitude != null, true);
+    expect(l.latitude != null, true);
     await driver.device.setLocation(Location(100.0, 30.0, 0.0));
   });
 

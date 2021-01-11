@@ -13,33 +13,68 @@ class Device {
 
   Device(this._client, this._handler);
 
-  /// Get is device locked
+  /// Get the device lock status.
+  ///
+  /// Returns true if the device under test was locked.
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.isLocked();
+  ///
   Future<bool> isLocked() => _client.send(
       _handler.device.buildDeviceIsLockedRequest(),
       _handler.device.parseDeviceIsLockedResponse);
 
-  /// Get lock device
+  /// Lock the device under test.
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.lock(seconds: const Duration(seconds: 2));
+  ///
   Future<void> lock({Duration seconds}) => _client.send(
       _handler.device.buildLockDeviceRequest(seconds: seconds),
       _handler.device.parseLockDeviceResponse);
 
-  /// Get app state
+  /// Unlock the device under test
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.unlock();
+  ///
   Future<void> unlock() => _client.send(
       _handler.device.buildUnlockDeviceRequest(),
       _handler.device.parseUnlockDeviceResponse);
 
-  /// Get app state
+  /// Get the time of the device under test.
+  ///
+  /// Returns current device time as string
+  ///
+  /// For example:
+  ///
+  ///     var time = await driver.device.getSystemTime();
+  ///     expect(DateTime.parse(time) is DateTime, true);
+  ///
   Future<String> getSystemTime() => _client.send(
       _handler.device.buildDeviceSystemTimeRequest(),
       _handler.device.parseDeviceSystemTimeResponse);
 
-  /// Get app state
+  /// Shake the device under test
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.shake();
+  ///
   Future<void> shake() => _client.send(
       _handler.device.buildShakeDeviceRequest(),
       _handler.device.parseShakeDeviceResponse);
 
   /// For Android
   /// Press keycode
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.pressKeycode(66, metastate: [1], flags: [32]);
+  ///
   Future<void> pressKeycode(int keycode,
           {List<int> metastate, List<int> flags}) =>
       _client.send(
@@ -49,6 +84,11 @@ class Device {
 
   /// For Android
   /// Long press keycode
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.longPressKeycode(66, metastate: [1], flags: [32]);
+  ///
   Future<void> longPressKeycode(int keycode,
           {List<int> metastate, List<int> flags}) =>
       _client.send(
@@ -56,14 +96,36 @@ class Device {
               metastate: metastate, flags: flags),
           _handler.device.parseLongPressKeycodeResponse);
 
+
+  /// Push the base 64 encoded file to the device under test
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.pushFile('asPng.png', base64EncodedPngFile);
+  ///
   Future<void> pushFile(String path, String base64EncodedData) => _client.send(
       _handler.device.buildPushFileRequest(path, base64EncodedData),
       _handler.device.parseLPushFileResponse);
 
+  /// Pull a file as base 64 encoded string
+  ///
+  /// For example:
+  ///
+  ///     var pulledFile = await driver.device
+  ///         .pullFile('Library/AddressBook/AddressBook.sqlitedb');
+  ///     expect(pulledFile.isNotEmpty, true);
+  ///
   Future<String> pullFile(String path) => _client.send(
       _handler.device.buildPullFileRequest(path),
       _handler.device.parsePullFileResponse);
 
+  /// Pull a folder as base 64 encoded string
+  ///
+  /// For example:
+  ///
+  ///     var pulFolder = await driver.device.pullFolder('Library/AddressBook');
+  ///     expect(pulFolder.isNotEmpty, true);
+  ///
   Future<String> pullFolder(String path) => _client.send(
       _handler.device.buildPullFolderRequest(path),
       _handler.device.parsePullFolderResponse);
@@ -154,7 +216,7 @@ class Device {
       _handler.device.buildGetCurrentActivityRequest(),
       _handler.device.parseGetCurrentActivityResponse);
 
-  /// Get current package
+  /// Get current package.
   /// Only for Android.
   ///
   /// For example:
@@ -165,34 +227,73 @@ class Device {
       _handler.device.buildGetCurrentPackageRequest(),
       _handler.device.parseGetCurrentPackageResponse);
 
-  /// Set  location
+  /// Set location.
+  ///
+  /// For example:
+  ///
+  ///     await driver.device.setLocation(Location(100.0, 30.0, 0.0));
+  ///
   Future<void> setLocation(Location location) => _client.send(
       _handler.device.buildSetLocationRequest(location),
       _handler.device.parseSetLocationResponse);
 
-  /// Get current location
+  /// Get current location.
+  ///
+  /// Returns Location.
+  ///
+  /// For example:
+  ///
+  ///     Location l = await driver.device.getLocation();
+  ///     expect(l.longitude != null, true);
+  ///     expect(l.longitude != null, true);
+  ///     expect(l.longitude != null, true);
+  ///
   Future<Location> getLocation() => _client.send(
       _handler.device.buildGetLocationRequest(),
       _handler.device.parseGetLocationResponse);
 
-  /// Get display density.
+  /// Get the system bar.
   /// For Android
+  ///
+  /// Example:
+  ///
+  ///     var systemBar = await driver.device.getSystemBars();
+  ///     expect(systemBar['statusBar'] != null, true);
+  ///     expect(systemBar['navigationBar'] != null, true);
+  ///
   Future<Map<String, dynamic>> getSystemBars() => _client.send(
       _handler.device.buildGetSystemBarsRequest(),
       _handler.device.parseGetSystemBarsResponse);
 
-  /// Get display density.
+  /// Get the display density.
   /// For Android
+  ///
+  /// Example:
+  ///
+  ///     await driver.device.getDisplayDensity();
+  ///
   Future<int> getDisplayDensity() => _client.send(
       _handler.device.buildGetDisplayDensityRequest(),
       _handler.device.parseGetDisplayDensityResponse);
 
-  /// Set orientation
+  /// Set the device orientation.
+  ///
+  /// Example:
+  ///
+  ///     await driver.device.setOrientation(Orientation.LANDSCAPE);
+  ///
   Future<void> setOrientation(Orientation orientation) => _client.send(
       _handler.device.buildSetOrientationRequest(orientation),
       _handler.device.parseSetOrientationResponse);
 
-  /// Get orientation
+  /// Get the device orientation.
+  ///
+  /// Returns Orientation.
+  ///
+  /// Example:
+  ///
+  ///     await driver.device.getOrientation();
+  ///
   Future<Orientation> getOrientation() => _client.send(
       _handler.device.buildGetOrientationRequest(),
       _handler.device.parseGetOrientationResponse);
