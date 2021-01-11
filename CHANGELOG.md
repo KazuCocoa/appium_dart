@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.2.0] - 2021-01-10
+
 - Add `driver.executeDriver`
 - Add `driver.device.getOrientation` and `driver.device.setOrientation`
 
