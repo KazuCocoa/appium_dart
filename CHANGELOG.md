@@ -1,8 +1,8 @@
 ## [Unreleased]
 
-## [0.2.1] - 2021-01-10
+## [0.2.2] - 2021-01-10
 
-This version is same as 0.2.0.
+This version is same as 0.2.0 and 0.2.1. (To update documentation)
 
 - Add `driver.executeDriver`
 - Add `driver.device.getOrientation` and `driver.device.setOrientation`
