@@ -96,7 +96,6 @@ class Device {
               metastate: metastate, flags: flags),
           _handler.device.parseLongPressKeycodeResponse);
 
-
   /// Push the base 64 encoded file to the device under test
   ///
   /// For example:
