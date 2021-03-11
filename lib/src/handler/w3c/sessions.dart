@@ -13,7 +13,7 @@ class W3cSessionsHandler implements SessionsHandler {
   }
 
   @override
-  List<dynamic> parseGetResponse(WebDriverResponse response) {
+  List<dynamic>? parseGetResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 }

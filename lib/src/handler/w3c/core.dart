@@ -9,14 +9,14 @@ class W3cCoreHandler extends CoreHandler {
       WebDriverRequest.getRequest('url');
 
   @override
-  String parseCurrentUrlResponse(WebDriverResponse response) =>
+  String? parseCurrentUrlResponse(WebDriverResponse response) =>
       parseW3cResponse(response);
 
   @override
   WebDriverRequest buildTitleRequest() => WebDriverRequest.getRequest('title');
 
   @override
-  String parseTitleResponse(WebDriverResponse response) =>
+  String? parseTitleResponse(WebDriverResponse response) =>
       parseW3cResponse(response);
 
   @override
@@ -24,7 +24,7 @@ class W3cCoreHandler extends CoreHandler {
       WebDriverRequest.getRequest('source');
 
   @override
-  String parsePageSourceResponse(WebDriverResponse response) =>
+  String? parsePageSourceResponse(WebDriverResponse response) =>
       parseW3cResponse(response);
 
   @override
@@ -32,7 +32,7 @@ class W3cCoreHandler extends CoreHandler {
       WebDriverRequest.getRequest('screenshot');
 
   @override
-  String parseScreenshotResponse(WebDriverResponse response) =>
+  String? parseScreenshotResponse(WebDriverResponse response) =>
       parseW3cResponse(response);
 
   @override

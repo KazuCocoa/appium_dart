@@ -16,7 +16,7 @@ class AppManagement {
       _handler.app.parseActivateAppResponse);
 
   /// go to background the app
-  Future<void> background({Duration seconds}) => _client.send(
+  Future<void> background({Duration? seconds}) => _client.send(
       _handler.app.buildBackgroundAppRequest(seconds: seconds),
       _handler.app.parseBackgroundAppResponse);
 
@@ -24,11 +24,11 @@ class AppManagement {
       _handler.app.buildCloseAppRequest(), _handler.app.parseCloseAppResponse);
 
   Future<void> install(String path,
-          {bool replace,
-          Duration timeout,
-          bool allowTestPackage,
-          bool useSdcard,
-          bool grantPermissions}) =>
+          {bool? replace,
+          Duration? timeout,
+          bool? allowTestPackage,
+          bool? useSdcard,
+          bool? grantPermissions}) =>
       _client.send(
           _handler.app.buildInstallAppRequest(path,
               replace: replace,
@@ -38,14 +38,14 @@ class AppManagement {
               grantPermissions: grantPermissions),
           _handler.app.parseInstallAppResponse);
 
-  Future<bool> isInstalled(String appId) => _client.send(
+  Future<bool?> isInstalled(String appId) => _client.send(
       _handler.app.buildIsAppInstalledRequest(appId),
       _handler.app.parseIsAppInstalledResponse);
 
   Future<void> launch() => _client.send(_handler.app.buildLaunchAppRequest(),
       _handler.app.parseLaunchAppResponse);
 
-  Future<void> remove(String appId, {bool keepData, Duration timeout}) =>
+  Future<void> remove(String appId, {bool? keepData, Duration? timeout}) =>
       _client.send(
           _handler.app.buildRemoveAppRequest(appId,
               keepData: keepData, timeout: timeout),
@@ -58,7 +58,7 @@ class AppManagement {
       _handler.app.buildTerminateAppRequest(appId),
       _handler.app.parseTerminateResponse);
 
-  Future<Map<String, dynamic>> string() => _client.send(
+  Future<Map<String, dynamic>?> string() => _client.send(
       _handler.app.buildGetStringRequest(),
       _handler.app.parseGetStringResponse);
 

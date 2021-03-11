@@ -47,8 +47,8 @@ final Uri defaultUri = Uri.parse('http://127.0.0.1:4723/wd/hub/');
 /// async_io.dart.
 Future<AppiumWebDriver> createDriver(
     AsyncRequestClient Function(Uri prefix) createRequestClient,
-    {Uri uri,
-    Map<String, dynamic> desired,
+    {Uri? uri,
+    required Map<String, dynamic> desired,
     WebDriverSpec spec = WebDriverSpec.Auto}) async {
   uri ??= defaultUri;
 
@@ -66,12 +66,12 @@ Future<AppiumWebDriver> createDriver(
     throw 'Unexpected spec: ${session.spec}';
   }
 
-  var newUri = updateUriWithDirectConnect(uri, session.capabilities);
+  var newUri = updateUriWithDirectConnect(uri, session.capabilities!);
 
   return AppiumWebDriver(
       newUri,
       session.id,
-      UnmodifiableMapView(session.capabilities),
+      UnmodifiableMapView(session.capabilities!),
       createRequestClient(newUri.resolve('session/${session.id}/')),
       session.spec);
 }
@@ -125,7 +125,7 @@ Map<String, dynamic> addAppiumPrefix(Map<String, dynamic> desired) {
 Future<AppiumWebDriver> fromExistingSession(
     AsyncRequestClient Function(Uri prefix) createRequestClient,
     String sessionId,
-    {Uri uri,
+    {Uri? uri,
     WebDriverSpec spec = WebDriverSpec.Auto}) async {
   uri ??= defaultUri;
 
@@ -142,12 +142,12 @@ Future<AppiumWebDriver> fromExistingSession(
     throw 'Unexpected spec: ${session.spec}';
   }
 
-  var newUri = updateUriWithDirectConnect(uri, session.capabilities);
+  var newUri = updateUriWithDirectConnect(uri, session.capabilities!);
 
   return AppiumWebDriver(
       newUri,
       sessionId,
-      UnmodifiableMapView(session.capabilities),
+      UnmodifiableMapView(session.capabilities!),
       createRequestClient(newUri.resolve('session/$sessionId/')),
       session.spec);
 }
@@ -163,8 +163,8 @@ AppiumWebDriver fromExistingSessionSync(
     AsyncRequestClient Function(Uri prefix) createRequestClient,
     String sessionId,
     WebDriverSpec spec,
-    {Uri uri,
-    Map<String, dynamic> capabilities}) {
+    {Uri? uri,
+    Map<String, dynamic>? capabilities}) {
   uri ??= defaultUri;
 
   capabilities ??= Capabilities.empty;

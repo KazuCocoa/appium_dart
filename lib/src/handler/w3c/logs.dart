@@ -15,7 +15,7 @@ class W3cLogsHandler implements LogsHandler {
   }
 
   @override
-  List<String> parseGetAvailableTypeResponse(WebDriverResponse response) {
+  List<String>? parseGetAvailableTypeResponse(WebDriverResponse response) {
     return parseW3cResponse(response).cast<String>();
   }
 
@@ -43,7 +43,7 @@ class W3cLogsHandler implements LogsHandler {
   }
 
   @override
-  Map<String, dynamic> parseGetEventsResponse(WebDriverResponse response) {
+  Map<String, dynamic>? parseGetEventsResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 

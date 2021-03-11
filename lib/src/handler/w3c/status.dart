@@ -13,7 +13,7 @@ class W3cStatusHandler implements StatusHandler {
   }
 
   @override
-  Map<String, dynamic> parseGetResponse(WebDriverResponse response) {
+  Map<String, dynamic>? parseGetResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 }

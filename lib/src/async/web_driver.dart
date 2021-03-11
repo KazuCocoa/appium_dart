@@ -36,7 +36,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   final Map<String, dynamic> capabilities;
   final String id;
   final Uri uri;
-  Stepper stepper;
+  Stepper? stepper;
 
   /// If true, WebDriver actions are recorded as [WebDriverCommandEvent]s.
   bool notifyListeners = true;
@@ -58,7 +58,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   }
 
   /// The current url.
-  Future<String> get currentUrl => _client.send(
+  Future<String?> get currentUrl => _client.send(
       _handler.core.buildCurrentUrlRequest(),
       _handler.core.parseCurrentUrlResponse);
 
@@ -83,7 +83,7 @@ class AppiumWebDriver implements AppiumSearchContext {
       _handler.navigation.parseRefreshResponse);
 
   /// The title of the current page.
-  Future<String> get title => _client.send(
+  Future<String?> get title => _client.send(
       _handler.core.buildTitleRequest(), _handler.core.parseTitleResponse);
 
   /// Search for multiple elements within the entire current page.
@@ -95,7 +95,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     var i = 0;
 
     for (var id in ids) {
-      yield getElement(id, this, by, i);
+      yield getElement(id!, this, by, i);
       i++;
     }
   }
@@ -106,10 +106,10 @@ class AppiumWebDriver implements AppiumSearchContext {
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by),
       (response) => getElement(
-          _handler.elementFinder.parseFindElementResponse(response), this, by));
+          _handler.elementFinder.parseFindElementResponse(response)!, this, by));
 
   /// An artist's rendition of the current page's source.
-  Future<String> get pageSource => _client.send(
+  Future<String?> get pageSource => _client.send(
       _handler.core.buildPageSourceRequest(),
       _handler.core.parsePageSourceResponse);
 
@@ -131,7 +131,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     final windows = await _client.send(
         _handler.window.buildGetWindowsRequest(),
         (response) => _handler.window
-            .parseGetWindowsResponse(response)
+            .parseGetWindowsResponse(response)!
             .map<Window>((w) => Window(_client, _handler, w)));
     for (final window in windows) {
       yield window;
@@ -146,7 +146,7 @@ class AppiumWebDriver implements AppiumSearchContext {
 
   /// The currently focused element, or the body element if no element has
   /// focus.
-  Future<AppiumWebElement> get activeElement async {
+  Future<AppiumWebElement?> get activeElement async {
     final id = await _client.send(
         _handler.elementFinder.buildFindActiveElementRequest(),
         _handler.elementFinder.parseFindActiveElementResponse);
@@ -195,7 +195,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   ChromeDevTools get cdp => ChromeDevTools(_client, _handler);
 
   Future<dynamic> executeDriver(String script,
-          {String type, Duration timeout}) =>
+          {String? type, Duration? timeout}) =>
       _client.send(
           _handler.executeDriver
               .buildExecuteDriverRequest(script, type: type, timeout: timeout),
@@ -203,14 +203,14 @@ class AppiumWebDriver implements AppiumSearchContext {
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.
-  Future<String> captureScreenshotAsBase64() => _client.send(
+  Future<String?> captureScreenshotAsBase64() => _client.send(
       _handler.core.buildScreenshotRequest(),
       _handler.core.parseScreenshotResponse);
 
   /// Take a screenshot of the current page as PNG as list of uint8.
   Future<List<int>> captureScreenshotAsList() async {
     var base64Encoded = captureScreenshotAsBase64();
-    return base64.decode(await base64Encoded);
+    return base64.decode(await (base64Encoded as FutureOr<String>));
   }
 
   /// Take a screenshot of the current page as PNG as stream of uint8.

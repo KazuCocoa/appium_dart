@@ -10,15 +10,15 @@ class IME {
 
   IME(this._client, this._handler);
 
-  Future<List<String>> getAvailableEngines() => _client.send(
+  Future<List<String>?> getAvailableEngines() => _client.send(
       _handler.ime.buildGetAvailableEnginesRequest(),
       _handler.ime.parseGetAvailableEnginesResponse);
 
-  Future<String> getActiveEngine() => _client.send(
+  Future<String?> getActiveEngine() => _client.send(
       _handler.ime.buildGetActiveEngineRequest(),
       _handler.ime.parseGetActiveEngineResponse);
 
-  Future<bool> isActivated() => _client.send(
+  Future<bool?> isActivated() => _client.send(
       _handler.ime.buildIsActivatedRequest(),
       _handler.ime.parseIsActivatedResponse);
 

@@ -19,7 +19,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  WebDriverRequest buildBackgroundAppRequest({Duration seconds}) {
+  WebDriverRequest buildBackgroundAppRequest({Duration? seconds}) {
     var arg = <String, dynamic>{};
     if (seconds == null) {
       arg['seconds'] = const Duration(seconds: 0).inSeconds;
@@ -51,7 +51,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  Map<String, dynamic> parseGetStringResponse(WebDriverResponse response) {
+  Map<String, dynamic>? parseGetStringResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -89,7 +89,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  bool parseIsAppInstalledResponse(WebDriverResponse response) {
+  bool? parseIsAppInstalledResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 

@@ -12,7 +12,7 @@ class ChromeDevTools {
 
   /// Send CDP commands to the driver
   /// https://chromedevtools.github.io/devtools-protocol/
-  Future<Map<String, dynamic>> execute(
+  Future<Map<String, dynamic>?> execute(
           String cmd, Map<String, dynamic> params) =>
       _client.send(_handler.cdp.buildExecuteRequest(cmd, params),
           _handler.cdp.parseExecuteResponse);

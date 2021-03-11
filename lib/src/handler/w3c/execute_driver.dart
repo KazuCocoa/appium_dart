@@ -8,7 +8,7 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 class W3cExecuteDriverHandler implements ExecuteDriverHandler {
   @override
   WebDriverRequest buildExecuteDriverRequest(String script,
-      {String type, Duration timeout}) {
+      {String? type, Duration? timeout}) {
     Map<String, dynamic> arg = {'script': script};
     if (type != null) {
       // arg['type'] = type;
@@ -22,6 +22,6 @@ class W3cExecuteDriverHandler implements ExecuteDriverHandler {
   }
 
   @override
-  Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response) =>
+  Map<String, dynamic>? parseExecuteDriverResponse(WebDriverResponse response) =>
       parseW3cResponse(response);
 }

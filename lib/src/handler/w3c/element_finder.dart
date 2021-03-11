@@ -16,15 +16,15 @@ class W3cElementFinder extends ElementFinder {
 
   @override
   WebDriverRequest buildFindElementsRequest(AppiumBy by,
-      [String contextElementId]) {
+      [String? contextElementId]) {
     var uri = '${elementPrefix(contextElementId)}elements';
     return WebDriverRequest.postRequest(uri, _byToJson(by));
   }
 
   @override
-  List<String> parseFindElementsResponse(WebDriverResponse response) {
+  List<String?> parseFindElementsResponse(WebDriverResponse response) {
     return (parseW3cResponse(response) as List)
-        .map<String>((e) =>
+        .map<String?>((e) =>
             e[search_context.w3cElementStr] ??
             e[search_context.jsonWireElementStr])
         .toList();
@@ -32,13 +32,13 @@ class W3cElementFinder extends ElementFinder {
 
   @override
   WebDriverRequest buildFindElementRequest(AppiumBy by,
-      [String contextElementId]) {
+      [String? contextElementId]) {
     var uri = '${elementPrefix(contextElementId)}element';
     return WebDriverRequest.postRequest(uri, _byToJson(by));
   }
 
   @override
-  String parseFindActiveElementResponse(WebDriverResponse response) {
+  String? parseFindActiveElementResponse(WebDriverResponse response) {
     var parsedResponse = parseW3cResponse(response);
     return parsedResponse[search_context.w3cElementStr] ??
         parsedResponse[search_context.jsonWireElementStr];
@@ -50,7 +50,7 @@ class W3cElementFinder extends ElementFinder {
   }
 
   @override
-  String parseFindElementResponse(WebDriverResponse response) {
+  String? parseFindElementResponse(WebDriverResponse response) {
     var parsedResponse = parseW3cResponse(response);
     return parsedResponse[search_context.w3cElementStr] ??
         parsedResponse[search_context.jsonWireElementStr];

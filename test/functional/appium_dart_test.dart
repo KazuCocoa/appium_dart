@@ -8,7 +8,7 @@ import 'package:appium_driver/async_io.dart';
 import 'helper.dart';
 
 void main() {
-  AppiumWebDriver driver;
+  late AppiumWebDriver driver;
 
   setUpAll(() async {
     driver = await createDriver(
@@ -72,19 +72,19 @@ void main() {
   });
 
   test('status', () async {
-    var s = await driver.status.get();
+    var s = await (driver.status.get() as FutureOr<Map<String, dynamic>>);
     expect(s['build'] != null, true);
   });
 
   test('capabilities', () async {
-    var capabilities = await driver.session.getCapabilities();
+    var capabilities = await (driver.session.getCapabilities() as FutureOr<Map<String, dynamic>>);
     expect(capabilities['automationName'].toString().toLowerCase(), 'xcuitest');
   });
 
   test('push and pull', () async {
-    var pulledFile = await driver.device
-        .pullFile('Library/AddressBook/AddressBook.sqlitedb');
-    var pulFolder = await driver.device.pullFolder('Library/AddressBook');
+    var pulledFile = await (driver.device
+        .pullFile('Library/AddressBook/AddressBook.sqlitedb') as FutureOr<String>);
+    var pulFolder = await (driver.device.pullFolder('Library/AddressBook') as FutureOr<String>);
     expect(pulledFile.isNotEmpty, true);
     expect(pulFolder.isNotEmpty, true);
 
@@ -94,11 +94,11 @@ void main() {
   test('clipboard', () async {
     await driver.device
         .setClipboard(base64.encode(utf8.encode('happy testing')));
-    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
+    expect(utf8.decode(base64.decode(await (driver.device.getClipboard() as FutureOr<String>))),
         'happy testing');
 
     await driver.device.setClipboard(base64.encode(utf8.encode('appium')));
-    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
+    expect(utf8.decode(base64.decode(await (driver.device.getClipboard() as FutureOr<String>))),
         'appium');
   });
 

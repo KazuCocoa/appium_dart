@@ -8,7 +8,7 @@ import 'package:webdriver/src/common/request_client.dart'; // ignore: implementa
 class Window {
   final AsyncRequestClient _client;
   final AppiumWebDriverHandler _handler;
-  final String id;
+  final String? id;
 
   Window(this._client, this._handler, this.id);
 

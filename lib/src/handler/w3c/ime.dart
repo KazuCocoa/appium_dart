@@ -14,7 +14,7 @@ class W3cIMEHandler implements IMEHandler {
   }
 
   @override
-  List<String> parseGetAvailableEnginesResponse(WebDriverResponse response) {
+  List<String>? parseGetAvailableEnginesResponse(WebDriverResponse response) {
     return parseW3cResponse(response).cast<String>();
   }
 
@@ -25,7 +25,7 @@ class W3cIMEHandler implements IMEHandler {
   }
 
   @override
-  String parseGetActiveEngineResponse(WebDriverResponse response) {
+  String? parseGetActiveEngineResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -35,7 +35,7 @@ class W3cIMEHandler implements IMEHandler {
   }
 
   @override
-  bool parseIsActivatedResponse(WebDriverResponse response) {
+  bool? parseIsActivatedResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 

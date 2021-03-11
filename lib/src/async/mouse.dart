@@ -48,9 +48,9 @@ class Mouse {
   /// Special notes for W3C, if the destination is out of the current viewport,
   /// an 'MoveTargetOutOfBounds' exception will be thrown.
   Future<void> moveTo(
-          {AppiumWebElement element,
-          int xOffset,
-          int yOffset,
+          {AppiumWebElement? element,
+          int? xOffset,
+          int? yOffset,
           bool absolute = false}) =>
       _client.send(
           _handler.mouse.buildMoveToRequest(

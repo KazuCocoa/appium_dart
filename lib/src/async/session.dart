@@ -14,7 +14,7 @@ class Session {
   ///
   /// @example
   ///   driver.session.getCapabilities()
-  Future<Map<String, dynamic>> getCapabilities() => _client.send(
+  Future<Map<String, dynamic>?> getCapabilities() => _client.send(
       _handler.session.buildGetCapabilitiesRequest(),
       _handler.session.parseGetCapabilitiesResponse);
 

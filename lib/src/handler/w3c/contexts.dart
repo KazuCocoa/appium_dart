@@ -13,7 +13,7 @@ class W3cContextsHandler implements ContextsHandler {
   }
 
   @override
-  List<String> parseGetAvailableContexts(WebDriverResponse response) {
+  List<String>? parseGetAvailableContexts(WebDriverResponse response) {
     return parseW3cResponse(response).cast<String>();
   }
 
@@ -29,7 +29,7 @@ class W3cContextsHandler implements ContextsHandler {
   }
 
   @override
-  String parseGetCurrentContext(WebDriverResponse response) {
+  String? parseGetCurrentContext(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 

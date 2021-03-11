@@ -45,7 +45,7 @@ class W3cCookiesHandler extends CookiesHandler {
       WebDriverRequest.getRequest('cookie');
 
   @override
-  List<Cookie> parseGetAllCookiesResponse(WebDriverResponse response) =>
+  List<Cookie>? parseGetAllCookiesResponse(WebDriverResponse response) =>
       parseW3cResponse(response).map<Cookie>(_deserialize).toList();
 
   /// Serialises the cookie to json object according to the spec.

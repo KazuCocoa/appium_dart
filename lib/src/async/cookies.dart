@@ -30,7 +30,7 @@ class Cookies {
   Stream<Cookie> get all async* {
     final cookies = await _client.send(
         _handler.cookies.buildGetAllCookiesRequest(),
-        _handler.cookies.parseGetAllCookiesResponse);
+        _handler.cookies.parseGetAllCookiesResponse as List<Cookie> Function(WebDriverResponse));
     for (var cookie in cookies) {
       yield cookie;
     }

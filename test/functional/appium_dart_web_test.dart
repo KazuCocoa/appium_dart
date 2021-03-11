@@ -5,7 +5,7 @@ import 'package:appium_driver/async_io.dart';
 import 'helper.dart';
 
 void main() {
-  AppiumWebDriver driver;
+  late AppiumWebDriver driver;
 
   setUpAll(() async {
     driver = await createDriver(
@@ -20,7 +20,7 @@ void main() {
   group('connect', () {
     test('connect to server and get sessions', () async {
       expect(await driver.title, 'Appium/welcome');
-      var result = await driver.sessions.get();
+      var result = await (driver.sessions.get() as FutureOr<List<dynamic>>);
       expect(result.length, 1);
       expect(result[0]['id'], driver.id);
     });
@@ -38,13 +38,13 @@ void main() {
 
   group('capabilities', () {
     test('Get capabilities', () async {
-      var result = await driver.contexts.getAvailableContexts();
-      expect((await driver.contexts.getCurrentContext()).startsWith('WEBVIEW'),
+      var result = await (driver.contexts.getAvailableContexts() as FutureOr<List<String>>);
+      expect((await driver.contexts.getCurrentContext())!.startsWith('WEBVIEW'),
           true);
       await driver.contexts.setContext(result.first);
       expect(await driver.contexts.getCurrentContext(), 'NATIVE_APP');
       await driver.contexts.setContext(result.last);
-      expect((await driver.contexts.getCurrentContext()).startsWith('WEBVIEW'),
+      expect((await driver.contexts.getCurrentContext())!.startsWith('WEBVIEW'),
           true);
     });
   });
@@ -75,7 +75,7 @@ void main() {
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
       expect(
-          e.message.contains('Unsupported locator strategy: accessibility id'),
+          e.message!.contains('Unsupported locator strategy: accessibility id'),
           true);
     }
   });
