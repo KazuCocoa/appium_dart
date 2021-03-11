@@ -78,14 +78,17 @@ void main() {
   });
 
   test('capabilities', () async {
-    var capabilities = await (driver.session.getCapabilities() as FutureOr<Map<String, dynamic>>);
+    var capabilities = await (driver.session.getCapabilities()
+        as FutureOr<Map<String, dynamic>>);
     expect(capabilities['automationName'].toString().toLowerCase(), 'xcuitest');
   });
 
   test('push and pull', () async {
     var pulledFile = await (driver.device
-        .pullFile('Library/AddressBook/AddressBook.sqlitedb') as FutureOr<String>);
-    var pulFolder = await (driver.device.pullFolder('Library/AddressBook') as FutureOr<String>);
+            .pullFile('Library/AddressBook/AddressBook.sqlitedb')
+        as FutureOr<String>);
+    var pulFolder = await (driver.device.pullFolder('Library/AddressBook')
+        as FutureOr<String>);
     expect(pulledFile.isNotEmpty, true);
     expect(pulFolder.isNotEmpty, true);
 
@@ -95,11 +98,15 @@ void main() {
   test('clipboard', () async {
     await driver.device
         .setClipboard(base64.encode(utf8.encode('happy testing')));
-    expect(utf8.decode(base64.decode(await (driver.device.getClipboard() as FutureOr<String>))),
+    expect(
+        utf8.decode(base64
+            .decode(await (driver.device.getClipboard() as FutureOr<String>))),
         'happy testing');
 
     await driver.device.setClipboard(base64.encode(utf8.encode('appium')));
-    expect(utf8.decode(base64.decode(await (driver.device.getClipboard() as FutureOr<String>))),
+    expect(
+        utf8.decode(base64
+            .decode(await (driver.device.getClipboard() as FutureOr<String>))),
         'appium');
   });
 

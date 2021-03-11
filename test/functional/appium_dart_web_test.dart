@@ -40,7 +40,8 @@ void main() {
 
   group('capabilities', () {
     test('Get capabilities', () async {
-      var result = await (driver.contexts.getAvailableContexts() as FutureOr<List<String>>);
+      var result = await (driver.contexts.getAvailableContexts()
+          as FutureOr<List<String>>);
       expect((await driver.contexts.getCurrentContext())!.startsWith('WEBVIEW'),
           true);
       await driver.contexts.setContext(result.first);

@@ -106,7 +106,9 @@ class AppiumWebDriver implements AppiumSearchContext {
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by),
       (response) => getElement(
-          _handler.elementFinder.parseFindElementResponse(response)!, this, by));
+          _handler.elementFinder.parseFindElementResponse(response)!,
+          this,
+          by));
 
   /// An artist's rendition of the current page's source.
   Future<String?> get pageSource => _client.send(

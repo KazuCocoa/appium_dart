@@ -25,7 +25,8 @@ class Sessions {
   ///        "automationName":"xcuitest","wdaLocalPort":8101,
   ///        "useJSONSource":true,"reduceMotion":true}}]
   Future<List<dynamic>?> get() => _client!.send(
-      _handler!.sessions.buildGetRequest(), _handler!.sessions.parseGetResponse);
+      _handler!.sessions.buildGetRequest(),
+      _handler!.sessions.parseGetResponse);
 
   @override
   int get hashCode => _client.hashCode;

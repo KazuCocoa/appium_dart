@@ -21,7 +21,8 @@ void main() {
   });
 
   test('ime', () async {
-    var imes = await (driver.ime.getAvailableEngines() as FutureOr<List<String>>);
+    var imes =
+        await (driver.ime.getAvailableEngines() as FutureOr<List<String>>);
     var firstEngine = imes.first;
     expect(imes.isNotEmpty, true);
 
@@ -98,7 +99,8 @@ void main() {
   });
 
   test('get bars and display denticyr', () async {
-    var systemBar = await (driver.device.getSystemBars() as FutureOr<Map<String, dynamic>>);
+    var systemBar =
+        await (driver.device.getSystemBars() as FutureOr<Map<String, dynamic>>);
     expect(systemBar['statusBar'] != null, true);
     expect(systemBar['navigationBar'] != null, true);
 
@@ -106,7 +108,8 @@ void main() {
   });
 
   test('logs', () async {
-    var logType = await (driver.logs.getAvailableType() as FutureOr<List<String>>);
+    var logType =
+        await (driver.logs.getAvailableType() as FutureOr<List<String>>);
     var logs = driver.logs.get(logType.first);
     expect((await logs.take(1).toList()).length, 1);
 //    expect(logs.take(1).message.isEmpty, false);
@@ -114,9 +117,11 @@ void main() {
     await driver.logs.logEvent('custom', 'event');
     // {commands: [{cmd: timeouts, startTime: 1575388557299, endTime: 1575388557300}, {cmd: getLogTypes, startTime: 1575388557313, endTime: 1575388557313}, {cmd: getLog, startTime: 1575388557326, endTime: 1575388557326}, {cmd: logCustomEvent, startTime: 1575388557453, endTime: 1575388557454}, {cmd: getLogEvents, startTime: 1575388557458, endTime: 1575388557459}],
     // custom:event: [1575388557453]}
-    var result = await (driver.logs.getEvents() as FutureOr<Map<String, dynamic>>);
+    var result =
+        await (driver.logs.getEvents() as FutureOr<Map<String, dynamic>>);
     expect(result['commands'].length > 1, true);
-    result = await (driver.logs.getEvents(type: 'custom:event') as FutureOr<Map<String, dynamic>>);
+    result = await (driver.logs.getEvents(type: 'custom:event')
+        as FutureOr<Map<String, dynamic>>);
     expect(result['custom:event'].length == 1, true);
   });
 
@@ -124,14 +129,17 @@ void main() {
     await driver.device.startActivity(
         appPackage: 'io.appium.android.apis',
         appActivity: 'io.appium.android.apis.view.WebView1');
-    var contexts = await (driver.contexts.getAvailableContexts() as FutureOr<List<String>>);
+    var contexts = await (driver.contexts.getAvailableContexts()
+        as FutureOr<List<String>>);
     await driver.contexts.setContext(contexts[1]);
 
-    var response = await (driver.cdp.execute('Page.getResourceTree', {}) as FutureOr<Map<String, dynamic>>);
+    var response = await (driver.cdp.execute('Page.getResourceTree', {})
+        as FutureOr<Map<String, dynamic>>);
     expect(response['frameTree'] != null, true);
 
     response = await (driver.cdp
-        .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'}) as FutureOr<Map<String, dynamic>>);
+            .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'})
+        as FutureOr<Map<String, dynamic>>);
     expect(response['data'].startsWith('/9j/'), true);
   });
 }
