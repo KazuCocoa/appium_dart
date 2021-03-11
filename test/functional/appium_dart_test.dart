@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 
 import 'package:appium_driver/src/common/orientation.dart';
 import 'package:test/test.dart';
