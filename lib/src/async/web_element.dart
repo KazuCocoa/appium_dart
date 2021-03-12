@@ -84,12 +84,12 @@ class AppiumWebElement extends common.WebElement
       _handler.element.parseSizeResponse);
 
   /// The tag name for this element.
-  Future<String?> get name => _client.send(
+  Future<String> get name => _client.send(
       _handler.element.buildNameRequest(id),
       _handler.element.parseNameResponse);
 
   ///  Visible text within this element.
-  Future<String?> get text => _client.send(
+  Future<String> get text => _client.send(
       _handler.element.buildTextRequest(id),
       _handler.element.parseTextResponse);
 

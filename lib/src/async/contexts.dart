@@ -14,7 +14,7 @@ class Contexts {
       _handler.contexts.buildGetAvailableContextsRequest(),
       _handler.contexts.parseGetAvailableContexts);
 
-  Future<String?> getCurrentContext() => _client.send(
+  Future<String> getCurrentContext() => _client.send(
       _handler.contexts.buildGetCurrentContextRequest(),
       _handler.contexts.parseGetCurrentContext);
 

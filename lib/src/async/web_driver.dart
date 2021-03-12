@@ -58,7 +58,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   }
 
   /// The current url.
-  Future<String?> get currentUrl => _client.send(
+  Future<String> get currentUrl => _client.send(
       _handler.core.buildCurrentUrlRequest(),
       _handler.core.parseCurrentUrlResponse);
 
@@ -83,7 +83,7 @@ class AppiumWebDriver implements AppiumSearchContext {
       _handler.navigation.parseRefreshResponse);
 
   /// The title of the current page.
-  Future<String?> get title => _client.send(
+  Future<String> get title => _client.send(
       _handler.core.buildTitleRequest(), _handler.core.parseTitleResponse);
 
   /// Search for multiple elements within the entire current page.
@@ -111,7 +111,7 @@ class AppiumWebDriver implements AppiumSearchContext {
           by));
 
   /// An artist's rendition of the current page's source.
-  Future<String?> get pageSource => _client.send(
+  Future<String> get pageSource => _client.send(
       _handler.core.buildPageSourceRequest(),
       _handler.core.parsePageSourceResponse);
 
@@ -205,7 +205,7 @@ class AppiumWebDriver implements AppiumSearchContext {
 
   /// Take a screenshot of the current page as PNG and return it as
   /// base64-encoded string.
-  Future<String?> captureScreenshotAsBase64() => _client.send(
+  Future<String> captureScreenshotAsBase64() => _client.send(
       _handler.core.buildScreenshotRequest(),
       _handler.core.parseScreenshotResponse);
 

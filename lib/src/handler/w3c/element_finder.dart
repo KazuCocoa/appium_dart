@@ -38,7 +38,7 @@ class W3cElementFinder extends ElementFinder {
   }
 
   @override
-  String? parseFindActiveElementResponse(WebDriverResponse response) {
+  String parseFindActiveElementResponse(WebDriverResponse response) {
     var parsedResponse = parseW3cResponse(response);
     return parsedResponse[search_context.w3cElementStr] ??
         parsedResponse[search_context.jsonWireElementStr];
@@ -50,7 +50,7 @@ class W3cElementFinder extends ElementFinder {
   }
 
   @override
-  String? parseFindElementResponse(WebDriverResponse response) {
+  String parseFindElementResponse(WebDriverResponse response) {
     var parsedResponse = parseW3cResponse(response);
     return parsedResponse[search_context.w3cElementStr] ??
         parsedResponse[search_context.jsonWireElementStr];

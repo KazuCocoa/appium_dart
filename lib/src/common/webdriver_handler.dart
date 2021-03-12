@@ -122,25 +122,25 @@ abstract class CoreHandler {
   WebDriverRequest buildCurrentUrlRequest();
 
   /// Parses response for 'Get Current URL'.
-  String? parseCurrentUrlResponse(WebDriverResponse response);
+  String parseCurrentUrlResponse(WebDriverResponse response);
 
   /// Builds request for 'Get Title'.
   WebDriverRequest buildTitleRequest();
 
   /// Parses response for 'Get Title'.
-  String? parseTitleResponse(WebDriverResponse response);
+  String parseTitleResponse(WebDriverResponse response);
 
   /// Builds request for 'Get Page Source'.
   WebDriverRequest buildPageSourceRequest();
 
   /// Parses response for 'Get Page Source'.
-  String? parsePageSourceResponse(WebDriverResponse response);
+  String parsePageSourceResponse(WebDriverResponse response);
 
   /// Builds request for 'Take Screenshot'.
   WebDriverRequest buildScreenshotRequest();
 
   /// Parses response for 'Take Screenshot' to get a base64 encoded image.
-  String? parseScreenshotResponse(WebDriverResponse response);
+  String parseScreenshotResponse(WebDriverResponse response);
 
   /// Builds request for 'Execute Async Script'.
   WebDriverRequest buildExecuteAsyncRequest(String script, List args);
@@ -186,13 +186,13 @@ abstract class ElementHandler {
   WebDriverRequest buildSelectedRequest(String elementId);
 
   /// Parses response for 'Is Element Selected'.
-  bool? parseSelectedResponse(WebDriverResponse response);
+  bool parseSelectedResponse(WebDriverResponse response);
 
   /// Builds request for 'Is Element Enabled'.
   WebDriverRequest buildEnabledRequest(String elementId);
 
   /// Parses response for 'Is Element Enabled'.
-  bool? parseEnabledResponse(WebDriverResponse response);
+  bool parseEnabledResponse(WebDriverResponse response);
 
   /// Builds request for 'Is Element Displayed'.
   WebDriverRequest buildDisplayedRequest(String elementId);
@@ -218,19 +218,19 @@ abstract class ElementHandler {
   WebDriverRequest buildNameRequest(String elementId);
 
   /// Parses response for 'Element Name'.
-  String? parseNameResponse(WebDriverResponse response);
+  String parseNameResponse(WebDriverResponse response);
 
   /// Builds request for 'Element Text'.
   WebDriverRequest buildTextRequest(String elementId);
 
   /// Parses response for 'Element Text'.
-  String? parseTextResponse(WebDriverResponse response);
+  String parseTextResponse(WebDriverResponse response);
 
   /// Builds request for 'Element Attribute'.
   WebDriverRequest buildAttributeRequest(String elementId, String name);
 
   /// Parses response for 'Element Attribute'.
-  String? parseAttributeResponse(WebDriverResponse response);
+  String parseAttributeResponse(WebDriverResponse response);
 
   /// Builds request for 'Selenium Element Attribute'.
   ///
@@ -242,19 +242,19 @@ abstract class ElementHandler {
   ///
   /// This is deprecated, only used to support old pageloader.
   @deprecated
-  String? parseSeleniumAttributeResponse(WebDriverResponse response);
+  String parseSeleniumAttributeResponse(WebDriverResponse response);
 
   /// Builds request for 'Element Property'.
   WebDriverRequest buildPropertyRequest(String elementId, String name);
 
   /// Parses response for 'Element Property'.
-  String? parsePropertyResponse(WebDriverResponse response);
+  String parsePropertyResponse(WebDriverResponse response);
 
   /// Builds request for 'Element CSS Value'.
   WebDriverRequest buildCssPropertyRequest(String elementId, String name);
 
   /// Parses response for 'Element CSS Value'.
-  String? parseCssPropertyResponse(WebDriverResponse response);
+  String parseCssPropertyResponse(WebDriverResponse response);
 
   /// Builds request for 'set value immediately'
   WebDriverRequest buildSetValueImmediatelyRequest(
@@ -281,14 +281,14 @@ abstract class ElementFinder {
   WebDriverRequest buildFindElementRequest(AppiumBy by, [String? contextId]);
 
   /// Parses response got for finding element to get the element id.
-  String? parseFindElementResponse(WebDriverResponse response);
+  String parseFindElementResponse(WebDriverResponse response);
 
   /// Builds request for finding the current active element.
   WebDriverRequest buildFindActiveElementRequest();
 
   /// Parses response got for finding current active element to get the element
   /// id.
-  String? parseFindActiveElementResponse(WebDriverResponse response);
+  String parseFindActiveElementResponse(WebDriverResponse response);
 }
 
 abstract class KeyboardHandler {
@@ -314,7 +314,7 @@ abstract class KeyboardHandler {
   WebDriverRequest buildIsKeyboardShownRequest();
 
   /// Parses response got after 'hide keyboard'
-  bool? parseIsKeyboardShownResponse(WebDriverResponse response);
+  bool parseIsKeyboardShownResponse(WebDriverResponse response);
 }
 
 abstract class MouseHandler {
@@ -418,7 +418,7 @@ abstract class WindowHandler {
   WebDriverRequest buildGetActiveWindowRequest();
 
   /// Parses response for 'Get Window Handle' to get window id.
-  String? parseGetActiveWindowResponse(WebDriverResponse response);
+  String parseGetActiveWindowResponse(WebDriverResponse response);
 
   /// Builds request for 'Set Window Active'.
   WebDriverRequest buildSetActiveRequest(String? windowId);

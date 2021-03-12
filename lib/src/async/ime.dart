@@ -14,7 +14,7 @@ class IME {
       _handler.ime.buildGetAvailableEnginesRequest(),
       _handler.ime.parseGetAvailableEnginesResponse);
 
-  Future<String?> getActiveEngine() => _client.send(
+  Future<String> getActiveEngine() => _client.send(
       _handler.ime.buildGetActiveEngineRequest(),
       _handler.ime.parseGetActiveEngineResponse);
 
