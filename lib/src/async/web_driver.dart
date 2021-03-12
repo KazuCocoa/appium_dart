@@ -133,7 +133,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     final windows = await _client.send(
         _handler.window.buildGetWindowsRequest(),
         (response) => _handler.window
-            .parseGetWindowsResponse(response)!
+            .parseGetWindowsResponse(response)
             .map<Window>((w) => Window(_client, _handler, w)));
     for (final window in windows) {
       yield window;

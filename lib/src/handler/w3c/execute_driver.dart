@@ -22,7 +22,7 @@ class W3cExecuteDriverHandler implements ExecuteDriverHandler {
   }
 
   @override
-  Map<String, dynamic>? parseExecuteDriverResponse(
+  Map<String, dynamic> parseExecuteDriverResponse(
           WebDriverResponse response) =>
       parseW3cResponse(response);
 }

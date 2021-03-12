@@ -39,7 +39,7 @@ class W3cSessionHandler extends SessionHandler {
   }
 
   @override
-  Map<String, dynamic>? parseGetCapabilitiesResponse(
+  Map<String, dynamic> parseGetCapabilitiesResponse(
       WebDriverResponse response) {
     return parseW3cResponse(response);
   }

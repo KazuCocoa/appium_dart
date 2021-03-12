@@ -10,7 +10,7 @@ class IME {
 
   IME(this._client, this._handler);
 
-  Future<List<String>?> getAvailableEngines() => _client.send(
+  Future<List<String>> getAvailableEngines() => _client.send(
       _handler.ime.buildGetAvailableEnginesRequest(),
       _handler.ime.parseGetAvailableEnginesResponse);
 

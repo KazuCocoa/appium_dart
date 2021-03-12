@@ -14,6 +14,6 @@ class W3cChromeDevToolsHandler implements ChromeDevToolsHandler {
           W3CCommands.EXECUTE_CDP, {'cmd': command, 'params': params});
 
   @override
-  Map<String, dynamic>? parseExecuteResponse(WebDriverResponse response) =>
+  Map<String, dynamic> parseExecuteResponse(WebDriverResponse response) =>
       parseW3cResponse(response);
 }

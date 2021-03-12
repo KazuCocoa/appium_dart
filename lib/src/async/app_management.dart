@@ -58,7 +58,7 @@ class AppManagement {
       _handler.app.buildTerminateAppRequest(appId),
       _handler.app.parseTerminateResponse);
 
-  Future<Map<String, dynamic>?> string() => _client.send(
+  Future<Map<String, dynamic>> string() => _client.send(
       _handler.app.buildGetStringRequest(),
       _handler.app.parseGetStringResponse);
 

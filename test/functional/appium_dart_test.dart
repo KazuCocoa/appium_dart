@@ -73,22 +73,19 @@ void main() {
   });
 
   test('status', () async {
-    var s = await (driver.status.get() as FutureOr<Map<String, dynamic>>);
+    var s = await driver.status.get();
     expect(s['build'] != null, true);
   });
 
   test('capabilities', () async {
-    var capabilities = await (driver.session.getCapabilities()
-        as FutureOr<Map<String, dynamic>>);
+    var capabilities = await (driver.session.getCapabilities());
     expect(capabilities['automationName'].toString().toLowerCase(), 'xcuitest');
   });
 
   test('push and pull', () async {
     var pulledFile = await (driver.device
-            .pullFile('Library/AddressBook/AddressBook.sqlitedb')
-        as FutureOr<String>);
-    var pulFolder = await (driver.device.pullFolder('Library/AddressBook')
-        as FutureOr<String>);
+            .pullFile('Library/AddressBook/AddressBook.sqlitedb'));
+    var pulFolder = await (driver.device.pullFolder('Library/AddressBook'));
     expect(pulledFile.isNotEmpty, true);
     expect(pulFolder.isNotEmpty, true);
 
@@ -100,13 +97,13 @@ void main() {
         .setClipboard(base64.encode(utf8.encode('happy testing')));
     expect(
         utf8.decode(base64
-            .decode(await (driver.device.getClipboard() as FutureOr<String>))),
+            .decode(await (driver.device.getClipboard()))),
         'happy testing');
 
     await driver.device.setClipboard(base64.encode(utf8.encode('appium')));
     expect(
         utf8.decode(base64
-            .decode(await (driver.device.getClipboard() as FutureOr<String>))),
+            .decode(await (driver.device.getClipboard()))),
         'appium');
   });
 
@@ -119,7 +116,7 @@ return [status];
     ''', type: 'webdriverio', timeout: const Duration(minutes: 1)), {
       'result': [
         {
-          'build': {'version': '1.20.0'}
+          'build': {'version': '1.20.2'}
         }
       ],
       'logs': {

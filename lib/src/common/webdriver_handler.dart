@@ -97,7 +97,7 @@ abstract class SessionHandler {
   WebDriverRequest buildGetCapabilitiesRequest();
 
   /// Parses response for 'Get Session Info'.
-  Map<String, dynamic>? parseGetCapabilitiesResponse(
+  Map<String, dynamic> parseGetCapabilitiesResponse(
       WebDriverResponse response);
 }
 
@@ -106,7 +106,7 @@ abstract class SessionsHandler {
   WebDriverRequest buildGetRequest();
 
   /// Parses response for 'get sessions'.
-  List<dynamic>? parseGetResponse(WebDriverResponse response);
+  List<dynamic> parseGetResponse(WebDriverResponse response);
 }
 
 abstract class StatusHandler {
@@ -114,7 +114,7 @@ abstract class StatusHandler {
   WebDriverRequest buildGetRequest();
 
   /// Parses response for 'get status'.
-  Map<String, dynamic>? parseGetResponse(WebDriverResponse response);
+  Map<String, dynamic> parseGetResponse(WebDriverResponse response);
 }
 
 abstract class CoreHandler {
@@ -356,7 +356,7 @@ abstract class AlertHandler {
   WebDriverRequest buildGetTextRequest();
 
   /// Parses response for 'Get Alert Text'.
-  String? parseGetTextResponse(WebDriverResponse response);
+  String parseGetTextResponse(WebDriverResponse response);
 
   /// Builds request for 'Accept Alert'.
   WebDriverRequest buildAcceptRequest();
@@ -412,7 +412,7 @@ abstract class WindowHandler {
   WebDriverRequest buildGetWindowsRequest();
 
   /// Parses response for 'Get Window Handles' to get window ids.
-  List<String>? parseGetWindowsResponse(WebDriverResponse response);
+  List<String> parseGetWindowsResponse(WebDriverResponse response);
 
   /// Builds request for 'Get Window Handle'.
   WebDriverRequest buildGetActiveWindowRequest();
@@ -495,7 +495,7 @@ abstract class WindowHandler {
 
 abstract class FrameHandler {
   /// Builds request for 'Switch To Frame' with id.
-  WebDriverRequest buildSwitchByIdRequest([int? id]);
+  WebDriverRequest buildSwitchByIdRequest([int id]);
 
   /// Parses response for 'Switch To Frame' with id.
   void parseSwitchByIdResponse(WebDriverResponse response);
@@ -544,7 +544,7 @@ abstract class CookiesHandler {
   WebDriverRequest buildGetAllCookiesRequest();
 
   /// Parses response for 'Get All Cookies'.
-  List<Cookie>? parseGetAllCookiesResponse(WebDriverResponse response);
+  List<Cookie> parseGetAllCookiesResponse(WebDriverResponse response);
 }
 
 /// Handler for Timeouts.
@@ -583,13 +583,13 @@ abstract class LogsHandler {
   WebDriverRequest buildGetAvailableTypeRequest();
 
   /// Parses response for 'Get Available Logs'.
-  List<String>? parseGetAvailableTypeResponse(WebDriverResponse response);
+  List<String> parseGetAvailableTypeResponse(WebDriverResponse response);
 
   /// Builds request for 'Get Events'.
   WebDriverRequest buildGetEventsRequest({String type = ''});
 
   /// Parses response for 'Get Events'
-  Map<String, dynamic>? parseGetEventsResponse(WebDriverResponse response);
+  Map<String, dynamic> parseGetEventsResponse(WebDriverResponse response);
 
   /// Builds request for 'Log Event'
   WebDriverRequest buildLogEventRequest(String vendor, String event);
@@ -612,7 +612,7 @@ abstract class AppManagementHandler {
   void parseBackgroundAppResponse(WebDriverResponse response);
 
   WebDriverRequest buildGetStringRequest();
-  Map<String, dynamic>? parseGetStringResponse(WebDriverResponse response);
+  Map<String, dynamic> parseGetStringResponse(WebDriverResponse response);
 
   WebDriverRequest buildInstallAppRequest(String path,
       {bool? replace,
@@ -627,7 +627,7 @@ abstract class AppManagementHandler {
   void parseRemoveAppResponse(WebDriverResponse response);
 
   WebDriverRequest buildIsAppInstalledRequest(String appId);
-  bool? parseIsAppInstalledResponse(WebDriverResponse response);
+  bool parseIsAppInstalledResponse(WebDriverResponse response);
 
   WebDriverRequest buildActivateAppRequest(String appId);
   void parseActivateAppResponse(WebDriverResponse response);
@@ -641,13 +641,13 @@ abstract class ContextsHandler {
   WebDriverRequest buildGetAvailableContextsRequest();
 
   /// Parse response for 'get available contexts'
-  List<String>? parseGetAvailableContexts(WebDriverResponse response);
+  List<String> parseGetAvailableContexts(WebDriverResponse response);
 
   /// Builds request for 'get current context'
   WebDriverRequest buildGetCurrentContextRequest();
 
   /// Parse response for 'get current context'
-  String? parseGetCurrentContext(WebDriverResponse response);
+  String parseGetCurrentContext(WebDriverResponse response);
 
   /// Builds request for 'set context'
   WebDriverRequest buildSetContextRequest(String context);
@@ -669,19 +669,19 @@ abstract class IMEHandler {
   WebDriverRequest buildGetAvailableEnginesRequest();
 
   /// Parse response for 'get available engines'
-  List<String>? parseGetAvailableEnginesResponse(WebDriverResponse response);
+  List<String> parseGetAvailableEnginesResponse(WebDriverResponse response);
 
   /// Builds request for 'get active engines'
   WebDriverRequest buildGetActiveEngineRequest();
 
   /// Parse response for 'get active contexts'
-  String? parseGetActiveEngineResponse(WebDriverResponse response);
+  String parseGetActiveEngineResponse(WebDriverResponse response);
 
   /// Builds request for 'is activated'
   WebDriverRequest buildIsActivatedRequest();
 
   /// Parse response for 'is activated'
-  bool? parseIsActivatedResponse(WebDriverResponse response);
+  bool parseIsActivatedResponse(WebDriverResponse response);
 
   /// Builds request for 'deactivate'
   WebDriverRequest buildDeactivateRequest();
@@ -701,7 +701,7 @@ abstract class DeviceHandler {
   WebDriverRequest buildDeviceIsLockedRequest();
 
   /// Parse response for 'locked'
-  bool? parseDeviceIsLockedResponse(WebDriverResponse response);
+  bool parseDeviceIsLockedResponse(WebDriverResponse response);
 
   /// Builds request for 'unlock'
   WebDriverRequest buildUnlockDeviceRequest();
@@ -719,7 +719,7 @@ abstract class DeviceHandler {
   WebDriverRequest buildDeviceSystemTimeRequest();
 
   /// Parse response for 'system time'
-  String? parseDeviceSystemTimeResponse(WebDriverResponse response);
+  String parseDeviceSystemTimeResponse(WebDriverResponse response);
 
   /// Builds request for 'shake'
   WebDriverRequest buildShakeDeviceRequest();
@@ -751,20 +751,20 @@ abstract class DeviceHandler {
   WebDriverRequest buildPullFileRequest(String path);
 
   /// Parse response for 'pull file'
-  String? parsePullFileResponse(WebDriverResponse response);
+  String parsePullFileResponse(WebDriverResponse response);
 
   /// Builds request for 'pull folder'
   WebDriverRequest buildPullFolderRequest(String path);
 
   /// Parse response for 'pull folder'
-  String? parsePullFolderResponse(WebDriverResponse response);
+  String parsePullFolderResponse(WebDriverResponse response);
 
   /// Builds request for 'get clipboard'
   WebDriverRequest buildGetClipboardRequest(
       {String contentType = ContentType.plaintext});
 
   /// Parse response for 'get clipboard'
-  String? parseGetClipboardResponse(WebDriverResponse response);
+  String parseGetClipboardResponse(WebDriverResponse response);
 
   /// Builds request for 'set clipboard'
   WebDriverRequest buildSetClipboardRequest(String base64encoded,
@@ -802,7 +802,7 @@ abstract class DeviceHandler {
 
   /// Parse response for 'current activity'
   /// Android Only
-  String? parseGetCurrentActivityResponse(WebDriverResponse response);
+  String parseGetCurrentActivityResponse(WebDriverResponse response);
 
   /// Builds request for 'current package'
   /// Android Only
@@ -810,7 +810,7 @@ abstract class DeviceHandler {
 
   /// Parse response for 'current package'
   /// Android Only
-  String? parseGetCurrentPackageResponse(WebDriverResponse response);
+  String parseGetCurrentPackageResponse(WebDriverResponse response);
 
   /// Builds request for 'get current device location'
   WebDriverRequest buildGetLocationRequest();
@@ -830,13 +830,13 @@ abstract class DeviceHandler {
 
   /// Parse response for 'get system bars'
   /// For Android
-  Map<String, dynamic>? parseGetSystemBarsResponse(WebDriverResponse response);
+  Map<String, dynamic> parseGetSystemBarsResponse(WebDriverResponse response);
 
   /// Builds request for 'get display density'
   WebDriverRequest buildGetDisplayDensityRequest();
 
   /// Parse response for 'get display density'
-  int? parseGetDisplayDensityResponse(WebDriverResponse response);
+  int parseGetDisplayDensityResponse(WebDriverResponse response);
 
   /// Builds request for 'set orientation'
   WebDriverRequest buildSetOrientationRequest(Orientation orientation);
@@ -871,7 +871,7 @@ abstract class ChromeDevToolsHandler {
       String command, Map<String, dynamic> params);
 
   /// Parse response for 'execute cdp'
-  Map<String, dynamic>? parseExecuteResponse(WebDriverResponse response);
+  Map<String, dynamic> parseExecuteResponse(WebDriverResponse response);
 }
 
 abstract class ExecuteDriverHandler {
@@ -880,5 +880,5 @@ abstract class ExecuteDriverHandler {
       {String? type, Duration? timeout});
 
   /// Parse response for 'execute driver'
-  Map<String, dynamic>? parseExecuteDriverResponse(WebDriverResponse response);
+  Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response);
 }

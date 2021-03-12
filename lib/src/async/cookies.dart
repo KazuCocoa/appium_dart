@@ -31,7 +31,7 @@ class Cookies {
     final cookies = await _client.send(
         _handler.cookies.buildGetAllCookiesRequest(),
         _handler.cookies.parseGetAllCookiesResponse);
-    for (var cookie in cookies!) {
+    for (var cookie in cookies) {
       yield cookie;
     }
   }

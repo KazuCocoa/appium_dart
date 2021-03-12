@@ -9,7 +9,7 @@ class W3cAlertHandler implements AlertHandler {
       WebDriverRequest.getRequest('alert/text');
 
   @override
-  String? parseGetTextResponse(WebDriverResponse response) =>
+  String parseGetTextResponse(WebDriverResponse response) =>
       parseW3cResponse(response);
 
   @override

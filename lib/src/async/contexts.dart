@@ -10,7 +10,7 @@ class Contexts {
 
   Contexts(this._client, this._handler);
 
-  Future<List<String>?> getAvailableContexts() => _client.send(
+  Future<List<String>> getAvailableContexts() => _client.send(
       _handler.contexts.buildGetAvailableContextsRequest(),
       _handler.contexts.parseGetAvailableContexts);
 

@@ -155,7 +155,7 @@ Future<AppiumWebDriver> fromExistingSession(
 /// Creates an async WebDriver from existing session with a sync function.
 ///
 /// This will be helpful when you can't use async when creating WebDriver. For
-/// example in a consctructor.
+/// example in a constructor.
 ///
 /// This is intended for internal use! Please use [fromExistingSessionSync] from
 /// async_io.dart or async_html.dart.

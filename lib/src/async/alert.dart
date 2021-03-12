@@ -12,7 +12,7 @@ class Alert {
   Alert(this._client, this._handler);
 
   /// The text of the JavaScript alert(), confirm(), or prompt() dialog.
-  Future<String?> get text => _client.send(_handler.alert.buildGetTextRequest(),
+  Future<String> get text => _client.send(_handler.alert.buildGetTextRequest(),
       _handler.alert.parseGetTextResponse);
 
   /// Accepts the currently displayed alert (may not be the alert for which this

@@ -20,7 +20,7 @@ class TestHelper {
 
   static var iOSDesiredCapabilitiesApp = {
     'platformName': 'iOS',
-    'platformVersion': '14.2',
+    'platformVersion': '14.4',
     'app': File('test/functional/app/UICatalog.app.zip').absolute.path,
     'deviceName': 'iPhone 12', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
@@ -31,7 +31,7 @@ class TestHelper {
 
   static var iOSDesiredCapabilitiesWeb = {
     'platformName': 'iOS',
-    'platformVersion': '14.2',
+    'platformVersion': '14.4',
     'browserName': 'Safari',
     'deviceName': 'iPhone 12', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',

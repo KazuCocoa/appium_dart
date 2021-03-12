@@ -9,7 +9,7 @@ void main() {
         uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
         desired: {
           'platformName': 'ios',
-          'platformVersion': '14.2',
+          'platformVersion': '14.4',
           'deviceName': 'iPhone 8',
           'browserName': 'Safari',
           'automationName': 'xcuitest',

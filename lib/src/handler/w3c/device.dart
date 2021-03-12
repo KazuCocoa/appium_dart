@@ -16,7 +16,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  bool? parseDeviceIsLockedResponse(WebDriverResponse response) {
+  bool parseDeviceIsLockedResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -53,7 +53,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  String? parseDeviceSystemTimeResponse(WebDriverResponse response) {
+  String parseDeviceSystemTimeResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -122,7 +122,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  String? parsePullFileResponse(WebDriverResponse response) {
+  String parsePullFileResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -133,7 +133,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  String? parsePullFolderResponse(WebDriverResponse response) {
+  String parsePullFolderResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -145,7 +145,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  String? parseGetClipboardResponse(WebDriverResponse response) {
+  String parseGetClipboardResponse(WebDriverResponse response) {
     // return base64 encoded data
     return parseW3cResponse(response);
   }
@@ -223,7 +223,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  String? parseGetCurrentActivityResponse(WebDriverResponse response) {
+  String parseGetCurrentActivityResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -233,7 +233,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  String? parseGetCurrentPackageResponse(WebDriverResponse response) {
+  String parseGetCurrentPackageResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -270,7 +270,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  Map<String, dynamic>? parseGetSystemBarsResponse(WebDriverResponse response) {
+  Map<String, dynamic> parseGetSystemBarsResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -280,7 +280,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  int? parseGetDisplayDensityResponse(WebDriverResponse response) {
+  int parseGetDisplayDensityResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 

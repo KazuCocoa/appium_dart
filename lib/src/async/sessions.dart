@@ -24,7 +24,7 @@ class Sessions {
   ///        "platformVersion":"12.2","deviceName":"iPhone 8",
   ///        "automationName":"xcuitest","wdaLocalPort":8101,
   ///        "useJSONSource":true,"reduceMotion":true}}]
-  Future<List<dynamic>?> get() => _client!.send(
+  Future<List<dynamic>> get() => _client!.send(
       _handler!.sessions.buildGetRequest(),
       _handler!.sessions.parseGetResponse);
 

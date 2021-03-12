@@ -21,7 +21,7 @@ class Device {
   ///
   ///     await driver.device.isLocked();
   ///
-  Future<bool?> isLocked() => _client.send(
+  Future<bool> isLocked() => _client.send(
       _handler.device.buildDeviceIsLockedRequest(),
       _handler.device.parseDeviceIsLockedResponse);
 
@@ -54,7 +54,7 @@ class Device {
   ///     var time = await driver.device.getSystemTime();
   ///     expect(DateTime.parse(time) is DateTime, true);
   ///
-  Future<String?> getSystemTime() => _client.send(
+  Future<String> getSystemTime() => _client.send(
       _handler.device.buildDeviceSystemTimeRequest(),
       _handler.device.parseDeviceSystemTimeResponse);
 
@@ -114,7 +114,7 @@ class Device {
   ///         .pullFile('Library/AddressBook/AddressBook.sqlitedb');
   ///     expect(pulledFile.isNotEmpty, true);
   ///
-  Future<String?> pullFile(String path) => _client.send(
+  Future<String> pullFile(String path) => _client.send(
       _handler.device.buildPullFileRequest(path),
       _handler.device.parsePullFileResponse);
 
@@ -125,7 +125,7 @@ class Device {
   ///     var pulFolder = await driver.device.pullFolder('Library/AddressBook');
   ///     expect(pulFolder.isNotEmpty, true);
   ///
-  Future<String?> pullFolder(String path) => _client.send(
+  Future<String> pullFolder(String path) => _client.send(
       _handler.device.buildPullFolderRequest(path),
       _handler.device.parsePullFolderResponse);
 
@@ -138,7 +138,7 @@ class Device {
   ///     // Returns a string which is base64 encoded
   ///     utf8.decode(base64.decode(await driver.device.getClipboard()))
   ///
-  Future<String?> getClipboard({String contentType = ContentType.plaintext}) =>
+  Future<String> getClipboard({String contentType = ContentType.plaintext}) =>
       _client.send(
           _handler.device.buildGetClipboardRequest(contentType: contentType),
           _handler.device.parseGetClipboardResponse);
@@ -211,7 +211,7 @@ class Device {
   ///
   ///     await driver.device.getCurrentActivity()
   ///
-  Future<String?> getCurrentActivity() => _client.send(
+  Future<String> getCurrentActivity() => _client.send(
       _handler.device.buildGetCurrentActivityRequest(),
       _handler.device.parseGetCurrentActivityResponse);
 
@@ -222,7 +222,7 @@ class Device {
   ///
   ///     await driver.device.getCurrentPackage()
   ///
-  Future<String?> getCurrentPackage() => _client.send(
+  Future<String> getCurrentPackage() => _client.send(
       _handler.device.buildGetCurrentPackageRequest(),
       _handler.device.parseGetCurrentPackageResponse);
 
@@ -260,7 +260,7 @@ class Device {
   ///     expect(systemBar['statusBar'] != null, true);
   ///     expect(systemBar['navigationBar'] != null, true);
   ///
-  Future<Map<String, dynamic>?> getSystemBars() => _client.send(
+  Future<Map<String, dynamic>> getSystemBars() => _client.send(
       _handler.device.buildGetSystemBarsRequest(),
       _handler.device.parseGetSystemBarsResponse);
 
@@ -271,7 +271,7 @@ class Device {
   ///
   ///     await driver.device.getDisplayDensity();
   ///
-  Future<int?> getDisplayDensity() => _client.send(
+  Future<int> getDisplayDensity() => _client.send(
       _handler.device.buildGetDisplayDensityRequest(),
       _handler.device.parseGetDisplayDensityResponse);
 

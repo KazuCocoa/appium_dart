@@ -51,7 +51,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  Map<String, dynamic>? parseGetStringResponse(WebDriverResponse response) {
+  Map<String, dynamic> parseGetStringResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
@@ -89,7 +89,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  bool? parseIsAppInstalledResponse(WebDriverResponse response) {
+  bool parseIsAppInstalledResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
 
