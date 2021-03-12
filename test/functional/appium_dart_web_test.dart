@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:test/test.dart';
 
 import 'package:appium_driver/async_io.dart';
@@ -25,7 +23,14 @@ void main() {
       var result = await (driver.sessions.get());
       // The value could be over 1 in parallel session
       expect(result.isNotEmpty, true);
-      expect(result[0]['id'], driver.id);
+      var ok = false;
+      for (var r in result) {
+        if (driver.id == r['id']) {
+          ok = true;
+          break;
+        }
+      }
+      expect(ok, true);
     });
 
     test('connect to existing session', () async {
@@ -42,12 +47,12 @@ void main() {
   group('capabilities', () {
     test('Get capabilities', () async {
       var result = await (driver.contexts.getAvailableContexts());
-      expect((await driver.contexts.getCurrentContext())!.startsWith('WEBVIEW'),
+      expect((await driver.contexts.getCurrentContext()).startsWith('WEBVIEW'),
           true);
       await driver.contexts.setContext(result.first);
       expect(await driver.contexts.getCurrentContext(), 'NATIVE_APP');
       await driver.contexts.setContext(result.last);
-      expect((await driver.contexts.getCurrentContext())!.startsWith('WEBVIEW'),
+      expect((await driver.contexts.getCurrentContext()).startsWith('WEBVIEW'),
           true);
     });
   });
@@ -74,6 +79,7 @@ void main() {
     final title = 'Appium/welcome';
     try {
       var e = await driver.findElement(AppiumBy.accessibilityId(title));
+      // ignore: unnecessary_null_comparison
       expect(e.id != null, true);
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
@@ -86,6 +92,7 @@ void main() {
   test('find by element', () async {
     final h1 = '//h1';
     var e = await driver.findElement(AppiumBy.xpath(h1));
+    // ignore: unnecessary_null_comparison
     expect(e.id != null, true);
     expect(await e.text, "Let's browse!");
   });

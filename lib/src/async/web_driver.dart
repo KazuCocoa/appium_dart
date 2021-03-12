@@ -106,7 +106,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by),
       (response) => getElement(
-          _handler.elementFinder.parseFindElementResponse(response)!,
+          _handler.elementFinder.parseFindElementResponse(response),
           this,
           by));
 
@@ -152,10 +152,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     final id = await _client.send(
         _handler.elementFinder.buildFindActiveElementRequest(),
         _handler.elementFinder.parseFindActiveElementResponse);
-    if (id != null) {
-      return getElement(id, this, 'activeElement');
-    }
-    return null;
+    return getElement(id, this, 'activeElement');
   }
 
   TargetLocator get switchTo => TargetLocator(this, _client, _handler);
@@ -212,7 +209,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// Take a screenshot of the current page as PNG as list of uint8.
   Future<List<int>> captureScreenshotAsList() async {
     var base64Encoded = captureScreenshotAsBase64();
-    return base64.decode(await (base64Encoded as FutureOr<String>));
+    return base64.decode(await (base64Encoded));
   }
 
   /// Take a screenshot of the current page as PNG as stream of uint8.

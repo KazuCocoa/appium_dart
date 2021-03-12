@@ -100,7 +100,7 @@ class AppiumWebElement extends common.WebElement
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by, id),
       (response) => driver.getElement(
-          _handler.elementFinder.parseFindElementResponse(response)!,
+          _handler.elementFinder.parseFindElementResponse(response),
           this,
           by));
 
