@@ -95,7 +95,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     var i = 0;
 
     for (var id in ids) {
-      yield getElement(id!, this, by, i);
+      yield getElement(id, this, by, i);
       i++;
     }
   }
@@ -148,7 +148,7 @@ class AppiumWebDriver implements AppiumSearchContext {
 
   /// The currently focused element, or the body element if no element has
   /// focus.
-  Future<AppiumWebElement?> get activeElement async {
+  Future<AppiumWebElement> get activeElement async {
     final id = await _client.send(
         _handler.elementFinder.buildFindActiveElementRequest(),
         _handler.elementFinder.parseFindActiveElementResponse);
@@ -209,7 +209,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// Take a screenshot of the current page as PNG as list of uint8.
   Future<List<int>> captureScreenshotAsList() async {
     var base64Encoded = captureScreenshotAsBase64();
-    return base64.decode(await (base64Encoded));
+    return base64.decode(await base64Encoded);
   }
 
   /// Take a screenshot of the current page as PNG as stream of uint8.

@@ -78,14 +78,14 @@ void main() {
   });
 
   test('capabilities', () async {
-    var capabilities = await (driver.session.getCapabilities());
+    var capabilities = await driver.session.getCapabilities();
     expect(capabilities['automationName'].toString().toLowerCase(), 'xcuitest');
   });
 
   test('push and pull', () async {
-    var pulledFile = await (driver.device
-            .pullFile('Library/AddressBook/AddressBook.sqlitedb'));
-    var pulFolder = await (driver.device.pullFolder('Library/AddressBook'));
+    var pulledFile = await driver.device
+            .pullFile('Library/AddressBook/AddressBook.sqlitedb');
+    var pulFolder = await driver.device.pullFolder('Library/AddressBook');
     expect(pulledFile.isNotEmpty, true);
     expect(pulFolder.isNotEmpty, true);
 
@@ -97,13 +97,13 @@ void main() {
         .setClipboard(base64.encode(utf8.encode('happy testing')));
     expect(
         utf8.decode(base64
-            .decode(await (driver.device.getClipboard()))),
+            .decode(await driver.device.getClipboard())),
         'happy testing');
 
     await driver.device.setClipboard(base64.encode(utf8.encode('appium')));
     expect(
         utf8.decode(base64
-            .decode(await (driver.device.getClipboard()))),
+            .decode(await driver.device.getClipboard())),
         'appium');
   });
 

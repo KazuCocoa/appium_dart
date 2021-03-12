@@ -275,7 +275,7 @@ abstract class ElementFinder {
   WebDriverRequest buildFindElementsRequest(AppiumBy by, [String? contextId]);
 
   /// Parses response got for finding elements to get [List] of element id.
-  List<String?> parseFindElementsResponse(WebDriverResponse response);
+  List<String> parseFindElementsResponse(WebDriverResponse response);
 
   /// Builds request for finding a single element.
   WebDriverRequest buildFindElementRequest(AppiumBy by, [String? contextId]);

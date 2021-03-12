@@ -22,9 +22,9 @@ class W3cElementFinder extends ElementFinder {
   }
 
   @override
-  List<String?> parseFindElementsResponse(WebDriverResponse response) {
+  List<String> parseFindElementsResponse(WebDriverResponse response) {
     return (parseW3cResponse(response) as List)
-        .map<String?>((e) =>
+        .map<String>((e) =>
             e[search_context.w3cElementStr] ??
             e[search_context.jsonWireElementStr])
         .toList();

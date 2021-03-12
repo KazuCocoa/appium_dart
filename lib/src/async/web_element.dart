@@ -59,12 +59,12 @@ class AppiumWebElement extends common.WebElement
       _handler.element.parseClearResponse);
 
   /// Is this radio button/checkbox selected?
-  Future<bool?> get selected => _client.send(
+  Future<bool> get selected => _client.send(
       _handler.element.buildSelectedRequest(id),
       _handler.element.parseSelectedResponse);
 
   /// Is this form element enabled?
-  Future<bool?> get enabled => _client.send(
+  Future<bool> get enabled => _client.send(
       _handler.element.buildEnabledRequest(id),
       _handler.element.parseEnabledResponse);
 
@@ -113,7 +113,7 @@ class AppiumWebElement extends common.WebElement
 
     var i = 0;
     for (var id in ids) {
-      yield driver.getElement(id!, this, by, i);
+      yield driver.getElement(id, this, by, i);
       i++;
     }
   }

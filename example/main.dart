@@ -2,7 +2,7 @@ import 'package:appium_driver/async_io.dart';
 import 'package:test/test.dart';
 
 void main() {
-  AppiumWebDriver? driver;
+  late AppiumWebDriver driver;
 
   setUpAll(() async {
     driver = await createDriver(
@@ -18,15 +18,15 @@ void main() {
   });
 
   tearDownAll(() async {
-    await driver!.quit();
+    await driver.quit();
   });
 
   test('connect to server', () async {
-    expect(await driver!.title, 'Appium/welcome');
+    expect(await driver.title, 'Appium/welcome');
   });
 
   test('connect to existing session', () async {
-    var sessionId = driver!.id;
+    var sessionId = driver.id;
 
     AppiumWebDriver newDriver = await fromExistingSession(sessionId);
     expect(await newDriver.title, 'Appium/welcome');
@@ -36,7 +36,7 @@ void main() {
   test('find by appium element', () async {
     final title = 'Appium/welcome';
     try {
-      await driver!.findElement(AppiumBy.accessibilityId(title));
+      await driver.findElement(AppiumBy.accessibilityId(title));
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
       expect(

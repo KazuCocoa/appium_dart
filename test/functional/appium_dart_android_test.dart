@@ -21,8 +21,7 @@ void main() {
   });
 
   test('ime', () async {
-    var imes =
-        await (driver.ime.getAvailableEngines());
+    var imes = await driver.ime.getAvailableEngines();
     var firstEngine = imes.first;
     expect(imes.isNotEmpty, true);
 
@@ -54,7 +53,7 @@ void main() {
     // wait 2 sec
     expect(await driver.device.isLocked(), false);
 
-    var time = await (driver.device.getSystemTime());
+    var time = await driver.device.getSystemTime();
     expect(DateTime.parse(time) is DateTime, true); // Can parse without error
   });
 
@@ -100,7 +99,7 @@ void main() {
 
   test('get bars and display denticyr', () async {
     var systemBar =
-        await (driver.device.getSystemBars());
+        await driver.device.getSystemBars();
     expect(systemBar['statusBar'] != null, true);
     expect(systemBar['navigationBar'] != null, true);
 
@@ -110,7 +109,7 @@ void main() {
 
   test('logs', () async {
     var logType =
-        await (driver.logs.getAvailableType());
+        await driver.logs.getAvailableType();
     var logs = driver.logs.get(logType.first);
     expect((await logs.take(1).toList()).length, 1);
 //    expect(logs.take(1).message.isEmpty, false);
@@ -118,10 +117,9 @@ void main() {
     await driver.logs.logEvent('custom', 'event');
     // {commands: [{cmd: timeouts, startTime: 1575388557299, endTime: 1575388557300}, {cmd: getLogTypes, startTime: 1575388557313, endTime: 1575388557313}, {cmd: getLog, startTime: 1575388557326, endTime: 1575388557326}, {cmd: logCustomEvent, startTime: 1575388557453, endTime: 1575388557454}, {cmd: getLogEvents, startTime: 1575388557458, endTime: 1575388557459}],
     // custom:event: [1575388557453]}
-    var result =
-        await (driver.logs.getEvents());
+    var result = await driver.logs.getEvents();
     expect(result['commands'].length > 1, true);
-    result = await (driver.logs.getEvents(type: 'custom:event'));
+    result = await driver.logs.getEvents(type: 'custom:event');
     expect(result['custom:event'].length == 1, true);
   });
 
@@ -129,14 +127,14 @@ void main() {
     await driver.device.startActivity(
         appPackage: 'io.appium.android.apis',
         appActivity: 'io.appium.android.apis.view.WebView1');
-    var contexts = await (driver.contexts.getAvailableContexts());
+    var contexts = await driver.contexts.getAvailableContexts();
     await driver.contexts.setContext(contexts[1]);
 
-    var response = await (driver.cdp.execute('Page.getResourceTree', {}));
+    var response = await driver.cdp.execute('Page.getResourceTree', {});
     expect(response['frameTree'] != null, true);
 
-    response = await (driver.cdp
-            .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'}));
+    response = await driver.cdp
+            .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'});
     expect(response['data'].startsWith('/9j/'), true);
   });
 }
