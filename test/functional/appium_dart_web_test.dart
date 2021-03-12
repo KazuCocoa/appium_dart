@@ -22,8 +22,9 @@ void main() {
   group('connect', () {
     test('connect to server and get sessions', () async {
       expect(await driver.title, 'Appium/welcome');
-      var result = await (driver.sessions.get() as FutureOr<List<dynamic>>);
-      expect(result.length, 1);
+      var result = await (driver.sessions.get());
+      // The value could be over 1 in parallel session
+      expect(result.isNotEmpty, true);
       expect(result[0]['id'], driver.id);
     });
 
@@ -40,8 +41,7 @@ void main() {
 
   group('capabilities', () {
     test('Get capabilities', () async {
-      var result = await (driver.contexts.getAvailableContexts()
-          as FutureOr<List<String>>);
+      var result = await (driver.contexts.getAvailableContexts());
       expect((await driver.contexts.getCurrentContext())!.startsWith('WEBVIEW'),
           true);
       await driver.contexts.setContext(result.first);

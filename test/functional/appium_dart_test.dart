@@ -52,7 +52,7 @@ void main() {
         await driver.findElement(AppiumBy.accessibilityId(textFieldCell));
     await element.click();
 
-    element = await driver.findElement(AppiumBy.name(textField));
+    element = await driver.findElement(AppiumBy.predicateString('value == \"$textField\"'));
     await element.setImmediateValue('hello');
 
     element =
@@ -133,7 +133,7 @@ return [status];
     '''), {
       'result': [
         {
-          'build': {'version': '1.20.0'}
+          'build': {'version': '1.20.2'}
         }
       ],
       'logs': {
