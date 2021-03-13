@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.3.0] - 2021-03-12
+
+- Tried to null safe
+
 ## [0.2.2] - 2021-01-10
 
 This version is same as 0.2.0 and 0.2.1. (To update documentation)
