@@ -52,7 +52,8 @@ void main() {
         await driver.findElement(AppiumBy.accessibilityId(textFieldCell));
     await element.click();
 
-    element = await driver.findElement(AppiumBy.predicateString('value == \"$textField\"'));
+    element = await driver
+        .findElement(AppiumBy.predicateString('value == \"$textField\"'));
     await element.setImmediateValue('hello');
 
     element =
@@ -84,7 +85,7 @@ void main() {
 
   test('push and pull', () async {
     var pulledFile = await driver.device
-            .pullFile('Library/AddressBook/AddressBook.sqlitedb');
+        .pullFile('Library/AddressBook/AddressBook.sqlitedb');
     var pulFolder = await driver.device.pullFolder('Library/AddressBook');
     expect(pulledFile.isNotEmpty, true);
     expect(pulFolder.isNotEmpty, true);
@@ -95,15 +96,11 @@ void main() {
   test('clipboard', () async {
     await driver.device
         .setClipboard(base64.encode(utf8.encode('happy testing')));
-    expect(
-        utf8.decode(base64
-            .decode(await driver.device.getClipboard())),
+    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
         'happy testing');
 
     await driver.device.setClipboard(base64.encode(utf8.encode('appium')));
-    expect(
-        utf8.decode(base64
-            .decode(await driver.device.getClipboard())),
+    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
         'appium');
   });
 

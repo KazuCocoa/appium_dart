@@ -98,8 +98,7 @@ void main() {
   });
 
   test('get bars and display denticyr', () async {
-    var systemBar =
-        await driver.device.getSystemBars();
+    var systemBar = await driver.device.getSystemBars();
     expect(systemBar['statusBar'] != null, true);
     expect(systemBar['navigationBar'] != null, true);
 
@@ -108,8 +107,7 @@ void main() {
   });
 
   test('logs', () async {
-    var logType =
-        await driver.logs.getAvailableType();
+    var logType = await driver.logs.getAvailableType();
     var logs = driver.logs.get(logType.first);
     expect((await logs.take(1).toList()).length, 1);
 //    expect(logs.take(1).message.isEmpty, false);
@@ -134,7 +132,7 @@ void main() {
     expect(response['frameTree'] != null, true);
 
     response = await driver.cdp
-            .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'});
+        .execute('Page.captureScreenshot', {'quality': 1, 'format': 'jpeg'});
     expect(response['data'].startsWith('/9j/'), true);
   });
 }
