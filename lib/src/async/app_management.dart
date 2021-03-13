@@ -38,7 +38,7 @@ class AppManagement {
               grantPermissions: grantPermissions),
           _handler.app.parseInstallAppResponse);
 
-  Future<bool?> isInstalled(String appId) => _client.send(
+  Future<bool> isInstalled(String appId) => _client.send(
       _handler.app.buildIsAppInstalledRequest(appId),
       _handler.app.parseIsAppInstalledResponse);
 

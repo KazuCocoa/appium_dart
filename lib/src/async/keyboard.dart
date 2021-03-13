@@ -83,7 +83,7 @@ class Keyboard {
       _handler.keyboard.parseHideKeyboardResponse);
 
   /// Whether the keyboard is shown
-  Future<bool?> isShown() => _client.send(
+  Future<bool> isShown() => _client.send(
       _handler.keyboard.buildIsKeyboardShownRequest(),
       _handler.keyboard.parseIsKeyboardShownResponse);
 

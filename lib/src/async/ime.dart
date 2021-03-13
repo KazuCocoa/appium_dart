@@ -18,7 +18,7 @@ class IME {
       _handler.ime.buildGetActiveEngineRequest(),
       _handler.ime.parseGetActiveEngineResponse);
 
-  Future<bool?> isActivated() => _client.send(
+  Future<bool> isActivated() => _client.send(
       _handler.ime.buildIsActivatedRequest(),
       _handler.ime.parseIsActivatedResponse);
 
