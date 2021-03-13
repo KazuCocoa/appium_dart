@@ -5,7 +5,7 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 
 class W3cFrameHandler extends FrameHandler {
   @override
-  WebDriverRequest buildSwitchByIdRequest([int id]) =>
+  WebDriverRequest buildSwitchByIdRequest([int? id]) =>
       WebDriverRequest.postRequest('frame', {'id': id});
 
   @override

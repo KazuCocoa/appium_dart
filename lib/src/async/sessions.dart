@@ -6,8 +6,8 @@ import 'package:appium_driver/src/common/webdriver_handler.dart';
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 
 class Sessions {
-  AsyncRequestClient _client;
-  AppiumWebDriverHandler _handler;
+  AsyncRequestClient? _client;
+  AppiumWebDriverHandler? _handler;
 
   Sessions(Uri baseUrl, AppiumWebDriverHandler handler) {
     _client = AsyncIoRequestClient(baseUrl);
@@ -24,8 +24,9 @@ class Sessions {
   ///        "platformVersion":"12.2","deviceName":"iPhone 8",
   ///        "automationName":"xcuitest","wdaLocalPort":8101,
   ///        "useJSONSource":true,"reduceMotion":true}}]
-  Future<List<dynamic>> get() => _client.send(
-      _handler.sessions.buildGetRequest(), _handler.sessions.parseGetResponse);
+  Future<List<dynamic>> get() => _client!.send(
+      _handler!.sessions.buildGetRequest(),
+      _handler!.sessions.parseGetResponse);
 
   @override
   int get hashCode => _client.hashCode;

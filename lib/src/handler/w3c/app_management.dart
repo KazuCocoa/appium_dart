@@ -19,7 +19,7 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  WebDriverRequest buildBackgroundAppRequest({Duration seconds}) {
+  WebDriverRequest buildBackgroundAppRequest({Duration? seconds}) {
     var arg = <String, dynamic>{};
     if (seconds == null) {
       arg['seconds'] = const Duration(seconds: 0).inSeconds;

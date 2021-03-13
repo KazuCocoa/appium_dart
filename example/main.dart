@@ -2,14 +2,14 @@ import 'package:appium_driver/async_io.dart';
 import 'package:test/test.dart';
 
 void main() {
-  AppiumWebDriver driver;
+  late AppiumWebDriver driver;
 
   setUpAll(() async {
     driver = await createDriver(
         uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
         desired: {
           'platformName': 'ios',
-          'platformVersion': '14.2',
+          'platformVersion': '14.4',
           'deviceName': 'iPhone 8',
           'browserName': 'Safari',
           'automationName': 'xcuitest',
@@ -40,7 +40,7 @@ void main() {
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
       expect(
-          e.message.contains('Unsupported locator strategy: accessibility id'),
+          e.message!.contains('Unsupported locator strategy: accessibility id'),
           true);
     }
   });

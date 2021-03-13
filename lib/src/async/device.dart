@@ -31,7 +31,7 @@ class Device {
   ///
   ///     await driver.device.lock(seconds: const Duration(seconds: 2));
   ///
-  Future<void> lock({Duration seconds}) => _client.send(
+  Future<void> lock({Duration? seconds}) => _client.send(
       _handler.device.buildLockDeviceRequest(seconds: seconds),
       _handler.device.parseLockDeviceResponse);
 
@@ -76,7 +76,7 @@ class Device {
   ///     await driver.device.pressKeycode(66, metastate: [1], flags: [32]);
   ///
   Future<void> pressKeycode(int keycode,
-          {List<int> metastate, List<int> flags}) =>
+          {List<int>? metastate, List<int>? flags}) =>
       _client.send(
           _handler.device.buildPressKeycodeRequest(keycode,
               metastate: metastate, flags: flags),
@@ -90,7 +90,7 @@ class Device {
   ///     await driver.device.longPressKeycode(66, metastate: [1], flags: [32]);
   ///
   Future<void> longPressKeycode(int keycode,
-          {List<int> metastate, List<int> flags}) =>
+          {List<int>? metastate, List<int>? flags}) =>
       _client.send(
           _handler.device.buildLongPressKeycodeRequest(keycode,
               metastate: metastate, flags: flags),
@@ -155,7 +155,7 @@ class Device {
   ///         base64.encode(utf8.encode('happy testing')));
   ///
   Future<void> setClipboard(String base64encoded,
-          {String contentType = ContentType.plaintext, String label}) =>
+          {String contentType = ContentType.plaintext, String? label}) =>
       _client.send(
           _handler.device.buildSetClipboardRequest(base64encoded,
               contentType: contentType, label: label),
@@ -182,15 +182,15 @@ class Device {
   ///       appActivity: 'io.appium.android.apis.ApiDemos');
   ///
   Future<void> startActivity(
-          {String appPackage,
-          String appActivity,
-          String appWaitPackage,
-          String appWaitActivity,
-          String intentAction,
-          String intentCategory,
-          String intentFlags,
-          String optionalIntentArguments,
-          String dontStopAppOnReset}) =>
+          {String? appPackage,
+          String? appActivity,
+          String? appWaitPackage,
+          String? appWaitActivity,
+          String? intentAction,
+          String? intentCategory,
+          String? intentFlags,
+          String? optionalIntentArguments,
+          String? dontStopAppOnReset}) =>
       _client.send(
           _handler.device.buildStartActivityRequest(
               appPackage: appPackage,

@@ -21,7 +21,7 @@ class W3cDeviceHandler implements DeviceHandler {
   }
 
   @override
-  WebDriverRequest buildLockDeviceRequest({Duration seconds}) {
+  WebDriverRequest buildLockDeviceRequest({Duration? seconds}) {
     var arg = {};
     if (seconds == null) {
       arg['seconds'] = const Duration(seconds: 0).inSeconds;
@@ -69,7 +69,7 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   WebDriverRequest buildPressKeycodeRequest(int keycode,
-      {List<int> metastate, List<int> flags}) {
+      {List<int>? metastate, List<int>? flags}) {
     var arg = <String, dynamic>{'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;
@@ -87,7 +87,7 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   WebDriverRequest buildLongPressKeycodeRequest(int keycode,
-      {List<int> metastate, List<int> flags}) {
+      {List<int>? metastate, List<int>? flags}) {
     var arg = <String, dynamic>{'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;
@@ -152,7 +152,7 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   WebDriverRequest buildSetClipboardRequest(String base64encoded,
-      {String contentType = ContentType.plaintext, String label}) {
+      {String contentType = ContentType.plaintext, String? label}) {
     var arg = {'content': base64encoded, 'contentType': contentType};
     if (label != null) {
       arg['label'] = label;
@@ -177,15 +177,15 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   WebDriverRequest buildStartActivityRequest(
-      {String appPackage,
-      String appActivity,
-      String appWaitPackage,
-      String appWaitActivity,
-      String intentAction,
-      String intentCategory,
-      String intentFlags,
-      String optionalIntentArguments,
-      String dontStopAppOnReset}) {
+      {String? appPackage,
+      String? appActivity,
+      String? appWaitPackage,
+      String? appWaitActivity,
+      String? intentAction,
+      String? intentCategory,
+      String? intentFlags,
+      String? optionalIntentArguments,
+      String? dontStopAppOnReset}) {
     var arg = {'appPackage': appPackage, 'appActivity': appActivity};
     if (appWaitPackage != null) {
       arg['appWaitPackage'] = appWaitPackage;

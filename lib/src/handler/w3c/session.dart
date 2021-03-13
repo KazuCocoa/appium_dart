@@ -10,7 +10,7 @@ import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation
 
 class W3cSessionHandler extends SessionHandler {
   @override
-  WebDriverRequest buildCreateRequest({Map<String, dynamic> desired}) {
+  WebDriverRequest buildCreateRequest({Map<String, dynamic>? desired}) {
     desired ??= Capabilities.empty;
     return WebDriverRequest.postRequest('session', {
       'capabilities': {'alwaysMatch': desired}
@@ -31,7 +31,7 @@ class W3cSessionHandler extends SessionHandler {
 
   @override
   SessionInfo parseInfoResponse(WebDriverResponse response) =>
-      SessionInfo(response.body, WebDriverSpec.W3c, Capabilities.empty);
+      SessionInfo(response.body!, WebDriverSpec.W3c, Capabilities.empty);
 
   @override
   WebDriverRequest buildGetCapabilitiesRequest() {

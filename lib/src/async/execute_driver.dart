@@ -11,7 +11,7 @@ class ExecuteDriver {
   ExecuteDriver(this._client, this._handler);
 
   Future<Map<String, dynamic>> executeDriver(String script,
-          {String type, Duration timeout}) =>
+          {String? type, Duration? timeout}) =>
       _client.send(
           _handler.executeDriver
               .buildExecuteDriverRequest(script, type: type, timeout: timeout),

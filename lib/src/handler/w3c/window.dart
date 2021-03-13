@@ -23,7 +23,7 @@ class W3cWindowHandler extends WindowHandler {
       parseW3cResponse(response);
 
   @override
-  WebDriverRequest buildSetActiveRequest(String windowId) =>
+  WebDriverRequest buildSetActiveRequest(String? windowId) =>
       WebDriverRequest.postRequest('window', {'handle': windowId});
 
   @override

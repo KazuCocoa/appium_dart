@@ -19,14 +19,14 @@ class AppiumWebElement extends common.WebElement
   final String id;
 
   /// The context from which this element was found.
-  final AppiumSearchContext context;
+  final AppiumSearchContext? context;
 
   /// How the element was located from the context.
   final dynamic /* String | Finder */ locator;
 
   /// The index of this element in the set of element founds. If the method
   /// used to find this element always returns one element, then this is null.
-  final int index;
+  final int? index;
 
   final AsyncRequestClient _client;
 
@@ -84,11 +84,13 @@ class AppiumWebElement extends common.WebElement
       _handler.element.parseSizeResponse);
 
   /// The tag name for this element.
-  Future<String> get name => _client.send(_handler.element.buildNameRequest(id),
+  Future<String> get name => _client.send(
+      _handler.element.buildNameRequest(id),
       _handler.element.parseNameResponse);
 
   ///  Visible text within this element.
-  Future<String> get text => _client.send(_handler.element.buildTextRequest(id),
+  Future<String> get text => _client.send(
+      _handler.element.buildTextRequest(id),
       _handler.element.parseTextResponse);
 
   ///Find an element nested within this element.
@@ -98,7 +100,9 @@ class AppiumWebElement extends common.WebElement
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by, id),
       (response) => driver.getElement(
-          _handler.elementFinder.parseFindElementResponse(response), this, by));
+          _handler.elementFinder.parseFindElementResponse(response),
+          this,
+          by));
 
   /// Find multiple elements nested within this element.
   @override

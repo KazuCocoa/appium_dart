@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 
 import 'package:appium_driver/src/common/orientation.dart';
 import 'package:test/test.dart';
@@ -8,7 +9,7 @@ import 'package:appium_driver/async_io.dart';
 import 'helper.dart';
 
 void main() {
-  AppiumWebDriver driver;
+  late AppiumWebDriver driver;
 
   setUpAll(() async {
     driver = await createDriver(
@@ -51,7 +52,7 @@ void main() {
         await driver.findElement(AppiumBy.accessibilityId(textFieldCell));
     await element.click();
 
-    element = await driver.findElement(AppiumBy.name(textField));
+    element = await driver.findElement(AppiumBy.predicateString('value == \"$textField\"'));
     await element.setImmediateValue('hello');
 
     element =
@@ -83,7 +84,7 @@ void main() {
 
   test('push and pull', () async {
     var pulledFile = await driver.device
-        .pullFile('Library/AddressBook/AddressBook.sqlitedb');
+            .pullFile('Library/AddressBook/AddressBook.sqlitedb');
     var pulFolder = await driver.device.pullFolder('Library/AddressBook');
     expect(pulledFile.isNotEmpty, true);
     expect(pulFolder.isNotEmpty, true);
@@ -94,11 +95,15 @@ void main() {
   test('clipboard', () async {
     await driver.device
         .setClipboard(base64.encode(utf8.encode('happy testing')));
-    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
+    expect(
+        utf8.decode(base64
+            .decode(await driver.device.getClipboard())),
         'happy testing');
 
     await driver.device.setClipboard(base64.encode(utf8.encode('appium')));
-    expect(utf8.decode(base64.decode(await driver.device.getClipboard())),
+    expect(
+        utf8.decode(base64
+            .decode(await driver.device.getClipboard())),
         'appium');
   });
 
@@ -111,7 +116,7 @@ return [status];
     ''', type: 'webdriverio', timeout: const Duration(minutes: 1)), {
       'result': [
         {
-          'build': {'version': '1.20.0'}
+          'build': {'version': '1.20.2'}
         }
       ],
       'logs': {
@@ -128,7 +133,7 @@ return [status];
     '''), {
       'result': [
         {
-          'build': {'version': '1.20.0'}
+          'build': {'version': '1.20.2'}
         }
       ],
       'logs': {

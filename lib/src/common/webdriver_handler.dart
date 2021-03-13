@@ -82,7 +82,7 @@ abstract class AppiumWebDriverHandler {
 
 abstract class SessionHandler {
   /// Builds request for 'Create Session'.
-  WebDriverRequest buildCreateRequest({Map<String, dynamic> desired});
+  WebDriverRequest buildCreateRequest({Map<String, dynamic>? desired});
 
   /// Parses response for 'Create Session'.
   SessionInfo parseCreateResponse(WebDriverResponse response);
@@ -97,7 +97,8 @@ abstract class SessionHandler {
   WebDriverRequest buildGetCapabilitiesRequest();
 
   /// Parses response for 'Get Session Info'.
-  Map<String, dynamic> parseGetCapabilitiesResponse(WebDriverResponse response);
+  Map<String, dynamic> parseGetCapabilitiesResponse(
+      WebDriverResponse response);
 }
 
 abstract class SessionsHandler {
@@ -271,13 +272,13 @@ abstract class ElementHandler {
 
 abstract class ElementFinder {
   /// Builds request for finding elements.
-  WebDriverRequest buildFindElementsRequest(AppiumBy by, [String contextId]);
+  WebDriverRequest buildFindElementsRequest(AppiumBy by, [String? contextId]);
 
   /// Parses response got for finding elements to get [List] of element id.
   List<String> parseFindElementsResponse(WebDriverResponse response);
 
   /// Builds request for finding a single element.
-  WebDriverRequest buildFindElementRequest(AppiumBy by, [String contextId]);
+  WebDriverRequest buildFindElementRequest(AppiumBy by, [String? contextId]);
 
   /// Parses response got for finding element to get the element id.
   String parseFindElementResponse(WebDriverResponse response);
@@ -344,7 +345,7 @@ abstract class MouseHandler {
 
   /// Builds request for 'Mouse Move To'.
   WebDriverRequest buildMoveToRequest(
-      {String elementId, int xOffset, int yOffset, bool absolute = false});
+      {String? elementId, int? xOffset, int? yOffset, bool absolute = false});
 
   /// Parses response for 'Mouse Move To'.
   void parseMoveToResponse(WebDriverResponse response);
@@ -420,7 +421,7 @@ abstract class WindowHandler {
   String parseGetActiveWindowResponse(WebDriverResponse response);
 
   /// Builds request for 'Set Window Active'.
-  WebDriverRequest buildSetActiveRequest(String windowId);
+  WebDriverRequest buildSetActiveRequest(String? windowId);
 
   /// Parses response for 'Set Window Active'.
   void parseSetActiveResponse(WebDriverResponse response);
@@ -607,22 +608,22 @@ abstract class AppManagementHandler {
   WebDriverRequest buildResetAppRequest();
   void parseResetAppResponse(WebDriverResponse response);
 
-  WebDriverRequest buildBackgroundAppRequest({Duration seconds});
+  WebDriverRequest buildBackgroundAppRequest({Duration? seconds});
   void parseBackgroundAppResponse(WebDriverResponse response);
 
   WebDriverRequest buildGetStringRequest();
   Map<String, dynamic> parseGetStringResponse(WebDriverResponse response);
 
   WebDriverRequest buildInstallAppRequest(String path,
-      {bool replace,
-      Duration timeout,
-      bool allowTestPackage,
-      bool useSdcard,
-      bool grantPermissions});
+      {bool? replace,
+      Duration? timeout,
+      bool? allowTestPackage,
+      bool? useSdcard,
+      bool? grantPermissions});
   void parseInstallAppResponse(WebDriverResponse response);
 
   WebDriverRequest buildRemoveAppRequest(String appId,
-      {bool keepData, Duration timeout});
+      {bool? keepData, Duration? timeout});
   void parseRemoveAppResponse(WebDriverResponse response);
 
   WebDriverRequest buildIsAppInstalledRequest(String appId);
@@ -709,7 +710,7 @@ abstract class DeviceHandler {
   void parseUnlockDeviceResponse(WebDriverResponse response);
 
   /// Builds request for 'lock'
-  WebDriverRequest buildLockDeviceRequest({Duration seconds});
+  WebDriverRequest buildLockDeviceRequest({Duration? seconds});
 
   /// Parse response for 'lock'
   void parseLockDeviceResponse(WebDriverResponse response);
@@ -728,14 +729,14 @@ abstract class DeviceHandler {
 
   /// Builds request for 'press keycode'
   WebDriverRequest buildPressKeycodeRequest(int keycode,
-      {List<int> metastate, List<int> flags});
+      {List<int>? metastate, List<int>? flags});
 
   /// Parse response for 'press keycode'
   void parsePressKeycodeResponse(WebDriverResponse response);
 
   /// Builds request for 'long press keycode'
   WebDriverRequest buildLongPressKeycodeRequest(int keycode,
-      {List<int> metastate, List<int> flags});
+      {List<int>? metastate, List<int>? flags});
 
   /// Parse response for 'long press keycode'
   void parseLongPressKeycodeResponse(WebDriverResponse response);
@@ -767,7 +768,7 @@ abstract class DeviceHandler {
 
   /// Builds request for 'set clipboard'
   WebDriverRequest buildSetClipboardRequest(String base64encoded,
-      {String contentType = ContentType.plaintext, String label});
+      {String contentType = ContentType.plaintext, String? label});
 
   /// Parse response for 'set clipboard'
   void parseSetClipboardResponse(WebDriverResponse response);
@@ -781,15 +782,15 @@ abstract class DeviceHandler {
   /// Builds request for 'start activity'
   /// Android Only
   WebDriverRequest buildStartActivityRequest(
-      {String appPackage,
-      String appActivity,
-      String appWaitPackage,
-      String appWaitActivity,
-      String intentAction,
-      String intentCategory,
-      String intentFlags,
-      String optionalIntentArguments,
-      String dontStopAppOnReset});
+      {String? appPackage,
+      String? appActivity,
+      String? appWaitPackage,
+      String? appWaitActivity,
+      String? intentAction,
+      String? intentCategory,
+      String? intentFlags,
+      String? optionalIntentArguments,
+      String? dontStopAppOnReset});
 
   /// Parse response for 'start activity'
   /// Android Only
@@ -876,7 +877,7 @@ abstract class ChromeDevToolsHandler {
 abstract class ExecuteDriverHandler {
   /// Build request for 'execute driver'
   WebDriverRequest buildExecuteDriverRequest(String script,
-      {String type, Duration timeout});
+      {String? type, Duration? timeout});
 
   /// Parse response for 'execute driver'
   Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response);

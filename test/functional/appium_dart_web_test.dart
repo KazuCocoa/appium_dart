@@ -5,7 +5,7 @@ import 'package:appium_driver/async_io.dart';
 import 'helper.dart';
 
 void main() {
-  AppiumWebDriver driver;
+  late AppiumWebDriver driver;
 
   setUpAll(() async {
     driver = await createDriver(
@@ -21,8 +21,16 @@ void main() {
     test('connect to server and get sessions', () async {
       expect(await driver.title, 'Appium/welcome');
       var result = await driver.sessions.get();
-      expect(result.length, 1);
-      expect(result[0]['id'], driver.id);
+      // The value could be over 1 in parallel session
+      expect(result.isNotEmpty, true);
+      var ok = false;
+      for (var r in result) {
+        if (driver.id == r['id']) {
+          ok = true;
+          break;
+        }
+      }
+      expect(ok, true);
     });
 
     test('connect to existing session', () async {
@@ -71,11 +79,12 @@ void main() {
     final title = 'Appium/welcome';
     try {
       var e = await driver.findElement(AppiumBy.accessibilityId(title));
+      // ignore: unnecessary_null_comparison
       expect(e.id != null, true);
       throw 'expected Unsupported locator strategy: accessibility id error';
     } on UnknownException catch (e) {
       expect(
-          e.message.contains('Unsupported locator strategy: accessibility id'),
+          e.message!.contains('Unsupported locator strategy: accessibility id'),
           true);
     }
   });
@@ -83,6 +92,7 @@ void main() {
   test('find by element', () async {
     final h1 = '//h1';
     var e = await driver.findElement(AppiumBy.xpath(h1));
+    // ignore: unnecessary_null_comparison
     expect(e.id != null, true);
     expect(await e.text, "Let's browse!");
   });

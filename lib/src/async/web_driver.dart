@@ -36,7 +36,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   final Map<String, dynamic> capabilities;
   final String id;
   final Uri uri;
-  Stepper stepper;
+  Stepper? stepper;
 
   /// If true, WebDriver actions are recorded as [WebDriverCommandEvent]s.
   bool notifyListeners = true;
@@ -106,7 +106,9 @@ class AppiumWebDriver implements AppiumSearchContext {
   Future<AppiumWebElement> findElement(AppiumBy by) => _client.send(
       _handler.elementFinder.buildFindElementRequest(by),
       (response) => getElement(
-          _handler.elementFinder.parseFindElementResponse(response), this, by));
+          _handler.elementFinder.parseFindElementResponse(response),
+          this,
+          by));
 
   /// An artist's rendition of the current page's source.
   Future<String> get pageSource => _client.send(
@@ -150,10 +152,7 @@ class AppiumWebDriver implements AppiumSearchContext {
     final id = await _client.send(
         _handler.elementFinder.buildFindActiveElementRequest(),
         _handler.elementFinder.parseFindActiveElementResponse);
-    if (id != null) {
-      return getElement(id, this, 'activeElement');
-    }
-    return null;
+    return getElement(id, this, 'activeElement');
   }
 
   TargetLocator get switchTo => TargetLocator(this, _client, _handler);
@@ -195,7 +194,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   ChromeDevTools get cdp => ChromeDevTools(_client, _handler);
 
   Future<dynamic> executeDriver(String script,
-          {String type, Duration timeout}) =>
+          {String? type, Duration? timeout}) =>
       _client.send(
           _handler.executeDriver
               .buildExecuteDriverRequest(script, type: type, timeout: timeout),
