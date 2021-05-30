@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:async';
 
 import 'package:appium_driver/src/common/orientation.dart';
 import 'package:test/test.dart';
@@ -28,6 +27,7 @@ void main() {
     final alertViews = 'Alert Views';
 
     var element = await driver.findElement(AppiumBy.accessibilityId(buttons));
+    // ignore: unnecessary_null_comparison
     expect(element.id != null, true);
     await element.click();
 
