@@ -13,7 +13,7 @@ class W3cSessionHandler extends SessionHandler {
   WebDriverRequest buildCreateRequest({Map<String, dynamic>? desired}) {
     desired ??= Capabilities.empty;
     return WebDriverRequest.postRequest('session', {
-      'capabilities': {'alwaysMatch': desired}
+      'capabilities': {'alwaysMatch': desired, 'firstMatch': [{}]}
     });
   }
 
