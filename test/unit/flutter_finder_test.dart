@@ -5,6 +5,30 @@ import 'package:test/test.dart';
 
 void main() {
   group('flutter finders', () {
+    test('byAncestor', () {
+      expect(
+          AppiumFlutterFinder.byAncestor(
+              AppiumFlutterFinder.byAncestor(AppiumFlutterFinder.pageBack(),
+                  AppiumFlutterFinder.pageBack(), matchingRoot: false),
+              AppiumFlutterFinder.byAncestor(AppiumFlutterFinder.pageBack(),
+                  AppiumFlutterFinder.pageBack(),
+                  matchingRoot: false),
+              matchingRoot: false),
+          'eyJmaW5kZXJUeXBlIjoiQW5jZXN0b3IiLCJtYXRjaFJvb3QiOmZhbHNlLCJvZl9maW5kZXJUeXBlIjoiQW5jZXN0b3IiLCJvZl9tYXRjaFJvb3QiOmZhbHNlLCJvZl9vZl9maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJvZl9tYXRjaGluZ19maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJtYXRjaGluZ19maW5kZXJUeXBlIjoiQW5jZXN0b3IiLCJtYXRjaGluZ19tYXRjaFJvb3QiOmZhbHNlLCJtYXRjaGluZ19vZl9maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJtYXRjaGluZ19tYXRjaGluZ19maW5kZXJUeXBlIjoiUGFnZUJhY2sifQ==');
+    });
+
+    test('byDescendant', () {
+      expect(
+          AppiumFlutterFinder.byDescendant(
+              AppiumFlutterFinder.byDescendant(AppiumFlutterFinder.pageBack(),
+                  AppiumFlutterFinder.pageBack(), matchingRoot: false),
+              AppiumFlutterFinder.byDescendant(AppiumFlutterFinder.pageBack(),
+                  AppiumFlutterFinder.pageBack(),
+                  matchingRoot: false),
+              matchingRoot: false),
+          'eyJmaW5kZXJUeXBlIjoiRGVzY2VuZGFudCIsIm1hdGNoUm9vdCI6ZmFsc2UsIm9mX2ZpbmRlclR5cGUiOiJEZXNjZW5kYW50Iiwib2ZfbWF0Y2hSb290IjpmYWxzZSwib2Zfb2ZfZmluZGVyVHlwZSI6IlBhZ2VCYWNrIiwib2ZfbWF0Y2hpbmdfZmluZGVyVHlwZSI6IlBhZ2VCYWNrIiwibWF0Y2hpbmdfZmluZGVyVHlwZSI6IkRlc2NlbmRhbnQiLCJtYXRjaGluZ19tYXRjaFJvb3QiOmZhbHNlLCJtYXRjaGluZ19vZl9maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJtYXRjaGluZ19tYXRjaGluZ19maW5kZXJUeXBlIjoiUGFnZUJhY2sifQ==');
+    });
+
     test('bySemanticsLabel', () {
       expect(AppiumFlutterFinder.bySemanticsLabel('simple'),
           'eyJmaW5kZXJUeXBlIjoiQnlTZW1hbnRpY3NMYWJlbCIsImlzUmVnRXhwIjpmYWxzZSwibGFiZWwiOiJzaW1wbGUifQ==');
@@ -37,8 +61,8 @@ void main() {
   });
 
   test('pageBack', () {
-    expect(AppiumFlutterFinder.pageBack('42'),
-        'eyJmaW5kZXJUeXBlIjoiUGFnZUJhY2sifQ==');
+    expect(
+        AppiumFlutterFinder.pageBack(), 'eyJmaW5kZXJUeXBlIjoiUGFnZUJhY2sifQ==');
   });
 
   test('byText', () {
