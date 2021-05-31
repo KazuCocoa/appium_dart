@@ -16,14 +16,15 @@ class Sessions {
 
   /// Get sessions
   ///
-  /// @example
-  ///   driver.sessions.get()
-  ///   #=> [
-  ///     {"id":"3ec13c12-9199-4d03-ba8c-51925d184316",
-  ///      "capabilities":{"platformName":"iOS","browserName":"Safari",
-  ///        "platformVersion":"12.2","deviceName":"iPhone 8",
-  ///        "automationName":"xcuitest","wdaLocalPort":8101,
-  ///        "useJSONSource":true,"reduceMotion":true}}]
+  /// ```dart
+  /// driver.sessions.get()
+  /// //=> [
+  /// // {"id":"3ec13c12-9199-4d03-ba8c-51925d184316",
+  /// //   "capabilities":{"platformName":"iOS","browserName":"Safari",
+  /// //   "platformVersion":"12.2","deviceName":"iPhone 8",
+  /// //   "automationName":"xcuitest","wdaLocalPort":8101,
+  /// //   "useJSONSource":true,"reduceMotion":true}}]
+  /// ```
   Future<List<dynamic>> get() => _client!.send(
       _handler!.sessions.buildGetRequest(),
       _handler!.sessions.parseGetResponse);

@@ -16,11 +16,12 @@ class Status {
 
   /// Get sessions
   ///
-  /// @example
-  ///   driver.sessions.get()
-  ///   #=> {"build":{"version":"1.14.0-beta.2",
-  ///   "git-sha":"8a690f5abde5cf1c74f1cd185f15f51b3f7c3920",
-  ///   "built":"2019-06-25 16:21:45 -0700"}}
+  /// ```dart
+  /// driver.sessions.get()
+  /// //=> {"build":{"version":"1.14.0-beta.2",
+  /// // "git-sha":"8a690f5abde5cf1c74f1cd185f15f51b3f7c3920",
+  /// // "built":"2019-06-25 16:21:45 -0700"}}
+  /// ```
   Future<Map<String, dynamic>> get() => _client!.send(
       _handler!.status.buildGetRequest(), _handler!.status.parseGetResponse);
 
