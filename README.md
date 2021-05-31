@@ -132,6 +132,7 @@ Below Appium specific commands are implementing.
 - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/log_event']`
 - [x] `[HttpMethod.httpGet, 'session/:session_id/orientation']`
 - [x] `[HttpMethod.httpPost, 'session/:session_id/orientation']`
+- [x] Add finder for https://github.com/truongsinh/appium-flutter-driver
 
 Low priority
 

@@ -12,8 +12,9 @@ class Session {
 
   /// Get sessions
   ///
-  /// @example
-  ///   driver.session.getCapabilities()
+  /// ```dart
+  /// driver.session.getCapabilities()
+  /// ```
   Future<Map<String, dynamic>> getCapabilities() => _client.send(
       _handler.session.buildGetCapabilitiesRequest(),
       _handler.session.parseGetCapabilitiesResponse);
