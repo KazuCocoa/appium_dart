@@ -70,25 +70,3 @@ void main() {
         'eyJmaW5kZXJUeXBlIjoiQnlUZXh0IiwidGV4dCI6IlRoaXMgaXMgMm5kIHJvdXRlIn0=');
   });
 }
-
-//   // static byAncestor(String serializedFinder, )
-//   //
-//   //
-//   // def by_ancestor(serialized_finder:, matching:, match_root: false)
-//   // by_ancestor_or_descendant(
-//   // type: 'Ancestor',
-//   // serialized_finder: serialized_finder,
-//   // matching: matching,
-//   // match_root: match_root
-//   // )
-//   // end
-//   //
-//   // def by_descendant(serialized_finder:, matching:, match_root: false)
-//   // by_ancestor_or_descendant(
-//   // type: 'Descendant',
-//   // serialized_finder: serialized_finder,
-//   // matching: matching,
-//   // match_root: match_root
-//   // )
-//   // end
-// }
