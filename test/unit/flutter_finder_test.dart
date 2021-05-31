@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:appium_driver/src/common/flutter_finder.dart';
 import 'package:test/test.dart';
 
