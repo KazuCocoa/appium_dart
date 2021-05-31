@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:appium_driver/async_io.dart';
 import 'package:test/test.dart';
 
@@ -17,7 +14,7 @@ void main() {
           'browserName': 'Safari',
           'automationName': 'xcuitest',
           'reduceMotion': true,
-      });
+        });
   });
 
   tearDownAll(() async {

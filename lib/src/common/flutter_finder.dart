@@ -1,6 +1,15 @@
 import 'dart:convert';
 
 class AppiumFlutterFinder {
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [label].
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.bySemanticsLabel('simple')
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
   static String bySemanticsLabel(String label) {
     return base64.encode(utf8.encode(json.encode({
       'finderType': 'BySemanticsLabel',
@@ -9,6 +18,16 @@ class AppiumFlutterFinder {
     }).toString()));
   }
 
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [label]. It should be Regex as string.
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  /// https://api.flutter.dev/flutter/dart-core/RegExp-class.html
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.bySemanticsLabelWithRegExp('(\w+)')
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
   static String bySemanticsLabelWithRegExp(String label) {
     print(label.toString());
 
@@ -19,16 +38,43 @@ class AppiumFlutterFinder {
     }).toString()));
   }
 
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [text].
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.byTooltip('sample')
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
   static String byTooltip(String text) {
     return base64.encode(utf8.encode(json
         .encode({'finderType': 'ByTooltipMessage', 'text': text}).toString()));
   }
 
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [type].
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.byTooltip('myText')
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
   static String byType(String type) {
     return base64.encode(utf8.encode(
         json.encode({'finderType': 'ByType', 'type': type}).toString()));
   }
 
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [key] as int.
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.key(42)
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
   static String byKeyValueInt(int key) {
     return base64.encode(utf8.encode(json.encode({
       'finderType': 'ByValueKey',
@@ -37,6 +83,15 @@ class AppiumFlutterFinder {
     }).toString()));
   }
 
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [key] as string.
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.key('42')
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
   static String byKeyValueString(String key) {
     return base64.encode(utf8.encode(json.encode({
       'finderType': 'ByValueKey',
@@ -45,6 +100,14 @@ class AppiumFlutterFinder {
     }).toString()));
   }
 
+  /// Returns base64 encoded string as a finder for appium-flutter-driver.
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.pageBack()
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
   static String pageBack() {
     return base64.encode(
         utf8.encode(json.encode({'finderType': 'PageBack'}).toString()));
@@ -55,16 +118,62 @@ class AppiumFlutterFinder {
         json.encode({'finderType': 'ByText', 'text': text}).toString()));
   }
 
-  static String byAncestor(String serializedFinder, String matching,
-      {bool matchingRoot: false}) {
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [of], [matching] and [matchingRoot].
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// Please read https://api.flutter.dev/flutter/flutter_driver/CommonFinders/ancestor.html
+  /// for more details about each arguments.
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.byAncestor(
+  ///                  of: AppiumFlutterFinder.byAncestor(
+  ///                      of: AppiumFlutterFinder.pageBack(),
+  ///                      matching: AppiumFlutterFinder.pageBack(),
+  ///                      matchingRoot: false),
+  ///                  matching: AppiumFlutterFinder.byAncestor(
+  ///                      of: AppiumFlutterFinder.pageBack(),
+  ///                      matching: AppiumFlutterFinder.pageBack(),
+  ///                      matchingRoot: false),
+  ///                  matchingRoot: false)
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
+  static String byAncestor(
+      {required String of,
+      required String matching,
+      bool matchingRoot = false}) {
     return AppiumFlutterFinder._byAncestorOrDescendant(
-        'Ancestor', serializedFinder, matching, matchingRoot);
+        'Ancestor', of, matching, matchingRoot);
   }
 
-  static String byDescendant(String serializedFinder, String matching,
-      {bool matchingRoot: false}) {
+  /// Returns base64 encoded string as a finder for appium-flutter-driver
+  /// with the given [of], [matching] and [matchingRoot].
+  /// https://github.com/truongsinh/appium-flutter-driver#finders
+  ///
+  /// Please read https://api.flutter.dev/flutter/flutter_driver/CommonFinders/descendant.html
+  /// for more details about each arguments.
+  ///
+  /// ```dart
+  /// var finder = AppiumFlutterFinder.byDescendant(
+  ///                  of: AppiumFlutterFinder.byDescendant(
+  ///                      of: AppiumFlutterFinder.pageBack(),
+  ///                      matching: AppiumFlutterFinder.pageBack(),
+  ///                      matchingRoot: false),
+  ///                  matching: AppiumFlutterFinder.byDescendant(
+  ///                      of: AppiumFlutterFinder.pageBack(),
+  ///                      matching: AppiumFlutterFinder.pageBack(),
+  ///                      matchingRoot: false),
+  ///                  matchingRoot: false)
+  /// var element = driver.getElement(finder);
+  /// await element.click();  // Do actions against the element
+  /// ```
+  static String byDescendant(
+      {required String of,
+      required String matching,
+      bool matchingRoot = false}) {
     return AppiumFlutterFinder._byAncestorOrDescendant(
-        'Descendant', serializedFinder, matching, matchingRoot);
+        'Descendant', of, matching, matchingRoot);
   }
 
   static String _byAncestorOrDescendant(String type, String serializedFinder,

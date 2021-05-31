@@ -8,10 +8,13 @@ void main() {
     test('byAncestor', () {
       expect(
           AppiumFlutterFinder.byAncestor(
-              AppiumFlutterFinder.byAncestor(AppiumFlutterFinder.pageBack(),
-                  AppiumFlutterFinder.pageBack(), matchingRoot: false),
-              AppiumFlutterFinder.byAncestor(AppiumFlutterFinder.pageBack(),
-                  AppiumFlutterFinder.pageBack(),
+              of: AppiumFlutterFinder.byAncestor(
+                  of: AppiumFlutterFinder.pageBack(),
+                  matching: AppiumFlutterFinder.pageBack(),
+                  matchingRoot: false),
+              matching: AppiumFlutterFinder.byAncestor(
+                  of: AppiumFlutterFinder.pageBack(),
+                  matching: AppiumFlutterFinder.pageBack(),
                   matchingRoot: false),
               matchingRoot: false),
           'eyJmaW5kZXJUeXBlIjoiQW5jZXN0b3IiLCJtYXRjaFJvb3QiOmZhbHNlLCJvZl9maW5kZXJUeXBlIjoiQW5jZXN0b3IiLCJvZl9tYXRjaFJvb3QiOmZhbHNlLCJvZl9vZl9maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJvZl9tYXRjaGluZ19maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJtYXRjaGluZ19maW5kZXJUeXBlIjoiQW5jZXN0b3IiLCJtYXRjaGluZ19tYXRjaFJvb3QiOmZhbHNlLCJtYXRjaGluZ19vZl9maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJtYXRjaGluZ19tYXRjaGluZ19maW5kZXJUeXBlIjoiUGFnZUJhY2sifQ==');
@@ -20,10 +23,13 @@ void main() {
     test('byDescendant', () {
       expect(
           AppiumFlutterFinder.byDescendant(
-              AppiumFlutterFinder.byDescendant(AppiumFlutterFinder.pageBack(),
-                  AppiumFlutterFinder.pageBack(), matchingRoot: false),
-              AppiumFlutterFinder.byDescendant(AppiumFlutterFinder.pageBack(),
-                  AppiumFlutterFinder.pageBack(),
+              of: AppiumFlutterFinder.byDescendant(
+                  of: AppiumFlutterFinder.pageBack(),
+                  matching: AppiumFlutterFinder.pageBack(),
+                  matchingRoot: false),
+              matching: AppiumFlutterFinder.byDescendant(
+                  of: AppiumFlutterFinder.pageBack(),
+                  matching: AppiumFlutterFinder.pageBack(),
                   matchingRoot: false),
               matchingRoot: false),
           'eyJmaW5kZXJUeXBlIjoiRGVzY2VuZGFudCIsIm1hdGNoUm9vdCI6ZmFsc2UsIm9mX2ZpbmRlclR5cGUiOiJEZXNjZW5kYW50Iiwib2ZfbWF0Y2hSb290IjpmYWxzZSwib2Zfb2ZfZmluZGVyVHlwZSI6IlBhZ2VCYWNrIiwib2ZfbWF0Y2hpbmdfZmluZGVyVHlwZSI6IlBhZ2VCYWNrIiwibWF0Y2hpbmdfZmluZGVyVHlwZSI6IkRlc2NlbmRhbnQiLCJtYXRjaGluZ19tYXRjaFJvb3QiOmZhbHNlLCJtYXRjaGluZ19vZl9maW5kZXJUeXBlIjoiUGFnZUJhY2siLCJtYXRjaGluZ19tYXRjaGluZ19maW5kZXJUeXBlIjoiUGFnZUJhY2sifQ==');

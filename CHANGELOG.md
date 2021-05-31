@@ -1,4 +1,5 @@
 ## [Unreleased]
+- Add `AppiumFlutterFinder` for https://github.com/truongsinh/appium-flutter-driver
 
 ## [0.3.1](0.3.0) - 2021-03-12
 
