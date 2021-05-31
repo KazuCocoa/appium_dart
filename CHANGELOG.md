@@ -1,4 +1,6 @@
 ## [Unreleased]
+
+## [0.4.0] - 2021-05-30
 - Add `AppiumFlutterFinder` for https://github.com/truongsinh/appium-flutter-driver
     - Please read test/unit/flutter_finder_test.dart or their docstring about their usage.
 
