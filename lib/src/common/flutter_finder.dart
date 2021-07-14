@@ -182,16 +182,20 @@ class AppiumFlutterFinder {
     var finder = json.decode(utf8.decode(base64.decode(serializedFinder)));
 
     if (finder != null) {
+      var ofParam = {};
       finder.forEach((key, value) {
-        param['of_$key'] = value;
+        ofParam[key] = value;
       });
+      param['of'] = json.encode(ofParam);
     }
 
     var matchingValue = json.decode(utf8.decode(base64.decode(matching)));
     if (matchingValue != null) {
+      var matchingParam = {};
       matchingValue.forEach((key, value) {
-        param['matching_$key'] = value;
+        matchingParam[key] = value;
       });
+      param['matching'] = json.encode(matchingParam);
     }
 
     return base64.encode(utf8.encode(json.encode(param).toString()));
