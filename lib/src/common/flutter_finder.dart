@@ -135,16 +135,18 @@ class AppiumFlutterFinder {
   ///                      of: AppiumFlutterFinder.pageBack(),
   ///                      matching: AppiumFlutterFinder.pageBack(),
   ///                      matchingRoot: false),
-  ///                  matchingRoot: false)
+  ///                  matchingRoot: false,
+  ///                  firstMatchOnly: true)
   /// var element = driver.getElement(finder);
   /// await element.click();  // Do actions against the element
   /// ```
   static String byAncestor(
       {required String of,
       required String matching,
-      bool matchingRoot = false}) {
+      bool matchingRoot = false,
+      bool firstMatchOnly = false}) {
     return AppiumFlutterFinder._byAncestorOrDescendant(
-        'Ancestor', of, matching, matchingRoot);
+        'Ancestor', of, matching, matchingRoot, firstMatchOnly);
   }
 
   /// Returns base64 encoded string as a finder for appium-flutter-driver
@@ -164,21 +166,25 @@ class AppiumFlutterFinder {
   ///                      of: AppiumFlutterFinder.pageBack(),
   ///                      matching: AppiumFlutterFinder.pageBack(),
   ///                      matchingRoot: false),
-  ///                  matchingRoot: false)
+  ///                  matchingRoot: false
+  ///                  firstMatchOnly: false)
   /// var element = driver.getElement(finder);
   /// await element.click();  // Do actions against the element
   /// ```
   static String byDescendant(
       {required String of,
       required String matching,
-      bool matchingRoot = false}) {
+      bool matchingRoot = false,
+      bool firstMatchOnly = false}) {
     return AppiumFlutterFinder._byAncestorOrDescendant(
-        'Descendant', of, matching, matchingRoot);
+        'Descendant', of, matching, matchingRoot, firstMatchOnly);
   }
 
   static String _byAncestorOrDescendant(String type, String serializedFinder,
-      String matching, bool matchingRoot) {
-    var param = {'finderType': type, 'matchRoot': matchingRoot};
+      String matching, bool matchingRoot, bool firstMatchOnly) {
+    var param = {
+      'finderType': type, 'matchRoot': matchingRoot, 'firstMatchOnly': firstMatchOnly
+    };
     var finder = json.decode(utf8.decode(base64.decode(serializedFinder)));
 
     if (finder != null) {
