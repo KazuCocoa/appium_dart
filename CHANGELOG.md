@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [0.5.0] - 2021-09-13
+- Add `firstMatchOnly` parameter in `byAncestor` and `byDescendant`
+
 ## [0.4.1] - 2021-07-14
 - Fix `byAncestor` and `byDescendant`
 
