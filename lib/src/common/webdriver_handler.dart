@@ -598,12 +598,19 @@ abstract class LogsHandler {
 }
 
 abstract class AppManagementHandler {
+  /// Please use 'activateApp' to launch the application
+  @deprecated
   WebDriverRequest buildLaunchAppRequest();
   void parseLaunchAppResponse(WebDriverResponse response);
 
+  /// Please use 'terminateApp' to terminate the application
+  @deprecated
   WebDriverRequest buildCloseAppRequest();
   void parseCloseAppResponse(WebDriverResponse response);
 
+  /// Please use 'terminateApp' and 'activateApp',
+  /// or close the session and create a new session again instead.
+  @deprecated
   WebDriverRequest buildResetAppRequest();
   void parseResetAppResponse(WebDriverResponse response);
 
