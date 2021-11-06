@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [0.5.1] - 2021-11-06
+- Deprecate `launchApp`, `closeApp` and `reset`. Please read [appium/issues#15807](https://github.com/appium/appium/issues/15807) for more details.
+
 ## [0.5.0] - 2021-09-13
 - Add `firstMatchOnly` parameter in `byAncestor` and `byDescendant`
 
