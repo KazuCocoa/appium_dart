@@ -183,7 +183,9 @@ class AppiumFlutterFinder {
   static String _byAncestorOrDescendant(String type, String serializedFinder,
       String matching, bool matchingRoot, bool firstMatchOnly) {
     var param = {
-      'finderType': type, 'matchRoot': matchingRoot, 'firstMatchOnly': firstMatchOnly
+      'finderType': type,
+      'matchRoot': matchingRoot,
+      'firstMatchOnly': firstMatchOnly
     };
     var finder = json.decode(utf8.decode(base64.decode(serializedFinder)));
 
