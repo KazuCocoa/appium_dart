@@ -2,6 +2,7 @@
 
 ## [0.5.2] - 2021-11-14
 - Fix format with Dart 2.14.4
+- Excludeds `test` directory from the published package
 
 ## [0.5.1] - 2021-11-06
 - Deprecate `launchApp`, `closeApp` and `reset`. Please read [appium/issues#15807](https://github.com/appium/appium/issues/15807) for more details.

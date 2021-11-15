@@ -1,6 +1,6 @@
 # appium_driver
 
-![Dart CI](https://github.com/KazuCocoa/appium_dart/workflows/Dart%20CI/badge.svg?branch=master)
+![Dart CI](https://github.com/KazuCocoa/appium_dart/workflows/Dart%20CI/badge.svg?branch=main)
 
 An appium binding in Dart
 
