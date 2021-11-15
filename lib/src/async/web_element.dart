@@ -161,12 +161,19 @@ class AppiumWebElement extends common.WebElement
       } else {
         out.write('.findElements(');
       }
-      out..write(locator)..write(')');
+      out
+        ..write(locator)
+        ..write(')');
     } else {
-      out..write('.')..write(locator);
+      out
+        ..write('.')
+        ..write(locator);
     }
     if (index != null) {
-      out..write('[')..write(index)..write(']');
+      out
+        ..write('[')
+        ..write(index)
+        ..write(']');
     }
     return out.toString();
   }
