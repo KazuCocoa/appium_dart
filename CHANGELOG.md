@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [0.5.2] - 2021-11-14
+- Fix format with Dart 2.14.4
+
 ## [0.5.1] - 2021-11-06
 - Deprecate `launchApp`, `closeApp` and `reset`. Please read [appium/issues#15807](https://github.com/appium/appium/issues/15807) for more details.
 
@@ -39,7 +42,7 @@ This version is same as 0.2.0 and 0.2.1. (To update documentation)
     ```
 - Fix to send `text` as `setImmediateValue` and `replaceText` for backward compatibility
     - `sendKeys` already has it
-  
+
 
 ## [0.1.3] - 2020-02-12
 
@@ -52,7 +55,7 @@ This version is same as 0.2.0 and 0.2.1. (To update documentation)
 
 ## [0.1.1] - 2019-08-7
 
-- Fix parsing element/s by find element/s which have only MJSONWP key 
+- Fix parsing element/s by find element/s which have only MJSONWP key
 
 ## [0.1.0] - 2019-07-14
 
@@ -71,7 +74,7 @@ Basic actions have been implemented.
 - Add open notification: `driver.device.openNotification`
 - Add start activity: `driver.device.startActivity`
 - Add get current activity/package: `driver.device.getCurrentPackage`, `driver.device.getCurrentActivity`
-    
+
 ## [0.0.6] - 2019-06-30
 - Add device lock related commands: `driver.device.*`
 - Add device system time command: `driver.device.getSystemTime()`
