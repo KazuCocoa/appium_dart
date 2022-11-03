@@ -23,8 +23,12 @@ class W3cSessionHandler extends SessionHandler {
   @override
   SessionInfo parseCreateResponse(WebDriverResponse response) {
     final session = parseW3cResponse(response);
-    return SessionInfo(
-        session['sessionId'], WebDriverSpec.W3c, session['capabilities']);
+    try {
+      return SessionInfo(
+          session['sessionId'], WebDriverSpec.W3c, session['capabilities']);
+    } catch (e){
+      throw Exception(session);
+    }
   }
 
   /// Requesting existing session info is not supported in W3c.
