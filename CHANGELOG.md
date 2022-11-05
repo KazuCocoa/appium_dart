@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [Unreleased]
+- Improved error message handling when the server responded as MJSONWP protocol instead of valid W3C error response
+
 ## [0.5.2] - 2021-11-14
 - Fix format with Dart 2.14.4
 - Excludeds `test` directory from the published package
