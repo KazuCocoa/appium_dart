@@ -1,6 +1,6 @@
 ## [Unreleased]
 
-## [Unreleased]
+## [0.5.3] - 2022-11-04
 - Improved error message handling when the server responded as MJSONWP protocol instead of valid W3C error response
 
 ## [0.5.2] - 2021-11-14
