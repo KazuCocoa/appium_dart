@@ -1,3 +1,4 @@
+import 'package:appium_driver/async_core.dart';
 import 'package:appium_driver/src/common/request.dart';
 import 'package:appium_driver/src/common/w3c/command.dart';
 import 'package:appium_driver/src/common/webdriver_handler.dart';
@@ -22,12 +23,18 @@ class W3cSessionHandler extends SessionHandler {
 
   @override
   SessionInfo parseCreateResponse(WebDriverResponse response) {
-    final session = parseW3cResponse(response);
+    // 'value' key in the WebDriver response as String
+    final responseValue = parseW3cResponse(response);
     try {
       return SessionInfo(
-          session['sessionId'], WebDriverSpec.W3c, session['capabilities']);
-    } catch (e){
-      throw Exception(session);
+          responseValue['sessionId'],
+          WebDriverSpec.W3c,
+          responseValue['capabilities']
+      );
+    } catch (_){
+      // This case occurs when the server replied MJSONWP,
+      // 200 ok plus error message in the body.
+      throw SessionNotCreatedException(500, responseValue);
     }
   }
 
