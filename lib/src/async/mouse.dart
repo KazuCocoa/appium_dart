@@ -60,6 +60,25 @@ class Mouse {
               absolute: absolute),
           _handler.mouse.parseMoveToResponse);
 
+  /// Drag the mouse.
+  /// From [xStart] and [yStart] coordinates
+  /// To [xEnd] and [yEnd] coordinates
+  /// e.g. await driver.mouse.dragFromTo(xStart: 0, yStart: 0, xEnd: 0, yEnd: 800);
+  Future<void> dragFromTo(
+      {int? xStart,
+        int? yStart,
+        int? xEnd,
+        int? yEnd,
+        bool absolute = false}) =>
+      _client.send(
+          _handler.mouse.buildDragFromToRequest(
+              xStart: xStart,
+              yStart: yStart,
+              xEnd: xEnd,
+              yEnd: yEnd,
+              absolute: absolute),
+          _handler.mouse.parseDragFromToResponse);
+
   @override
   String toString() => '$_handler.mouse($_client)';
 
