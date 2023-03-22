@@ -88,6 +88,41 @@ class W3cMouseHandler extends MouseHandler {
   }
 
   @override
+  WebDriverRequest buildDragFromToRequest({int? xStart,
+    int? yStart,
+    int? xEnd,
+    int? yEnd,
+    bool absolute = false}) =>
+      WebDriverRequest.postRequest('actions', {
+        'actions': [
+          {
+            'type': 'pointer',
+            'id': 'mouses',
+            'actions': [
+              {'type': 'pointerMove',
+                'duration': 0,
+                'x': xStart,
+                'y': yStart
+              },
+              {'type': 'pointerDown', 'button': MouseButton.primary.value},
+              {'type': 'pointerMove',
+                'duration': 750,
+                'origin': 'viewport',
+                'x': xEnd,
+                'y': yEnd
+              },
+              {'type': 'pointerUp', 'button': MouseButton.primary.value}
+            ]
+          }
+        ]
+      });
+
+  @override
+  void parseDragFromToResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
   WebDriverRequest buildMoveToRequest(
           {String? elementId,
           int? xOffset,

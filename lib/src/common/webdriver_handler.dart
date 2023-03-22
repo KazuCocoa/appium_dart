@@ -348,6 +348,13 @@ abstract class MouseHandler {
 
   /// Parses response for 'Mouse Move To'.
   void parseMoveToResponse(WebDriverResponse response);
+
+  /// Builds request for 'Mouse Move From To'.
+  WebDriverRequest buildDragFromToRequest(
+      {int? xStart, int? yStart, int? xEnd, int? yEnd, bool absolute = false});
+
+  /// Parses response for 'Mouse Move To'.
+  void parseDragFromToResponse(WebDriverResponse response);
 }
 
 abstract class AlertHandler {
