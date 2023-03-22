@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [0.6.0] - 2023-03-22
+- ADd drag guestur in mouse [#49](https://github.com/KazuCocoa/appium_dart/pull/49)
+
 ## [0.5.3] - 2022-11-04
 - Improved error message handling when the server responded as MJSONWP protocol instead of valid W3C error response
 
