@@ -11,5 +11,5 @@ dependencies:
   webdriver: '^3.0.0'
 
 dev_dependencies:
-  test: '^1.17'
-  pana: '^0.17'
+  test: '^1.23.0'
+  pana: '^0.21.0'
