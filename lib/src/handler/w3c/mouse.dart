@@ -100,16 +100,16 @@ class W3cMouseHandler extends MouseHandler {
             'id': 'mouses',
             'actions': [
               {'type': 'pointerMove',
-                "duration": 0,
-                "x": xStart,
-                "y": yStart
+                'duration': 0,
+                'x': xStart,
+                'y': yStart
               },
               {'type': 'pointerDown', 'button': MouseButton.primary.value},
               {'type': 'pointerMove',
-                "duration": 750,
-                "origin": "viewport",
-                "x": xEnd,
-                "y": yEnd
+                'duration': 750,
+                'origin': 'viewport',
+                'x': xEnd,
+                'y': yEnd
               },
               {'type': 'pointerUp', 'button': MouseButton.primary.value}
             ]
