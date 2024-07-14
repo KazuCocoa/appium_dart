@@ -23,6 +23,6 @@ jobs:
     - name: Install dependencies
       run: dart pub get
     - name: Dartanalyzer
-      run: dart analyze --options analysis_options.yaml .
+      run: dart analyze
     - name: Run tests
       run: dart pub run test test/unit
