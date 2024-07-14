@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [0.6.2] - 2024-07-14
+- Fix lint
+
 ## [0.6.1] - 2023-08-19
 - Expose finder
 
