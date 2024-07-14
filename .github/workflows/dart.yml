@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        sdk: [2, 3.1, 3.2, 3.3, 3.4, beta]
+        sdk: [2.19, 3.1, 3.2, 3.3, 3.4, beta]
 
     steps:
     - uses: actions/checkout@v2
@@ -21,8 +21,8 @@ jobs:
       with:
         sdk: ${{ matrix.sdk }}
     - name: Install dependencies
-      run: pub get
+      run: dart pub get
     - name: Dartanalyzer
-      run: dartanalyzer --options analysis_options.yaml .
+      run: dart analyze --options analysis_options.yaml .
     - name: Run tests
-      run: pub run test test/unit
+      run: dart pub run test test/unit
