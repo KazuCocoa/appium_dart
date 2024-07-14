@@ -143,6 +143,7 @@ class AppiumWebElement extends common.WebElement
       _handler.element.parseCssPropertyResponse));
 
   Future<bool> equals(AppiumWebElement other) async =>
+      // ignore: unnecessary_type_check
       other is AppiumWebElement && other.driver == driver && other.id == id;
 
   @override

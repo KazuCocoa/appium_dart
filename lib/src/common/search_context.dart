@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:appium_driver/async_core.dart';
-import 'package:appium_driver/src/common/by.dart';
 
 // For MJSONWP
 const String jsonWireElementStr = 'ELEMENT';
