@@ -1,5 +1,6 @@
 # appium_driver
 
+[![Pub Version](https://img.shields.io/pub/v/badges)]([https://pub.dev/packages/badges](https://pub.dev/packages/appium_driver))
 ![Dart CI](https://github.com/KazuCocoa/appium_dart/workflows/Dart%20CI/badge.svg?branch=main)
 
 An appium binding in Dart
