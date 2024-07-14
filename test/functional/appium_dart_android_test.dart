@@ -52,6 +52,7 @@ void main() {
     expect(await driver.device.isLocked(), false);
 
     var time = await driver.device.getSystemTime();
+    // ignore: unnecessary_type_check
     expect(DateTime.parse(time) is DateTime, true); // Can parse without error
   });
 

@@ -5,7 +5,6 @@ import 'package:appium_driver/src/common/webdriver_handler.dart';
 
 import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/session.dart'; // ignore: implementation_imports
-import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/capabilities.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/handler/w3c/utils.dart'; // ignore: implementation_imports
 
