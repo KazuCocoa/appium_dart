@@ -136,6 +136,8 @@ Below Appium specific commands are implementing.
 
 Low priority
 
+Below commands may not be supported since platform specific commands are supported as its own commands e.g. https://github.com/appium/appium-uiautomator2-driver?tab=readme-ov-file#platform-specific-extensions
+
 - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/touch/perform']`~~ # W3C actions should be an alternative
 - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/touch/multi/perform']`~~ # W3C actions should be an alternative
 - ~~[ ] `[HttpMethod.httpPost, 'session/:session_id/appium/device/keyevent']`~~ # Only for Selendroid
