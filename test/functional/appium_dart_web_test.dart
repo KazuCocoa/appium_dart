@@ -69,9 +69,6 @@ void main() {
       await driver.app.terminate('com.apple.mobilesafari');
       expect(await driver.appState.get('com.apple.mobilesafari'),
           AppState.NotRunning);
-      await driver.app.launch();
-      expect(await driver.appState.get('com.apple.mobilesafari'),
-          AppState.RunningInForeground);
     });
   });
 

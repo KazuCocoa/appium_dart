@@ -79,11 +79,11 @@ Below Appium specific commands are implementing.
 - [x] `[HttpMethod.httpGet, 'session/:session_id/contexts']`
 - [x] `[HttpMethod.httpPost, 'session/:session_id/context']`
 - [x] `[HttpMethod.httpGet, 'session/:session_id/context']`
-- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`
-- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/replace_value']`
-- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/launch']`
-- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/close']`
-- [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`
+- ~~[x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/value']`~~ Deprecated.
+- ~~[x] `[HttpMethod.httpPost, 'session/:session_id/appium/element/:id/replace_value']`~~ Deprecated.
+- ~~[x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/launch']`~~ Deprecated
+- ~~[x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/close']`~~ Deprecated
+- ~~[x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/reset']`~~ Deprecated
 - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/background']`
 - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/app/strings']`
 - [x] `[HttpMethod.httpPost, 'session/:session_id/appium/device/is_locked']`

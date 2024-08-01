@@ -1,7 +1,7 @@
 import 'dart:io';
 
 class TestHelper {
-  static var localServer = Uri.parse('http://127.0.0.1:4723/wd/hub/');
+  static var localServer = Uri.parse('http://127.0.0.1:4723/');
 
   static var androidDesiredCapabilitiesApp = {
     'platformName': 'Android',
@@ -20,9 +20,9 @@ class TestHelper {
 
   static var iOSDesiredCapabilitiesApp = {
     'platformName': 'iOS',
-    'platformVersion': '14.4',
+    'platformVersion': '17.4',
     'app': File('test/functional/app/UICatalog.app.zip').absolute.path,
-    'deviceName': 'iPhone 12', // Runs tests in parallel per file by default
+    'deviceName': 'iPhone 15 Plus', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
     'wdaLocalPort': 8100,
     'useJSONSource': true,
@@ -31,9 +31,9 @@ class TestHelper {
 
   static var iOSDesiredCapabilitiesWeb = {
     'platformName': 'iOS',
-    'platformVersion': '14.4',
+    'platformVersion': '17.4',
     'browserName': 'Safari',
-    'deviceName': 'iPhone 12', // Runs tests in parallel per file by default
+    'deviceName': 'iPhone 15 Plus', // Runs tests in parallel per file by default
     'automationName': 'xcuitest',
     'wdaLocalPort': 8101,
     'useJSONSource': true,

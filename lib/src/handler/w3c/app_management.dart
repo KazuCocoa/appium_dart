@@ -36,16 +36,6 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  WebDriverRequest buildCloseAppRequest() {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.CLOSE_APP);
-  }
-
-  @override
-  void parseCloseAppResponse(WebDriverResponse response) {
-    parseW3cResponse(response);
-  }
-
-  @override
   WebDriverRequest buildGetStringRequest() {
     return AppiumWebDriverRequest.sendRequest(W3CCommands.APP_STRINGS);
   }
@@ -94,16 +84,6 @@ class W3cAppManagementHandler implements AppManagementHandler {
   }
 
   @override
-  WebDriverRequest buildLaunchAppRequest() {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.LAUNCH_APP);
-  }
-
-  @override
-  void parseLaunchAppResponse(WebDriverResponse response) {
-    parseW3cResponse(response);
-  }
-
-  @override
   WebDriverRequest buildRemoveAppRequest(String appId, {keepData, timeout}) {
     var arg = <String, dynamic>{'appId': appId, 'options': {}};
     if (keepData != null) {
@@ -117,16 +97,6 @@ class W3cAppManagementHandler implements AppManagementHandler {
 
   @override
   void parseRemoveAppResponse(WebDriverResponse response) {
-    parseW3cResponse(response);
-  }
-
-  @override
-  WebDriverRequest buildResetAppRequest() {
-    return AppiumWebDriverRequest.sendRequest(W3CCommands.RESET);
-  }
-
-  @override
-  void parseResetAppResponse(WebDriverResponse response) {
     parseW3cResponse(response);
   }
 

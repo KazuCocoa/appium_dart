@@ -54,7 +54,7 @@ void main() {
 
     element = await driver
         .findElement(AppiumBy.predicateString('value == \"$textField\"'));
-    await element.setImmediateValue('hello');
+    await element.sendKeys('hello');
 
     element =
         await driver.findElement(AppiumBy.className(xcuielementTextField));

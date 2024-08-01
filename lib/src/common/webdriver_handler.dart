@@ -254,19 +254,6 @@ abstract class ElementHandler {
 
   /// Parses response for 'Element CSS Value'.
   String parseCssPropertyResponse(WebDriverResponse response);
-
-  /// Builds request for 'set value immediately'
-  WebDriverRequest buildSetValueImmediatelyRequest(
-      String elementId, String value);
-
-  /// Parse response for 'set value immediately'
-  void parseSetValueImmediatelyResponse(WebDriverResponse response);
-
-  /// Builds request for 'replace value'
-  WebDriverRequest buildReplaceValueRequest(String elementId, String value);
-
-  /// Parse response for 'replace value'
-  void parseReplaceValueResponse(WebDriverResponse response);
 }
 
 abstract class ElementFinder {
@@ -605,22 +592,6 @@ abstract class LogsHandler {
 }
 
 abstract class AppManagementHandler {
-  /// Please use 'activateApp' to launch the application
-  @deprecated
-  WebDriverRequest buildLaunchAppRequest();
-  void parseLaunchAppResponse(WebDriverResponse response);
-
-  /// Please use 'terminateApp' to terminate the application
-  @deprecated
-  WebDriverRequest buildCloseAppRequest();
-  void parseCloseAppResponse(WebDriverResponse response);
-
-  /// Please use 'terminateApp' and 'activateApp',
-  /// or close the session and create a new session again instead.
-  @deprecated
-  WebDriverRequest buildResetAppRequest();
-  void parseResetAppResponse(WebDriverResponse response);
-
   WebDriverRequest buildBackgroundAppRequest({Duration? seconds});
   void parseBackgroundAppResponse(WebDriverResponse response);
 

@@ -44,16 +44,6 @@ class AppiumWebElement extends common.WebElement
       _handler.element.buildSendKeysRequest(id, keysToSend),
       _handler.element.parseSendKeysResponse);
 
-  /// Send [keysToSend] to this element immediately.
-  Future<void> setImmediateValue(String keysToSend) => _client.send(
-      _handler.element.buildSetValueImmediatelyRequest(id, keysToSend),
-      _handler.element.parseSetValueImmediatelyResponse);
-
-  /// Replace existing value with [keysToSend] to this element.
-  Future<void> replaceValue(String keysToSend) => _client.send(
-      _handler.element.buildReplaceValueRequest(id, keysToSend),
-      _handler.element.parseReplaceValueResponse);
-
   /// Clear the content of a text element.
   Future<void> clear() => _client.send(_handler.element.buildClearRequest(id),
       _handler.element.parseClearResponse);

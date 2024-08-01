@@ -16,13 +16,6 @@ class W3CCommands {
   static const TOUCH_ACTIONS = Command(HttpMethod.httpPost, 'touch/perform');
   static const MULTI_TOUCH =
       Command(HttpMethod.httpPost, 'touch/multi/perform');
-  static const SET_IMMEDIATE_VALUE =
-      Command(HttpMethod.httpPost, 'appium/element/:id/value');
-  static const REPLACE_VALUE =
-      Command(HttpMethod.httpPost, 'appium/element/:id/replace_value');
-  static const LAUNCH_APP = Command(HttpMethod.httpPost, 'appium/app/launch');
-  static const CLOSE_APP = Command(HttpMethod.httpPost, 'appium/app/close');
-  static const RESET = Command(HttpMethod.httpPost, 'appium/app/reset');
   static const BACKGROUND_APP =
       Command(HttpMethod.httpPost, 'appium/app/background');
   static const APP_STRINGS = Command(HttpMethod.httpPost, 'appium/app/strings');
