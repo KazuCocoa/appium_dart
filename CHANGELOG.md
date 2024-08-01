@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+- Remove deprecated commands
+    - `driver#launch`: Please use `activate` or equivalent methods
+    - `driver#close`: Please use `terminate` or `quit` to end the session
+    - `driver#reset`: Please end the session and create a new one, or combining with `activate`/`terminate` etc
+    - `element#setImmediateValue` and `element#replaceValue`: Please use `element#sendKeys` instead
+
 ## [0.6.2] - 2024-07-14
 - Fix lint
 
