@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.7.0] - 2024-08-01
+
 - Remove deprecated commands
     - `driver#launch`: Please use `activate` or equivalent methods
     - `driver#close`: Please use `terminate` or `quit` to end the session
