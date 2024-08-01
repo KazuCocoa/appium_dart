@@ -31,31 +31,31 @@ $ dartfmt -w --fix .
 # pana (analyze on pub.dev)
 
 ```
-$ pub run pana --source path .
+$ dart pub run pana --source path .
 ```
 
 # Run tests
 ## Get dependencies
 
 ```
-$ pub get
+$ dart pub get
 ```
 
 ## Functional
 
 ```
-$ pub run test test/functional
+$ dart pub run test test/functional
 ```
 
 ## Unit
 
 ```
-$ pub run test test/unit
+$ dart pub run test test/unit
 ```
 
 ## release
 - Bump the version in `pubspec.yml`
-- Run `pub publish`
+- Run `dart pub publish`
 
 ## Supported Commands
 
