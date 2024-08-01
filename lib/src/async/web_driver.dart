@@ -119,13 +119,6 @@ class AppiumWebDriver implements AppiumSearchContext {
           _handler.core.parseDeleteSessionResponse)
       : Future.value();
 
-  /// Closes the current window.
-  ///
-  /// This is rather confusing and will be removed.
-  /// Should replace all usages with [window.close()] or [quit()].
-  @deprecated
-  Future<void> close() async => (await window).close();
-
   /// Handles for all of the currently displayed tabs/windows.
   Stream<Window> get windows async* {
     final windows = await _client.send(

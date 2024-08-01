@@ -20,9 +20,6 @@ class AppManagement {
       _handler.app.buildBackgroundAppRequest(seconds: seconds),
       _handler.app.parseBackgroundAppResponse);
 
-  Future<void> close() => _client.send(
-      _handler.app.buildCloseAppRequest(), _handler.app.parseCloseAppResponse);
-
   Future<void> install(String path,
           {bool? replace,
           Duration? timeout,
@@ -42,17 +39,11 @@ class AppManagement {
       _handler.app.buildIsAppInstalledRequest(appId),
       _handler.app.parseIsAppInstalledResponse);
 
-  Future<void> launch() => _client.send(_handler.app.buildLaunchAppRequest(),
-      _handler.app.parseLaunchAppResponse);
-
   Future<void> remove(String appId, {bool? keepData, Duration? timeout}) =>
       _client.send(
           _handler.app.buildRemoveAppRequest(appId,
               keepData: keepData, timeout: timeout),
           _handler.app.parseRemoveAppResponse);
-
-  Future<void> reset() => _client.send(
-      _handler.app.buildResetAppRequest(), _handler.app.parseResetAppResponse);
 
   Future<void> terminate(String appId) => _client.send(
       _handler.app.buildTerminateAppRequest(appId),

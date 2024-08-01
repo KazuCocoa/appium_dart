@@ -168,33 +168,4 @@ class W3cElementHandler extends ElementHandler {
   String parsePropertyResponse(WebDriverResponse response) {
     return parseW3cResponse(response).toString();
   }
-
-  @override
-  WebDriverRequest buildReplaceValueRequest(String elementId, String value) {
-    return AppiumWebDriverRequest.sendElementRequest(
-        W3CCommands.REPLACE_VALUE, elementId, {
-      'text': value, // What geckodriver really wants.
-      'value': value // Actual W3C spec
-    });
-  }
-
-  @override
-  void parseReplaceValueResponse(WebDriverResponse response) {
-    parseW3cResponse(response);
-  }
-
-  @override
-  WebDriverRequest buildSetValueImmediatelyRequest(
-      String elementId, String value) {
-    return AppiumWebDriverRequest.sendElementRequest(
-        W3CCommands.SET_IMMEDIATE_VALUE, elementId, {
-      'text': value, // What geckodriver really wants.
-      'value': value // Actual W3C spec
-    });
-  }
-
-  @override
-  void parseSetValueImmediatelyResponse(WebDriverResponse response) {
-    parseW3cResponse(response);
-  }
 }
