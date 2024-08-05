@@ -54,7 +54,7 @@ $ dart pub run test test/unit
 ```
 
 ## release
-- Bump the version in `pubspec.yml`
+- Bump the version in `pubspec.yaml`
 - Run `dart pub publish`
 
 ## Supported Commands
