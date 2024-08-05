@@ -134,6 +134,7 @@ class W3cElementHandler extends ElementHandler {
     return parseW3cResponse(response).toString();
   }
 
+  /// This is deprecated, only used to support old pageloader.
   @override
   @deprecated
   WebDriverRequest buildSeleniumAttributeRequest(
@@ -142,6 +143,7 @@ class W3cElementHandler extends ElementHandler {
         '${elementPrefix(elementId)}attribute/$name');
   }
 
+  /// This is deprecated, only used to support old pageloader.
   @override
   @deprecated
   String parseSeleniumAttributeResponse(WebDriverResponse response) {
