@@ -206,7 +206,7 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// Take a screenshot of the current page as PNG as stream of uint8.
   ///
   /// Don't use this method. Prefer [captureScreenshotAsBase64] or
-  /// [captureScreenshotAsList]. Returning the data as Stream<int> can be very
+  /// [captureScreenshotAsList]. Returning the data as Stream can be very
   /// slow.
   @Deprecated('Use captureScreenshotAsBase64 or captureScreenshotAsList!')
   Stream<int> captureScreenshot() async* {

@@ -20,7 +20,6 @@ linter:
     - non_constant_identifier_names
     - one_member_abstracts
     - overridden_fields
-    - package_api_docs
     - package_names
     - package_prefixed_library_names
     - prefer_asserts_in_initializer_lists
