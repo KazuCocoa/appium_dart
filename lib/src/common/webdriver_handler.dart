@@ -833,36 +833,60 @@ abstract class DeviceHandler {
 
   /// Parse response for 'get orientation'
   Orientation parseGetOrientationResponse(WebDriverResponse response);
-}
 
-abstract class SettingsHandler {
-  /// Builds request for 'get settings'
-  WebDriverRequest buildGetSettingsRequest();
+  /// Builds request for 'toggle airplane mode'
+  WebDriverRequest buildToggleAirplaneModeRequest();
+  void parseToggleAirplaneModeResponse(WebDriverResponse response);
 
-  /// Parse response for 'get settings'
-  void parseGetSettingsResponse(WebDriverResponse response);
+  /// Builds request for 'toggle wifi'
+  WebDriverRequest buildToggleWiFiRequest();
+  void parseToggleWiFiResponse(WebDriverResponse response);
 
-  /// Builds request for 'update settings'
-  WebDriverRequest buildUpdateSettingsRequest(Map<String, dynamic> items);
+  /// Builds request for 'toggle data'
+  WebDriverRequest buildToggleDataRequest();
+  void parseToggleDataResponse(WebDriverResponse response);
 
-  /// Parse response for 'update settings'
-  void parseUpdateSettingsResponse(WebDriverResponse response);
-}
+  /// Builds request for 'toggle location services'
+  WebDriverRequest buildToggleLocationServicesRequest();
+  void parseToggleLocationServicesResponse(WebDriverResponse response);
 
-abstract class ChromeDevToolsHandler {
-  /// Build request for 'execute cdp'
-  WebDriverRequest buildExecuteRequest(
-      String command, Map<String, dynamic> params);
+  /// Builds request for 'end test coverage'
+  WebDriverRequest buildEndTestCoverageRequest(String intent, String path);
+  void parseEndTestCoverageResponse(WebDriverResponse response);
 
-  /// Parse response for 'execute cdp'
-  Map<String, dynamic> parseExecuteResponse(WebDriverResponse response);
-}
+  /// Builds request for 'get performance data types'
+  WebDriverRequest buildGetPerformanceDataTypesRequest();
+  List<String> parseGetPerformanceDataTypesResponse(WebDriverResponse response);
 
-abstract class ExecuteDriverHandler {
-  /// Build request for 'execute driver'
-  WebDriverRequest buildExecuteDriverRequest(String script,
-      {String? type, Duration? timeout});
+  /// Builds request for 'get performance data'
+  WebDriverRequest buildGetPerformanceDataRequest(String packageName, String dataType, int? dataReadTimeout);
+  List<List<String>> parseGetPerformanceDataResponse(WebDriverResponse response);
 
-  /// Parse response for 'execute driver'
-  Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response);
+  /// Builds request for 'send sms'
+  WebDriverRequest buildSendSmsRequest(String phoneNumber, String message);
+  void parseSendSmsResponse(WebDriverResponse response);
+
+  /// Builds request for 'gsm call'
+  WebDriverRequest buildGsmCallRequest(String phoneNumber, String action);
+  void parseGsmCallResponse(WebDriverResponse response);
+
+  /// Builds request for 'gsm signal'
+  WebDriverRequest buildGsmSignalRequest(int strength);
+  void parseGsmSignalResponse(WebDriverResponse response);
+
+  /// Builds request for 'gsm voice'
+  WebDriverRequest buildGsmVoiceRequest(String state);
+  void parseGsmVoiceResponse(WebDriverResponse response);
+
+  /// Builds request for 'set network speed'
+  WebDriverRequest buildSetNetworkSpeedRequest(String speed);
+  void parseSetNetworkSpeedResponse(WebDriverResponse response);
+
+  /// Builds request for 'set power capacity'
+  WebDriverRequest buildSetPowerCapacityRequest(int percent);
+  void parseSetPowerCapacityResponse(WebDriverResponse response);
+
+  /// Builds request for 'set power ac'
+  WebDriverRequest buildSetPowerAcRequest(String state);
+  void parseSetPowerAcResponse(WebDriverResponse response);
 }

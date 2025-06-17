@@ -317,4 +317,172 @@ class W3cDeviceHandler implements DeviceHandler {
   void parseSetOrientationResponse(WebDriverResponse response) {
     return parseW3cResponse(response);
   }
+
+  @override
+  WebDriverRequest buildToggleAirplaneModeRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.TOGGLE_AIRPLANE_MODE);
+  }
+
+  @override
+  void parseToggleAirplaneModeResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildToggleWiFiRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.TOGGLE_WIFI);
+  }
+
+  @override
+  void parseToggleWiFiResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildToggleDataRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.TOGGLE_DATA);
+  }
+
+  @override
+  void parseToggleDataResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildToggleLocationServicesRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.TOGGLE_LOCATION_SERVICES);
+  }
+
+  @override
+  void parseToggleLocationServicesResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildEndTestCoverageRequest(String intent, String path) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.END_COVERAGE, {
+      'intent': intent,
+      'path': path,
+    });
+  }
+
+  @override
+  void parseEndTestCoverageResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGetPerformanceDataTypesRequest() {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_PERFORMANCE_DATA_TYPES);
+  }
+
+  @override
+  List<String> parseGetPerformanceDataTypesResponse(WebDriverResponse response) {
+    return parseW3cResponse(response).cast<String>();
+  }
+
+  @override
+  WebDriverRequest buildGetPerformanceDataRequest(String packageName, String dataType, int? dataReadTimeout) {
+    final params = {
+      'packageName': packageName,
+      'dataType': dataType,
+    };
+    if (dataReadTimeout != null) {
+      params['dataReadTimeout'] = dataReadTimeout;
+    }
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_PERFORMANCE_DATA, params);
+  }
+
+  @override
+  List<List<String>> parseGetPerformanceDataResponse(WebDriverResponse response) {
+    return (parseW3cResponse(response) as List)
+        .map<List<String>>((row) => (row as List).cast<String>())
+        .toList();
+  }
+
+  @override
+  WebDriverRequest buildSendSmsRequest(String phoneNumber, String message) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SEND_SMS, {
+      'phoneNumber': phoneNumber,
+      'message': message,
+    });
+  }
+
+  @override
+  void parseSendSmsResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGsmCallRequest(String phoneNumber, String action) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GSM_CALL, {
+      'phoneNumber': phoneNumber,
+      'action': action,
+    });
+  }
+
+  @override
+  void parseGsmCallResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGsmSignalRequest(int strength) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GSM_SIGNAL, {
+      'signalStrength': strength,
+    });
+  }
+
+  @override
+  void parseGsmSignalResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildGsmVoiceRequest(String state) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.GSM_VOICE, {
+      'state': state,
+    });
+  }
+
+  @override
+  void parseGsmVoiceResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildSetNetworkSpeedRequest(String speed) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SET_NETWORK_SPEED, {
+      'netspeed': speed,
+    });
+  }
+
+  @override
+  void parseSetNetworkSpeedResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildSetPowerCapacityRequest(int percent) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SET_POWER_CAPACITY, {
+      'percent': percent,
+    });
+  }
+
+  @override
+  void parseSetPowerCapacityResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
+
+  @override
+  WebDriverRequest buildSetPowerAcRequest(String state) {
+    return AppiumWebDriverRequest.sendRequest(W3CCommands.SET_POWER_AC, {
+      'state': state,
+    });
+  }
+
+  @override
+  void parseSetPowerAcResponse(WebDriverResponse response) {
+    parseW3cResponse(response);
+  }
 }

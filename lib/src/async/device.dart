@@ -297,6 +297,80 @@ class Device {
       _handler.device.buildGetOrientationRequest(),
       _handler.device.parseGetOrientationResponse);
 
+  /// Toggle airplane mode (Android only)
+  Future<void> toggleAirplaneMode() => _client.send(
+      _handler.device.buildToggleAirplaneModeRequest(),
+      _handler.device.parseToggleAirplaneModeResponse);
+
+  /// Toggle WiFi (Android only)
+  Future<void> toggleWiFi() => _client.send(
+      _handler.device.buildToggleWiFiRequest(),
+      _handler.device.parseToggleWiFiResponse);
+
+  /// Toggle mobile data (Android only)
+  Future<void> toggleData() => _client.send(
+      _handler.device.buildToggleDataRequest(),
+      _handler.device.parseToggleDataResponse);
+
+  /// Toggle location services (Android only)
+  Future<void> toggleLocationServices() => _client.send(
+      _handler.device.buildToggleLocationServicesRequest(),
+      _handler.device.parseToggleLocationServicesResponse);
+
+  /// End test coverage (Android only)
+  Future<void> endTestCoverage(String intent, String path) => _client.send(
+      _handler.device.buildEndTestCoverageRequest(intent, path),
+      _handler.device.parseEndTestCoverageResponse);
+
+  /// Get performance data types (Android only)
+  Future<List<String>> getPerformanceDataTypes() => _client.send(
+      _handler.device.buildGetPerformanceDataTypesRequest(),
+      _handler.device.parseGetPerformanceDataTypesResponse);
+
+  /// Get performance data (Android only)
+  Future<List<List<String>>> getPerformanceData(
+          String packageName, String dataType,
+          {int? dataReadTimeout}) =>
+      _client.send(
+          _handler.device.buildGetPerformanceDataRequest(
+              packageName, dataType, dataReadTimeout),
+          _handler.device.parseGetPerformanceDataResponse);
+
+  /// Send SMS (Android only)
+  Future<void> sendSms(String phoneNumber, String message) => _client.send(
+      _handler.device.buildSendSmsRequest(phoneNumber, message),
+      _handler.device.parseSendSmsResponse);
+
+  /// GSM call (Android only)
+  Future<void> gsmCall(String phoneNumber, String action) => _client.send(
+      _handler.device.buildGsmCallRequest(phoneNumber, action),
+      _handler.device.parseGsmCallResponse);
+
+  /// GSM signal (Android only)
+  Future<void> gsmSignal(int strength) => _client.send(
+      _handler.device.buildGsmSignalRequest(strength),
+      _handler.device.parseGsmSignalResponse);
+
+  /// GSM voice (Android only)
+  Future<void> gsmVoice(String state) => _client.send(
+      _handler.device.buildGsmVoiceRequest(state),
+      _handler.device.parseGsmVoiceResponse);
+
+  /// Set network speed (Android only)
+  Future<void> setNetworkSpeed(String speed) => _client.send(
+      _handler.device.buildSetNetworkSpeedRequest(speed),
+      _handler.device.parseSetNetworkSpeedResponse);
+
+  /// Set power capacity (Android only)
+  Future<void> setPowerCapacity(int percent) => _client.send(
+      _handler.device.buildSetPowerCapacityRequest(percent),
+      _handler.device.parseSetPowerCapacityResponse);
+
+  /// Set power AC state (Android only)
+  Future<void> setPowerAc(String state) => _client.send(
+      _handler.device.buildSetPowerAcRequest(state),
+      _handler.device.parseSetPowerAcResponse);
+
   @override
   int get hashCode => _client.hashCode;
 
