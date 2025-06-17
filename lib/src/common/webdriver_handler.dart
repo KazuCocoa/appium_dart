@@ -890,3 +890,39 @@ abstract class DeviceHandler {
   WebDriverRequest buildSetPowerAcRequest(String state);
   void parseSetPowerAcResponse(WebDriverResponse response);
 }
+
+// The following handler interfaces are required for Appium driver functionality.
+// Do not remove them, even if not all methods are currently implemented.
+// They are used for settings, Chrome DevTools, and execute driver features.
+
+abstract class SettingsHandler {
+  /// Builds request for 'get settings'
+  WebDriverRequest buildGetSettingsRequest();
+
+  /// Parse response for 'get settings'
+  void parseGetSettingsResponse(WebDriverResponse response);
+
+  /// Builds request for 'update settings'
+  WebDriverRequest buildUpdateSettingsRequest(Map<String, dynamic> items);
+
+  /// Parse response for 'update settings'
+  void parseUpdateSettingsResponse(WebDriverResponse response);
+}
+
+abstract class ChromeDevToolsHandler {
+  /// Build request for 'execute cdp'
+  WebDriverRequest buildExecuteRequest(
+      String command, Map<String, dynamic> params);
+
+  /// Parse response for 'execute cdp'
+  Map<String, dynamic> parseExecuteResponse(WebDriverResponse response);
+}
+
+abstract class ExecuteDriverHandler {
+  /// Build request for 'execute driver'
+  WebDriverRequest buildExecuteDriverRequest(String script,
+      {String? type, Duration? timeout});
+
+  /// Parse response for 'execute driver'
+  Map<String, dynamic> parseExecuteDriverResponse(WebDriverResponse response);
+}
