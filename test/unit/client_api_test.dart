@@ -22,7 +22,7 @@ void main() {
       await driver.device.startActivity(
         appPackage: 'com.example',
         appActivity: '.MainActivity',
-        dontStopAppOnReset: dontStop,
+        dontStopAppOnResetEnabled: dontStop,
       );
       expect(client.requests.single.uri, 'appium/device/start_activity');
       expect(jsonDecode(client.requests.single.body!), {
@@ -32,6 +32,57 @@ void main() {
       });
     });
   }
+
+  for (final legacy in ['true', 'false', null]) {
+    test('startActivity preserves legacy string calls: $legacy', () async {
+      await driver.device.startActivity(
+        appPackage: 'com.example',
+        appActivity: '.MainActivity',
+        // ignore: deprecated_member_use_from_same_package
+        dontStopAppOnReset: legacy,
+      );
+      expect(jsonDecode(client.requests.single.body!), {
+        'appPackage': 'com.example',
+        'appActivity': '.MainActivity',
+        if (legacy != null) 'dontStopAppOnReset': legacy == 'true',
+      });
+    });
+  }
+
+  for (final enabled in [true, false]) {
+    for (final legacy in ['true', 'false', 'invalid']) {
+      test('boolean $enabled takes precedence over legacy $legacy', () async {
+        await driver.device.startActivity(
+          appPackage: 'com.example',
+          appActivity: '.MainActivity',
+          // ignore: deprecated_member_use_from_same_package
+          dontStopAppOnReset: legacy,
+          dontStopAppOnResetEnabled: enabled,
+        );
+        expect(jsonDecode(client.requests.single.body!)['dontStopAppOnReset'],
+            enabled);
+      });
+    }
+  }
+
+  test('rejects invalid legacy boolean strings before sending a request', () {
+    expect(
+        () => driver.device.startActivity(
+              // ignore: deprecated_member_use_from_same_package
+              dontStopAppOnReset: 'invalid',
+            ),
+        throwsFormatException);
+    expect(client.requests, isEmpty);
+  });
+
+  test('omits the restart option when both arguments are omitted', () async {
+    await driver.device.startActivity(
+      appPackage: 'com.example',
+      appActivity: '.MainActivity',
+    );
+    expect(jsonDecode(client.requests.single.body!),
+        isNot(contains('dontStopAppOnReset')));
+  });
 
   test('switches frames using an element reference', () async {
     await driver.switchTo.frame(driver.getElement('iframe-id'));

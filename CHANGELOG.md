@@ -2,7 +2,7 @@
 
 - Apply supplied Direct Connect capabilities when attaching with `fromExistingSessionSync`.
 - Preserve the standard `webSocketUrl` capability when creating sessions.
-- **Breaking:** Change `startActivity`'s `dontStopAppOnReset` argument from `String?` to `bool?` to send a JSON boolean. Replace `'true'` / `'false'` with `true` / `false`.
+- Add `startActivity`'s boolean `dontStopAppOnResetEnabled` argument. Keep the original string `dontStopAppOnReset` argument as deprecated, converting `'true'` / `'false'` to JSON booleans. The new argument takes precedence; invalid legacy strings throw `FormatException`.
 
 ## [0.9.1] - 2026-10-10
 

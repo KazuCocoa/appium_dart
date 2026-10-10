@@ -68,9 +68,21 @@ See the [Appium 3 endpoint migration guide](https://appium.io/docs/en/latest/gui
 
 ### Activity restart behavior
 
-`driver.device.startActivity` accepts `bool?` for `dontStopAppOnReset`.
-Use `true` or `false` instead of the strings `'true'` or `'false'`.
-Omitting the argument leaves the server default unchanged.
+`driver.device.startActivity` accepts the boolean `dontStopAppOnResetEnabled`:
+
+```dart
+await driver.device.startActivity(
+  appPackage: 'com.example',
+  appActivity: '.MainActivity',
+  dontStopAppOnResetEnabled: false,
+);
+```
+
+The original `dontStopAppOnReset: 'true'` / `'false'` calls remain supported
+but are deprecated. These strings are converted to JSON booleans; other strings
+throw `FormatException`. The new boolean argument takes precedence when both
+are supplied. Omitting both arguments, or passing null, leaves the server
+default unchanged.
 
 ### Nullable attributes
 
