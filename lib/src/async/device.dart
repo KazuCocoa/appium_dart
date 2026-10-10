@@ -198,6 +198,10 @@ class Device {
   /// Start Activity
   /// Only for Android.
   ///
+  /// Use [dontStopAppOnResetEnabled] for a boolean restart option. The legacy
+  /// [dontStopAppOnReset] accepts 'true' or 'false'; other strings throw a
+  /// [FormatException]. The boolean option takes precedence when both are set.
+  ///
   /// For example:
   ///
   ///     await driver.device.startActivity(
@@ -213,7 +217,9 @@ class Device {
           String? intentCategory,
           String? intentFlags,
           String? optionalIntentArguments,
-          String? dontStopAppOnReset}) =>
+          @Deprecated('Use dontStopAppOnResetEnabled instead.')
+          String? dontStopAppOnReset,
+          bool? dontStopAppOnResetEnabled}) =>
       _client.send(
           _handler.device.buildStartActivityRequest(
               appPackage: appPackage,
@@ -224,7 +230,9 @@ class Device {
               intentCategory: intentCategory,
               intentFlags: intentFlags,
               optionalIntentArguments: optionalIntentArguments,
-              dontStopAppOnReset: dontStopAppOnReset),
+              // ignore: deprecated_member_use_from_same_package
+              dontStopAppOnReset: dontStopAppOnReset,
+              dontStopAppOnResetEnabled: dontStopAppOnResetEnabled),
           _handler.device.parseStartActivityResponse);
 
   /// Get current activity

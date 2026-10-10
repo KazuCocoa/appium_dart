@@ -46,6 +46,7 @@ Future<AppiumWebDriver> fromExistingSession(String sessionId,
 /// The function is sync, so all necessary information ([sessionId], [spec],
 /// [capabilities]) has to be given. Because otherwise, making a call to
 /// WebDriver server will make this function async.
+/// Supplied Direct Connect capabilities determine the session endpoint.
 ///
 /// This will bring in dependency on `dart:io`.
 /// Note: WebDriver endpoints will be constructed using [resolve] against

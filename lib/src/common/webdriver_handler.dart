@@ -774,7 +774,9 @@ abstract class DeviceHandler {
       String? intentCategory,
       String? intentFlags,
       String? optionalIntentArguments,
-      String? dontStopAppOnReset});
+      @Deprecated('Use dontStopAppOnResetEnabled instead.')
+      String? dontStopAppOnReset,
+      bool? dontStopAppOnResetEnabled});
 
   /// Parse response for 'start activity'
   /// Android Only

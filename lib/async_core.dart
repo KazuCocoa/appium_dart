@@ -115,7 +115,8 @@ Map<String, dynamic> addAppiumPrefix(Map<String, dynamic> desired) {
     'setWindowRect',
     'timeouts',
     'unhandledPromptBehavior',
-    'strictFileInteractability'
+    'strictFileInteractability',
+    'webSocketUrl'
   ];
 
   return desired.map((k, v) {
@@ -189,6 +190,7 @@ AppiumWebDriver fromExistingSessionSync(
 
   // Validate the protocol before allocating a client.
   getHandler(spec);
-  return AppiumWebDriver(uri, sessionId, UnmodifiableMapView(capabilities),
-      createRequestClient(uri.resolve('session/$sessionId/')), spec);
+  final newUri = updateUriWithDirectConnect(uri, capabilities);
+  return AppiumWebDriver(newUri, sessionId, UnmodifiableMapView(capabilities),
+      createRequestClient(newUri.resolve('session/$sessionId/')), spec);
 }

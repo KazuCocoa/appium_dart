@@ -23,6 +23,44 @@ class _SessionClient extends AsyncRequestClient {
 }
 
 void main() {
+  group('fromExistingSessionSync', () {
+    for (final path in ['/wd/hub', '/wd/hub/', '', '/', null]) {
+      test('routes commands with Direct Connect path $path', () async {
+        final requests = <Uri>[];
+        final capabilities = <String, dynamic>{
+          'platformName': 'Android',
+          if (path != null) ...{
+            'directConnectProtocol': 'https',
+            'directConnectHost': 'example.com',
+            'directConnectPort': 8443,
+            'directConnectPath': path,
+          },
+        };
+        final driver = core.fromExistingSessionSync(
+          (uri) => _SessionClient(uri, {}, requests),
+          'abc',
+          core.WebDriverSpec.W3c,
+          uri: Uri.parse('http://localhost:4723/custom/'),
+          capabilities: capabilities,
+        );
+        try {
+          final expectedUri = path == null
+              ? Uri.parse('http://localhost:4723/custom/')
+              : Uri.parse(
+                  'https://example.com:8443${path.startsWith('/wd/hub') ? '/wd/hub/' : '/'}');
+          expect(driver.uri, expectedUri);
+          expect(await driver.title, 'Example title');
+          expect(requests.single, expectedUri.resolve('session/abc/title'));
+          expect(driver.capabilities, capabilities);
+          expect(() => driver.capabilities['platformName'] = 'iOS',
+              throwsUnsupportedError);
+        } finally {
+          await driver.quit(closeSession: false);
+        }
+      });
+    }
+  });
+
   group('Direct Connect requests', () {
     for (final path in ['/wd/hub', '/wd/hub/', '', '/']) {
       test('preserves the base path "$path" after session creation', () async {

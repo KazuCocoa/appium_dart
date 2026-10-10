@@ -185,8 +185,13 @@ class W3cDeviceHandler implements DeviceHandler {
       String? intentCategory,
       String? intentFlags,
       String? optionalIntentArguments,
-      String? dontStopAppOnReset}) {
-    var arg = {'appPackage': appPackage, 'appActivity': appActivity};
+      @Deprecated('Use dontStopAppOnResetEnabled instead.')
+      String? dontStopAppOnReset,
+      bool? dontStopAppOnResetEnabled}) {
+    var arg = <String, dynamic>{
+      'appPackage': appPackage,
+      'appActivity': appActivity
+    };
     if (appWaitPackage != null) {
       arg['appWaitPackage'] = appWaitPackage;
     }
@@ -206,8 +211,10 @@ class W3cDeviceHandler implements DeviceHandler {
     if (optionalIntentArguments != null) {
       arg['optionalIntentArguments'] = optionalIntentArguments;
     }
-    if (dontStopAppOnReset != null) {
-      arg['dontStopAppOnReset'] = dontStopAppOnReset;
+    final dontStop = dontStopAppOnResetEnabled ??
+        (dontStopAppOnReset == null ? null : bool.parse(dontStopAppOnReset));
+    if (dontStop != null) {
+      arg['dontStopAppOnReset'] = dontStop;
     }
     return AppiumWebDriverRequest.sendRequest(W3CCommands.START_ACTIVITY, arg);
   }
