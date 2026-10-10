@@ -1,3 +1,10 @@
+## [Unreleased]
+
+- Respect the server's boolean response when checking whether an element is displayed.
+- Preserve Direct Connect base paths without a trailing slash when routing session commands.
+- Retain supplied capabilities when attaching to an existing session, including Direct Connect settings.
+- Send event type filters and activity intent flags when supplied, and omit them when absent.
+
 ## [0.8.0] - 2026-10-09
 
 - Require Dart 3.4 or later and update `webdriver`, `test`, and `pana` dependencies, allowing compatible development tool versions on older SDKs.
