@@ -5,11 +5,11 @@ description: >
 version: 0.7.1
 homepage: https://github.com/KazuCocoa/appium_dart
 environment:
-  sdk: '>=2.12.0 <4.0.0'
+  sdk: '^3.4.0'
 
 dependencies:
-  webdriver: '^3.0.0'
+  webdriver: '^3.2.0'
 
 dev_dependencies:
-  test: '>=1.17.0'
-  pana: ">=0.17.0 <0.24.0"
+  test: '^1.25.8'
+  pana: '>=0.22.17 <0.24.0'

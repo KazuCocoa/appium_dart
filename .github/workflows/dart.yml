@@ -13,17 +13,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sdk: [2.19, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, beta]
+        sdk: ['3.4.0', '3.5', '3.6', '3.7', '3.8', '3.9', '3.10', '3.11', stable, beta]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Setup Dart SDK
       uses: dart-lang/setup-dart@v1
       with:
         sdk: ${{ matrix.sdk }}
     - name: Install dependencies
       run: dart pub get
+    - name: Install example dependencies
+      run: dart pub get
+      working-directory: example
     - name: Dartanalyzer
       run: dart analyze
     - name: Run tests
-      run: dart pub run test test/unit
+      run: dart test test/unit

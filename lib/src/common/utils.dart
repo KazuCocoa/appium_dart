@@ -13,8 +13,6 @@ AppiumWebDriverHandler getHandler(WebDriverSpec spec) {
       return W3cWebDriverHandler();
     case WebDriverSpec.Auto:
       return W3cWebDriverHandler(); // TODO: will apply only W3C spec
-    default:
-      throw UnsupportedError('Unexpected web driver spec: $spec.');
   }
 }
 

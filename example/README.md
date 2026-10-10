@@ -7,7 +7,7 @@ $ appium  # installed via npm
 
 2. Run the example project
 ```
-$ pub get
+$ dart pub get
 $ dart --enable-asserts main.dart
 ```
 

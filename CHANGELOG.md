@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+- Require Dart 3.4 or later and update `webdriver`, `test`, and `pana` dependencies, allowing compatible development tool versions on older SDKs.
+- Use the local package in the example and update its dependencies for Dart 3.
+- Refresh CI to test Dart 3.4 and later, stable, and beta, and track example and GitHub Actions updates with Dependabot.
+
 ## [0.7.0] - 2024-08-01
 
 - Remove deprecated commands
