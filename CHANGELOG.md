@@ -1,3 +1,7 @@
+## [0.9.1] - 2026-10-10
+
+- Release with OIDC
+
 ## [0.9.0] - 2026-10-10
 
 - **Breaking:** Default to the Appium 2/3 root URL; pass a URI explicitly for servers using `/wd/hub/`.
