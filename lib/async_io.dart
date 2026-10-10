@@ -26,17 +26,19 @@ Future<AppiumWebDriver> createDriver(
 /// Creates an async WebDriver from existing session using
 /// [AsyncIoRequestClient].
 ///
+/// Preserves [capabilities] when supplied, including Direct Connect settings.
+///
 /// This will bring in dependency on `dart:io`.
 /// Note: WebDriver endpoints will be constructed using [resolve] against
 /// [uri]. Therefore, if [uri] does not end with a trailing slash, the
-
+/// last path component will be dropped.
 Future<AppiumWebDriver> fromExistingSession(String sessionId,
         {Uri? uri,
         WebDriverSpec spec = WebDriverSpec.Auto,
         Map<String, dynamic>? capabilities}) =>
     core.fromExistingSession(
         AsyncIoRequestClient.new, sessionId,
-        uri: uri, spec: spec);
+        uri: uri, spec: spec, capabilities: capabilities);
 
 /// Creates an async WebDriver from existing session with a sync function using
 /// [AsyncIoRequestClient].

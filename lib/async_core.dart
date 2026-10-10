@@ -89,8 +89,11 @@ Uri updateUriWithDirectConnect(
       capabilities.containsKey(host) &&
       capabilities.containsKey(port) &&
       capabilities.containsKey(path)) {
-    return Uri.parse(
+    final directUri = Uri.parse(
         '${capabilities[protocol]}://${capabilities[host]}:${capabilities[port]}${capabilities[path]}');
+    return directUri.path.endsWith('/')
+        ? directUri
+        : directUri.replace(path: '${directUri.path}/');
   }
 
   return currentUri;
@@ -119,15 +122,18 @@ Map<String, dynamic> addAppiumPrefix(Map<String, dynamic> desired) {
   });
 }
 
-/// Creates a sync WebDriver from existing session.
+/// Creates an async WebDriver from an existing session.
+///
+/// Uses [capabilities] when supplied, otherwise the session information.
 ///
 /// This is intended for internal use! Please use [fromExistingSession] from
-/// sync_io.dart.
+/// async_io.dart.
 Future<AppiumWebDriver> fromExistingSession(
     AsyncRequestClient Function(Uri prefix) createRequestClient,
     String sessionId,
     {Uri? uri,
-    WebDriverSpec spec = WebDriverSpec.Auto}) async {
+    WebDriverSpec spec = WebDriverSpec.Auto,
+    Map<String, dynamic>? capabilities}) async {
   uri ??= defaultUri;
 
   // This client's prefix at root, it has no session prefix in it.
@@ -143,12 +149,13 @@ Future<AppiumWebDriver> fromExistingSession(
     throw 'Unexpected spec: ${session.spec}';
   }
 
-  var newUri = updateUriWithDirectConnect(uri, session.capabilities!);
+  final sessionCapabilities = capabilities ?? session.capabilities!;
+  var newUri = updateUriWithDirectConnect(uri, sessionCapabilities);
 
   return AppiumWebDriver(
       newUri,
       sessionId,
-      UnmodifiableMapView(session.capabilities!),
+      UnmodifiableMapView(sessionCapabilities),
       createRequestClient(newUri.resolve('session/$sessionId/')),
       session.spec);
 }
