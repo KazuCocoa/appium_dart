@@ -6,6 +6,30 @@ An appium binding in Dart
 
 Requires Dart 3.4 or later (before Dart 4).
 
+The client uses the W3C protocol (`WebDriverSpec.W3c` or `Auto`).
+`WebDriverSpec.JsonWire` is unsupported and throws `UnsupportedError`.
+The default server URL is `http://127.0.0.1:4723/`, matching Appium 2 and 3.
+For a server configured with another base path, pass its URL explicitly,
+including the trailing slash (for example, `http://127.0.0.1:4723/wd/hub/`).
+
+Session discovery and log retrieval use `/appium/sessions`, `/se/log/types`,
+and `/se/log`, with fallback to the older endpoints only when the server reports
+an unknown command or method. Appium 3 session discovery requires starting the
+server with `--allow-insecure='*:session_discovery'`.
+
+Other legacy device endpoints depend on the installed Appium driver and version.
+Appium 3 removed several of these endpoints; use the corresponding driver
+`mobile:` execute methods where needed (for example,
+`driver.execute('mobile: pressKey', [{'keycode': 66}])`). See the
+[Appium 3 endpoint migration guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/#endpoint-changes).
+
+Element attribute lookups return `String?`: an absent attribute is `null`,
+distinct from the literal string `'null'`. Android key event `metastate` and
+`flags` accept integer bitmasks, for example
+`driver.device.pressKeycode(66, metastate: 1 | 2, flags: 32)`.
+Call `driver.quit()` to end the session and close the client's connection, or
+`driver.quit(closeSession: false)` to disconnect while keeping the server session.
+
 # About
 
 Flutter has [flutter_driver](https://api.flutter.dev/flutter/flutter_driver/flutter_driver-library.html) which runs UI tests like Espresso/EarlGrey/Appium for Flutter elements.
