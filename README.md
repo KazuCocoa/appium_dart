@@ -4,6 +4,8 @@
 
 An appium binding in Dart
 
+Requires Dart 3.4 or later (before Dart 4).
+
 # About
 
 Flutter has [flutter_driver](https://api.flutter.dev/flutter/flutter_driver/flutter_driver-library.html) which runs UI tests like Espresso/EarlGrey/Appium for Flutter elements.
@@ -19,19 +21,19 @@ Take a look at [functional tests](./test/functional)
 # Lint
 
 ```
-$ dartanalyzer --options analysis_options.yaml .
+$ dart analyze
 ```
 
 # format
 
 ```
-$ dartfmt -w --fix .
+$ dart format .
 ```
 
 # pana (analyze on pub.dev)
 
 ```
-$ dart pub run pana --source path .
+$ dart run pana .
 ```
 
 # Run tests
@@ -44,13 +46,13 @@ $ dart pub get
 ## Functional
 
 ```
-$ dart pub run test test/functional
+$ dart test test/functional
 ```
 
 ## Unit
 
 ```
-$ dart pub run test test/unit
+$ dart test test/unit
 ```
 
 ## release
