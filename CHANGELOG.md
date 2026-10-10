@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.8.0] - 2026-10-09
 
 - Require Dart 3.4 or later and update `webdriver`, `test`, and `pana` dependencies, allowing compatible development tool versions on older SDKs.
 - Use the local package in the example and update its dependencies for Dart 3.

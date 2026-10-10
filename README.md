@@ -56,8 +56,15 @@ $ dart test test/unit
 ```
 
 ## release
-- Bump the version in `pubspec.yaml`
-- Run `dart pub publish`
+
+1. Bump the version in `pubspec.yaml`.
+2. Move the changes under `Unreleased` in `CHANGELOG.md`
+   to a section with the release version and date.
+3. Verify CI passes on the minimum supported Dart SDK and stable.
+4. Run `dart pub publish --dry-run` and review files and warnings.
+5. Commit the release changes.
+6. Run `dart pub publish`.
+7. Tag the release commit and push the tag.
 
 ## Supported Commands
 
