@@ -200,7 +200,7 @@ class W3cDeviceHandler implements DeviceHandler {
     if (intentCategory != null) {
       arg['intentCategory'] = intentCategory;
     }
-    if (appWaitPackage != null) {
+    if (intentFlags != null) {
       arg['intentFlags'] = intentFlags;
     }
     if (optionalIntentArguments != null) {

@@ -35,7 +35,7 @@ void main() {
             'directConnectPath': '/example/wd/hub',
             'udid': 'yyyyyyyy'
           }),
-          Uri.parse('https://example.com:8000/example/wd/hub'));
+          Uri.parse('https://example.com:8000/example/wd/hub/'));
     });
     test('should return the default uri', () {
       expect(

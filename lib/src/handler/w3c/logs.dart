@@ -35,7 +35,7 @@ class W3cLogsHandler implements LogsHandler {
 
   @override
   WebDriverRequest buildGetEventsRequest({String type = ''}) {
-    if (type != '') {
+    if (type.isEmpty) {
       return AppiumWebDriverRequest.sendRequest(W3CCommands.GET_EVENTS);
     }
     return AppiumWebDriverRequest.sendRequest(

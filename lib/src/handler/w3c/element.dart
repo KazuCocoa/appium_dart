@@ -69,7 +69,7 @@ class W3cElementHandler extends ElementHandler {
 
   @override
   bool parseDisplayedResponse(WebDriverResponse response) {
-    return parseCssPropertyResponse(response) != 'none';
+    return parseW3cResponse(response);
   }
 
   @override
