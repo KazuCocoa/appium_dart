@@ -1,4 +1,4 @@
-## Unreleased
+## [0.9.2] - 2026-10-10
 
 - Apply supplied Direct Connect capabilities when attaching with `fromExistingSessionSync`.
 - Preserve the standard `webSocketUrl` capability when creating sessions.
