@@ -9,7 +9,7 @@ class Command {
 
 // All available commands for Appium
 class W3CCommands {
-  static const GET_ALL_SESSIONS = Command(HttpMethod.httpGet, 'sessions');
+  static const GET_ALL_SESSIONS = Command(HttpMethod.httpGet, 'appium/sessions');
   static const AVAILABLE_CONTEXTS = Command(HttpMethod.httpGet, 'contexts');
   static const SET_CONTEXT = Command(HttpMethod.httpPost, 'context');
   static const CURRENT_CONTEXT = Command(HttpMethod.httpGet, 'context');
@@ -141,8 +141,8 @@ class W3CCommands {
   static const SEND_KEYS_TO_ACTIVE_ELEMENT =
       Command(HttpMethod.httpPost, 'keys');
   static const GET_AVAILABLE_LOG_TYPES =
-      Command(HttpMethod.httpGet, 'log/types');
-  static const GET_LOG = Command(HttpMethod.httpPost, 'log');
+      Command(HttpMethod.httpGet, 'se/log/types');
+  static const GET_LOG = Command(HttpMethod.httpPost, 'se/log');
   static const GET_EVENTS = Command(HttpMethod.httpPost, 'appium/events');
   static const LOG_EVENT = Command(HttpMethod.httpPost, 'appium/log_event');
   static const EXECUTE_CDP = Command(HttpMethod.httpPost, 'goog/cdp/execute');

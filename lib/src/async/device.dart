@@ -73,10 +73,10 @@ class Device {
   ///
   /// For example:
   ///
-  ///     await driver.device.pressKeycode(66, metastate: [1], flags: [32]);
+  ///     await driver.device.pressKeycode(66, metastate: 1, flags: 32);
   ///
   Future<void> pressKeycode(int keycode,
-          {List<int>? metastate, List<int>? flags}) =>
+          {int? metastate, int? flags}) =>
       _client.send(
           _handler.device.buildPressKeycodeRequest(keycode,
               metastate: metastate, flags: flags),
@@ -87,10 +87,10 @@ class Device {
   ///
   /// For example:
   ///
-  ///     await driver.device.longPressKeycode(66, metastate: [1], flags: [32]);
+  ///     await driver.device.longPressKeycode(66, metastate: 1, flags: 32);
   ///
   Future<void> longPressKeycode(int keycode,
-          {List<int>? metastate, List<int>? flags}) =>
+          {int? metastate, int? flags}) =>
       _client.send(
           _handler.device.buildLongPressKeycodeRequest(keycode,
               metastate: metastate, flags: flags),

@@ -69,7 +69,7 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   WebDriverRequest buildPressKeycodeRequest(int keycode,
-      {List<int>? metastate, List<int>? flags}) {
+      {int? metastate, int? flags}) {
     var arg = <String, dynamic>{'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;
@@ -87,7 +87,7 @@ class W3cDeviceHandler implements DeviceHandler {
 
   @override
   WebDriverRequest buildLongPressKeycodeRequest(int keycode,
-      {List<int>? metastate, List<int>? flags}) {
+      {int? metastate, int? flags}) {
     var arg = <String, dynamic>{'keycode': keycode};
     if (metastate != null) {
       arg['metastate'] = metastate;

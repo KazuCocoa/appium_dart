@@ -36,9 +36,10 @@ class W3cKeyboardHandler extends KeyboardHandler {
   @override
   WebDriverRequest buildSendKeysRequest(String keysToSend) {
     final keyActions = <Map<String, String>>[];
-    for (var i = 0; i < keysToSend.length; ++i) {
-      keyActions.add({'type': 'keyDown', 'value': keysToSend[i]});
-      keyActions.add({'type': 'keyUp', 'value': keysToSend[i]});
+    for (final rune in keysToSend.runes) {
+      final key = String.fromCharCode(rune);
+      keyActions.add({'type': 'keyDown', 'value': key});
+      keyActions.add({'type': 'keyUp', 'value': key});
     }
     return WebDriverRequest.postRequest('actions', {
       'actions': [
