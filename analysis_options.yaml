@@ -4,7 +4,6 @@ linter:
     - annotate_overrides
     - avoid_empty_else
     - avoid_init_to_null
-    - avoid_null_checks_in_equality_operators
     - avoid_return_types_on_setters
     - await_only_futures
     - cancel_subscriptions

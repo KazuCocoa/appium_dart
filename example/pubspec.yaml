@@ -1,10 +1,12 @@
 name: appium_driver_example
 description: An example of appium_dart
 version: 0.0.1
+publish_to: none
 homepage: https://github.com/KazuCocoa/appium_dart
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '^3.4.0'
 
 dependencies:
-  appium_driver: any
-  test: '^1.16.5'
+  appium_driver:
+    path: ../
+  test: '^1.25.8'

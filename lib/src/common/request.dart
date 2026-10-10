@@ -12,7 +12,6 @@ class AppiumWebDriverRequest {
       case HttpMethod.httpDelete:
         return WebDriverRequest.deleteRequest(command.path);
     }
-    throw UnimplementedError;
   }
 
   static WebDriverRequest sendElementRequest(Command command, String elementId,
@@ -27,6 +26,5 @@ class AppiumWebDriverRequest {
       case HttpMethod.httpDelete:
         return WebDriverRequest.deleteRequest(path);
     }
-    throw UnimplementedError;
   }
 }
