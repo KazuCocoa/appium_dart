@@ -213,7 +213,7 @@ class Device {
           String? intentCategory,
           String? intentFlags,
           String? optionalIntentArguments,
-          String? dontStopAppOnReset}) =>
+          bool? dontStopAppOnReset}) =>
       _client.send(
           _handler.device.buildStartActivityRequest(
               appPackage: appPackage,

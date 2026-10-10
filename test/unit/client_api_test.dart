@@ -17,6 +17,22 @@ void main() {
         {}, client, core.WebDriverSpec.W3c);
   });
 
+  for (final dontStop in [true, false, null]) {
+    test('startActivity sends an optional boolean: $dontStop', () async {
+      await driver.device.startActivity(
+        appPackage: 'com.example',
+        appActivity: '.MainActivity',
+        dontStopAppOnReset: dontStop,
+      );
+      expect(client.requests.single.uri, 'appium/device/start_activity');
+      expect(jsonDecode(client.requests.single.body!), {
+        'appPackage': 'com.example',
+        'appActivity': '.MainActivity',
+        if (dontStop != null) 'dontStopAppOnReset': dontStop,
+      });
+    });
+  }
+
   test('switches frames using an element reference', () async {
     await driver.switchTo.frame(driver.getElement('iframe-id'));
     expect(client.requests.single.uri, 'frame');

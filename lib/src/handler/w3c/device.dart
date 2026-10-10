@@ -185,8 +185,11 @@ class W3cDeviceHandler implements DeviceHandler {
       String? intentCategory,
       String? intentFlags,
       String? optionalIntentArguments,
-      String? dontStopAppOnReset}) {
-    var arg = {'appPackage': appPackage, 'appActivity': appActivity};
+      bool? dontStopAppOnReset}) {
+    var arg = <String, dynamic>{
+      'appPackage': appPackage,
+      'appActivity': appActivity
+    };
     if (appWaitPackage != null) {
       arg['appWaitPackage'] = appWaitPackage;
     }

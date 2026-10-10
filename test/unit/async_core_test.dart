@@ -5,6 +5,22 @@ import 'package:appium_driver/async_core.dart' as core;
 
 void main() {
   group('add_appium_prefix', () {
+    for (final enabled in [true, false]) {
+      test('preserves the standard BiDi capability: $enabled', () {
+        expect(
+            core.addAppiumPrefix({
+              'webSocketUrl': enabled,
+              'automationName': 'uiautomator2',
+              'vendor:option': 'value',
+            }),
+            {
+              'webSocketUrl': enabled,
+              'appium:automationName': 'uiautomator2',
+              'vendor:option': 'value',
+            });
+      });
+    }
+
     test('should add appium prefix', () {
       expect(
           core.addAppiumPrefix({

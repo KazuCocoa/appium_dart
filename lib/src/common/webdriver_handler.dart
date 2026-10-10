@@ -774,7 +774,7 @@ abstract class DeviceHandler {
       String? intentCategory,
       String? intentFlags,
       String? optionalIntentArguments,
-      String? dontStopAppOnReset});
+      bool? dontStopAppOnReset});
 
   /// Parse response for 'start activity'
   /// Android Only

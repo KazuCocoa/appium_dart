@@ -66,6 +66,12 @@ See the [Appium 3 endpoint migration guide](https://appium.io/docs/en/latest/gui
 
 ## API notes and migration
 
+### Activity restart behavior
+
+`driver.device.startActivity` accepts `bool?` for `dontStopAppOnReset`.
+Use `true` or `false` instead of the strings `'true'` or `'false'`.
+Omitting the argument leaves the server default unchanged.
+
 ### Nullable attributes
 
 Element attribute lookups return `String?`: an absent attribute is `null`,
