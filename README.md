@@ -266,11 +266,25 @@ dart run pana .
 
 ## Release
 
+### Publish a release
+
 1. Bump the version in `pubspec.yaml`.
 2. Move the changes under `Unreleased` in `CHANGELOG.md`
    to a section with the release version and date.
 3. Verify CI passes on the minimum supported Dart SDK and stable.
 4. Run `dart pub publish --dry-run` and review files and warnings.
-5. Commit the release changes.
-6. Run `dart pub publish`.
-7. Tag the release commit and push the tag.
+5. Commit and push the release changes, including the publishing workflow.
+6. Tag that commit with the exact version in `pubspec.yaml` and push the tag.
+   For example, for version `0.9.0`:
+
+   ```sh
+   git tag 0.9.0
+   git push origin 0.9.0
+   ```
+
+7. Check the [publishing workflow run](https://github.com/KazuCocoa/appium_dart/actions/workflows/publish.yml)
+   and confirm the new version appears on [pub.dev](https://pub.dev/packages/appium_driver).
+
+Pushing a stable version tag (`major.minor.patch`) triggers a dry run and then
+publishes the package automatically. Branch pushes and pull requests do not
+trigger publishing.
