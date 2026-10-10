@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.9.0] - 2026-10-10
 
 - **Breaking:** Default to the Appium 2/3 root URL; pass a URI explicitly for servers using `/wd/hub/`.
 - **Breaking:** Attribute lookup results are nullable.
