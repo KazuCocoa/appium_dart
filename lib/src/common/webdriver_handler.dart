@@ -229,7 +229,7 @@ abstract class ElementHandler {
   WebDriverRequest buildAttributeRequest(String elementId, String name);
 
   /// Parses response for 'Element Attribute'.
-  String parseAttributeResponse(WebDriverResponse response);
+  String? parseAttributeResponse(WebDriverResponse response);
 
   /// Builds request for 'Selenium Element Attribute'.
   ///
@@ -241,7 +241,7 @@ abstract class ElementHandler {
   ///
   /// This is deprecated, only used to support old pageloader.
   @deprecated
-  String parseSeleniumAttributeResponse(WebDriverResponse response);
+  String? parseSeleniumAttributeResponse(WebDriverResponse response);
 
   /// Builds request for 'Element Property'.
   WebDriverRequest buildPropertyRequest(String elementId, String name);
@@ -488,7 +488,7 @@ abstract class WindowHandler {
 
 abstract class FrameHandler {
   /// Builds request for 'Switch To Frame' with id.
-  WebDriverRequest buildSwitchByIdRequest([int id]);
+  WebDriverRequest buildSwitchByIdRequest([int? id]);
 
   /// Parses response for 'Switch To Frame' with id.
   void parseSwitchByIdResponse(WebDriverResponse response);
@@ -713,14 +713,14 @@ abstract class DeviceHandler {
 
   /// Builds request for 'press keycode'
   WebDriverRequest buildPressKeycodeRequest(int keycode,
-      {List<int>? metastate, List<int>? flags});
+      {int? metastate, int? flags});
 
   /// Parse response for 'press keycode'
   void parsePressKeycodeResponse(WebDriverResponse response);
 
   /// Builds request for 'long press keycode'
   WebDriverRequest buildLongPressKeycodeRequest(int keycode,
-      {List<int>? metastate, List<int>? flags});
+      {int? metastate, int? flags});
 
   /// Parse response for 'long press keycode'
   void parseLongPressKeycodeResponse(WebDriverResponse response);

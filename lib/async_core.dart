@@ -9,6 +9,7 @@ import 'package:appium_driver/src/async/web_driver.dart';
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/spec.dart'; // ignore: implementation_imports
 import 'package:webdriver/src/common/capabilities.dart'; // ignore: implementation_imports
+import 'package:webdriver/src/common/session.dart'; // ignore: implementation_imports
 
 export 'package:appium_driver/async_core.dart';
 export 'package:appium_driver/src/common/by.dart';
@@ -40,7 +41,7 @@ export 'package:webdriver/src/common/log.dart';
 export 'package:webdriver/src/common/mouse.dart';
 export 'package:webdriver/src/common/spec.dart';
 
-final Uri defaultUri = Uri.parse('http://127.0.0.1:4723/wd/hub/');
+final Uri defaultUri = Uri.parse('http://127.0.0.1:4723/');
 
 /// Creates a new async WebDriver.
 ///
@@ -53,14 +54,17 @@ Future<AppiumWebDriver> createDriver(
     WebDriverSpec spec = WebDriverSpec.Auto}) async {
   uri ??= defaultUri;
 
-  // This client's prefix at root, it has no session prefix in it.
-  final client = createRequestClient(uri);
-
   final handler = getHandler(spec);
-
-  final session = await client.send(
-      handler.session.buildCreateRequest(desired: addAppiumPrefix(desired)),
-      handler.session.parseCreateResponse);
+  // This temporary client is only used to create the session.
+  final client = createRequestClient(uri);
+  final SessionInfo session;
+  try {
+    session = await client.send(
+        handler.session.buildCreateRequest(desired: addAppiumPrefix(desired)),
+        handler.session.parseCreateResponse);
+  } finally {
+    client.close();
+  }
 
   if (session.spec != WebDriverSpec.JsonWire &&
       session.spec != WebDriverSpec.W3c) {
@@ -136,13 +140,15 @@ Future<AppiumWebDriver> fromExistingSession(
     Map<String, dynamic>? capabilities}) async {
   uri ??= defaultUri;
 
-  // This client's prefix at root, it has no session prefix in it.
-  final client = createRequestClient(uri);
-
   final handler = getHandler(spec);
-
-  final session = await client.send(handler.session.buildInfoRequest(sessionId),
-      handler.session.parseInfoResponse);
+  final client = createRequestClient(uri);
+  final SessionInfo session;
+  try {
+    session = await client.send(handler.session.buildInfoRequest(sessionId),
+        handler.session.parseInfoResponse);
+  } finally {
+    client.close();
+  }
 
   if (session.spec != WebDriverSpec.JsonWire &&
       session.spec != WebDriverSpec.W3c) {
@@ -181,6 +187,8 @@ AppiumWebDriver fromExistingSessionSync(
     throw 'Unexpected spec: $spec';
   }
 
+  // Validate the protocol before allocating a client.
+  getHandler(spec);
   return AppiumWebDriver(uri, sessionId, UnmodifiableMapView(capabilities),
       createRequestClient(uri.resolve('session/$sessionId/')), spec);
 }

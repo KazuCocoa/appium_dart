@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:appium_driver/src/common/webdriver_handler.dart';
 import 'package:appium_driver/src/common/log.dart';
+import 'package:appium_driver/src/async/legacy_request.dart';
 
 import 'package:webdriver/src/common/request_client.dart'; // ignore: implementation_imports
+import 'package:webdriver/src/common/request.dart'; // ignore: implementation_imports
 
 class Logs {
   final AsyncRequestClient _client;
@@ -21,8 +23,10 @@ class Logs {
   ///
   Stream<AppiumLogEntry> get(String logType) async* {
     try {
-      final entries = await _client.send(
+      final entries = await sendWithLegacyFallback(
+          _client,
           _handler.logs.buildGetLogsRequest(logType),
+          WebDriverRequest.postRequest('log', {'type': logType}),
           _handler.logs.parseGetLogsResponse);
       for (var entry in entries) {
         yield entry;
@@ -32,8 +36,10 @@ class Logs {
     }
   }
 
-  Future<List<String>> getAvailableType() => _client.send(
+  Future<List<String>> getAvailableType() => sendWithLegacyFallback(
+      _client,
       _handler.logs.buildGetAvailableTypeRequest(),
+      WebDriverRequest.getRequest('log/types'),
       _handler.logs.parseGetAvailableTypeResponse);
 
   /// Gets events

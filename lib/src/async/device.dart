@@ -68,29 +68,52 @@ class Device {
       _handler.device.buildShakeDeviceRequest(),
       _handler.device.parseShakeDeviceResponse);
 
-  /// For Android
-  /// Press keycode
+  /// Press an Android keycode using legacy lists of modifier bits.
+  ///
+  /// List entries are combined with bitwise OR. Empty lists produce zero;
+  /// omitted or null lists leave the corresponding modifier unspecified.
+  @Deprecated('Use pressKeycodeWithBitmasks with integer bitmasks instead.')
+  Future<void> pressKeycode(int keycode,
+          {List<int>? metastate, List<int>? flags}) =>
+      pressKeycodeWithBitmasks(keycode,
+          metastate: _combineBitmasks(metastate),
+          flags: _combineBitmasks(flags));
+
+  /// Press an Android keycode using integer modifier bitmasks.
   ///
   /// For example:
   ///
-  ///     await driver.device.pressKeycode(66, metastate: [1], flags: [32]);
+  ///     await driver.device.pressKeycodeWithBitmasks(66, metastate: 1 | 2, flags: 32);
   ///
-  Future<void> pressKeycode(int keycode,
-          {List<int>? metastate, List<int>? flags}) =>
+  Future<void> pressKeycodeWithBitmasks(int keycode,
+          {int? metastate, int? flags}) =>
       _client.send(
           _handler.device.buildPressKeycodeRequest(keycode,
               metastate: metastate, flags: flags),
           _handler.device.parsePressKeycodeResponse);
 
-  /// For Android
-  /// Long press keycode
+  /// Long press an Android keycode using legacy lists of modifier bits.
+  ///
+  /// List entries are combined with bitwise OR. Empty lists produce zero;
+  /// omitted or null lists leave the corresponding modifier unspecified.
+  @Deprecated('Use longPressKeycodeWithBitmasks with integer bitmasks instead.')
+  Future<void> longPressKeycode(int keycode,
+          {List<int>? metastate, List<int>? flags}) =>
+      longPressKeycodeWithBitmasks(keycode,
+          metastate: _combineBitmasks(metastate),
+          flags: _combineBitmasks(flags));
+
+  static int? _combineBitmasks(List<int>? values) =>
+      values?.fold<int>(0, (mask, value) => mask | value);
+
+  /// Long press an Android keycode using integer modifier bitmasks.
   ///
   /// For example:
   ///
-  ///     await driver.device.longPressKeycode(66, metastate: [1], flags: [32]);
+  ///     await driver.device.longPressKeycodeWithBitmasks(66, metastate: 1 | 2, flags: 32);
   ///
-  Future<void> longPressKeycode(int keycode,
-          {List<int>? metastate, List<int>? flags}) =>
+  Future<void> longPressKeycodeWithBitmasks(int keycode,
+          {int? metastate, int? flags}) =>
       _client.send(
           _handler.device.buildLongPressKeycodeRequest(keycode,
               metastate: metastate, flags: flags),

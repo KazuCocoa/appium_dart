@@ -130,8 +130,8 @@ class W3cElementHandler extends ElementHandler {
   }
 
   @override
-  String parseAttributeResponse(WebDriverResponse response) {
-    return parseW3cResponse(response).toString();
+  String? parseAttributeResponse(WebDriverResponse response) {
+    return parseW3cResponse(response)?.toString();
   }
 
   /// This is deprecated, only used to support old pageloader.
@@ -146,8 +146,8 @@ class W3cElementHandler extends ElementHandler {
   /// This is deprecated, only used to support old pageloader.
   @override
   @deprecated
-  String parseSeleniumAttributeResponse(WebDriverResponse response) {
-    return parseW3cResponse(response).toString();
+  String? parseSeleniumAttributeResponse(WebDriverResponse response) {
+    return parseW3cResponse(response)?.toString();
   }
 
   @override

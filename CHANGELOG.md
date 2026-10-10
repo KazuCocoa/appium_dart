@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+- **Breaking:** Default to the Appium 2/3 root URL; pass a URI explicitly for servers using `/wd/hub/`.
+- **Breaking:** Attribute lookup results are nullable.
+- Add `pressKeycodeWithBitmasks` and `longPressKeycodeWithBitmasks` with integer modifiers. Keep the original list-based methods as deprecated wrappers that combine modifier bits with bitwise OR.
+- Use modern session discovery and log endpoints, with fallback for unknown commands on older servers; document Appium 3 driver-specific endpoint limitations.
+- Fix switching frames by element and returning to the default frame.
+- Preserve supplementary Unicode characters in keyboard actions.
+- Close temporary and session HTTP clients, including on errors and when detaching without deleting the session.
+- Honor `notifyListeners` and report unsupported JSON Wire sessions explicitly.
 - Respect the server's boolean response when checking whether an element is displayed.
 - Preserve Direct Connect base paths without a trailing slash when routing session commands.
 - Retain supplied capabilities when attaching to an existing session, including Direct Connect settings.

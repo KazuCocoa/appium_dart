@@ -6,7 +6,7 @@ void main() {
 
   setUpAll(() async {
     driver = await createDriver(
-        uri: Uri.parse('http://127.0.0.1:4723/wd/hub/'),
+        uri: Uri.parse('http://127.0.0.1:4723/'),
         desired: {
           'platformName': 'ios',
           'platformVersion': '14.4',

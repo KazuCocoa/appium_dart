@@ -41,8 +41,6 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// If true, WebDriver actions are recorded as [WebDriverCommandEvent]s.
   bool notifyListeners = true;
 
-  final _commandListeners = <AsyncWebDriverListener>[];
-
   final AppiumWebDriverHandler _handler;
 
   final AsyncRequestClient _client;
@@ -53,8 +51,11 @@ class AppiumWebDriver implements AppiumSearchContext {
   /// Preferred method for registering listeners. Listeners are expected to
   /// return a Future. Use new Future.value() for synchronous listeners.
   void addEventListener(AsyncWebDriverListener listener) {
-    _commandListeners.add(listener);
-    _client.addEventListener(listener);
+    _client.addEventListener((event) async {
+      if (notifyListeners) {
+        await listener(event);
+      }
+    });
   }
 
   /// The current url.
@@ -114,10 +115,16 @@ class AppiumWebDriver implements AppiumSearchContext {
       _handler.core.parsePageSourceResponse);
 
   /// Quits the browser.
-  Future<void> quit({bool closeSession = true}) => closeSession
-      ? _client.send(_handler.core.buildDeleteSessionRequest(),
-          _handler.core.parseDeleteSessionResponse)
-      : Future.value();
+  Future<void> quit({bool closeSession = true}) async {
+    try {
+      if (closeSession) {
+        await _client.send(_handler.core.buildDeleteSessionRequest(),
+            _handler.core.parseDeleteSessionResponse);
+      }
+    } finally {
+      _client.close();
+    }
+  }
 
   /// Handles for all of the currently displayed tabs/windows.
   Stream<Window> get windows async* {

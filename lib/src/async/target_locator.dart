@@ -26,7 +26,7 @@ class TargetLocator {
     if (frame == null || frame is int) {
       await _client.send(_handler.frame.buildSwitchByIdRequest(frame),
           _handler.frame.parseSwitchByIdResponse);
-    } else if (frame is AppiumWebDriver) {
+    } else if (frame is AppiumWebElement) {
       await _client.send(_handler.frame.buildSwitchByElementRequest(frame.id),
           _handler.frame.parseSwitchByElementResponse);
     } else if (frame is String) {
