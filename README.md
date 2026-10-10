@@ -24,9 +24,15 @@ Appium 3 removed several of these endpoints; use the corresponding driver
 [Appium 3 endpoint migration guide](https://appium.io/docs/en/latest/guides/migrating-2-to-3/#endpoint-changes).
 
 Element attribute lookups return `String?`: an absent attribute is `null`,
-distinct from the literal string `'null'`. Android key event `metastate` and
-`flags` accept integer bitmasks, for example
-`driver.device.pressKeycode(66, metastate: 1 | 2, flags: 32)`.
+distinct from the literal string `'null'`. Android key event methods
+`pressKeycodeWithBitmasks` and `longPressKeycodeWithBitmasks` accept integer
+`metastate` and `flags` bitmasks, for example
+`driver.device.pressKeycodeWithBitmasks(66, metastate: 1 | 2, flags: 32)`.
+The original `pressKeycode` and `longPressKeycode` methods still accept lists,
+but are deprecated. For example,
+`driver.device.pressKeycode(66, metastate: [1, 2], flags: [32])` remains valid;
+list entries are combined with bitwise OR before sending. Empty lists produce
+zero, and omitted or null arguments are not sent.
 Call `driver.quit()` to end the session and close the client's connection, or
 `driver.quit(closeSession: false)` to disconnect while keeping the server session.
 

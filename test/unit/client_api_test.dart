@@ -68,9 +68,11 @@ void main() {
   for (final longPress in [false, true]) {
     test('sends integer key event masks, longPress=$longPress', () async {
       if (longPress) {
-        await driver.device.longPressKeycode(66, metastate: 1 | 2, flags: 32);
+        await driver.device
+            .longPressKeycodeWithBitmasks(66, metastate: 1 | 2, flags: 32);
       } else {
-        await driver.device.pressKeycode(66, metastate: 1 | 2, flags: 32);
+        await driver.device
+            .pressKeycodeWithBitmasks(66, metastate: 1 | 2, flags: 32);
       }
       expect(jsonDecode(client.requests.single.body!),
           {'keycode': 66, 'metastate': 3, 'flags': 32});
@@ -78,9 +80,56 @@ void main() {
   }
 
   test('omits absent key event masks', () async {
-    await driver.device.pressKeycode(66);
+    await driver.device.pressKeycodeWithBitmasks(66);
     expect(jsonDecode(client.requests.single.body!), {'keycode': 66});
   });
+
+  for (final longPress in [false, true]) {
+    for (final (bits, flags, expectedMask, expectedFlags)
+        in <(List<int>?, List<int>?, int?, int?)>[
+      (null, null, null, null),
+      ([], [], 0, 0),
+      ([1], [32], 1, 32),
+      ([1, 2], [32], 3, 32),
+      ([1, 1, 2], [32, 32, 64], 3, 96),
+    ]) {
+      test('legacy key modifiers use bitwise OR: $bits, longPress=$longPress',
+          () async {
+        if (longPress) {
+          // ignore: deprecated_member_use_from_same_package
+          await driver.device.longPressKeycode(
+            66,
+            metastate: bits,
+            flags: flags,
+          );
+        } else {
+          // ignore: deprecated_member_use_from_same_package
+          await driver.device.pressKeycode(66, metastate: bits, flags: flags);
+        }
+        expect(
+            client.requests.single.uri,
+            longPress
+                ? 'appium/device/long_press_keycode'
+                : 'appium/device/press_keycode');
+        expect(jsonDecode(client.requests.single.body!), {
+          'keycode': 66,
+          if (bits != null) 'metastate': expectedMask,
+          if (flags != null) 'flags': expectedFlags,
+        });
+      });
+    }
+
+    test('legacy key modifiers can be omitted, longPress=$longPress', () async {
+      if (longPress) {
+        // ignore: deprecated_member_use_from_same_package
+        await driver.device.longPressKeycode(66);
+      } else {
+        // ignore: deprecated_member_use_from_same_package
+        await driver.device.pressKeycode(66);
+      }
+      expect(jsonDecode(client.requests.single.body!), {'keycode': 66});
+    });
+  }
 
   test('can disable and re-enable event notifications', () async {
     var events = 0;
